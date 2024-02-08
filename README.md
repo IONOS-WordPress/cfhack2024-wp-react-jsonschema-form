@@ -32,14 +32,14 @@ See [What is the idea behind this project?](https://github.com/IONOS-WordPress/c
     
     [You may ask why not npm ?](https://pnpm.io/feature-comparison) :
     
-      - **exponential** faster than npm. If you once use it, you will never miss it again - i swear 🤞
+      - **exponential** faster than npm/yarn & Co. If you once use it, you will never miss it again - i swear 🤞
 
-      - features [automatic provisioning of the configured NodeJS version](https://pnpm.io/npmrc#nodejs-settings) - you don't need to install a specific NodeJS version manually.
+      - features [automatic provisioning of the configured NodeJS version](https://pnpm.io/npmrc#nodejs-settings) - you don't need to install a specific NodeJS version manually. Say Goodbye to `nvm`, `volta` and friends ❤️ - you will never need it anymore.
+
+      - [pnpm](https://pnpm.io) is [Lerna](https://lerna.js.org/) on steroids. 
       
-        Say Goodbye to `nvm`, `volta` and friends ❤️ - you will never need it again.
-
-    - [pnpm](https://pnpm.io) is tailored for **monorepos first**. It supports a monorepo workflow out of the box.
-
+        It is tailored for **monorepos first** with it's exceptional workspace features.
+    
   - [Bash](https://www.gnu.org/software/bash/)
 
     It is the default shell on most Linux distributions and macOS. On Windows, we use the Windows Subsystem for Linux (WSL) to run bash.
