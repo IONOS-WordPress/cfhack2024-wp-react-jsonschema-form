@@ -79,7 +79,7 @@ Each sub project contains a `README.md` file with further instructions.
 
 @TODO: Add coding conventions (linting, formatting, etc.)
 
-@TODO: Add Git branching|pull requests, commitizen, changeset etc.
+@TODO: Add Git branching|pull-requests|git-flow, commitizen, changeset etc.
 
 ## Development Workflow
 
