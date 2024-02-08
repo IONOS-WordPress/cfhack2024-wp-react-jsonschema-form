@@ -18,6 +18,10 @@ See [What is the idea behind this project?](https://github.com/IONOS-WordPress/c
 
 - Development Tools
 
+  - [Git](https://git-scm.com/)
+
+    You will need Git to clone the repository and to push your changes.
+
   - [Docker](https://docs.docker.com/engine/install/)
 
     Docker is a prerequisite of [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/), a tool for managing WordPress development environments. It is also used to build and run the Docker containers that power the development environment.
