@@ -1,18 +1,12 @@
 {
   "name": "cfhack2024-wp-react-jsonschema-form",
-  "description": "umbrella for various wordpress experiments with react-jsonschema-form",
+  "description": "cloudfest hackathon monorepo various wordpress experiments with react-jsonschema-form",
   "private": true,
   "version": "1.0.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "contributors": [
-    {
-      "name": "lars.gersmann",
-      "email": "lars.gersmann@ionos.com"
-    }
-  ],
-  "author": "The WordPress Contributors",
+  "author": "The Hackathon Project Contributors",
   "homepage": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form",
 	"repository": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form.git",
 	"bugs": {

@@ -12,7 +12,7 @@ See [What is the idea behind this project?](https://github.com/IONOS-WordPress/c
 
 # Development
 
-  We will use [VS Code](https://code.visualstudio.com/) as our development environment. VS Code is widely used in Web Development due to its sleek developer experience. It comes with preconfigured launch configurations for debugging, required extensions and settings, among other features.
+We will use [VS Code](https://code.visualstudio.com/) as our development environment. VS Code is widely used in Web Development due to its sleek developer experience. It comes with preconfigured launch configurations for debugging, required extensions and settings, among other features.
 
 ## Prerequisites
 
@@ -77,9 +77,11 @@ Each sub project contains a `README.md` file with further instructions.
 
 ## Conventions
 
+@TODO: mjs for _module javascript_, explain why not Typescript 
+
 @TODO: Add coding conventions (linting, formatting, etc.)
 
-@TODO: Add Git branching|pull-requests|git-flow, commitizen, changeset etc.
+@TODO: Add Git branching|pull-requests|git-flow vs trunk based?, commitizen, changeset, etc.
 
 ## Development Workflow
 
@@ -93,7 +95,45 @@ Each sub project contains a `README.md` file with further instructions.
 
 @TODO: explain available package scripts
 
----
+## Tips
 
-@TODO: import existing information's
+### Gutenberg
 
+#### Know the available the Gutenberg components and their options
+
+[@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/) is a huge library providing a lot of components.
+
+The easiest way to get an overview about all the components and their options is to have a look at them.
+
+Fortunately, the Gutenberg team provides a [Storybook](https://storybook.js.org/) showcasing all the components and their options.
+
+There is a online version of the Storybook available at https://wordpress.github.io/gutenberg, but I would always recommend you to use the local version available in the Gutenberg repository to ensure you _see the right storybook version_...
+
+Steps to get the local version of the Storybook:
+
+1. checkout the latest stable version of [Gutenberg](https://github.com/WordPress/gutenberg) 
+
+
+2. Build and run the Storybook : `npm run build && npm run storybook`
+
+It's even possible to run the Storybook in a watch mode to see the changes in the components in real time. Try it out - it's a whole new world of possibilities ;-)
+
+#### Debugging a WordPress plugin/theme : Digging into Gutenberg components
+
+By default WordPress provides production ready code which is minified and hard to read. Gutenberg is part of WordPress and is no exception. And so [@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/).
+
+To make debugging as cushy as possible, use the unminified version of the Gutenberg : 
+
+1. checkout the latest stable version of [Gutenberg](https://github.com/WordPress/gutenberg) 
+
+1. Build the unminified version of Gutenberg 
+
+1. add the unminified version of the Gutenberg plugin to your [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) configuration andd - Profit! - can can now debug into the Gutenberg components in a breeze.
+
+# The most important tip
+
+**Ask your team members if you are stuck !**
+
+**They are here to help you and you are not alone.**
+
+Happy coding !
