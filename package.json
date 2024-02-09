@@ -1,5 +1,5 @@
 {
-  "name": "cloudfest-hackathon-2024-jsonschema-ui",
+  "name": "cfhack2024-wp-jsrf",
   "description": "umbrella for various wordpress experiments with jsonschema/jsrf",
   "private": true,
   "version": "1.0.0",
