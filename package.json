@@ -1,6 +1,6 @@
 {
-  "name": "cfhack2024-wp-jsrf",
-  "description": "umbrella for various wordpress experiments with jsonschema/jsrf",
+  "name": "cfhack2024-wp-react-jsonschema-form",
+  "description": "umbrella for various wordpress experiments with react-jsonschema-form",
   "private": true,
   "version": "1.0.0",
   "scripts": {
@@ -13,11 +13,11 @@
     }
   ],
   "author": "The WordPress Contributors",
-  "homepage": "https://github.com/IONOS-WordPress/cloudfest-hackathon-2024",
-	"repository": "https://github.com/IONOS-WordPress/cloudfest-hackathon-2024.git",
+  "homepage": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form",
+	"repository": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form.git",
 	"bugs": {
 		"url": "https://github.com/WordPress/gutenberg/issues"
 	},
-  "keywords": ["wordpress", "gutenberg", "jsonschema", "ui", "rjsf"],
+  "keywords": ["wordpress", "gutenberg", "jsonschema", "ui", "react-jsonschema-form"],
   "license": "GPL-2.0-or-later"
 }

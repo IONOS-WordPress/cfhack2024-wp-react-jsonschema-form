@@ -8,7 +8,7 @@ It demo's the use of [JSON Schema](https://json-schema.org/) as abstraction for 
 
   - see [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) showcasing the capabilities of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) by man examples.
 
-See [What is the idea behind this project?](https://github.com/IONOS-WordPress/cloudfest-hackathon-2024/discussions/2) for more explanations.
+See [What is the idea behind this project?](https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/discussions/2) for more explanations.
 
 # Development
 
@@ -52,7 +52,7 @@ See [What is the idea behind this project?](https://github.com/IONOS-WordPress/c
 
 - Get developer access to the repository by contacting the owner of the repository.
 
-- Clone the repository : `git clone git@github.com:IONOS-WordPress/cloudfest-hackathon-2024.git`
+- Clone the repository : `git clone git@github.com:IONOS-WordPress/workspace/cfhack2024-wp-react-jsonschema-form`
 
 - Run `pnpm install` to install the required dependencies.
 
