@@ -1,0 +1,23 @@
+{
+  "name": "cloudfest-hackathon-2024-jsonschema-ui",
+  "description": "umbrella for various wordpress experiments with jsonschema/jsrf",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    {
+      "name": "lars.gersmann",
+      "email": "lars.gersmann@ionos.com"
+    }
+  ],
+  "author": "The WordPress Contributors",
+  "homepage": "https://github.com/IONOS-WordPress/cloudfest-hackathon-2024",
+	"repository": "https://github.com/IONOS-WordPress/cloudfest-hackathon-2024.git",
+	"bugs": {
+		"url": "https://github.com/WordPress/gutenberg/issues"
+	},
+  "keywords": ["wordpress", "gutenberg", "jsonschema", "ui", "rjsf"],
+  "license": "GPL-2.0-or-later"
+}
