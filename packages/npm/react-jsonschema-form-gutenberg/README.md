@@ -26,6 +26,18 @@ Package [@wordpress/element](https://developer.wordpress.org/block-editor/refere
 
 An example: Don't use `import React from 'react'` but use `import { createElement } from '@wordpress/element'` instead. 
 
+### If I would be you ...
+
+I would start creating a [Storybook](https://storybook.js.org/) story for each of the features you want to implement peu a peu.
+
+Kinda _SDD_ - Storybook Driven Development 😅
+
+Using Storybook you can easily develop and test your components in isolation. Have the story opened in the browser and every ime you save the file it gets updated within storybook.
+
+### How to start
+
+I would simply *copy* the simplest available renderer into this package and start transforming it to the desired output.
+
 ## Links
 
   - see [react-jsonschema-form Documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/) introducing the concept and usage  [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
