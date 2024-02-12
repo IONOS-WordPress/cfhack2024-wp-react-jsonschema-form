@@ -14,6 +14,18 @@ It would be perfect if this package would:
 
 - has a 'usage' section this this `README.md` file explaining how to use your renderer
 
+## Future directions 
+
+- WordPress 6.5 allow plugin dependencies so we could also provide this package as plugin to register the HTML5 renderer and as dependency for other plugins/themes. 
+
+  https://developer.wordpress.org/news/2024/02/10/whats-new-for-developers-february-2024/
+
+  In memory of the late Alex Mills and Alex King, an 11-year-old [feature request for a plugin dependency system](https://core.trac.wordpress.org/ticket/22316) was closed as **fixed**. 
+
+  _Yes, you read that right: WordPress 6.5 will handle plugin dependencies._
+
+  [This change](https://core.trac.wordpress.org/changeset/57545) lets you set a `Requires Plugins` header in your plugin with a list of plugin slugs that are necessary for your plugin to work. Perhaps it will also reopen the door for framework-like plugins in the directory, which have been [disallowed since 2016](https://make.wordpress.org/plugins/2016/03/01/please-do-not-submit-frameworks/).
+
 # Development
 
 ## Tips
