@@ -16,6 +16,14 @@ It would be perfect if this package would:
 
 - has a 'usage' section this this `README.md` file explaining how to use your renderer
 
+## Future directions
+
+- because The HTML5 renderer is intended to target published pages it would be a ideal choice the share the same runtime as the [WordPress Interactivity API](https://make.wordpress.org/core/2023/03/30/proposal-the-interactivity-api-a-better-developer-experience-in-building-interactive-blocks/) which is also targeting published pages.
+
+  - [WordPress Interactivity API](https://make.wordpress.org/core/2023/03/30/proposal-the-interactivity-api-a-better-developer-experience-in-building-interactive-blocks/) is using [Preact](https://preactjs.com/) combined with [Preact Signals](https://github.com/preactjs/signals) as building blocks.
+
+  Fortunately [Preact](https://preactjs.com/) is actually kinda _lightweight React_ (including [JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))) so it should be possible to implements our HTML5 renderer without making published pages too heavy.
+
 # Development
 
 ## Tips
