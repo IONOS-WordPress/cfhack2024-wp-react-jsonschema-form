@@ -1,6 +1,6 @@
 {
   "name": "@cfhack2024-wp-react-jsonschema-form/jsonschema-plugin-settings-page",
-  "description": "this wordpress plugin package provides plugin settings page utilizing react-jsonschema-form",
+  "description": "this WordPress plugin package provides plugin settings page utilizing react-jsonschema-form",
   "private": true,
   "version": "1.0.0",
   "scripts": {

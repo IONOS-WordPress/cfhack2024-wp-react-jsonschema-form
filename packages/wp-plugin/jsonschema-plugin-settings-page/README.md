@@ -1,6 +1,6 @@
 # Purpose
 
-This wordpress plugin should represent a proof of concept for a wordpress plugin declaring its settings page using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/).
+This WordPress plugin should represent a proof of concept for a WordPress plugin declaring its settings page using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/).
 
 _The plugin does not need to have any other purpose than acting as a show case for rendering a settings page using a JSON Schema definition of the plugin settings._  
 
@@ -45,7 +45,7 @@ Since many of the sub packages of this project rely on [@wordpress/env](https://
 
 * Head over to the [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) and warm up with [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/) 
 
-- Get familar with [@wordpress/scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) : this package will be your best friend when developing WordPress plugins containing JavaScript/CSS. 
+- Get familiar with [@wordpress/scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) : this package will be your best friend when developing WordPress plugins containing JavaScript/CSS. 
 
 - Peek into [Storybook](https://storybook.js.org/) : it might help you when prototyping with [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/) - it features [Hot Module Replacement](https://dev.to/omar4ur/vite-hot-module-replacement-a-complete-example-pkg) right at your fingertips 🙌
 
