@@ -1,0 +1,58 @@
+# Purpose
+
+This wordpress plugin should represent a proof of concept for a wordpress plugin settings page using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) to define the settings options.
+
+_The plugin does not need to have any other purpose than acting as a show case for rendering a settings page using a JSON Schema definition of the plugin settings._  
+
+It would be perfect if this package would provide a WordPress plugin 
+
+
+- declaring the plugin settings as a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file
+
+- implements the declaration of the plugin settings using the [WordPress Settings API](https://developer.wordpress.org/plugins/settings/using-settings-api/)
+
+- registers a WordPress Admin page rendering the settings declared in the [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file using [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)
+
+- registers a WordPress Widget (or Admin page) showing the current plugin settings
+
+- has a 'usage' section this this `README.md` file explaining how to showcase the plugin
+
+## Bonus feature
+
+- provide a settings page mirroring the settings page of a popular plugin (like [ActivityPub by Matthias Pfefferle](https://github.com/automattic/wordpress-activitypub)) using [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) to show case a _real world_ settings page. 
+
+  - this plugins settings page can also be uses to do a comparison (size/effort/ux) between the classic implementation of a settings page and our solution. 
+
+# Development
+
+## Tips
+
+### Don't use React directly
+
+If you are in the need to use React functions/hooks : **Do not import and use React directly !** 
+
+Package [@wordpress/element](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/) is a lightweight wrapper around React providing exactly the same functions as React. 
+
+An example: Don't use `import React from 'react'` but use `import { render } from '@wordpress/element'` instead. 
+
+### Discover [@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/)
+
+[@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) is the best buddy you can have for WordPress plugin/theme development. This package provides a configurable local WordPress environment managed using [docker](https://docker.io).
+
+Since many of the sub packages of this project rely on [@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) it's already installed and properly configured for you in the root package. See the root package scripts for more information.
+
+### How to start
+
+* Head over to the [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) and warm up with [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/) 
+
+- Get familar with [@wordpress/scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) : this package will be your best friend when developing WordPress plugins containing JavaScript/CSS. 
+
+- Peek into [Storybook](https://storybook.js.org/) : it might help you when prototyping with [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/) - it features [Hot Module Replacement](https://dev.to/omar4ur/vite-hot-module-replacement-a-complete-example-pkg) right at your fingertips 🙌
+
+## Links
+
+  - see [react-jsonschema-form Documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/) introducing the concept and usage  [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
+
+  - see [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) showcasing the capabilities of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) by man examples.
+
+---
