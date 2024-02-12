@@ -26,6 +26,20 @@ It would be perfect if this package would:
 
 # Development
 
+## Tips
+
+Remember that the HTML5 renderer output will usually targeting published pages.   
+
+- keep the output _simple_ and _tiny_ HTML5
+
+  - should ideally look well on mobile devices 
+
+- should be standards based - don't use quirky HTML hacks
+
+- think twice before adding a custom CSS rule - the CSS for the HTML5 renderer output should work well with as many themes as possible
+
+  - I would suggest to use the latest official WordPress theme to test with
+
 ### If I would be you ...
 
 I would start creating a [Storybook](https://storybook.js.org/) story for each of the features you want to implement.
