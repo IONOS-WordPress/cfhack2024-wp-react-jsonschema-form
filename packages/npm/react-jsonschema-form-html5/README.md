@@ -26,27 +26,17 @@ It would be perfect if this package would:
 
 # Development
 
-## Tips
-
-### Don't use React directly
-
-If you are in the need to use React functions/hooks : **Do not import and use React directly !** 
-
-Package [@wordpress/element](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/) is a lightweight wrapper around React providing exactly the same functions as React. 
-
-An example: Use `import { createElement } from '@wordpress/element'` instead of `import React from 'react'`. 
-
 ### If I would be you ...
 
-I would start creating a [Storybook](https://storybook.js.org/) story for each of the features you want to implement peu a peu.
+I would start creating a [Storybook](https://storybook.js.org/) story for each of the features you want to implement.
 
-Kinda _SDD_ - Storybook Driven Development 😅
+Kinda **SDD** - **S**tory **D**riven **D**evelopment 💡 !
 
 Using Storybook you can easily develop and test your components in isolation. Have the story opened in the browser and every ime you save the file it gets updated within storybook.
 
 ### How to start
 
-I would simply *copy* the simplest available renderer into this package and start transforming it to the desired output.
+I would simply *copy* the cheapest available renderer into this package and start transforming it little by little using plain HTML5.
 
 ## Links
 
