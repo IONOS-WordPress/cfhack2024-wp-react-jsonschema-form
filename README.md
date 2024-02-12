@@ -77,7 +77,7 @@ Each sub project contains a `README.md` file with further instructions.
 
 ## Conventions
 
-@TODO: mjs for _module javascript_, explain why not Typescript 
+@TODO: explain why not Typescript 
 
 @TODO: Add coding conventions (linting, formatting, etc.)
 

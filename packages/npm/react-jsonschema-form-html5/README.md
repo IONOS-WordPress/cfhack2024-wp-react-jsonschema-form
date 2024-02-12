@@ -8,7 +8,7 @@ _Because it's probably very simple source code it could even be used as template
 
 It would be perfect if this package would: 
 
-- export the renderer via `index.mjs`
+- export the renderer via `src/index.js`
 
   Have a look at other renderers and how they do it : https://github.com/rjsf-team/react-jsonschema-form/tree/main/packages
 
@@ -24,7 +24,7 @@ It would be perfect if this package would:
 
   Fortunately [Preact](https://preactjs.com/) is actually kinda _lightweight React_ (including [JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))) so it should be possible to implements our HTML5 renderer without making published pages too heavy.
 
-- WordPress 6.5 allow plugin dependencies so we could also provide this package as plugin to register the HTML5 renderer and as dependency for other plugins/themes. 
+- WordPress 6.5 allow plugin dependencies so we could also provide this package as plugin to register this renderer and as dependency for other plugins/themes. 
 
   https://developer.wordpress.org/news/2024/02/10/whats-new-for-developers-february-2024/
 
