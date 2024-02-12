@@ -1,0 +1,12 @@
+{
+  "name": "@cfhack2024-wp-react-jsonschema-form/gutenberg-block-attributes-jsonschema",
+  "description": "This WordPress plugin package provides a WordPress block rendering its attributes form using react-jsonschema-form into the inspector panel of Gutenberg",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "The Hackathon Project Contributors",
+  "keywords": ["wordpress", "plugin", "Gutenberg", "block", "jsonschema", "ui", "react-jsonschema-form"],
+  "license": "GPL-2.0-or-later"
+}
