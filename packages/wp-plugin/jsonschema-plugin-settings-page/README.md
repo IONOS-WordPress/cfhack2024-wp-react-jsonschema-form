@@ -1,6 +1,6 @@
 # Purpose
 
-This wordpress plugin should represent a proof of concept for a wordpress plugin settings page using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) to define the settings options.
+This wordpress plugin should represent a proof of concept for a wordpress plugin declaring its settings page using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/).
 
 _The plugin does not need to have any other purpose than acting as a show case for rendering a settings page using a JSON Schema definition of the plugin settings._  
 
