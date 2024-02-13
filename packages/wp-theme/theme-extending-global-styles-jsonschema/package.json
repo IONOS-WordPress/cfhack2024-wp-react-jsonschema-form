@@ -1,6 +1,6 @@
 {
-  "name": "@cfhack2024-wp-react-jsonschema-form/gutenberg-form-block-jsonschema",
-  "description": "This package encapsulates a WordPress plugin declaring a Gutenberg block rendering a form using react-jsonschema-form in posts/pages",
+  "name": "@cfhack2024-wp-react-jsonschema-form/theme-extending-global-styles-jsonschema",
+  "description": "This package provides a WordPress theme contributing meta boxes the inspector panel of Gutenberg",
   "private": true,
   "version": "1.0.0",
   "scripts": {

@@ -1,6 +1,6 @@
 {
   "name": "@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-html5",
-  "description": "this npm package provides a pure html5 renderer for the react-jsonschema-form library",
+  "description": "this npm package provides a pure HTML5 renderer for the react-jsonschema-form library",
   "private": true,
   "version": "1.0.0",
   "scripts": {

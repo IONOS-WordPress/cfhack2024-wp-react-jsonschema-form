@@ -1,6 +1,6 @@
 {
   "name": "@cfhack2024-wp-react-jsonschema-form/gutenberg-editor-sidebar-plugin",
-  "description": "This WordPress plugin package provides a Gutenberg editor sidebar plugin rendered using react-jsonschema-form",
+  "description": "This package provides a WordPress plugin declaring a Gutenberg editor sidebar plugin rendered using react-jsonschema-form",
   "private": true,
   "version": "1.0.0",
   "scripts": {
