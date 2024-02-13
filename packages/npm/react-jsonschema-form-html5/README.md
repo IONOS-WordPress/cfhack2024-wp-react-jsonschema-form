@@ -48,7 +48,7 @@ Remember that the HTML5 renderer output will usually targeting published pages.
 
 - think twice before adding a custom CSS rule - the CSS for the HTML5 renderer output should work well with as many themes as possible
 
-  - I would suggest to use the latest official WordPress theme to test with
+  - I would suggest to use the latest official WordPress theme (Twenty Twenty-Four) to test with since it looks exceptional good.
 
 ### If I would be you ...
 
@@ -64,6 +64,6 @@ I would simply *copy* the cheapest available renderer into this package and star
 
 ## Links
 
-  - see [react-jsonschema-form Documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/) introducing the concept and usage  [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
+- see [react-jsonschema-form Documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/) introducing the concept and usage  [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
 
-  - see [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) showcasing the capabilities of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) by man examples.
+- see [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) showcasing the capabilities of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) by man examples.
