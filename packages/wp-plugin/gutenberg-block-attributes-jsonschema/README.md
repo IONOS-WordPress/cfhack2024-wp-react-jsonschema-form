@@ -55,3 +55,13 @@ Since many of the sub packages of this project rely on [@wordpress/env](https://
 - see [react-jsonschema-form Documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/) introducing the concept and usage  [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
 
 - see [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) showcasing the capabilities of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) by man examples.
+
+- Have a look to Gutenberg slotfill system to target the Inspector Panel of the Gutenberg Sidebar from within a custom block.  
+
+  - https://developer.wordpress.org/news/2022/11/18/how-to-extend-wordpress-via-the-slotfill-system/
+
+  - https://developer.wordpress.org/news/2023/12/22/extending-plugins-using-custom-slotfills/
+
+- [Add a Sidebar to your Custom WordPress Block with InspectorControls](https://wholesomecode.net/add-sidebar-to-your-custom-wordpress-block-with-inspectorcontrols/)
+
+  This tutorial explains how to add custom panel to the Gutenberg Sidebar using the `InspectorControls` component. It's a good starting point to understand how to use the WordPress Block Editor (Gutenberg) Components to create a settings page.

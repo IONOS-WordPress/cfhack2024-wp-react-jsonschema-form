@@ -51,8 +51,12 @@ Since many of the sub packages of this project rely on [@wordpress/env](https://
 
 ## Links
 
-  - see [react-jsonschema-form Documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/) introducing the concept and usage  [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
+- see [react-jsonschema-form Documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/) introducing the concept and usage  [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
 
-  - see [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) showcasing the capabilities of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) by man examples.
+- see [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) showcasing the capabilities of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) by man examples.
 
----
+- [Create a Settings Page using WordPress Block Editor (Gutenberg) Components](https://wholesomecode.net/create-a-settings-page-using-wordpress-block-editor-gutenberg-components/)
+
+  This tutorial shows exemplary how to create a settings page using the WordPress Block Editor (Gutenberg) Components. It's a good starting point to understand how to use the WordPress Block Editor (Gutenberg) Components to create a settings page.
+
+  => We want to do something similar but using [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) instead of hard coding the form like the example in the tutorial.

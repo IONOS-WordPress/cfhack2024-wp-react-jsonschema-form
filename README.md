@@ -10,6 +10,10 @@ It demo's the use of [JSON Schema](https://json-schema.org/) as abstraction for 
 
 See [What is the idea behind this project?](https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/discussions/2) for more explanations.
 
+> The sub packages propose just ideas - they are not meant to be implemented as is.
+> I am not going to believe that we can implement all of them. I think it would better better to focus on the most important ones and do them well.
+> If you have any suggestions/improvements/ideas please feel free to start discussing it.
+
 # Development
 
 We will use [VS Code](https://code.visualstudio.com/) as our development environment. VS Code is widely used in Web Development due to its sleek developer experience. It comes with preconfigured launch configurations for debugging, required extensions and settings, among other features.

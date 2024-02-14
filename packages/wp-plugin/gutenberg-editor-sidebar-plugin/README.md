@@ -49,3 +49,17 @@ Since many of the sub packages of this project rely on [@wordpress/env](https://
 - [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) showcasing the capabilities of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) by man examples.
 
 - dive into [Gutenberg editor sidebar plugin](https://developer.wordpress.org/block-editor/how-to-guides/plugin-sidebar-0/) documentation
+
+- Have a look to Gutenberg slotfill system to target the Inspector Panel of the Gutenberg Sidebar from within a custom block.  
+
+  - https://developer.wordpress.org/news/2022/11/18/how-to-extend-wordpress-via-the-slotfill-system/
+
+  - https://developer.wordpress.org/news/2023/12/22/extending-plugins-using-custom-slotfills/
+
+- [Create a Custom Sidebar with PluginSidebar](https://wholesomecode.net/create-a-custom-sidebar-with-pluginsidebar/)
+
+  This tutorial shows exemplary how to create a custom sidebar using the WordPress Block Editor (Gutenberg) Components. It's a good starting point to understand how to use the WordPress Block Editor (Gutenberg) Components to create a custom sidebar.
+
+- [Add Controls to the Post Sidebar with PluginDocumentSettingPanel](https://wholesomecode.net/add-controls-to-the-post-sidebar-with-plugindocumentsettingpanel/)
+
+  This tutorial shows exemplary how to add controls to the post sidebar using the WordPress Block Editor (Gutenberg) Components.
