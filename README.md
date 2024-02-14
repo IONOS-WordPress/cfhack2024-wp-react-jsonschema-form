@@ -50,6 +50,12 @@ We will use [VS Code](https://code.visualstudio.com/) as our development environ
 
     _There are myriads of different other scripting options but we ideally need to pick one where we all together feel comfortable with._
 
+  - [make](https://www.gnu.org/software/make/)
+
+    This stone age old gem is a simple and powerful tool to automate tasks. It is available on all platforms and is a good choice for automating tasks.
+
+    Trust me, t's much better than just npm script targets and shell scripts.
+
   _@IMPROVEMENT: Tools could be prepackaged into a [vscode dev container](https://code.visualstudio.com/docs/devcontainers/containers)._
 
 ## Setup Development Environment
@@ -81,23 +87,71 @@ Each sub project contains a `README.md` file with further instructions.
 
 ## Conventions
 
-@TODO: explain why not Typescript 
+### (To discuss) No Typescript
 
-@TODO: Add coding conventions (linting, formatting, etc.)
+I have participated in coding sessions with people doing Typescript since a year or longer. It took them half an hour to develop a type definition for an event handler (at the extreme).
 
-@TODO: Add Git branching|pull-requests|git-flow vs trunk based?, commitizen, changeset, etc.
+My opinion : We have limited time to develop the project and we do not need to spend time on this issue. I would prefer to use the time to develop the project and not to develop type definitions. Personally I really like how [Rich Harris, maintainer of Svelte thinks about Typescript](https://devclass.com/2023/05/11/typescript-is-not-worth-it-for-developing-libraries-says-svelte-author-as-team-switches-to-javascript-and-jsdoc/) 
+
+I know there is a lot of discussion going on about this topic.
+
+We should getting things done fast and concentrate on the most important thing : hacking the functionality. Understanding Typescript syntax can be challenging and I would hate to exclude participants just because they don't-know/have-limited-knowledge about Typescript.  
+
+### Linting
+
+We should use a linter to ensure a consistent code style across the project.
+
+I would suggest
+
+- use [eslint](https://eslint.org/) for linting
+
+- use [prettier](https://prettier.io/) for formatting
+
+@TODO: Add lint tooling, usage notes, and configuration. see [You Probably Don't Need eslint-config-prettier or eslint-plugin-prettier](https://www.joshuakgoldberg.com/blog/you-probably-dont-need-eslint-config-prettier-or-eslint-plugin-prettier/)
+
+### GIT
+
+I used to work with [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) for a long time. But I have to admit that it is a bit too complex for small projects. I would prefer to use a [trunk based workflow](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development) for this project.
+
+The project is already set up to use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to ensure that the commit messages are consistent.
+
+@TODO: Add conventional commits tools/usage notes/configuration
+
+_I am a big fan of [changesets](https://github.com/changesets/changesets) for creating human readable changelogs but I would skip it for this project since we do not plan to release anything._
 
 ## Development Workflow
 
-@TODO: Add development workflow
+Since the project is a monorepo, we can work on multiple use cases in parallel. These isolated sub packages free us (mostly) from the need to coordinate changes across the whole project.
+
+Anyway, we should follow some best practices to ensure that we don't break the whole project : 
+
+- Don't work directly on the `trunk` branch if possible.
+
+- Create a new branch for each change (feature, bug fix, etc) and merge it back whenever you think it is working/will-not-break-the-whole-project.
+
+- I would propose that we don't need to use a pull requests for this project - it costs too much time.
+
+  - If you are really unsure if your branch is ready to merge back, you can ask a team mate for a review 
 
 ### Debugging
 
-@TODO: Add debugging instructions
+The project is set up to use [VS Code](https://code.visualstudio.com/) as the development environment. It comes with preconfigured launch configurations for debugging, required extensions and settings, among other features.
 
-## Commands
+[wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) is even already preconfigured to support debugging of PHP code.
 
-@TODO: explain available package scripts
+@TODO: Add debugging instructions/launch configurations
+
+### Building
+
+I would propose to use [make](https://www.gnu.org/software/make/) for building the project. It is a simple and powerful tool to automate tasks.
+
+Using [make](https://www.gnu.org/software/make/) frees us from the need to remember the commands to build the projects and even sub projects.
+
+The project already contains a `Makefile` with some targets to build the project.
+
+You don't need to take care about the build process - just run `make` and it will do the rest for you.
+
+The main `Makefile` contains targets to build the whole project and to build the sub projects.
 
 ## Tips
 
