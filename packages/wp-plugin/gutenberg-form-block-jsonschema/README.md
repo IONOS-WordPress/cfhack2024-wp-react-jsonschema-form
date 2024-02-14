@@ -16,7 +16,9 @@ It would be perfect if this package would provide a WordPress plugin
 
   - form block should support some simple "target" options (e.g. send form data to a specific endpoint (contributed by this plugin) or as email). Or as its simplest solution : create a `mailto:` link with the form data as query parameters.
 
-- has a 'usage' section this this `README.md` file explaining how to showcase the plugin
+- has a 'usage' section this this `README.md` file explaining how to showcase the plugin. 
+
+  - A embedded screenshot - or better a animated gif/png - would help a lot when representing our hackathon results. 
 
 ## Bonus feature
 

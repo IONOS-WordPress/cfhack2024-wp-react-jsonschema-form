@@ -16,7 +16,9 @@ It would be perfect if this package would provide a WordPress plugin
 
 - adding the entered data to the html header of the post/page 
 
-- has a 'usage' section this this `README.md` file explaining how to showcase the plugin
+- has a 'usage' section this this `README.md` file explaining how to showcase the plugin. 
+
+   - A embedded screenshot - or better a animated gif/png - would help a lot when representing our hackathon results. 
 
 # Development
 

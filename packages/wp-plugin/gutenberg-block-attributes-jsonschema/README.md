@@ -16,7 +16,9 @@ It would be perfect if this package would provide a WordPress plugin
 
 - the block attributes should be rendered into the Inspector Panel of the Gutenberg Sidebar using [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file using [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/)
 
-- has a 'usage' section this this `README.md` file explaining how to showcase the plugin
+- has a 'usage' section this this `README.md` file explaining how to showcase the plugin. 
+
+  - A embedded screenshot - or better a animated gif/png - would help a lot when representing our hackathon results. 
 
 ## Bonus feature
 

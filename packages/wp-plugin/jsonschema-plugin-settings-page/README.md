@@ -1,6 +1,6 @@
 # Purpose
 
-This WordPress plugin should represent a proof of concept for a WordPress plugin declaring its settings page using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/).
+This sub project should represent a proof of concept for a WordPress plugin declaring its settings page using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/).
 
 _The plugin does not need to have any other purpose than acting as a show case for rendering a settings page using a JSON Schema definition of the plugin settings._  
 
@@ -15,7 +15,9 @@ It would be perfect if this package would provide a WordPress plugin
 
 - registers a WordPress Widget (or Admin page) showing the current plugin settings
 
-- has a 'usage' section this this `README.md` file explaining how to showcase the plugin
+- has a 'usage' section this this `README.md` file explaining how to showcase the plugin. 
+
+  - A embedded screenshot - or better a animated gif/png - would help a lot when representing our hackathon results. 
 
 ## Bonus feature
 
