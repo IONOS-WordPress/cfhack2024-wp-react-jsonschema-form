@@ -48,7 +48,7 @@ Remember that the HTML5 renderer output will usually targeting published pages.
 
 - think twice before adding a custom CSS rule - the CSS for the HTML5 renderer output should work well with as many themes as possible
 
-  - I would suggest to use the latest official WordPress theme (Twenty Twenty-Four) to test with since it looks exceptional good.
+  - I would suggest to use the latest official WordPress theme ([Twenty Twenty-Four](https://wordpress.org/documentation/article/twenty-twenty-four/)) to test with since it looks exceptional good.
 
 ### If I would be you ...
 
