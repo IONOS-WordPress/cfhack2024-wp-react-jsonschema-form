@@ -8,10 +8,19 @@
   },
   "author": "The Hackathon Project Contributors",
   "homepage": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form",
-	"repository": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form.git",
-	"bugs": {
-		"url": "https://github.com/WordPress/gutenberg/issues"
-	},
-  "keywords": ["wordpress", "gutenberg", "jsonschema", "ui", "react-jsonschema-form"],
-  "license": "GPL-2.0-or-later"
+  "repository": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form.git",
+  "bugs": {
+    "url": "https://github.com/WordPress/gutenberg/issues"
+  },
+  "keywords": [
+    "wordpress",
+    "gutenberg",
+    "jsonschema",
+    "ui",
+    "react-jsonschema-form"
+  ],
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@wordpress/env": "^9.3.0"
+  }
 }
