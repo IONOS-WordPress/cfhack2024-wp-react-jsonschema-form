@@ -50,12 +50,6 @@ We will use [VS Code](https://code.visualstudio.com/) as our development environ
 
     _There are myriads of different other scripting options but we ideally need to pick one where we all together feel comfortable with._
 
-  - [make](https://www.gnu.org/software/make/)
-
-    This stone age old gem is a simple and powerful tool to automate tasks. It is available on all platforms and is a good choice for automating tasks.
-
-    Trust me, t's much better than just npm script targets and shell scripts.
-
   _@IMPROVEMENT: Tools could be prepackaged into a [vscode dev container](https://code.visualstudio.com/docs/devcontainers/containers)._
 
 ## Setup Development Environment
@@ -143,15 +137,7 @@ The project is set up to use [VS Code](https://code.visualstudio.com/) as the de
 
 ### Building
 
-I would propose to use [make](https://www.gnu.org/software/make/) for building the project. It is a simple and powerful tool to automate tasks.
-
-Using [make](https://www.gnu.org/software/make/) frees us from the need to remember the commands to build the projects and even sub projects.
-
-The project already contains a `Makefile` with some targets to build the project.
-
-You don't need to take care about the build process - just run `make` and it will do the rest for you.
-
-The main `Makefile` contains targets to build the whole project and to build the sub projects.
+@TODO: add build instructions
 
 ## Tips
 
