@@ -89,7 +89,7 @@ My opinion : We have limited time to develop the project and we do not need to s
 
 I know there is a lot of discussion going on about this topic.
 
-We should getting things done fast and concentrate on the most important thing : hacking the functionality. Understanding Typescript syntax can be challenging and I would hate to exclude participants just because they don't-know/have-limited-knowledge about Typescript.  
+We should getting things done fast and concentrate on the most important thing : hacking the functionality. Understanding Typescript syntax can be challenging and I would want to avoid locking people out just because they don't-know/have-limited-knowledge about Typescript.  
 
 ### Linting
 
