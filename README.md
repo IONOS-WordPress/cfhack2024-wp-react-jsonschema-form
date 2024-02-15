@@ -85,7 +85,7 @@ Each sub project contains a `README.md` file with further instructions.
 
 I have participated in coding sessions with people doing Typescript since a year or longer. It took them half an hour to develop a type definition for an event handler (at the extreme).
 
-My opinion : We have limited time to develop the project and we do not need to spend time on this issue. I would prefer to use the time to develop the project and not to develop type definitions. Personally I really like how [Rich Harris, maintainer of Svelte thinks about Typescript](https://devclass.com/2023/05/11/typescript-is-not-worth-it-for-developing-libraries-says-svelte-author-as-team-switches-to-javascript-and-jsdoc/) 
+My opinion : We have limited time to develop the project and we do not need to spend time on this issue. I would tend to use the time to develop functionality and not type definitions. Personally I really like how [Rich Harris, maintainer of Svelte thinks about Typescript](https://devclass.com/2023/05/11/typescript-is-not-worth-it-for-developing-libraries-says-svelte-author-as-team-switches-to-javascript-and-jsdoc/).
 
 I know there is a lot of discussion going on about this topic.
 
