@@ -1,8 +1,8 @@
 # About
 
-This Monorepo contains example uses cases of [JSON Schema](https://json-schema.org/) in WordPress. 
+This Monorepo contains example uses cases of [JSON Schema](https://json-schema.org/) in WordPress.
 
-It demo's the use of [JSON Schema](https://json-schema.org/) as abstraction for user interfaces in WordPress utilizing [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form). 
+It demo's the use of [JSON Schema](https://json-schema.org/) as abstraction for user interfaces in WordPress utilizing [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
 
   - see [react-jsonschema-form Documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/) introducing the concept and usage  [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
 
@@ -33,17 +33,17 @@ We will use [VS Code](https://code.visualstudio.com/) as our development environ
     _I would prefer to use the [WordPress Playground](https://wordpress.org/playground/) over [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) but it currently lacks a mandatory development feature - PHP debugging support._
 
   - [pnpm](https://pnpm.io/installation) is a drop-in replacement for npm. It is fully compatible with the npm registry and can be used with any NodeJS project.
-    
+
     [You may ask why not npm ?](https://pnpm.io/feature-comparison) :
-    
+
       - **exponential** faster than npm/yarn & Co. If you once use it, you will never miss it again - i swear 🤞
 
       - features [automatic provisioning of the configured NodeJS version](https://pnpm.io/npmrc#nodejs-settings) - you don't need to install a specific NodeJS version manually. Say Goodbye to `nvm`, `volta` and friends ❤️ - you will never need it anymore.
 
-      - [pnpm](https://pnpm.io) is [Lerna](https://lerna.js.org/) on steroids. 
-      
+      - [pnpm](https://pnpm.io) is [Lerna](https://lerna.js.org/) on steroids.
+
         It is tailored for **monorepos first** with it's exceptional workspace features.
-    
+
   - [Bash](https://www.gnu.org/software/bash/)
 
     It is the default shell on most Linux distributions and macOS. On Windows, we use the Windows Subsystem for Linux (WSL) to run bash.
@@ -58,11 +58,15 @@ We will use [VS Code](https://code.visualstudio.com/) as our development environ
 
 - Clone the repository : `git clone git@github.com:IONOS-WordPress/workspace/cfhack2024-wp-react-jsonschema-form`
 
+> the provided .npmrc assumes that the 'bash` shell is already available at `/bin/bash`. Ensure that this is the case or adjust the `.npmrc` file accordingly (you can get the path to your `bash` executable using `which bash`).
+
 - Run `pnpm install` to install the required dependencies.
 
-- Run `pnpm run build` to build the project.
+  > At first start pnpm will take a few seconds to download also the configured NodeJS version. Please be patient - it will be much more faster on subsequent runs.
 
-- Run `pnpm run dev` to start the development environment.
+- Run `pnpm build` to build the project.
+
+- Run `pnpm start` to start the development environment.
 
   This will start a local WordPress using a preconfigured [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) environment
 
@@ -89,7 +93,7 @@ My opinion : We have limited time to develop the project and we do not need to s
 
 I know there is a lot of discussion going on about this topic.
 
-We should getting things done fast and concentrate on the most important thing : hacking the functionality. Understanding Typescript syntax can be challenging and I would want to avoid locking people out just because they don't-know/have-limited-knowledge about Typescript.  
+We should getting things done fast and concentrate on the most important thing : hacking the functionality. Understanding Typescript syntax can be challenging and I would want to avoid locking people out just because they don't-know/have-limited-knowledge about Typescript.
 
 ### Linting
 
@@ -117,7 +121,7 @@ _I am a big fan of [changesets](https://github.com/changesets/changesets) for cr
 
 Since the project is a monorepo, we can work on multiple use cases in parallel. These isolated sub packages free us (mostly) from the need to coordinate changes across the whole project.
 
-Anyway, we should follow some best practices to ensure that we don't break the whole project : 
+Anyway, we should follow some best practices to ensure that we don't break the whole project :
 
 - Don't work directly on the `trunk` branch if possible.
 
@@ -125,7 +129,7 @@ Anyway, we should follow some best practices to ensure that we don't break the w
 
 - I would propose that we don't need to use a pull requests for this project - it costs too much time.
 
-  - If you are really unsure if your branch is ready to merge back, you can ask a team mate for a review 
+  - If you are really unsure if your branch is ready to merge back, you can ask a team mate for a review
 
 ### Debugging
 
@@ -135,9 +139,35 @@ The project is set up to use [VS Code](https://code.visualstudio.com/) as the de
 
 @TODO: Add debugging instructions/launch configurations
 
-### Building
+### Commands
 
-@TODO: add build instructions
+- `pnpm install` will install the required dependencies for the project.
+
+- Have a look at the scripts section of the root package.json for more available scripts
+
+  Examples:
+
+  - build all sub packages : `pnpm build`
+
+  - start [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm start`
+
+  - stop [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm run stop`
+
+  - destroy [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm run destroy`
+
+  - execute individual [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) commands : `pnpm run wp-env <command>`
+
+    Example : `pnpm run wp-env run cli wp plugin list`
+
+- individual package scripts can be executed
+
+  - from the Monorepo root directory using `pnpm --filter "<sub-package-name>" run <sub-package-script>` in the package directory
+
+    Example: `pnpm --filter "@cfhack2024-wp-react-jsonschema-form/gutenberg-form-block-jsonschema" run build`
+
+  - by changing to the package directory and running `pnpm run <sub-package-script>`
+
+    Example: `cd packages/gutenberg-form-block-jsonschema && pnpm run build`
 
 ## Tips
 
@@ -155,7 +185,7 @@ There is a online version of the Storybook available at https://wordpress.github
 
 Steps to get the local version of the Storybook:
 
-1. checkout the latest stable version of [Gutenberg](https://github.com/WordPress/gutenberg) 
+1. checkout the latest stable version of [Gutenberg](https://github.com/WordPress/gutenberg)
 
 
 2. Build and run the Storybook : `npm run build && npm run storybook`
@@ -166,11 +196,11 @@ It's even possible to run the Storybook in a watch mode to see the changes in th
 
 By default WordPress provides production ready code which is minified and hard to read. Gutenberg is part of WordPress and is no exception. And so [@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/).
 
-To make debugging as cushy as possible, use the unminified version of the Gutenberg : 
+To make debugging as cushy as possible, use the unminified version of the Gutenberg :
 
-1. checkout the latest stable version of [Gutenberg](https://github.com/WordPress/gutenberg) 
+1. checkout the latest stable version of [Gutenberg](https://github.com/WordPress/gutenberg)
 
-1. Build the unminified version of Gutenberg 
+1. Build the unminified version of Gutenberg
 
 1. add the unminified version of the Gutenberg plugin to your [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) configuration andd - Profit! - can can now debug into the Gutenberg components in a breeze.
 

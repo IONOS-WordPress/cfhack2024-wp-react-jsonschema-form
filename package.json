@@ -4,7 +4,11 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pnpm --recursive run build",
+    "start": "pnpm run wp-env start --xdebug",
+    "stop": "pnpm run wp-env  stop",
+    "destroy": "echo 'yes' | pnpm run wp-env destroy",
+    "wp-env": "WP_ENV_HOME=wp-env-home pnpm exec wp-env"
   },
   "author": "The Hackathon Project Contributors",
   "homepage": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form",

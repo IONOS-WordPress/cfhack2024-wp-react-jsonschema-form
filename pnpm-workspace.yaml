@@ -1,0 +1,6 @@
+# see https://pnpm.io/pnpm-workspace_yaml
+packages:
+  - '.'
+  - 'packages/npm/*'
+  - 'packages/wp-plugin/*'
+  - 'packages/wp-theme/*'

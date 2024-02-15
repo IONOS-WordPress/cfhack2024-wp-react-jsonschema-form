@@ -1,0 +1,30 @@
+{
+  "core": "WordPress/WordPress#6.4.3",
+  "phpVersion": "8.3",
+  "plugins": [
+    "WordPress/gutenberg#v17.7.0",
+    "./packages/wp-plugin/gutenberg-block-attributes-jsonschema/",
+    "./packages/wp-plugin/gutenberg-editor-sidebar-plugin/",
+    "./packages/wp-plugin/gutenberg-form-block-jsonschema/",
+    "./packages/wp-plugin/gutenberg-metaboxes-jsonschema/",
+    "./packages/wp-plugin/jsonschema-plugin-settings-page/"
+  ],
+  "themes": [
+    "https://downloads.wordpress.org/theme/twentytwentyfour.1.0.zip",
+    "./packages/wp-theme/theme-extending-global-styles-jsonschema/"
+  ],
+  "config": {
+    "WP_DEBUG_DISPLAY": false,
+    "WP_DEBUG_LOG": true,
+    "SAVEQUERIES": true,
+    "FS_METHOD": "direct",
+    "ALTERNATE_WP_CRON": true,
+    "WP_DEVELOPMENT_MODE": "all"
+  },
+  "mappings": {
+    "wp-cli.yml": "./wp-cli.wp-env.yml"
+  },
+  "lifecycleScripts": {
+    "afterStart": "$(command -v bash) ./.wp-env-afterStart.sh"
+  }
+}

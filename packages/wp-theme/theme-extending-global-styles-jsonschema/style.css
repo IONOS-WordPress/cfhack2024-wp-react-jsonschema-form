@@ -1,0 +1,16 @@
+/**
+ * Theme Name: theme-extending-global-styles-jsonschema
+ * Template:   twentytwentyfour
+ * Description:       WordPress theme contributing additional settings to WordPress global styles
+ * Requires at least: 6.3
+ * Requires PHP:      8.3
+ * Version:           1.0.0
+ * Author:            The Hackathon Project Contributors
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       theme-extending-global-styles-jsonschema
+ */
+
+div {
+  background-color: red;
+}

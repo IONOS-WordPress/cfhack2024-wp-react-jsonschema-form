@@ -1,12 +1,16 @@
 {
   "name": "@cfhack2024-wp-react-jsonschema-form/theme-extending-global-styles-jsonschema",
-  "description": "This package provides a WordPress theme contributing additional settings to WordPress global styles.",
+  "description": "This package provides a WordPress theme contributing additional settings to WordPress global styles",
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+		"build": "wp-scripts build",
+		"packages-update": "wp-scripts packages-update"
+	},
   "author": "The Hackathon Project Contributors",
   "keywords": ["wordpress", "plugin", "Gutenberg", "block", "jsonschema", "ui", "react-jsonschema-form"],
-  "license": "GPL-2.0-or-later"
+  "license": "GPL-2.0-or-later",
+	"devDependencies": {
+		"@wordpress/scripts": "^27.2.0"
+	}
 }
