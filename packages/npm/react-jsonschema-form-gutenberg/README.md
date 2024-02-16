@@ -4,7 +4,7 @@ This package implements a custom [react-jsonschema-form](https://github.com/rjsf
 
 This renderer should be used for example use cases where the JSON Schema gets be rendered in the WordPress admin dashboard or within Gutenberg.
 
-It would be perfect if this package would: 
+It would be perfect if this package would:
 
 - export the renderer via `src/index.js`
 
@@ -14,9 +14,9 @@ It would be perfect if this package would:
 
 - has a 'usage' section this this `README.md` file explaining how to use your renderer
 
-## Future directions 
+## Future directions
 
-- WordPress 6.5 allow plugin dependencies so we could also provide this package as plugin to register this renderer and as dependency for other plugins/themes. 
+- WordPress 6.5 allow plugin dependencies so we could also provide this package as plugin to register this renderer and as dependency for other plugins/themes.
 
   https://developer.wordpress.org/news/2024/02/10/whats-new-for-developers-february-2024/
 
@@ -26,17 +26,25 @@ It would be perfect if this package would:
 
   [This change](https://core.trac.wordpress.org/changeset/57545) lets you set a `Requires Plugins` header in your plugin with a list of plugin slugs that are necessary for your plugin to work. Perhaps it will also reopen the door for framework-like plugins in the directory, which have been [disallowed since 2016](https://make.wordpress.org/plugins/2016/03/01/please-do-not-submit-frameworks/).
 
+  *Contra : We cannot use this effort for the theme since themes doesn't support a plugin dependency header yet.*
+
 # Development
 
 ## Tips
 
+### Make yourself a priorization list what tasks to implement first
+
+We probably don't need __all__ renderer functions for our show cases.
+
+Ask your team mates which form elements they need first (notably text inputs and stuff) and implement them as first.
+
 ### Don't use React directly
 
-If you are in the need to use React functions/hooks : **Do not import and use React directly !** 
+If you are in the need to use React functions/hooks : **Do not import and use React directly !**
 
-Package [@wordpress/element](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/) is a lightweight wrapper around React providing exactly the same functions as React. 
+Package [@wordpress/element](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/) is a lightweight wrapper around React providing exactly the same functions as React.
 
-An example: Don't use `import React from 'react'` but use `import { createElement } from '@wordpress/element'` instead. 
+An example: Don't use `import React from 'react'` but use `import { createElement } from '@wordpress/element'` instead.
 
 ### If I would be you ...
 

@@ -2,11 +2,11 @@
 
 This package implements a custom [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) renderer outputting pure HTML5.
 
-This renderer should be used for example use cases where the JSON Schema gets be rendered in published pages. 
+This renderer should be used for example use cases where the JSON Schema gets be rendered in published pages.
 
 _Because it's probably very simple source code it could even be used as template for the [react-jsonschema-form-gutenberg renderer](../react-jsonschema-form-gutenberg/)._
 
-It would be perfect if this package would: 
+It would be perfect if this package would:
 
 - export the renderer via `src/index.js`
 
@@ -24,7 +24,7 @@ It would be perfect if this package would:
 
   Fortunately [Preact](https://preactjs.com/) is actually kinda _lightweight React_ (including [JSX](https://en.wikipedia.org/wiki/JSX_(JavaScript))) so it should be possible to implements our HTML5 renderer without making published pages too heavy.
 
-- WordPress 6.5 allow plugin dependencies so we could also provide this package as plugin to register this renderer and as dependency for other plugins/themes. 
+- WordPress 6.5 allow plugin dependencies so we could also provide this package as plugin to register this renderer and as dependency for other plugins/themes.
 
   https://developer.wordpress.org/news/2024/02/10/whats-new-for-developers-february-2024/
 
@@ -34,15 +34,23 @@ It would be perfect if this package would:
 
   [This change](https://core.trac.wordpress.org/changeset/57545) lets you set a `Requires Plugins` header in your plugin with a list of plugin slugs that are necessary for your plugin to work. Perhaps it will also reopen the door for framework-like plugins in the directory, which have been [disallowed since 2016](https://make.wordpress.org/plugins/2016/03/01/please-do-not-submit-frameworks/).
 
+  *Contra : We cannot use this effort for the theme since themes doesn't support a plugin dependency header yet.*
+
 # Development
 
 ## Tips
 
-Remember that the HTML5 renderer output will usually targeting published pages.   
+### Make yourself a priorization list what tasks to implement first
+
+We probably don't need __all__ renderer functions for our show cases.
+
+Ask your team mates which form elements they need first (notably text inputs and stuff) and implement them as first.
+
+### Remember that the HTML5 renderer output will usually targeting published pages.
 
 - keep the output _simple_ and _tiny_ HTML5
 
-  - should ideally look well on mobile devices 
+  - should ideally look well on mobile devices and desktop
 
 - should be standards based - don't use quirky HTML hacks
 
