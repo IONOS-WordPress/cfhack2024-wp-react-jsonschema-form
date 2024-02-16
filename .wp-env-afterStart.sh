@@ -13,11 +13,12 @@ pushd "${WPENV_INSTALLPATH}/gutenberg"
 NODE_PATH="$(dirname $(which node))/..";
 # calling the original npm delivered with the configured nodejs version is a bit quirky but works :-)
 $NODE_PATH/bin/node "$NODE_PATH/lib/node_modules/npm/bin/npm-cli.js" ci
-NODE_ENV=development && ($NODE_PATH/bin/node "$NODE_PATH/lib/node_modules/npm/bin/npm-cli.js" run build || true)
+$NODE_PATH/bin/node "$NODE_PATH/lib/node_modules/npm/bin/npm-cli.js" run build:packages
+./node_modules/.bin/wp-scripts start --no-watch
 popd
 
 # remove dolly demo plugin
-rm $WPENV_INSTALLPATH/{tests-WordPress,WordPress}/wp-content/plugins/hello.php
+rm -rf $WPENV_INSTALLPATH/{tests-WordPress,WordPress}/wp-content/plugins/hello.php
 
 for prefix in '' 'tests-' ; do
   # The wp rewrite flush command regenerates the rewrite rules for your WordPress site, which includes refreshing the permalinks.
