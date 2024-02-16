@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "pnpm --recursive run build",
+    "dev": "pnpm --recursive run dev",
     "start": "pnpm run wp-env start --xdebug",
     "stop": "pnpm run wp-env  stop",
     "destroy": "echo 'yes' | pnpm run wp-env destroy",

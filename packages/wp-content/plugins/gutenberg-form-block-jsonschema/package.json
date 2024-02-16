@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "scripts": {
 		"build": "wp-scripts start --no-watch",
+    "dev": "wp-scripts start",
 		"packages-update": "wp-scripts packages-update"
 	},
   "author": "The Hackathon Project Contributors",
