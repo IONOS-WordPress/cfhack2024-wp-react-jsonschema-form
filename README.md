@@ -58,11 +58,11 @@ We will use [VS Code](https://code.visualstudio.com/) as our development environ
 
 - Clone the repository : `git clone git@github.com:IONOS-WordPress/workspace/cfhack2024-wp-react-jsonschema-form`
 
-> the provided .npmrc assumes that the 'bash` shell is already available at `/bin/bash`. Ensure that this is the case or adjust the `.npmrc` file accordingly (you can get the path to your `bash` executable using `which bash`).
+> the provided .npmrc assumes that the `bash` shell is already available at `/bin/bash`. Ensure that this is the case or adjust the `.npmrc` file accordingly (you can get the path to your `bash` executable using `which bash`).
 
 - Run `pnpm install` to install the required dependencies.
 
-  > At first start pnpm will take a few seconds to download also the configured NodeJS version. Please be patient - it will be much more faster on subsequent runs.
+  > At first start `pnpm` will take a few seconds to download also the configured NodeJS version. Please be patient - it will be much more faster on subsequent runs.
 
 - Run `pnpm build` to build the project.
 
@@ -85,7 +85,7 @@ Each sub project contains a `README.md` file with further instructions.
 
 ## Conventions
 
-### (To discuss) No Typescript
+### @TODISCUSS: No Typescript
 
 I have participated in coding sessions with people doing Typescript since a year or longer. It took them half an hour to develop a type definition for an event handler (at the extreme).
 
