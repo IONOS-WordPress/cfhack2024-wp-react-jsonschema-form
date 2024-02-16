@@ -196,13 +196,7 @@ It's even possible to run the Storybook in a watch mode to see the changes in th
 
 By default WordPress provides production ready code which is minified and hard to read. Gutenberg is part of WordPress and is no exception. And so [@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/).
 
-To make debugging as cushy as possible, use the unminified version of the Gutenberg :
-
-1. checkout the latest stable version of [Gutenberg](https://github.com/WordPress/gutenberg)
-
-1. Build the unminified version of Gutenberg
-
-1. add the unminified version of the Gutenberg plugin to your [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) configuration andd - Profit! - can can now debug into the Gutenberg components in a breeze.
+@TODO: add Gutenberg debug information
 
 # The most important tip
 

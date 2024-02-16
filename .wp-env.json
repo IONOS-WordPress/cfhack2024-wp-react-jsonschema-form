@@ -3,15 +3,15 @@
   "phpVersion": "8.3",
   "plugins": [
     "WordPress/gutenberg#v17.7.0",
-    "./packages/wp-plugin/gutenberg-block-attributes-jsonschema/",
-    "./packages/wp-plugin/gutenberg-editor-sidebar-plugin/",
-    "./packages/wp-plugin/gutenberg-form-block-jsonschema/",
-    "./packages/wp-plugin/gutenberg-metaboxes-jsonschema/",
-    "./packages/wp-plugin/jsonschema-plugin-settings-page/"
+    "./packages/wp-content/plugins/gutenberg-block-attributes-jsonschema",
+    "./packages/wp-content/plugins/gutenberg-editor-sidebar-plugin/",
+    "./packages/wp-content/plugins/gutenberg-form-block-jsonschema/",
+    "./packages/wp-content/plugins/gutenberg-metaboxes-jsonschema/",
+    "./packages/wp-content/plugins/jsonschema-plugin-settings-page/"
   ],
   "themes": [
     "https://downloads.wordpress.org/theme/twentytwentyfour.1.0.zip",
-    "./packages/wp-theme/theme-extending-global-styles-jsonschema/"
+    "./packages/wp-content/themes/theme-extending-global-styles-jsonschema/"
   ],
   "config": {
     "WP_DEBUG_DISPLAY": false,
@@ -25,6 +25,7 @@
     "wp-cli.yml": "./wp-cli.wp-env.yml"
   },
   "lifecycleScripts": {
-    "afterStart": "$(command -v bash) ./.wp-env-afterStart.sh"
+    "afterStart": "$(command -v bash) ./.wp-env-afterStart.sh",
+    "afterDestroy": "rm -rf $(dirname $(pnpm run --silent wp-env install-path 2> /dev/null))"
   }
 }

@@ -3,3 +3,4 @@ node_modules
 /.pnpm-store
 build
 /wp-env-home
+/.vscode/launch.json

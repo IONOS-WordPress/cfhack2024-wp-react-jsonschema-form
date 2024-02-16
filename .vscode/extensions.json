@@ -1,0 +1,6 @@
+{
+  "recommendations": [
+    // @TODO: add extensions for linting & stuff
+    "EditorConfig.EditorConfig",
+ ]
+}
