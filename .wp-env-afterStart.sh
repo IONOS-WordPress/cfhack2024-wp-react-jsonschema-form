@@ -17,7 +17,7 @@ NODE_ENV=development && ($NODE_PATH/bin/node "$NODE_PATH/lib/node_modules/npm/bi
 popd
 
 # remove dolly demo plugin
-rm "${WPENV_INSTALLPATH}/{tests-WordPress,WordPress}/wp-content/plugins/hello.php"
+rm $WPENV_INSTALLPATH/{tests-WordPress,WordPress}/wp-content/plugins/hello.php
 
 for prefix in '' 'tests-' ; do
   # The wp rewrite flush command regenerates the rewrite rules for your WordPress site, which includes refreshing the permalinks.
@@ -31,13 +31,13 @@ done
 
 function plugins {
   for PLUGIN in $(find packages/wp-content/plugins -mindepth 1 -maxdepth 1 -type d -printf '%f\n'); do
-    echo "        \"/var/www/html/wp-content/plugins/${PLUGIN}\":\"packages/wp-content/plugins/${PLUGIN}\""
+    echo "        \"/var/www/html/wp-content/plugins/${PLUGIN}\":\"\${workspaceFolder}/packages/wp-content/plugins/${PLUGIN}\","
   done
 }
 
 function themes {
   for THEME in $(find packages/wp-content/themes -mindepth 1 -maxdepth 1 -type d -printf '%f\n'); do
-    echo "        \"/var/www/html/wp-content/themes/${THEME}\":\"packages/wp-content/themes/${THEME}\""
+    echo "        \"/var/www/html/wp-content/themes/${THEME}\":\"\${workspaceFolder}/packages/wp-content/themes/${THEME}\","
   done
 }
 
@@ -58,8 +58,8 @@ cat << EOF > '.vscode/launch.json'
       "pathMappings": {
 $(plugins)
 $(themes)
-        "/var/www/html/wp-content/plugins/gutenberg": "${workspaceFolder}/${WPENV_INSTALLPATH}/gutenberg",
-        "/var/www/html": "${workspaceFolder}/${WPENV_INSTALLPATH}/WordPress",
+        "/var/www/html/wp-content/plugins/gutenberg": "\${workspaceFolder}/${WPENV_INSTALLPATH}/gutenberg",
+        "/var/www/html": "\${workspaceFolder}/${WPENV_INSTALLPATH}/WordPress",
       }
     }
   ]
