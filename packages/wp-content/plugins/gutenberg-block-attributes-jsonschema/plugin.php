@@ -26,3 +26,19 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 \add_action( 'init', fn() => \register_block_type( __DIR__ . '/build' ));
 
+/**
+ * Registers or own block category as the first category
+ */
+\add_filter( 'block_categories_all' , function( $categories ) {
+  // ensure category gets not added twice
+  if(array_search('cfhack2024-wp-react-jsonschema-form',array_column($categories,'slug')) === false) {
+    array_unshift(
+      $categories, [
+        'slug'  => 'cfhack2024-wp-react-jsonschema-form',
+        'title' => 'cfhack'
+      ]
+    );
+  }
+
+  return $categories;
+});
