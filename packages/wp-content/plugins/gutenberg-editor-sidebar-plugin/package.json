@@ -4,7 +4,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-		"build": "wp-scripts build",
+		"build": "wp-scripts start --no-watch",
 		"packages-update": "wp-scripts packages-update"
 	},
   "author": "The Hackathon Project Contributors",
