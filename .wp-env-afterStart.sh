@@ -14,7 +14,10 @@ NODE_PATH="$(dirname $(which node))/..";
 # calling the original npm delivered with the configured nodejs version is a bit quirky but works :-)
 $NODE_PATH/bin/node "$NODE_PATH/lib/node_modules/npm/bin/npm-cli.js" ci
 $NODE_PATH/bin/node "$NODE_PATH/lib/node_modules/npm/bin/npm-cli.js" run build:packages
+# build gutenberg in development mode
 ./node_modules/.bin/wp-scripts start --no-watch
+# build static gutenberg storybook
+$NODE_PATH/bin/node "$NODE_PATH/lib/node_modules/npm/bin/npm-cli.js" run storybook:build
 popd
 
 # remove dolly demo plugin

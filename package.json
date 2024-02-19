@@ -9,7 +9,8 @@
     "start": "pnpm run wp-env start --xdebug",
     "stop": "pnpm run wp-env  stop",
     "destroy": "echo 'yes' | pnpm run wp-env destroy",
-    "wp-env": "WP_ENV_HOME=wp-env-home pnpm exec wp-env"
+    "wp-env": "WP_ENV_HOME=wp-env-home pnpm exec wp-env",
+    "gutenberg-storybook": "pnpm dlx http-server $(realpath --relative-to $(pwd) $(pnpm run --silent  wp-env install-path))/storybook/build/"
   },
   "author": "The Hackathon Project Contributors",
   "homepage": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form",
