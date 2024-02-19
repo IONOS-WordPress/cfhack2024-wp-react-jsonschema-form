@@ -189,20 +189,9 @@ The project is set up to use [VS Code](https://code.visualstudio.com/) as the de
 
 [@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/) is a huge library providing a lot of components.
 
-The easiest way to get an overview about all the components and their options is to have a look at them.
+Checkout the [Gutenberg Storybook](https://wordpress.github.io/gutenberg/?path=/docs/docs-introduction--page) to see all the available components and their options.
 
-Fortunately, the Gutenberg team provides a [Storybook](https://storybook.js.org/) showcasing all the components and their options.
-
-There is a online version of the Storybook available at https://wordpress.github.io/gutenberg, but I would always recommend you to use the local version available in the Gutenberg repository to ensure you _see the right storybook version_...
-
-Steps to get the local version of the Storybook:
-
-1. checkout the latest stable version of [Gutenberg](https://github.com/WordPress/gutenberg)
-
-
-2. Build and run the Storybook : `npm run build && npm run storybook`
-
-It's even possible to run the Storybook in a watch mode to see the changes in the components in real time. Try it out - it's a whole new world of possibilities ;-)
+The local Gutenberg Storybook can be launched by executing `pnpm run gutenberg-storybook`. Open Storybook in your browser at [http://localhost:8080](http://localhost:8080).
 
 #### Debugging a WordPress plugin/theme : Digging into Gutenberg components
 
