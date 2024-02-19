@@ -149,11 +149,23 @@ The project is set up to use [VS Code](https://code.visualstudio.com/) as the de
 
   - build all sub packages : `pnpm build`
 
-  - start [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm start`
+  - start [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm run start`
 
   - stop [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm run stop`
 
   - destroy [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm run destroy`
+
+  - stop [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm run stop`
+
+  - start the Gutenberg [Storybook](https://storybook.js.org/) : `pnpm run gutenberg-storybook`
+
+    *Script requires that `pnpm run start` was executed before*
+
+    The Gutenberg Storybook is a exceptional resource of all the available Gutenberg components and their options.
+
+    It showcases all the components in different use cases. If you are stuck with a Gutenberg component, have a look at the Storybook - it will help you a lot.
+
+    __You can also use [online version of the Gutenberg Storybook](https://wordpress.github.io/gutenberg/?path=/docs/docs-introduction--page). It's recommend to use the local Gutenberg Storybook to see exactly the features available in our Gutenberg version.__
 
   - execute individual [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) commands : `pnpm run wp-env <command>`
 
