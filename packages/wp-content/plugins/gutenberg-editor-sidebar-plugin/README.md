@@ -6,7 +6,7 @@ This WordPress plugin should represent a proof of concept for a WordPress plugin
 
 _The plugin does not need to have any other purpose than acting as a show case for rendering a [Gutenberg editor sidebar plugin](https://developer.wordpress.org/block-editor/how-to-guides/plugin-sidebar-0/) using a JSON Schema definition._
 
-> An example usage for this plugin could be a plugin that adds a sidebar to the Gutenberg editor for post type `page` rendering a form to edit SEO optimization data like keywords, description etc.
+> An example usage for this plugin could be a plugin that adds a sidebar to the Gutenberg editor for post type `page` rendering a form to edit SEO optimization data like keywords, description etc (https://www.greengeeks.com/tutorials/add-meta-tags-wordpress/).
 
 It would be perfect if this package would provide a WordPress plugin
 
@@ -37,6 +37,26 @@ An example: Don't use `import React from 'react'` but use `import { render } fro
 [@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) is the best buddy you can have for WordPress plugin/theme development. This package provides a configurable local WordPress environment managed using [docker](https://docker.io).
 
 Since many of the sub packages of this project rely on [@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) it's already installed and properly configured for you in the root package. See the root package scripts for more information.
+
+### Stretch the limits of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)
+
+Consider using the [FormTokenField component](https://wordpress.github.io/gutenberg/?path=/docs/components-formtokenfield--docs) to collect keywords for SEO.
+
+[react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) allows you to [define custom components for rendering the form fields](https://rjsf-team.github.io/react-jsonschema-form/docs/advanced-customization/custom-widgets-fields). This is a perfect opportunity to use the [FormTokenField component](https://wordpress.github.io/gutenberg/?path=/docs/components-formtokenfield--docs) to collect keywords for SEO.
+
+The collected SEO data could then spit into the page header using the `wp_head` action hook.
+
+```
+...
+<meta name="key" content="value" />
+<meta name="author" content="Your Name">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="keyword1, keyword2" />
+<meta name="description" content="this is the description of this page" />
+<meta name="facebook-domain-verification" content="abcdefghijklmnopqrstuvwxyz" />
+...
+```
+
 
 ### How to start
 
