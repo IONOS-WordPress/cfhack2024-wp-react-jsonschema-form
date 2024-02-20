@@ -1,0 +1,27 @@
+{
+  "intelephense.files.exclude": [
+    "**/.git/**",
+    "**/.svn/**",
+    "**/.hg/**",
+    "**/CVS/**",
+    "**/.DS_Store/**",
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/vendor/**/{Tests,tests}/**",
+    "**/.history/**",
+    // "**/vendor/**/vendor/**",
+    "**/dist/**"
+  ],
+  "git.autoRepositoryDetection": false,
+  /*
+  "json.schemas": [
+    {
+      "fileMatch": ["slice-*.json"],
+      "url": "${workspaceFolder}/docs/jsonschema/slice-content.json"
+    }
+  ]
+  */
+  "[html]": {
+    "editor.formatOnSave": false
+  }
+}

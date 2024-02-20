@@ -1,6 +1,13 @@
 {
   "recommendations": [
-    // @TODO: add extensions for linting & stuff
     "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "tomoyukim.vscode-mermaid-editor",
+    "bmewburn.vscode-intelephense-client",
+    "rexshi.phpdoc-comment-vscode-plugin",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "xdebug.php-debug"
  ]
 }
