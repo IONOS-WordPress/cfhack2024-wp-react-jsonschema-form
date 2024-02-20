@@ -6,7 +6,7 @@
     "./packages/wp-content/plugins/gutenberg-block-attributes-jsonschema",
     "./packages/wp-content/plugins/gutenberg-editor-sidebar-plugin/",
     "./packages/wp-content/plugins/gutenberg-form-block-jsonschema/",
-    "./packages/wp-content/plugins/gutenberg-metaboxes-jsonschema/",
+    "./packages/wp-content/plugins/gutenberg-metabox-jsonschema/",
     "./packages/wp-content/plugins/jsonschema-plugin-settings-page/"
   ],
   "themes": [

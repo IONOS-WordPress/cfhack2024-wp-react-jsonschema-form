@@ -1,6 +1,6 @@
 {
-  "name": "@cfhack2024-wp-react-jsonschema-form/gutenberg-metaboxes-jsonschema",
-  "description": "This package provides a WordPress plugin contributing meta boxes the inspector panel of Gutenberg",
+  "name": "@cfhack2024-wp-react-jsonschema-form/gutenberg-metabox-jsonschema",
+  "description": "This package provides a WordPress plugin contributing a Meta Box block to Gutenberg",
   "private": true,
   "version": "1.0.0",
   "scripts": {
