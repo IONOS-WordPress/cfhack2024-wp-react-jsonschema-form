@@ -14,6 +14,8 @@
     "./packages/wp-content/themes/theme-extending-global-styles-jsonschema/"
   ],
   "config": {
+    "SCRIPT_DEBUG": true,
+    "WP_DEBUG": true,
     "WP_DEBUG_DISPLAY": false,
     "WP_DEBUG_LOG": true,
     "SAVEQUERIES": true,
