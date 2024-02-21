@@ -46,6 +46,14 @@ if ( ! defined( 'ABSPATH' ) ) {
           true,
         );
         \wp_set_script_translations($HANDLE, $HANDLE);
+        \wp_add_inline_script(
+          $HANDLE,
+          "window['jsonschema_plugin_settings_page']=" . json_encode([
+            '_wpnonce' => wp_create_nonce( 'options-options' ),
+            'value' => \get_option('jsonschema_plugin_settings_page', '{}')
+          ]),
+          'before',
+        );
 
         \wp_enqueue_style(
           $HANDLE,
