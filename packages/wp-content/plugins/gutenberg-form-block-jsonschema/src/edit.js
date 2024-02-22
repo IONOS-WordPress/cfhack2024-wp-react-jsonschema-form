@@ -1,24 +1,8 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
 import { __ } from '@wordpress/i18n';
+import { useRef, useState } from '@wordpress/element';
+import { PanelBody, TextareaControl }  from '@wordpress/components';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps } from '@wordpress/block-editor';
-
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
 import './editor.scss';
 
 /**
@@ -29,13 +13,43 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit({ attributes, setAttributes }) {
+  debugger
+  const { jsonschema } = attributes;
+  const [ intermediateValue, setIntermediateValue ] = useState(jsonschema);
+  const textareaRef = useRef();
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Example Static – hello from the editor!',
-				'gutenberg-form-block-jsonschema'
-			) }
-		</p>
+    <>
+      <InspectorControls>
+				<PanelBody title={ __( 'JSON Schema Form', 'gutenberg-form-block-jsonschema' ) } opened>
+          <TextareaControl
+            className='jsoneditor'
+            label={ __( 'JSON Schema of the form', 'gutenberg-form-block-jsonschema' ) }
+            help={ __('This textarea acts as a placeholder for the JSON Schema form editor.', 'gutenberg-form-block-jsonschema') }
+            required
+            value={ intermediateValue }
+            ref={ textareaRef }
+            onChange={ (value) => {
+              try {
+                const object = JSON.parse(value);
+                setAttributes( {
+                  jsonschema: value,
+                } );
+                textareaRef.current?.setCustomValidity('');
+              } catch(ex) {
+                textareaRef.current?.setCustomValidity(ex.message);
+              }
+              setIntermediateValue(value);
+            }}
+          />
+        </PanelBody>
+			</InspectorControls>
+      <div { ...useBlockProps() }>
+        <pre>
+          { JSON.stringify(attributes.jsonschema) }
+        </pre>
+      </div>
+    </>
 	);
 }
