@@ -14,7 +14,6 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-  debugger
   const { jsonschema } = attributes;
   const [ intermediateValue, setIntermediateValue ] = useState(jsonschema);
   const textareaRef = useRef();
@@ -47,7 +46,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
       <div { ...useBlockProps() }>
         <pre>
-          { JSON.stringify(attributes.jsonschema) }
+          { attributes.jsonschema && JSON.stringify(JSON.parse( attributes.jsonschema), null, 2) }
         </pre>
       </div>
     </>

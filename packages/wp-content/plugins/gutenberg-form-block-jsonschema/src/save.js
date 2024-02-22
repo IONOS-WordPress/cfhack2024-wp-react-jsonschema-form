@@ -15,7 +15,7 @@ export default function save( { attributes } ) {
 	return (
 		<div { ...blockProps }>
       <pre>
-        { JSON.stringify( attributes.jsonschema) }
+        { attributes.jsonschema && JSON.stringify(JSON.parse( attributes.jsonschema), null, 2) }
       </pre>
     </div>
 	);
