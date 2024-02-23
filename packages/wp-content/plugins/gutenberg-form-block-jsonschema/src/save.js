@@ -12,11 +12,9 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function save( { attributes } ) {
   const blockProps = useBlockProps.save();
 
-	return (
-		<div { ...blockProps }>
-      <pre>
-        { attributes.jsonschema && JSON.stringify(JSON.parse( attributes.jsonschema), null, 2) }
-      </pre>
-    </div>
-	);
+	return <div { ...blockProps }>
+    <pre>
+      { attributes.jsonschema && JSON.stringify(JSON.parse( attributes.jsonschema), null, 2) }
+    </pre>
+  </div>;
 }

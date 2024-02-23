@@ -9,9 +9,7 @@
 	"description": "Gutenberg block rendering a form using react-jsonschema-form in posts/pages",
 	"example": {
     "attributes" : {
-        "jsonschema" : {
-          "hello" : "world"
-        }
+      "jsonschema" : "{\"hello\":\"world\"}"
     }
   },
 	"supports": {

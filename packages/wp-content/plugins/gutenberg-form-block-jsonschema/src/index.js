@@ -28,5 +28,5 @@ import metadata from './block.json';
  */
 registerBlockType( metadata.name, {
 	edit: Edit,
-	// save,
+	save,
 } );
