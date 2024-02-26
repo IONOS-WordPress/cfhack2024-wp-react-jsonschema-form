@@ -1,4 +1,5 @@
 import { __ } from '@wordpress/i18n';
+import { useRef, useState } from '@wordpress/element';
 import { TextareaControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { useEntityProp } from '@wordpress/core-data';
@@ -23,16 +24,30 @@ export default function Edit({ setAttributes, attributes }) {
 
   const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
 
-  const metaValue = meta[ 'our_metabox_data' ];
-  const updateMetaValue = ( newValue ) => setMeta( { ...meta, our_metabox_data: newValue } );
+  const metaValue = meta[ 'gutenberg-metabox-jsonschema-data' ];
+  const updateMetaValue = ( newValue ) => setMeta( { ...meta, 'gutenberg-metabox-jsonschema-data' : newValue } );
+
+  const [ intermediateValue, setIntermediateValue ] = useState(JSON.stringify(JSON.parse( metaValue), null, 2));
+  const textareaRef = useRef();
 
   return (
     <div { ...blockProps }>
       <TextareaControl
-        value={ metaValue }
-        help={ __( 'This textarea acts as a placeholder for the JSON Schema form to be rendered.', 'gutenberg-metabox-jsonschema' ) }
+        className="gutenberg-metabox-jsonschema-jsoneditor"
+        value={ intermediateValue }
+        help={ __( 'This textarea acts as a placeholder for the JSON Schema form to be rendered. The entered data will be spit into the published page header.', 'gutenberg-metabox-jsonschema' ) }
         label={ __( 'JSON Post Meta data', 'gutenberg-metabox-jsonschema' ) }
-        onChange={ updateMetaValue }
+        ref={ textareaRef }
+        onChange={ (value) => {
+          try {
+            const object = JSON.parse(value);
+            updateMetaValue(JSON.stringify(object, null, 2));
+            textareaRef.current?.setCustomValidity('');
+          } catch(ex) {
+            textareaRef.current?.setCustomValidity(ex.message);
+          }
+          setIntermediateValue(value);
+        }}
       />
     </div>
   );

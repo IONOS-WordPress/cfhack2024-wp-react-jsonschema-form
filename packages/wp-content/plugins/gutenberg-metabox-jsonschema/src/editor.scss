@@ -4,3 +4,6 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+.gutenberg-metabox-jsonschema-jsoneditor textarea:invalid {
+  border-color: var(--wp--preset--color--accent-3);
+}

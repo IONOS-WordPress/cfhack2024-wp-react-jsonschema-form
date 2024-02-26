@@ -22,11 +22,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 \add_action( 'init', fn() => \register_post_meta(
   'page',
-  'our_metabox_data',
+  'gutenberg-metabox-jsonschema-data',
   [
-      'type'         => 'string',
-      'show_in_rest' => true,
-      'single'       => true,
+    'single'       => true,
+    'type'         => 'string',
+    'default'      => '{ "foo" : "bar" }',
+    'show_in_rest' => array(
+        'schema' => array(
+            'type'  => 'string',
+        ),
+    ),
   ]
 ));
 
@@ -62,20 +67,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 \add_action( 'wp_head', function () {
   $post_id = \get_the_ID();
 
-  $value = get_post_meta( get_the_ID(), 'our_metabox_data', true );
+  $value = get_post_meta( get_the_ID(), 'gutenberg-metabox-jsonschema-data', true );
 
-  if( ! \get_post_meta( $post_id, 'our_metabox_data', true ) ) {
+  if( ! \get_post_meta( $post_id, 'gutenberg-metabox-jsonschema-data', true ) ) {
     return;
   }
-  if( ! \get_post_meta( $post_id, 'our_metabox_data', false ) ) {
+  if( ! \get_post_meta( $post_id, 'gutenberg-metabox-jsonschema-data', false ) ) {
     return;
   }
   // both ifs will get run if no meta field is found; since
   // array() == false and '' == false
 
-  // @TODO evaluate post meta our_metabox_data JSON data and echo the matching <meta> tags
-  // $our_metabox_data = \get_post_meta( $post_id, 'our_metabox_data', true );
-  // echo "<!-- $our_metabox_data -->";
+  // @TODO evaluate post meta gutenberg-metabox-jsonschema-data JSON data and echo the matching <meta> tags
+  $data = \get_post_meta( $post_id, 'gutenberg-metabox-jsonschema-data', true );
+  echo "<!-- gutenberg-metabox-jsonschema-data $data -->";
 
   /*
     example headers to inject into page
