@@ -183,6 +183,14 @@ The project is set up to use [VS Code](https://code.visualstudio.com/) as the de
 
 ## Tips
 
+### Always execute `pnpm build` after `git pull` or `git checkout`
+
+Remember - you only see the last compiles js/css sources.
+
+So whenever you pull or checkout a branch, execute `pnpm build` to ensure that you are working with the latest sources.
+
+**Even if you changed any JS/CSS source locally - you need to built it before seeing any changes**
+
 ### Gutenberg
 
 #### Know the available the Gutenberg components and their options
@@ -197,7 +205,9 @@ The local Gutenberg Storybook can be launched by executing `pnpm run gutenberg-s
 
 By default WordPress provides production ready code which is minified and hard to read. Gutenberg is part of WordPress and is no exception. And so [@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/).
 
-@TODO: add Gutenberg debug information
+@TODO: add notice about the gutenberg chrome extension and how to use it to debug gutenberg components
+
+@TODO: add notice about how to debug into the gutenberg components
 
 # The most important tip
 
