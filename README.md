@@ -97,15 +97,9 @@ We should getting things done fast and concentrate on the most important thing :
 
 ### Linting
 
-We should use a linter to ensure a consistent code style across the project.
+This project has no linting / formatting configured to keep the amount of configuration low.
 
-I would suggest
-
-- use [eslint](https://eslint.org/) for linting
-
-- use [prettier](https://prettier.io/) for formatting
-
-@TODO: Add lint tooling, usage notes, and configuration. see [You Probably Don't Need eslint-config-prettier or eslint-plugin-prettier](https://www.joshuakgoldberg.com/blog/you-probably-dont-need-eslint-config-prettier-or-eslint-plugin-prettier/)
+Be nice to each other and don't use extravagant formatting.
 
 ### GIT
 
