@@ -10,8 +10,13 @@
     "**/vendor/**/{Tests,tests}/**",
     "**/.history/**",
     // "**/vendor/**/vendor/**",
-    "**/dist/**"
+    "**/dist/**",
+    "**/buid/**",
   ],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/build/**" : true
+  },
   "git.autoRepositoryDetection": false,
   /*
   "json.schemas": [
