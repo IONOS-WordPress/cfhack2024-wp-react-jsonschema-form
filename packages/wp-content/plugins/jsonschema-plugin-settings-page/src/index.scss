@@ -1,3 +1,6 @@
 /*
   this acts a initial dependency and is right now empty
 */
+.jsonschema-plugin-settings-page-jsoneditor textarea:invalid {
+  border-color: var(--wp--preset--color--accent-3, #d8613c);
+}

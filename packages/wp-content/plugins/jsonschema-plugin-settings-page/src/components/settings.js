@@ -1,4 +1,4 @@
-import { useState } from '@wordpress/element';
+import { useRef, useState } from '@wordpress/element';
 import { Panel, PanelBody, TextareaControl, Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
@@ -7,6 +7,17 @@ const config = window['jsonschema_plugin_settings_page'];
 
 export default function Settings() {
   const [json, setJSON] = useState(config['value']);
+  const [ intermediateValue, setIntermediateValue ] = useState(JSON.stringify( JSON.parse( json), null, 2));
+  const textareaRef = useRef();
+
+  const canSave = (() => {
+    try {
+      JSON.parse(intermediateValue);
+      return true;
+    } catch {
+      return false;
+    }
+  })();
 
   const saveChanges = async () => {
     const formData = new FormData();
@@ -28,13 +39,25 @@ export default function Settings() {
     <Panel header="jsonschema-plugin-settings-page">
       <PanelBody title="Plugin settings" opened>
         <TextareaControl
+          className="jsonschema-plugin-settings-page-jsoneditor"
           label={ __( 'JSON', 'jsonschema-plugin-settings-page' ) }
           help={ __("This textarea acts as a placeholder for the JSON Schema form to be rendered.") }
-          value={ json }
-          onChange={ ( value ) => setJSON( value ) }
+          value={ intermediateValue }
+          ref={ textareaRef }
+            onChange={ (value) => {
+              try {
+                const object = JSON.parse(value);
+                setJSON( JSON.stringify(object));
+                textareaRef.current?.setCustomValidity('');
+              } catch(ex) {
+                textareaRef.current?.setCustomValidity(ex.message);
+              }
+              setIntermediateValue(value);
+            }}
         />
         <Button
           variant="primary"
+          disabled={ !canSave }
           onClick={ saveChanges }
         >
           { __('Save Changes') }
