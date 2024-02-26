@@ -23,7 +23,7 @@ export default function Edit({ attributes, setAttributes }) {
       <InspectorControls>
 				<PanelBody title={ __( 'JSON Schema Form', 'gutenberg-form-block-jsonschema' ) } opened>
           <TextareaControl
-            className='jsoneditor'
+            className="gutenberg-form-block-jsonschema-jsoneditor"
             label={ __( 'JSON Schema of the form', 'gutenberg-form-block-jsonschema' ) }
             help={ __('This textarea acts as a placeholder for the JSON Schema form editor.', 'gutenberg-form-block-jsonschema') }
             required
