@@ -1,4 +1,8 @@
-/*
-  dummy css file
-*/
-
+/**
+ * The following styles get applied to the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.gutenberg-editor-sidebar-plugin-jsoneditor textarea:invalid {
+  border-color: var(--wp--preset--color--accent-3);
+}

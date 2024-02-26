@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
   \wp_enqueue_style(
     $HANDLE,
     \plugins_url('build/index.css', __FILE__),
-    $asset_file['dependencies'],
+    ['wp-components'], //$asset_file['dependencies'],
     $asset_file['version']
   );
 });
@@ -46,10 +46,52 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 \add_action( 'init', fn() => \register_post_meta(
   'page',
-  'our_data',
+  'gutenberg-editor-sidebar-plugin-data',
   [
-      'type'         => 'string',
-      'show_in_rest' => true,
-      'single'       => true,
+    'single'       => true,
+    'type'         => 'string',
+    'default'      => '{ "hi" : "ho" }',
+    'show_in_rest' => array(
+        'schema' => array(
+            'type'  => 'string',
+        ),
+    ),
   ]
 ));
+
+/**
+ * Add custom Meta Tags to header.
+ */
+\add_action( 'wp_head', function () {
+  $post_id = \get_the_ID();
+
+  $value = get_post_meta( get_the_ID(), 'gutenberg-editor-sidebar-plugin-data', true );
+
+  if( ! \get_post_meta( $post_id, 'gutenberg-editor-sidebar-plugin-data', true ) ) {
+    return;
+  }
+  if( ! \get_post_meta( $post_id, 'gutenberg-editor-sidebar-plugin-data', false ) ) {
+    return;
+  }
+  // both ifs will get run if no meta field is found; since
+  // array() == false and '' == false
+
+  // @TODO evaluate post meta gutenberg-editor-sidebar-plugin-data JSON data and echo the matching <meta> tags
+  $data = \get_post_meta( $post_id, 'gutenberg-editor-sidebar-plugin-data', true );
+  echo "<!-- gutenberg-editor-sidebar-plugin-data $data -->";
+
+  /*
+    example headers to inject into page
+
+    <meta name="resource-type" content="document">
+    <meta http-equiv="content-type" content="text/html; charset=US-ASCII">
+    <meta http-equiv="content-language" content="en-us">
+    <meta name="author" content="John Doe">
+    <meta name="contact" content="johndoe@johndoe.com">
+    <meta name="copyright" content="Copyright (c)2010-2020
+    John Doe. All Rights Reserved.">
+    <meta name="description" content="Tutorial on meta tags.">
+    <meta name="keywords" content="tutorial, meta tags, wordpress, greengeeks, john doe, adding meta tags, meta, how to, seo, yoast,">
+  */
+} );
+
