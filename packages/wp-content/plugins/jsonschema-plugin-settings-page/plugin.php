@@ -50,7 +50,9 @@ if ( ! defined( 'ABSPATH' ) ) {
           $HANDLE,
           "window['jsonschema_plugin_settings_page']=" . json_encode([
             '_wpnonce' => wp_create_nonce( 'options-options' ),
-            'value' => \get_option('jsonschema_plugin_settings_page', '{}')
+            'value' => \get_option('jsonschema_plugin_settings_page', '{}'),
+            'jsonschema' => file_get_contents(__DIR__ . '/jsonschema.json'),
+            'jsonschema-ui' => file_get_contents(__DIR__ . '/jsonschema-ui.json')
           ]),
           'before',
         );
