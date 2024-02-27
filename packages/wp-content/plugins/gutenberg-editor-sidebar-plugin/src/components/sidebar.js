@@ -7,7 +7,7 @@ import { __ } from '@wordpress/i18n';
 
 export default function Sidebar() {
   const data = useSelect( select => {
-    return select( 'core/editor' ).getEditedPostAttribute( 'meta' )['gutenberg-editor-sidebar-plugin-data'];
+    return select( 'core/editor' ).getEditedPostAttribute( 'meta' )?.['gutenberg-editor-sidebar-plugin-data'] || '{}';
   }, [] );
 
   const { editPost } = useDispatch( 'core/editor' );
