@@ -1,4 +1,4 @@
-import { useRef, useState } from '@wordpress/element';
+import { useRef, useState } from 'react';
 import { Panel, PanelBody, TextareaControl, Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';

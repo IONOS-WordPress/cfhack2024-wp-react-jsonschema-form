@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { useRef, useState } from '@wordpress/element';
+import { useRef, useState } from 'react';
 import { PanelBody, TextareaControl }  from '@wordpress/components';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 

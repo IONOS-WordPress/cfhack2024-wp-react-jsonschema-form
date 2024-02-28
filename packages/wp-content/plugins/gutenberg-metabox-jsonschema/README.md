@@ -32,13 +32,11 @@ It would be perfect if this package would provide a WordPress plugin
 
 ## Tips
 
-### Don't use React directly
+### `@wordpress/element` is deprecated
 
-If you are in the need to use React functions/hooks : **Do not import and use React directly !**
+Package [@wordpress/element](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/) is deprecated since WordPress 6.4.0. It's recommended to use the `react` directly.
 
-Package [@wordpress/element](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/) is a lightweight wrapper around React providing exactly the same functions as React.
-
-An example: Don't use `import React from 'react'` but use `import { render } from '@wordpress/element'` instead.
+An example: Don't use `import { render } from '@wordpress/element'` but `import React from 'react'`.
 
 ### Stretch the limits of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)
 

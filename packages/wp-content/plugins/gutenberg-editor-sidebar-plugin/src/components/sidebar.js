@@ -1,7 +1,6 @@
 import { Panel, PanelBody, TextareaControl } from '@wordpress/components';
-import { useRef, useState } from '@wordpress/element';
+import { useRef, useState, useCallback } from 'react';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { useCallback } from '@wordpress/element';
 import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post';
 import { __ } from '@wordpress/i18n';
 

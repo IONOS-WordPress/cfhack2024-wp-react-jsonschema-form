@@ -2,9 +2,9 @@
 
 This sub project should represent a proof of concept for a WordPress theme declaring additional custom settings to the global styles editor using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/).
 
-_The theme does not need to have any other purpose than acting as a show case for rendering a additional custom settings using a JSON Schema definition to the global styles editor of WordPress._  
+_The theme does not need to have any other purpose than acting as a show case for rendering a additional custom settings using a JSON Schema definition to the global styles editor of WordPress._
 
-It would be perfect if this package would provide a WordPress theme 
+It would be perfect if this package would provide a WordPress theme
 
 - a [child theme](https://developer.wordpress.org/themes/advanced-topics/child-themes/) of the latest official WordPress [Twenty Twenty-Four](https://wordpress.org/documentation/article/twenty-twenty-four/) theme
 
@@ -16,21 +16,19 @@ It would be perfect if this package would provide a WordPress theme
 
 - reflect the additional custom settings of the child theme in pages/posts
 
-- has a 'usage' section this this `README.md` file explaining how to showcase the plugin. 
+- has a 'usage' section this this `README.md` file explaining how to showcase the plugin.
 
-  - A embedded screenshot - or better a animated gif/png - would help a lot when representing our hackathon results. 
+  - A embedded screenshot - or better a animated gif/png - would help a lot when representing our hackathon results.
 
 # Development
 
 ## Tips
 
-### Don't use React directly
+### `@wordpress/element` is deprecated
 
-If you are in the need to use React functions/hooks : **Do not import and use React directly !** 
+Package [@wordpress/element](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/) is deprecated since WordPress 6.4.0. It's recommended to use the `react` directly.
 
-Package [@wordpress/element](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/) is a lightweight wrapper around React providing exactly the same functions as React. 
-
-An example: Don't use `import React from 'react'` but use `import { render } from '@wordpress/element'` instead. 
+An example: Don't use `import { render } from '@wordpress/element'` but `import React from 'react'`.
 
 ### Discover [@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/)
 
@@ -40,9 +38,9 @@ Since many of the sub packages of this project rely on [@wordpress/env](https://
 
 ### How to start
 
-* Head over to the [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) and warm up with [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/) 
+* Head over to the [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) and warm up with [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/)
 
-- Get familiar with [@wordpress/scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) : this package will be your best friend when developing WordPress plugins containing JavaScript/CSS. 
+- Get familiar with [@wordpress/scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) : this package will be your best friend when developing WordPress plugins containing JavaScript/CSS.
 
 ## Links
 

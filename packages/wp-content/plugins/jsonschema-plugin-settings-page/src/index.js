@@ -1,4 +1,4 @@
-import { createRoot } from "@wordpress/element";
+import { createRoot } from "react-dom";
 import Settings from "./components/settings.js";
 
 import "./index.scss";

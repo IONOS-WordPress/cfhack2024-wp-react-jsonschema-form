@@ -1,14 +1,14 @@
 # Purpose
 
-This WordPress plugin should represent a proof of concept for a WordPress Form Block rendering a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) form into a page/post. 
+This WordPress plugin should represent a proof of concept for a WordPress Form Block rendering a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) form into a page/post.
 
-The proof should demo editing a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) in the edit view of the Gutenberg editor and rendering the form in the frontend. 
+The proof should demo editing a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) in the edit view of the Gutenberg editor and rendering the form in the frontend.
 
-It would be perfect if this package would provide a WordPress plugin 
+It would be perfect if this package would provide a WordPress plugin
 
-- declaring a [Gutenberg block](https://developer.wordpress.org/block-editor/getting-started/fundamentals/) 
+- declaring a [Gutenberg block](https://developer.wordpress.org/block-editor/getting-started/fundamentals/)
 
-- implement the [Gutenberg block](https://developer.wordpress.org/block-editor/getting-started/fundamentals/) 
+- implement the [Gutenberg block](https://developer.wordpress.org/block-editor/getting-started/fundamentals/)
 
   - use [Monaco editor framework(https://stackoverflow.com/a/76113109) to implement a full featured JSON Schema editor in the block edit view
 
@@ -16,9 +16,9 @@ It would be perfect if this package would provide a WordPress plugin
 
   - form block should support some simple "target" options (e.g. send form data to a specific endpoint (contributed by this plugin) or as email). Or as its simplest solution : create a `mailto:` link with the form data as query parameters.
 
-- has a 'usage' section this this `README.md` file explaining how to showcase the plugin. 
+- has a 'usage' section this this `README.md` file explaining how to showcase the plugin.
 
-  - A embedded screenshot - or better a animated gif/png - would help a lot when representing our hackathon results. 
+  - A embedded screenshot - or better a animated gif/png - would help a lot when representing our hackathon results.
 
 ## Bonus feature
 
@@ -37,13 +37,11 @@ It would be perfect if this package would provide a WordPress plugin
 
 ## Tips
 
-### Don't use React directly
+### `@wordpress/element` is deprecated
 
-If you are in the need to use React functions/hooks : **Do not import and use React directly !** 
+Package [@wordpress/element](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/) is deprecated since WordPress 6.4.0. It's recommended to use the `react` directly.
 
-Package [@wordpress/element](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/) is a lightweight wrapper around React providing exactly the same functions as React. 
-
-An example: Don't use `import React from 'react'` but use `import { render } from '@wordpress/element'` instead. 
+An example: Don't use `import { render } from '@wordpress/element'` but `import React from 'react'`.
 
 ### Discover [@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/)
 
@@ -53,9 +51,9 @@ Since many of the sub packages of this project rely on [@wordpress/env](https://
 
 ### How to start
 
-* Head over to the [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) and warm up with [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/) 
+* Head over to the [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) and warm up with [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/)
 
-- Get familiar with [@wordpress/scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) : this package will be your best friend when developing WordPress plugins containing JavaScript/CSS. 
+- Get familiar with [@wordpress/scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/) : this package will be your best friend when developing WordPress plugins containing JavaScript/CSS.
 
 ## Links
 

@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { useRef, useState } from '@wordpress/element';
+import { useRef, useState } from 'react';
 import { TextareaControl } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { useEntityProp } from '@wordpress/core-data';
