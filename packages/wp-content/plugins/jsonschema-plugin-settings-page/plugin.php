@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       jsonschema-plugin-settings-page
  * Description:       provides a WordPress plugin settings page utilizing react-jsonschema-form
- * Requires at least: 6.3
+ * Requires at least: 6.4
  * Requires PHP:      8.3
  * Version:           1.0.0
  * Author:            The Hackathon Project Contributors

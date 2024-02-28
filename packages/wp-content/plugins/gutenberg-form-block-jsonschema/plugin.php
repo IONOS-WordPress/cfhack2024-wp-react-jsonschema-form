@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       gutenberg-form-block-jsonschema
  * Description:       declaring a Gutenberg block rendering a form using react-jsonschema-form in posts/pages
- * Requires at least: 6.3
+ * Requires at least: 6.4
  * Requires PHP:      8.3
  * Version:           1.0.0
  * Author:            The Hackathon Project Contributors
