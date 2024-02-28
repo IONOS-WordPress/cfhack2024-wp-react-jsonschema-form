@@ -38,6 +38,8 @@ Package [@wordpress/element](https://developer.wordpress.org/block-editor/refere
 
 An example: Don't use `import { render } from '@wordpress/element'` but `import React from 'react'`.
 
+see https://github.com/WordPress/gutenberg/pull/54908 for details.
+
 ### Stretch the limits of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)
 
 Consider using the [FormTokenField component](https://wordpress.github.io/gutenberg/?path=/docs/components-formtokenfield--docs) to collect keywords for SEO.

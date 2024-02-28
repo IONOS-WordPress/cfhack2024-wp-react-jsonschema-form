@@ -30,6 +30,8 @@ Package [@wordpress/element](https://developer.wordpress.org/block-editor/refere
 
 An example: Don't use `import { render } from '@wordpress/element'` but `import React from 'react'`.
 
+see https://github.com/WordPress/gutenberg/pull/54908 for details.
+
 ### Discover [@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/)
 
 [@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) is the best buddy you can have for WordPress plugin/theme development. This package provides a configurable local WordPress environment managed using [docker](https://docker.io).
