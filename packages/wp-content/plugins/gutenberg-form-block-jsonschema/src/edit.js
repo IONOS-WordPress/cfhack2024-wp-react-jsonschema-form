@@ -18,6 +18,19 @@ export default function Edit({ attributes, setAttributes }) {
   const [ intermediateValue, setIntermediateValue ] = useState(jsonschema);
   const textareaRef = useRef();
 
+  const onChange = (value) => {
+    try {
+      const object = JSON.parse(value);
+      setAttributes( {
+        jsonschema: value,
+      });
+      textareaRef.current?.setCustomValidity('');
+    } catch(ex) {
+      textareaRef.current?.setCustomValidity(ex.message);
+    }
+    setIntermediateValue(value);
+  };
+
 	return (
     <>
       <InspectorControls>
@@ -29,18 +42,7 @@ export default function Edit({ attributes, setAttributes }) {
             required
             value={ intermediateValue }
             ref={ textareaRef }
-            onChange={ (value) => {
-              try {
-                const object = JSON.parse(value);
-                setAttributes( {
-                  jsonschema: value,
-                } );
-                textareaRef.current?.setCustomValidity('');
-              } catch(ex) {
-                textareaRef.current?.setCustomValidity(ex.message);
-              }
-              setIntermediateValue(value);
-            }}
+            onChange={ onChange }
           />
         </PanelBody>
 			</InspectorControls>

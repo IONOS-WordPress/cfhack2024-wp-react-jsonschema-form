@@ -20,6 +20,19 @@ export default function Edit({ attributes, setAttributes }) {
   const [ intermediateValue, setIntermediateValue ] = useState(JSON.stringify(json, null, 2));
   const textareaRef = useRef();
 
+  const onChange = (value) => {
+    try {
+      const object = JSON.parse(value);
+      setAttributes( {
+        json: object,
+      } );
+      textareaRef.current?.setCustomValidity('');
+    } catch(ex) {
+      textareaRef.current?.setCustomValidity(ex.message);
+    }
+    setIntermediateValue(value);
+  };
+
 	return (
     <>
       <InspectorControls>
@@ -31,18 +44,7 @@ export default function Edit({ attributes, setAttributes }) {
             required
             value={ intermediateValue }
             ref={ textareaRef }
-            onChange={ (value) => {
-              try {
-                const object = JSON.parse(value);
-                setAttributes( {
-                  json: object,
-                } );
-                textareaRef.current?.setCustomValidity('');
-              } catch(ex) {
-                textareaRef.current?.setCustomValidity(ex.message);
-              }
-              setIntermediateValue(value);
-            }}
+            onChange={ onChange }
           />
           <TextareaControl
             label={ __( 'JSON Schema of the form', 'gutenberg-block-attributes-jsonschema' ) }

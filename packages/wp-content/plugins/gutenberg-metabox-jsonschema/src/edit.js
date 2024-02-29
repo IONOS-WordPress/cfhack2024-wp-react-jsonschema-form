@@ -30,6 +30,17 @@ export default function Edit({ setAttributes, attributes }) {
   const [ intermediateValue, setIntermediateValue ] = useState(JSON.stringify(JSON.parse( metaValue), null, 2));
   const textareaRef = useRef();
 
+  const onChange = (value) => {
+    try {
+      const object = JSON.parse(value);
+      updateMetaValue(JSON.stringify(object, null, 2));
+      textareaRef.current?.setCustomValidity('');
+    } catch(ex) {
+      textareaRef.current?.setCustomValidity(ex.message);
+    }
+    setIntermediateValue(value);
+  };
+
   return (
     <div { ...blockProps }>
       <TextareaControl
@@ -38,16 +49,7 @@ export default function Edit({ setAttributes, attributes }) {
         help={ __( 'This textarea acts as a placeholder for the JSON Schema form to be rendered. The entered data will be spit into the published page header.', 'gutenberg-metabox-jsonschema' ) }
         label={ __( 'JSON Post Meta data', 'gutenberg-metabox-jsonschema' ) }
         ref={ textareaRef }
-        onChange={ (value) => {
-          try {
-            const object = JSON.parse(value);
-            updateMetaValue(JSON.stringify(object, null, 2));
-            textareaRef.current?.setCustomValidity('');
-          } catch(ex) {
-            textareaRef.current?.setCustomValidity(ex.message);
-          }
-          setIntermediateValue(value);
-        }}
+        onChange={ onChange }
       />
     </div>
   );

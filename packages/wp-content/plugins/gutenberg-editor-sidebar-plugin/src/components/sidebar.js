@@ -17,6 +17,17 @@ export default function Sidebar() {
   const [ intermediateValue, setIntermediateValue ] = useState(JSON.stringify(JSON.parse( data), null, 2));
   const textareaRef = useRef();
 
+  const onChange = (value) => {
+    try {
+      const object = JSON.parse(value);
+      setData(JSON.stringify(object, null, 2));
+      textareaRef.current?.setCustomValidity('');
+    } catch(ex) {
+      textareaRef.current?.setCustomValidity(ex.message);
+    }
+    setIntermediateValue(value);
+  };
+
   return (
     <>
       <PluginSidebarMoreMenuItem target="gutenberg-editor-sidebar-plugin-panel">
@@ -36,16 +47,7 @@ export default function Sidebar() {
                 value={ intermediateValue }
                 help={ __( 'This textarea acts as a placeholder for the JSON Schema form to be rendered. The entered data will be spit into the published page header.', 'gutenberg-editor-sidebar-plugin' ) }
                 label={ __( 'JSON data', 'gutenberg-editor-sidebar-plugin' ) }
-                onChange={ (value) => {
-                  try {
-                    const object = JSON.parse(value);
-                    setData(JSON.stringify(object, null, 2));
-                    textareaRef.current?.setCustomValidity('');
-                  } catch(ex) {
-                    textareaRef.current?.setCustomValidity(ex.message);
-                  }
-                  setIntermediateValue(value);
-                }}
+                onChange={ onChange }
             />
           </PanelBody>
         </Panel>

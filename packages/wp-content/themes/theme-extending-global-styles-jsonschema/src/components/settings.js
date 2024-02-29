@@ -34,24 +34,26 @@ export default function Settings() {
     });
   };
 
+  const onChange = (value) => {
+    try {
+      const object = JSON.parse(value);
+      setJSON( JSON.stringify(object));
+      textareaRef.current?.setCustomValidity('');
+    } catch(ex) {
+      textareaRef.current?.setCustomValidity(ex.message);
+    }
+    setIntermediateValue(value);
+  };
+
   return (
-    <PanelBody /* initialOpen={ false } */ opened title={ __('Custom theme settings', 'theme-extending-global-styles-jsonschema') }>
+    <PanelBody /* initialOpen={ false } */ opened title={ __('JSON Schema theme settings', 'theme-extending-global-styles-jsonschema') }>
       <TextareaControl
         className="theme-extending-global-styles-jsonschema"
         label={ __( 'JSON', 'theme-extending-global-styles-jsonschema' ) }
         help={ __('This textarea acts as a placeholder for the JSON Schema form to be rendered.', 'theme-extending-global-styles-jsonschema') }
         value={ intermediateValue }
         ref={ textareaRef }
-          onChange={ (value) => {
-            try {
-              const object = JSON.parse(value);
-              setJSON( JSON.stringify(object));
-              textareaRef.current?.setCustomValidity('');
-            } catch(ex) {
-              textareaRef.current?.setCustomValidity(ex.message);
-            }
-            setIntermediateValue(value);
-          }}
+        onChange={ onChange }
       />
       <Button
         variant="primary"

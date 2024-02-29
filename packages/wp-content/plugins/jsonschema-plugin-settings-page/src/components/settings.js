@@ -34,6 +34,17 @@ export default function Settings() {
     });
   };
 
+  const onChange = (value) => {
+    try {
+      const object = JSON.parse(value);
+      setJSON( JSON.stringify(object));
+      textareaRef.current?.setCustomValidity('');
+    } catch(ex) {
+      textareaRef.current?.setCustomValidity(ex.message);
+    }
+    setIntermediateValue(value);
+  };
+
   return (
     <Panel header="jsonschema-plugin-settings-page">
       <PanelBody title="Plugin settings" opened>
@@ -43,16 +54,7 @@ export default function Settings() {
           help={ __("This textarea acts as a placeholder for the JSON Schema form to be rendered.") }
           value={ intermediateValue }
           ref={ textareaRef }
-            onChange={ (value) => {
-              try {
-                const object = JSON.parse(value);
-                setJSON( JSON.stringify(object));
-                textareaRef.current?.setCustomValidity('');
-              } catch(ex) {
-                textareaRef.current?.setCustomValidity(ex.message);
-              }
-              setIntermediateValue(value);
-            }}
+          onChange={ onChange }
         />
         <Button
           variant="primary"
