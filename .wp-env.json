@@ -28,6 +28,6 @@
   },
   "lifecycleScripts": {
     "afterStart": "$(command -v bash) ./.wp-env-afterStart.sh",
-    "afterDestroy": "rm -rf $(dirname $(pnpm run --silent wp-env install-path 2> /dev/null))"
+    "afterDestroy": "$(command -v bash) -c 'rm -rf $(dirname $(pnpm run --silent wp-env install-path 2> /dev/null))'"
   }
 }
