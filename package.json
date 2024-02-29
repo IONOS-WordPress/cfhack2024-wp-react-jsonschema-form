@@ -7,7 +7,7 @@
     "build": "pnpm --recursive run build",
     "dev": "pnpm --recursive run dev",
     "start": "pnpm run wp-env start --xdebug",
-    "stop": "pnpm run wp-env  stop",
+    "stop": "pnpm run wp-env stop",
     "destroy": "echo 'yes' | pnpm run wp-env destroy",
     "wp-env": "WP_ENV_HOME=wp-env-home pnpm exec wp-env",
     "gutenberg-storybook": "pnpm dlx http-server $(realpath --relative-to $(pwd) $(pnpm run --silent  wp-env install-path))/storybook/build/"
@@ -24,6 +24,6 @@
   ],
   "license": "GPL-2.0-or-later",
   "devDependencies": {
-    "@wordpress/env": "^9.3.0"
+    "@wordpress/env": "^9.4.0"
   }
 }

@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@wordpress/env':
-        specifier: ^9.3.0
-        version: 9.3.0
+        specifier: ^9.4.0
+        version: 9.4.0
 
   packages/npm/react-jsonschema-form-gutenberg: {}
 
@@ -2902,8 +2902,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@wordpress/env@9.3.0:
-    resolution: {integrity: sha512-qFu/my4SnlM43SItbmTCEVZrXC1p9Qyk/JQ7/6/0GYS/2vuKTjYgb/wfn3HJpUzay3DrbATlqAv9WfJHlyaEZw==}
+  /@wordpress/env@9.4.0:
+    resolution: {integrity: sha512-flF+WLAuf8j97OjFkJU7/l9bzvI7GEUm1MXYdo16kSqxBvOTwVkk2yf5s9nxREJ3gPYahgNYf8cA7uT9Rj2eDQ==}
     hasBin: true
     dependencies:
       chalk: 4.1.2
