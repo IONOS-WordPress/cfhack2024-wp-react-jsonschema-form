@@ -15,7 +15,8 @@
   ],
   "search.exclude": {
     "**/node_modules": true,
-    "**/build/**" : true
+    "**/build/**" : true,
+    "**/build-module/**" : true
   },
   "git.autoRepositoryDetection": false,
   /*
