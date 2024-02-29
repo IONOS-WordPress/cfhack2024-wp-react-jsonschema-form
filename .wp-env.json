@@ -2,7 +2,7 @@
   "core": "WordPress/WordPress#6.4.3",
   "phpVersion": "8.3",
   "plugins": [
-    "WordPress/gutenberg#v17.7.0",
+    "WordPress/gutenberg#v17.8.0",
     "./packages/wp-content/plugins/gutenberg-block-attributes-jsonschema/",
     "./packages/wp-content/plugins/gutenberg-editor-sidebar-plugin/",
     "./packages/wp-content/plugins/gutenberg-form-block-jsonschema/",
