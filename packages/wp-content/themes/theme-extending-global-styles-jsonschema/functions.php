@@ -21,6 +21,16 @@ if ( ! defined( 'ABSPATH' ) ) {
     $asset_file['version']
   );
   \wp_set_script_translations($HANDLE, $HANDLE);
+  \wp_add_inline_script(
+    $HANDLE,
+    "window['theme-extending-global-styles-jsonschema']=" . json_encode([
+      '_wpnonce' => wp_create_nonce( 'options-options' ),
+      'value' => \get_option('theme-extending-global-styles-jsonschema', '{}'),
+      'jsonschema' => file_get_contents(__DIR__ . '/jsonschema.json'),
+      'jsonschema-ui' => file_get_contents(__DIR__ . '/jsonschema-ui.json')
+    ]),
+    'before',
+  );
 
   \wp_enqueue_style(
     $HANDLE,

@@ -2,3 +2,6 @@
  * The following styles get applied to the global styles editor.
  */
 
+.theme-extending-global-styles-jsonschema textarea:invalid {
+  border-color: var(--wp--preset--color--accent-3);
+}
