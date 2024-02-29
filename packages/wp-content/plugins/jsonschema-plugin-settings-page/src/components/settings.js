@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { Panel, PanelBody, TextareaControl, Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import apiFetch from '@wordpress/api-fetch';
 
 const config = window['jsonschema_plugin_settings_page'];
 
