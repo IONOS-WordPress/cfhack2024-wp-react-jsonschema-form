@@ -31,6 +31,11 @@ for prefix in '' 'tests-' ; do
 
   # activate our theme
   pnpm run wp-env run ${prefix}cli wp --quiet theme activate theme-extending-global-styles-jsonschema
+
+  # Updates an option value for example the value of Simple page is id = 2
+  pnpm run wp-env run ${prefix}cli wp option update page_on_front 2
+  # Update the page as front page by default.
+  pnpm run wp-env run ${prefix}cli wp option update show_on_front page
 done
 
 function plugins {
