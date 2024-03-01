@@ -4,6 +4,8 @@ import { __ } from '@wordpress/i18n';
 
 const config = window['theme-extending-global-styles-jsonschema'];
 
+import Icon from '../../../../../../shared/src/hackathon-icon.js';
+
 export default function Settings() {
   const [json, setJSON] = useState(config['value']);
   const [ intermediateValue, setIntermediateValue ] = useState(JSON.stringify( JSON.parse( json), null, 2));
@@ -46,7 +48,7 @@ export default function Settings() {
   };
 
   return (
-    <PanelBody /* initialOpen={ false } */ opened title={ __('JSON Schema theme settings', 'theme-extending-global-styles-jsonschema') }>
+    <PanelBody /* initialOpen={ false } */ opened title={ __('JSON Schema theme settings', 'theme-extending-global-styles-jsonschema') } icon={ Icon }>
       <TextareaControl
         className="theme-extending-global-styles-jsonschema"
         label={ __( 'JSON', 'theme-extending-global-styles-jsonschema' ) }

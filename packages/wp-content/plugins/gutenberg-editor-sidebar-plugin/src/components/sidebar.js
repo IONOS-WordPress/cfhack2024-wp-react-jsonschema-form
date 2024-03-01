@@ -4,6 +4,14 @@ import { useDispatch, useSelect } from '@wordpress/data';
 import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post';
 import { __ } from '@wordpress/i18n';
 
+import Icon from '../../../../../../shared/src/hackathon-icon.js';
+
+function Icon32() {
+  return (
+    <Icon size={ 32 }/>
+  );
+}
+
 export default function Sidebar() {
   const data = useSelect( select => {
     return select( 'core/editor' ).getEditedPostAttribute( 'meta' )?.['gutenberg-editor-sidebar-plugin-data'] || '{}';
@@ -40,6 +48,7 @@ export default function Sidebar() {
         <Panel>
           <PanelBody
               title={ __( 'cfhack2024 Sidebar Plugin JSON Schema Form', 'gutenberg-editor-sidebar-plugin' ) }
+              icon={ Icon32 }
           >
             <TextareaControl
                 className="gutenberg-editor-sidebar-plugin-jsoneditor"

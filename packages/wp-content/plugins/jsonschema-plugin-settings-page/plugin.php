@@ -20,13 +20,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 \add_action(
   "admin_menu",
   function () {
-    $menu_page_hook_suffix = \add_menu_page('JSON Schema settings form', 'JSON Schema settings form', 'manage_options', 'jsonschema_plugin_settings_page', function () {
+    $menu_page_hook_suffix = \add_menu_page('JSON Schema plugin settings page', 'JSON Schema plugin settings page', 'manage_options', 'jsonschema_plugin_settings_page', function () {
       require_once ABSPATH . 'wp-admin/admin-header.php';
 
       echo '<div class="wrap" id="jsonschema-plugin-settings-page"></div>';
 
       require_once ABSPATH . 'wp-admin/admin-footer.php';
-    }, 0);
+    }, \plugins_url( 'assets/icon.svg', __FILE__ ));
 
     \add_action(
       'load-' . $menu_page_hook_suffix,

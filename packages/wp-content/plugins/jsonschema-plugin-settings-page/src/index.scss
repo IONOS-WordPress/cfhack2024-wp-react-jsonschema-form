@@ -97,6 +97,12 @@
       /* remove components panel border */
       >* {
         border: inherit;
+
+        .components-panel__header >*::after {
+          content: url(../assets/icon.svg);
+          padding-left: 12px;
+          vertical-align: middle;
+        }
       }
     }
   }

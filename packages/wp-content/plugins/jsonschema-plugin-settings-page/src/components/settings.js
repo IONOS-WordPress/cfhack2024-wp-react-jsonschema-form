@@ -47,7 +47,7 @@ export default function Settings() {
 
   return (
     <Panel header="jsonschema-plugin-settings-page">
-      <PanelBody title="Plugin settings" opened>
+      <PanelBody title={ __('Plugin settings') } opened>
         <TextareaControl
           className="jsonschema-plugin-settings-page-jsoneditor"
           label={ __( 'JSON', 'jsonschema-plugin-settings-page' ) }
