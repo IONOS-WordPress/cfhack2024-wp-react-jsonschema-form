@@ -85,7 +85,7 @@ Each sub project contains a `README.md` file with further instructions.
 
 ## Conventions
 
-### @TODISCUSS: No Typescript
+### No Typescript
 
 I have participated in coding sessions with people doing Typescript since a year or longer. It took them half an hour to develop a type definition for an event handler (at the extreme).
 
@@ -105,9 +105,7 @@ Be nice to each other and don't use extravagant formatting.
 
 I used to work with [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) for a long time. But I have to admit that it is a bit too complex for small projects. I would prefer to use a [trunk based workflow](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development) for this project.
 
-The project is already set up to use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to ensure that the commit messages are consistent.
-
-@TODO: Add conventional commits tools/usage notes/configuration
+I would encourage participants to write commit message according to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to ensure a consistent commit message format.
 
 _I am a big fan of [changesets](https://github.com/changesets/changesets) for creating human readable changelogs but I would skip it for this project since we do not plan to release anything._
 
@@ -119,19 +117,27 @@ Anyway, we should follow some best practices to ensure that we don't break the w
 
 - Don't work directly on the `trunk` branch if possible.
 
-- Create a new branch for each change (feature, bug fix, etc) and merge it back whenever you think it is working/will-not-break-the-whole-project.
+- Create a new branch for each change (feature, bug fix, etc) and merge it back whenever you think it _will not break the whole project_ and _is working_.
 
 - I would propose that we don't need to use a pull requests for this project - it costs too much time.
 
-  - If you are really unsure if your branch is ready to merge back, you can ask a team mate for a review
+  - If you are really unsure if your branch is ready to merge back, you can ask a team mate for a review.
 
 ### Debugging
+
+#### WordPress
 
 The project is set up to use [VS Code](https://code.visualstudio.com/) as the development environment. It comes with preconfigured launch configurations for debugging, required extensions and settings, among other features.
 
 [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) is even already preconfigured to support debugging of PHP code.
 
-@TODO: Add debugging instructions/launch configurations
+#### JS/CSS/Gutenberg
+
+Plugin/Theme sources are also compiled with debug informations. So you can easily debug into your own sources using the browser.
+
+Gutenberg is compiled with debug informations when `wp-env` is starting up. This means you can even debug from your own JS/CSS into the Gutenberg sources.
+
+_The project setup will always build code including debugging information. Everything is compiled for easy debugging since **we are here for hacking :-)**_
 
 ### Commands
 
@@ -148,6 +154,14 @@ The project is set up to use [VS Code](https://code.visualstudio.com/) as the de
   - stop [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm run stop`
 
   - destroy [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm run destroy`
+
+  - watch and build js/css : `pnpm run dev`
+
+    This command will watch the js/css sources and rebuild them on changes. Perfect when you working on just JS/CSS sources.
+
+    The only thing to do is reloading your wordpress tab in the browser.
+
+    > Why not using [HMR](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/#start) ? Because multiple parallel watching [wp-scripts start](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/#start) instances are not supported yet by [HMR via `wp-scripts`](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/#start)
 
   - stop [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm run stop`
 
@@ -199,9 +213,11 @@ The local Gutenberg Storybook can be launched by executing `pnpm run gutenberg-s
 
 By default WordPress provides production ready code which is minified and hard to read. Gutenberg is part of WordPress and is no exception. And so [@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/).
 
-@TODO: add notice about the gutenberg chrome extension and how to use it to debug gutenberg components
+That's why this project is set up with the latest Gutenberg including debug information. This means you can easily debug into the Gutenberg components.
 
-@TODO: add notice about how to debug into the gutenberg components
+To debug into React you can use the browser's developer tools. You can set breakpoints and debug into JS code.
+
+It's highly recommended to install [React Developer Tools](https://react.dev/learn/react-developer-tools) in your browser. It will ease React debugging a lot.
 
 # The most important tip
 
