@@ -9,7 +9,7 @@
     "**/bower_components/**",
     "**/vendor/**/{Tests,tests}/**",
     "**/.history/**",
-    // "**/vendor/**/vendor/**",
+    "**/vendor/**/vendor/**",
     "**/dist/**",
     "**/buid/**",
   ],
@@ -18,6 +18,9 @@
     "**/build/**" : true,
     "**/build-module/**" : true
   },
+  "intelephense.environment.includePaths": [
+    "wp-env-home/*/WordPress"
+  ],
   "git.autoRepositoryDetection": false,
   /*
   "json.schemas": [
