@@ -4,14 +4,11 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-		"build": "wp-scripts start --no-watch",
-    "dev": "wp-scripts start",
+		"build": "wp-scripts start -c ../../../../webpack.config.js --no-watch",
+    "dev": "wp-scripts start -c ../../../../webpack.config.js",
 		"packages-update": "wp-scripts packages-update"
 	},
   "author": "The Hackathon Project Contributors",
   "keywords": ["wordpress", "plugin", "jsonschema", "ui", "react-jsonschema-form"],
-  "license": "GPL-2.0-or-later",
-	"devDependencies": {
-		"@wordpress/scripts": "^27.3.0"
-	}
+  "license": "GPL-2.0-or-later"
 }

@@ -11,36 +11,19 @@ importers:
       '@wordpress/env':
         specifier: ^9.4.0
         version: 9.4.0
-
-  packages/wp-content/plugins/gutenberg-block-attributes-jsonschema:
-    devDependencies:
       '@wordpress/scripts':
         specifier: ^27.3.0
         version: 27.3.0(@playwright/test@1.41.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
 
-  packages/wp-content/plugins/gutenberg-editor-sidebar-plugin:
-    devDependencies:
-      '@wordpress/scripts':
-        specifier: ^27.3.0
-        version: 27.3.0(@playwright/test@1.41.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
+  packages/wp-content/plugins/gutenberg-block-attributes-jsonschema: {}
 
-  packages/wp-content/plugins/gutenberg-form-block-jsonschema:
-    devDependencies:
-      '@wordpress/scripts':
-        specifier: ^27.3.0
-        version: 27.3.0(@playwright/test@1.41.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
+  packages/wp-content/plugins/gutenberg-editor-sidebar-plugin: {}
 
-  packages/wp-content/plugins/gutenberg-metabox-jsonschema:
-    devDependencies:
-      '@wordpress/scripts':
-        specifier: ^27.3.0
-        version: 27.3.0(@playwright/test@1.41.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
+  packages/wp-content/plugins/gutenberg-form-block-jsonschema: {}
 
-  packages/wp-content/plugins/jsonschema-plugin-settings-page:
-    devDependencies:
-      '@wordpress/scripts':
-        specifier: ^27.3.0
-        version: 27.3.0(@playwright/test@1.41.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
+  packages/wp-content/plugins/gutenberg-metabox-jsonschema: {}
+
+  packages/wp-content/plugins/jsonschema-plugin-settings-page: {}
 
   packages/wp-content/plugins/react-jsonschema-form-renderer:
     dependencies:
@@ -53,16 +36,8 @@ importers:
       '@rjsf/validator-ajv8':
         specifier: ^5.17.1
         version: 5.17.1(@rjsf/utils@5.17.1)
-    devDependencies:
-      '@wordpress/scripts':
-        specifier: ^27.3.0
-        version: 27.3.0(@playwright/test@1.41.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
 
-  packages/wp-content/themes/theme-extending-global-styles-jsonschema:
-    devDependencies:
-      '@wordpress/scripts':
-        specifier: ^27.3.0
-        version: 27.3.0(@playwright/test@1.41.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
+  packages/wp-content/themes/theme-extending-global-styles-jsonschema: {}
 
 packages:
 

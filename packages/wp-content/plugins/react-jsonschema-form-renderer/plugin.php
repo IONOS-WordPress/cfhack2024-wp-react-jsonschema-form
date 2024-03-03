@@ -36,30 +36,29 @@ if ( ! defined( 'ABSPATH' ) ) {
          */
         $HANDLE = str_replace('_', '-', __NAMESPACE__);
 
-        $asset_file = include( \plugin_dir_path( __FILE__ ) . 'build/index.asset.php');
-
+        $SETTINGS_PAGE_HANDLE = "{$HANDLE}-settings-page";
+        $asset_file = include( \plugin_dir_path( __FILE__ ) . 'build/settings-page.asset.php');
         \wp_enqueue_script(
-          $HANDLE,
-          \plugins_url( 'build/index.js', __FILE__ ),
+          $SETTINGS_PAGE_HANDLE,
+          \plugins_url( 'build/settings-page.js', __FILE__ ),
           $asset_file['dependencies'],
           $asset_file['version'],
           true,
         );
-        \wp_set_script_translations($HANDLE, $HANDLE);
+        \wp_set_script_translations($SETTINGS_PAGE_HANDLE, $SETTINGS_PAGE_HANDLE);
         \wp_add_inline_script(
-          $HANDLE,
+          $SETTINGS_PAGE_HANDLE,
           "window['jsonschema_plugin_settings_page']=" . json_encode([
             '_wpnonce' => wp_create_nonce( 'options-options' ),
             'value' => \get_option('jsonschema_plugin_settings_page', '{}'),
-            'jsonschema' => file_get_contents(__DIR__ . '/jsonschema.json'),
-            'jsonschema-ui' => file_get_contents(__DIR__ . '/jsonschema-ui.json')
+            'jsonschema' => file_get_contents(__DIR__ . '/settings-page-jsonschema.json'),
+            'jsonschema-ui' => file_get_contents(__DIR__ . '/settings-page-jsonschema-ui.json')
           ]),
           'before',
         );
-
         \wp_enqueue_style(
-          $HANDLE,
-          \plugins_url('build/index.css', __FILE__),
+          $SETTINGS_PAGE_HANDLE,
+          \plugins_url('build/settings-page.css', __FILE__),
           ['wp-components'], //$asset_file['dependencies'],
           $asset_file['version']
         );

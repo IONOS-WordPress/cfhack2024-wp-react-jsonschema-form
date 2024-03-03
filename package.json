@@ -24,6 +24,7 @@
   ],
   "license": "GPL-2.0-or-later",
   "devDependencies": {
-    "@wordpress/env": "^9.4.0"
+    "@wordpress/env": "^9.4.0",
+    "@wordpress/scripts": "^27.3.0"
   }
 }

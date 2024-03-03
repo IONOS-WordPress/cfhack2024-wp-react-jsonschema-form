@@ -1,3 +1,5 @@
+@TODO: needs completely rewritten ...
+
 # Purpose
 
 This sub project should represent a proof of concept for a WordPress plugin declaring its settings page using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/).
