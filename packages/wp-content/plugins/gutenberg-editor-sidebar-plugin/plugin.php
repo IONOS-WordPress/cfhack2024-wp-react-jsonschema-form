@@ -3,6 +3,7 @@
  * Plugin Name:       gutenberg-editor-sidebar-plugin
  * Description:       provides a WordPress plugin declaring a Gutenberg editor sidebar plugin rendered using react-jsonschema-form
  * Requires at least: 6.4
+ * Requires Plugins:  react-jsonschema-form-renderer
  * Requires PHP:      8.3
  * Version:           1.0.0
  * Author:            The Hackathon Project Contributors

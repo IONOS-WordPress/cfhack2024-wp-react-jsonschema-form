@@ -12,6 +12,6 @@
   "keywords": ["wordpress", "plugin", "Gutenberg", "block", "jsonschema", "ui", "react-jsonschema-form"],
   "license": "GPL-2.0-or-later",
 	"devDependencies": {
-		"@wordpress/scripts": "^27.2.0"
+		"@wordpress/scripts": "^27.3.0"
 	}
 }

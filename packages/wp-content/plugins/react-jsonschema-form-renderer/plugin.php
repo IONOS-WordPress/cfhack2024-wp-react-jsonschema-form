@@ -1,18 +1,17 @@
 <?php
 /**
- * Plugin Name:       jsonschema-plugin-settings-page
- * Description:       provides a WordPress plugin settings page utilizing react-jsonschema-form
+ * Plugin Name:       react-jsonschema-form-renderer
+ * Description:       provides a WordPress plugin exposing react-jsonschema-form renderers
  * Requires at least: 6.4
- * Requires Plugins:  react-jsonschema-form-renderer
  * Requires PHP:      8.3
  * Version:           1.0.0
  * Author:            The Hackathon Project Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       jsonschema-plugin-settings-page
+ * Text Domain:       react-jsonschema-form-renderer
  */
 
-namespace cfhack2024_wp_react_jsonschema_form\jsonschema_plugin_settings_page;
+namespace cfhack2024_wp_react_jsonschema_form\react_jsonschema_form_renderer;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -21,10 +20,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 \add_action(
   "admin_menu",
   function () {
-    $menu_page_hook_suffix = \add_menu_page('JSON Schema plugin settings page', 'JSON Schema plugin settings page', 'manage_options', 'jsonschema_plugin_settings_page', function () {
+    $menu_page_hook_suffix = \add_menu_page('react-jsonschema-form Renderer Playground', 'react-jsonschema-form Renderer Playground', 'manage_options', 'react_jsonschema_form_renderer_page', function () {
       require_once ABSPATH . 'wp-admin/admin-header.php';
 
-      echo '<div class="wrap" id="jsonschema-plugin-settings-page"></div>';
+      echo '<div class="wrap" id="react-jsonschema-form-renderer"></div>';
 
       require_once ABSPATH . 'wp-admin/admin-footer.php';
     }, \plugins_url( 'assets/icon.svg', __FILE__ ));
