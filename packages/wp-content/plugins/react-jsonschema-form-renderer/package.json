@@ -12,7 +12,9 @@
   "keywords": ["wordpress", "plugin", "jsonschema", "ui", "react-jsonschema-form"],
   "license": "GPL-2.0-or-later",
   "dependencies": {
-    "rjsf" : "github:rjsf-team/react-jsonschema-form.git#5.17.1"
+    "@rjsf/utils": "5.17.1",
+    "@rjsf/core" : "^5.17.1",
+    "@rjsf/validator-ajv8" : "^5.17.1"
   },
 	"devDependencies": {
 		"@wordpress/scripts": "^27.3.0"
