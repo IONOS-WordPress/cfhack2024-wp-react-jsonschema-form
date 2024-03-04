@@ -101,14 +101,12 @@ cat << EOF > '.vscode/settings.json'
     "${WPENV_INSTALLPATH}/WordPress"
   ],
   "git.autoRepositoryDetection": false,
-  /*
   "json.schemas": [
     {
-      "fileMatch": ["slice-*.json"],
-      "url": "\${workspaceFolder}/docs/jsonschema/slice-content.json"
+      "fileMatch": ["jsonschema.json"],
+      "url": "https://json-schema.org/draft/2019-09/schema"
     }
   ]
-  */
   "[html]": {
     "editor.formatOnSave": false
   }

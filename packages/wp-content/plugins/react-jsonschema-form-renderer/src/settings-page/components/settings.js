@@ -2,7 +2,26 @@ import { useRef, useState } from 'react';
 import { Panel, PanelBody, TextareaControl, Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
+import validator from '@rjsf/validator-ajv8';
+import FormGutenberg/*, { withTheme, getDefaultRegistry }*/ from '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer/gutenberg';
+import FormHtml5/*, { withTheme, getDefaultRegistry }*/ from '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer/gutenberg';
+
+// /* this is just for debugging purposes */
+// import Renderer from '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer';
+// import * as Html from '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer/html5';
+// import * as Gutenberg from '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer/gutenberg';
+
+// // dump imported renderer symbols
+// console.log({
+//   validator,
+//   Renderer,
+//   Html,
+//   Gutenberg,
+// });
+// /* -- */
+
 const config = window['jsonschema_plugin_settings_page'];
+// console.log(config);
 
 export default function Settings() {
   const [json, setJSON] = useState(config['value']);
@@ -44,8 +63,9 @@ export default function Settings() {
     }
     setIntermediateValue(value);
   };
-
   return (
+    <>
+    <h3>#### Handcoded Gutenberg Form ####</h3>
     <Panel header="react-jsonschema-form-renderer">
       <PanelBody title={ __('Plugin settings') } opened>
         <TextareaControl
@@ -65,5 +85,15 @@ export default function Settings() {
         </Button>
       </PanelBody>
     </Panel>
+    <hr/>
+    <h3>#### Gutenberg Form rendered with Gutenberg Renderer ####</h3>
+    <FormGutenberg schema={config['jsonschema']} uiSchema={config['jsonschema-ui']} validator={validator} />
+    {/*
+    <FormGutenberg schema={config['jsonschema']} uiSchema={config['jsonschema-ui']} validator={validator}></FormGutenberg>
+    */}
+    <hr/>
+    <h3>#### Gutenberg Form rendered with Html5 Renderer ####</h3>
+    <FormHtml5 schema={config['jsonschema']} uiSchema={config['jsonschema-ui']} validator={validator}></FormHtml5>
+    </>
   );
 }

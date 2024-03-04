@@ -1,11 +1,18 @@
-import Form, { withTheme, getDefaultRegistry } from '@rjsf/core';
+import Form, { withTheme } from '@rjsf/core';
+
+// everything imported in getDefaultRegistry.js is a 1:1 copy of the rjsf bootstrap 3 renderer (https://github.com/rjsf-team/react-jsonschema-form/tree/v5.17.1/packages/core/src)
+// @TODO: needs to be refactored to render the ui using @wordpress/components
+import getDefaultRegistry from './getDefaultRegistry.js';
 
 import './rjsf-renderer-gutenberg.scss';
+
 
 window['rjsf']??={};
 window['rjsf']['renderer']??={};
 window['rjsf']['renderer']['gutenberg'] = {
-  x : Form,
-  y : withTheme,
-  z : getDefaultRegistry,
+  default : Form,
+  withTheme,
+  getDefaultRegistry,
+  // fake a wrapped ecmascript module
+  __esModule : { value: true },
 };

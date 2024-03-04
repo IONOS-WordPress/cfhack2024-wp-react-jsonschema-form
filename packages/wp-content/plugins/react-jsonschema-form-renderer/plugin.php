@@ -91,7 +91,7 @@ function __registerRjsfUtils() {
   \wp_register_script(
     $HANDLE,
     \plugins_url( 'build/rjsf-utils.js', __FILE__ ),
-    [],
+    ['lodash'],
     $asset_file['version'],
   );
 }
@@ -126,7 +126,7 @@ function __registerRjsfUtils() {
         \wp_enqueue_script(
           $SETTINGS_PAGE_HANDLE,
           \plugins_url( 'build/settings-page.js', __FILE__ ),
-        array_merge( $asset_file['dependencies'], ['rjsf-gutenberg-renderer'/*, 'rjsf-html5-renderer'*/]),
+        array_merge( $asset_file['dependencies'], ['rjsf-gutenberg-renderer', 'rjsf-html5-renderer']),
           $asset_file['version'],
           true,
         );
@@ -136,15 +136,15 @@ function __registerRjsfUtils() {
           "window['jsonschema_plugin_settings_page']=" . json_encode([
             '_wpnonce' => wp_create_nonce( 'options-options' ),
             'value' => \get_option('jsonschema_plugin_settings_page', '{}'),
-            'jsonschema' => file_get_contents(__DIR__ . '/settings-page-jsonschema.json'),
-            'jsonschema-ui' => file_get_contents(__DIR__ . '/settings-page-jsonschema-ui.json')
+            'jsonschema' => json_decode( file_get_contents(__DIR__ . '/settings-page-jsonschema.json')),
+            'jsonschema-ui' => json_decode( file_get_contents(__DIR__ . '/settings-page-jsonschema-ui.json'))
           ]),
           'before',
         );
         \wp_enqueue_style(
           $SETTINGS_PAGE_HANDLE,
           \plugins_url('build/settings-page.css', __FILE__),
-        ['wp-components', 'rjsf-gutenberg-renderer'/*, 'rjsf-html5-renderer'*/],
+        ['wp-components', 'rjsf-gutenberg-renderer', 'rjsf-html5-renderer'],
           $asset_file['version']
         );
 
