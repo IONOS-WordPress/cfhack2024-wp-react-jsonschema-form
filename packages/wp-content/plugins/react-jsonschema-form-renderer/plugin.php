@@ -17,6 +17,91 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+function __registerRjsfGutenbergRenderer() {
+  $asset_file = include( \plugin_dir_path( __FILE__ ) . 'build/rjsf-renderer-gutenberg.asset.php');
+
+  $HANDLE = 'rjsf-gutenberg-renderer';
+
+  \wp_register_script(
+    $HANDLE,
+    \plugins_url( 'build/rjsf-renderer-gutenberg.js', __FILE__ ),
+    [ 'rjsf-core', 'rjsf-utils', 'rjsf-validator', 'wp-components'],
+    $asset_file['version'],
+  );
+  \wp_set_script_translations($HANDLE, $HANDLE);
+  \wp_register_style(
+    $HANDLE,
+    \plugins_url('build/rjsf-renderer-gutenberg.css', __FILE__),
+    ['wp-components'],
+    $asset_file['version']
+  );
+}
+
+function __registerRjsfHtml5Renderer() {
+  $asset_file = include( \plugin_dir_path( __FILE__ ) . 'build/rjsf-renderer-html5.asset.php');
+
+  $HANDLE = 'rjsf-html5-renderer';
+
+  \wp_register_script(
+    $HANDLE,
+    \plugins_url( 'build/rjsf-renderer-html5.js', __FILE__ ),
+    [ 'rjsf-core', 'rjsf-utils', 'rjsf-validator', 'wp-components'],
+    $asset_file['version'],
+  );
+  \wp_set_script_translations($HANDLE, $HANDLE);
+  \wp_register_style(
+    $HANDLE,
+    \plugins_url('build/rjsf-renderer-html5.css', __FILE__),
+    ['wp-components'],
+    $asset_file['version']
+  );
+}
+
+function __registerRjsfCore() {
+  $asset_file = include( \plugin_dir_path( __FILE__ ) . 'build/rjsf-core.asset.php');
+
+  $HANDLE = 'rjsf-core';
+
+  \wp_register_script(
+    $HANDLE,
+    \plugins_url( 'build/rjsf-core.js', __FILE__ ),
+    array_merge($asset_file['dependencies'], ['rjsf-utils']),
+    $asset_file['version'],
+  );
+}
+
+function __registerRjsfValidator() {
+  $asset_file = include( \plugin_dir_path( __FILE__ ) . 'build/rjsf-validator-ajv8.asset.php');
+
+  $HANDLE = 'rjsf-validator';
+
+  \wp_register_script(
+    $HANDLE,
+    \plugins_url( 'build/rjsf-validator-ajv8.js', __FILE__ ),
+    [],
+    $asset_file['version'],
+  );
+}
+
+function __registerRjsfUtils() {
+  $asset_file = include( \plugin_dir_path( __FILE__ ) . 'build/rjsf-utils.asset.php');
+
+  $HANDLE = 'rjsf-utils';
+
+  \wp_register_script(
+    $HANDLE,
+    \plugins_url( 'build/rjsf-utils.js', __FILE__ ),
+    [],
+    $asset_file['version'],
+  );
+}
+
+\add_action('init', __NAMESPACE__ . '\__registerRjsfCore');
+\add_action('init', __NAMESPACE__ . '\__registerRjsfUtils');
+\add_action('init', __NAMESPACE__ . '\__registerRjsfValidator');
+\add_action('init', __NAMESPACE__ . '\__registerRjsfGutenbergRenderer');
+\add_action('init', __NAMESPACE__ . '\__registerRjsfHtml5Renderer');
+
 \add_action(
   "admin_menu",
   function () {
@@ -31,17 +116,17 @@ if ( ! defined( 'ABSPATH' ) ) {
     \add_action(
       'load-' . $menu_page_hook_suffix,
       function () {
+        $HANDLE=str_replace('_', '-', __NAMESPACE__);
+
+        $SETTINGS_PAGE_HANDLE = "{$HANDLE}-settings-page";
         /**
          * register our script/style
          */
-        $HANDLE = str_replace('_', '-', __NAMESPACE__);
-
-        $SETTINGS_PAGE_HANDLE = "{$HANDLE}-settings-page";
         $asset_file = include( \plugin_dir_path( __FILE__ ) . 'build/settings-page.asset.php');
         \wp_enqueue_script(
           $SETTINGS_PAGE_HANDLE,
           \plugins_url( 'build/settings-page.js', __FILE__ ),
-          $asset_file['dependencies'],
+        array_merge( $asset_file['dependencies'], ['rjsf-gutenberg-renderer'/*, 'rjsf-html5-renderer'*/]),
           $asset_file['version'],
           true,
         );
@@ -59,7 +144,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         \wp_enqueue_style(
           $SETTINGS_PAGE_HANDLE,
           \plugins_url('build/settings-page.css', __FILE__),
-          ['wp-components'], //$asset_file['dependencies'],
+        ['wp-components', 'rjsf-gutenberg-renderer'/*, 'rjsf-html5-renderer'*/],
           $asset_file['version']
         );
 
@@ -75,5 +160,4 @@ if ( ! defined( 'ABSPATH' ) ) {
     );
   },
 );
-
 
