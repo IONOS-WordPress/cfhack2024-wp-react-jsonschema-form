@@ -68,7 +68,11 @@ We will use [VS Code](https://code.visualstudio.com/) as our development environ
 
 - Run `pnpm start` to start the development environment.
 
-  This will start a local WordPress using a preconfigured [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) environment
+  This will start a local WordPress using a preconfigured [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) environment.
+
+  The start script will also generate the vscode settings file (`.vscode/settings.json`) for [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client) support and appropriate launch configuration file (`.vscode/launch.json`) for instant PHP debugging.
+
+  > see [`.wp-env-afterStart.sh`](.wp-env-afterStart.sh) for the script that generates the vscode settings and launch configuration files.
 
 - Open the WordPress admin dashboard by visiting [http://localhost:8888/wp-admin](http://localhost:8888/wp-admin)
 
@@ -191,7 +195,7 @@ _The project setup will always build code including debugging information. Every
 
 ## Tips
 
-### Always execute `pnpm build` after `git pull` or `git checkout`
+### Always execute `pnpm build` after `git pull/checkout/switch`
 
 Remember - you only see the last compiles js/css sources.
 

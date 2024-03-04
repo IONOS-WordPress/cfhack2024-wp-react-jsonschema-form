@@ -4,3 +4,4 @@ node_modules
 build
 /wp-env-home
 /.vscode/launch.json
+/.vscode/settings.json
