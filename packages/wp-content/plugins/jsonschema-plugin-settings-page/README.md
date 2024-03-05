@@ -2,10 +2,9 @@
 
 This sub project should represent a proof of concept for a WordPress plugin declaring its settings page using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/).
 
-_The plugin does not need to have any other purpose than acting as a show case for rendering a settings page using a JSON Schema definition of the plugin settings._
+_The plugin does not need to have any other purpose than acting as a show case for rendering a settings page using a JSON Schema definition of the plugin settings. A good idea would be to take the settings page of a popular plugin screen (maybe Matthias Pfefferle & Automattic [ActivityPub](https://wordpress.org/plugins/search/activitypub/)) and render it using [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)._
 
 It would be perfect if this package would provide a WordPress plugin
-
 
 - declaring the plugin settings as a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file
 
