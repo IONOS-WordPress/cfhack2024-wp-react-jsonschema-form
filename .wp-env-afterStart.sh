@@ -103,10 +103,14 @@ cat << EOF > '.vscode/settings.json'
   "git.autoRepositoryDetection": false,
   "json.schemas": [
     {
-      "fileMatch": ["jsonschema.json"],
+      "fileMatch": ["jsonschema.json", "*schema.json"],
       "url": "https://json-schema.org/draft/2019-09/schema"
+    },
+    {
+      "fileMatch": ["tsconfig.json"],
+      "url": "https://json.schemastore.org/tsconfig"
     }
-  ]
+  ],
   "[html]": {
     "editor.formatOnSave": false
   }
