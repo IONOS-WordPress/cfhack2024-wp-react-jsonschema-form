@@ -28,4 +28,16 @@ Let's take the `jsonschema-plugin-settings-page` plugin as example :
 
 - Restart `wp-env` : `pnpm run start`
 
+- (Optional) To prevent accidental commiting of your new plugin, add the new plugin to your individual git-local `exclude` file `.git/info/exclude`:
+
+  ```
+  ...
+  /packages/wp-content/plugins/jsonschema-plugin-settings-page-duplicate/
+  # optional: add your modified .wp-env.json to the exclude list as well
+  /.wp-env.json
+  ...
+  ```
+
+  _(Editing `.git/info/exclude` instead of the project file `.gitignore` leaves all Git owned files untouched.)_
+
 _Duplicating the `react-jsonschema-form-renderer` plugin and `theme-extending-global-styles-jsonschema` theme needs a little bit more attention. Please consult me (Lars) if you are planning to do this._
