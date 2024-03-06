@@ -10,7 +10,12 @@
     "stop": "pnpm run wp-env stop",
     "destroy": "echo 'yes' | pnpm run wp-env destroy",
     "wp-env": "WP_ENV_HOME=wp-env-home pnpm exec wp-env",
+    "clean" : "git clean $npm_package_config_git_clean_opts -e '!/TODO.md' -e '!/*.code-workspace' -e '!/.vscode/**' -e '!**/node_modules' -e '!**/node_modules/**' -e '!/.pnpm-store'",
+    "distclean" : "git clean $npm_package_config_git_clean_opts -e '!/TODO.md' -e '!/*.code-workspace'",
     "gutenberg-storybook": "pnpm dlx http-server $(realpath --relative-to $(pwd) $(pnpm run --silent  wp-env install-path))/gutenberg/storybook/build/"
+  },
+  "config" : {
+    "git-clean-opts" : "-Xfd --interactive"
   },
   "author": "The Hackathon Project Contributors",
   "homepage": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form",

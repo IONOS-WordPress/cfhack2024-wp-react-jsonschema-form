@@ -159,6 +159,16 @@ _The project setup will always build code including debugging information. Every
 
   - destroy [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm run destroy`
 
+  - clean build artifacts : `pnpm run clean`
+
+    This interactive script will only remove the build artifacts. It will not remove the `node_modules` directory.
+
+  - clean every generated / downloaded artifact : `pnpm run distclean`
+
+    This interactive  script will remove the `node_modules`/`.pnpm-store` directories and all build artifacts.
+
+    _Directory `wp-env-home` is managed by `wp-env`. Execute `pnpm destroy` before executing `pnpm run distclean`_
+
   - watch and build js/css : `pnpm run dev`
 
     This command will watch the js/css sources and rebuild them on changes. Perfect when you working on just JS/CSS sources.
