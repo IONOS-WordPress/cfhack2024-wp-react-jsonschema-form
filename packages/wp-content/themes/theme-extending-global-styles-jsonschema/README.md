@@ -28,7 +28,7 @@ It would be perfect if this package would provide a WordPress theme
 
 Package [@wordpress/element](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-element/) is deprecated since WordPress 6.4.0. It's recommended to use the `react` directly.
 
-An example: Don't use `import { render } from '@wordpress/element'` but `import React from 'react'`.
+An example: Don't use `import { useState } from '@wordpress/element'` but `import { useState } from 'react'`.
 
 see https://github.com/WordPress/gutenberg/pull/54908 for details.
 
