@@ -50,7 +50,7 @@ Since many of the sub packages of this project rely on [@wordpress/env](https://
 
 - Checkout [@wordpress/create-block](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-create-block/) : the ultimate tool to scaffold a new Gutenberg Block. Once yo used it you'never miss it.
 
-* Head over to the [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) and warm up with [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/)
+- Head over to the [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) and warm up with [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/)
 
 ## Links
 
