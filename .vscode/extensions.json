@@ -8,6 +8,7 @@
     "rexshi.phpdoc-comment-vscode-plugin",
     "VisualStudioExptTeam.vscodeintellicode",
     "johnbillion.vscode-wordpress-hooks",
+    "pucelle.vscode-css-navigation",
     "xdebug.php-debug"
  ]
 }
