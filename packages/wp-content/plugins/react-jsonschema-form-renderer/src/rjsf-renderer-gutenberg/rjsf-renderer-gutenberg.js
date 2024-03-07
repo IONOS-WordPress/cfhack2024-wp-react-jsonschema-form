@@ -21,3 +21,15 @@ window['rjsf']['renderer']['gutenberg'] = {
   // fake a wrapped ecmascript module
   __esModule : { value: true },
 };
+
+/*
+  how i extracted pure js from jrsf core boostrap 3 implementation:
+
+  - downloaded zip file of desired version of @jrsf/core
+
+  - extract it somewhere
+
+  - extract and transform to pure js sources to `out directory`:
+
+    `pnpm --package=typescript dlx tsc --jsx preserve --target esnext --module esnext --outDir out`
+*/
