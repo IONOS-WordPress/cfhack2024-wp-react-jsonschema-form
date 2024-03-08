@@ -4,7 +4,7 @@ import { __ } from '@wordpress/i18n';
 
 import validator from '@rjsf/validator-ajv8';
 import FormGutenberg/*, { withTheme, getDefaultRegistry }*/ from '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer/gutenberg';
-import FormHtml5/*, { withTheme, getDefaultRegistry }*/ from '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer/gutenberg';
+import FormHtml5/*, { withTheme, getDefaultRegistry }*/ from '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer/html5';
 
 // /* this is just for debugging purposes */
 // import Renderer from '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer';
@@ -65,35 +65,36 @@ export default function Settings() {
   };
   return (
     <>
-    <h3>#### Handcoded Gutenberg Form ####</h3>
-    <Panel header="react-jsonschema-form-renderer">
-      <PanelBody title={ __('Plugin settings') } opened>
-        <TextareaControl
-          className="react-jsonschema-form-renderer-jsoneditor"
-          label={ __( 'JSON', 'react-jsonschema-form-renderer' ) }
-          help={ __("This textarea acts as a placeholder for the JSON Schema form to be rendered.") }
-          value={ intermediateValue }
-          ref={ textareaRef }
-          onChange={ onChange }
-        />
-        <Button
-          variant="primary"
-          disabled={ !canSave }
-          onClick={ saveChanges }
-        >
-          { __('Save Changes') }
-        </Button>
-      </PanelBody>
-    </Panel>
-    <hr/>
-    <h3>#### Gutenberg Form rendered with Gutenberg Renderer ####</h3>
-    <FormGutenberg schema={config['jsonschema']} uiSchema={config['jsonschema-ui']} validator={validator} />
-    {/*
-    <FormGutenberg schema={config['jsonschema']} uiSchema={config['jsonschema-ui']} validator={validator}></FormGutenberg>
-    */}
-    <hr/>
-    <h3>#### Gutenberg Form rendered with Html5 Renderer ####</h3>
-    <FormHtml5 schema={config['jsonschema']} uiSchema={config['jsonschema-ui']} validator={validator}></FormHtml5>
+      <h3>#### Handcoded Gutenberg Form ####</h3>
+      <Panel header="react-jsonschema-form-renderer">
+        <PanelBody title={ __('Plugin settings') } opened>
+          <TextareaControl
+            className="react-jsonschema-form-renderer-jsoneditor"
+            label={ __( 'JSON', 'react-jsonschema-form-renderer' ) }
+            help={ __("This textarea acts as a placeholder for the JSON Schema form to be rendered.") }
+            value={ intermediateValue }
+            ref={ textareaRef }
+            onChange={ onChange }
+          />
+          <Button
+            variant="primary"
+            disabled={ !canSave }
+            onClick={ saveChanges }
+          >
+            { __('Save Changes') }
+          </Button>
+        </PanelBody>
+      </Panel>
+      <hr/>
+      <h3>#### Gutenberg Form rendered with Gutenberg Renderer ####</h3>
+      <FormGutenberg schema={config['jsonschema']} uiSchema={config['jsonschema-ui']} validator={validator} />
+      {/*
+      <FormGutenberg schema={config['jsonschema']} uiSchema={config['jsonschema-ui']} validator={validator}></FormGutenberg>
+      */}
+      <hr/>
+      <h3>#### Gutenberg Form rendered with Html5 Renderer ####</h3>
+      <FormHtml5 schema={config['jsonschema']} uiSchema={config['jsonschema-ui']} validator={validator}>
+      </FormHtml5>
     </>
   );
 }

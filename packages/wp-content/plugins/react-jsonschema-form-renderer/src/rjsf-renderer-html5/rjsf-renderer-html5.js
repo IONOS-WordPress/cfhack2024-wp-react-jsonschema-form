@@ -12,10 +12,17 @@ import getDefaultRegistry from './getDefaultRegistry.js';
 
 import './rjsf-renderer-html5.scss';
 
+function Html5Form(props) {
+  // append our custom renderer className
+  const className = `${props?.className??''} rjsf rjsf-renderer-html5`;
+
+  return <Form className={ className } { ...props }/>
+}
+
 window['rjsf']??={};
 window['rjsf']['renderer']??={};
 window['rjsf']['renderer']['html5'] = {
-  default : Form,
+  default : Html5Form,
   withTheme,
   getDefaultRegistry,
   // fake a wrapped ecmascript module

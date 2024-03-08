@@ -12,10 +12,17 @@ import getDefaultRegistry from './getDefaultRegistry.js';
 
 import './rjsf-renderer-gutenberg.scss';
 
+function GutenbergForm(props) {
+  // append our custom renderer className
+  const className = `${props?.className??''} rjsf rjsf-renderer-gutenberg`;
+
+  return <Form className={ className } { ...props }/>
+}
+
 window['rjsf']??={};
 window['rjsf']['renderer']??={};
 window['rjsf']['renderer']['gutenberg'] = {
-  default : Form,
+  default : GutenbergForm,
   withTheme,
   getDefaultRegistry,
   // fake a wrapped ecmascript module
