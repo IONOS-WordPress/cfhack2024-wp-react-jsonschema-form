@@ -87,3 +87,10 @@ Try to render just pure HTML and CSS.
 - [A Utility Class for Covering Elements](https://twitter.com/stefanjudis/status/1337303897296285698)
 
 - [Simplifying Form Styles With accent-color](https://www.smashingmagazine.com/2021/09/simplifying-form-styles-accent-color/)
+
+- [#css] [12 Modern CSS One-Line Upgrades](https://moderncss.dev/12-modern-css-one-line-upgrades/)
+
+  > If you’ve ever wanted to change the color of checkboxes or radio buttons, you’ve been seeking `accent-color`. With this property, you can modify the `:checked` appearance of radio buttons and checkboxes and the filled-in state for both the progress element and range input. The browser’s default focus “halo” may also be adjusted if you do not have another override.
+
+  >  In some scenarios, the appearance or disappearance of scrollbars can cause an unwanted layout shift. For example, when a dialog overlay is displayed and the background page adds `overflow: hidden` to prevent scrolling, causing a shift from removing the no longer needed scrollbars.
+  The modern CSS property scrollbar-gutter enables a reservation of space for scrollbars in the layout, which prevents that undesirable shift. When there’s no need for a scrollbar, the browser will still paint a gutter as extra space created in addition to any padding on the scroll container.
