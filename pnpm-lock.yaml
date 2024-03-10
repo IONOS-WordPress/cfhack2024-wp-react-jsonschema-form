@@ -43,6 +43,8 @@ importers:
         specifier: ^5.0.6
         version: 5.0.6
 
+  packages/wp-content/plugins/react-jsonschema-form-renderer-playground: {}
+
   packages/wp-content/themes/theme-extending-global-styles-jsonschema: {}
 
 packages:

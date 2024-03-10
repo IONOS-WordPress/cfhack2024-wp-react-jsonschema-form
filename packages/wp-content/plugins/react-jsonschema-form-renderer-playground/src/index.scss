@@ -99,7 +99,7 @@
         border: inherit;
 
         .components-panel__header >*::after {
-          content: url(../../assets/icon.svg);
+          content: url(../assets/icon.svg);
           padding-left: 12px;
           vertical-align: middle;
         }
@@ -108,6 +108,6 @@
   }
 }
 
-.react-jsonschema-form-renderer-jsoneditor textarea:invalid {
+.react-jsonschema-form-renderer-playground-jsoneditor textarea:invalid {
   border-color: var(--wp--preset--color--accent-3);
 }

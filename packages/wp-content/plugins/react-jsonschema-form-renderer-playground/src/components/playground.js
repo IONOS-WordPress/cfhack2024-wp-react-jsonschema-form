@@ -20,7 +20,7 @@ import FormHtml5/*, { withTheme, getDefaultRegistry }*/ from '@cfhack2024-wp-rea
 // });
 // /* -- */
 
-const config = window['jsonschema_plugin_settings_page'];
+const config = window['react-jsonschema-form-renderer-playground'];
 // console.log(config);
 
 export default function Settings() {
@@ -39,10 +39,10 @@ export default function Settings() {
 
   const saveChanges = async () => {
     const formData = new FormData();
-    formData.append('jsonschema_plugin_settings_page', json);
+    formData.append('react-jsonschema-form-renderer-playground', json);
     formData.append('action', 'update');
     formData.append('option_page', 'options');
-    formData.append('page_options', 'jsonschema_plugin_settings_page')
+    formData.append('page_options', 'react-jsonschema-form-renderer-playground')
     formData.append('_wpnonce', config['_wpnonce']);
 
     await fetch('/wp-admin/options.php', {
@@ -66,11 +66,11 @@ export default function Settings() {
   return (
     <>
       <h3>#### Handcoded Gutenberg Form ####</h3>
-      <Panel header="react-jsonschema-form-renderer">
-        <PanelBody title={ __('Plugin settings') } opened>
+      <Panel header="react-jsonschema-form-renderer-playground">
+        <PanelBody title={ __('Settings', 'react-jsonschema-form-renderer-playground') } opened>
           <TextareaControl
-            className="react-jsonschema-form-renderer-jsoneditor"
-            label={ __( 'JSON', 'react-jsonschema-form-renderer' ) }
+            className="react-jsonschema-form-renderer-playground-jsoneditor"
+            label={ __( 'JSON', 'react-jsonschema-form-renderer-playground' ) }
             help={ __("This textarea acts as a placeholder for the JSON Schema form to be rendered.") }
             value={ intermediateValue }
             ref={ textareaRef }

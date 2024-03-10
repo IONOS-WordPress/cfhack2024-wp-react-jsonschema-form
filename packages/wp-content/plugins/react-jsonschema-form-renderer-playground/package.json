@@ -1,11 +1,11 @@
 {
-  "name": "@cfhack2024-wp-react-jsonschema-form/jsonschema-plugin-settings-page",
-  "description": "this package provides a WordPress plugin settings page utilizing react-jsonschema-form",
+  "name": "@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer-playground",
+  "description": "this package hosts a WordPress plugin providing a react-jsonschema-form renderer based on @wordpress/components",
   "private": true,
   "version": "1.0.0",
   "scripts": {
 		"build": "wp-scripts start --no-watch",
-    "dev": "wp-scripts start "
+    "dev": "wp-scripts start"
 	},
   "author": "The Hackathon Project Contributors",
   "keywords": ["wordpress", "plugin", "jsonschema", "ui", "react-jsonschema-form"],

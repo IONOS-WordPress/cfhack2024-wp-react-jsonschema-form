@@ -4,9 +4,8 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-		"build": "wp-scripts start -c ../../../../webpack.config.js --no-watch",
-    "dev": "wp-scripts start -c ../../../../webpack.config.js",
-		"packages-update": "wp-scripts packages-update"
+		"build": "wp-scripts start --no-watch",
+    "dev": "wp-scripts start "
 	},
   "author": "The Hackathon Project Contributors",
   "keywords": ["wordpress", "plugin", "Gutenberg", "block", "jsonschema", "ui", "react-jsonschema-form"],

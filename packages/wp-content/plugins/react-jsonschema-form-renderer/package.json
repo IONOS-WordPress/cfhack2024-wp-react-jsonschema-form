@@ -4,8 +4,8 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-		"build": "wp-scripts start --no-watch -c ../../../../webpack.config.js $npm_package_config_wp_scripts_targets",
-    "dev": "wp-scripts start -c ../../../../webpack.config.js $npm_package_config_wp_scripts_targets",
+		"build": "wp-scripts start --no-watch $npm_package_config_wp_scripts_targets",
+    "dev": "wp-scripts start $npm_package_config_wp_scripts_targets",
 		"packages-update": "wp-scripts packages-update"
 	},
   "author": "The Hackathon Project Contributors",
@@ -19,6 +19,6 @@
     "nanoid": "^5.0.6"
   },
   "config": {
-    "wp-scripts-targets" : "src/settings-page/settings-page.js src/rjsf-core/rjsf-core.js src/rjsf-utils/rjsf-utils.js src/rjsf-validator-ajv8/rjsf-validator-ajv8.js src/rjsf-renderer-gutenberg/rjsf-renderer-gutenberg.js  src/rjsf-renderer-html5/rjsf-renderer-html5.js"
+    "wp-scripts-targets" : "src/rjsf-core/rjsf-core.js src/rjsf-utils/rjsf-utils.js src/rjsf-validator-ajv8/rjsf-validator-ajv8.js src/rjsf-renderer-gutenberg/rjsf-renderer-gutenberg.js  src/rjsf-renderer-html5/rjsf-renderer-html5.js"
   }
 }

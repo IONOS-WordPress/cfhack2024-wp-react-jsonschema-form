@@ -6,12 +6,14 @@ const defaultConfig = require( '@wordpress/scripts/config/webpack.config.js' );
 module.exports = {
   ...defaultConfig,
   externals: {
+    ...defaultConfig.externals,
     '@rjsf/core': [ 'window rjsf', 'core' ],
     '@rjsf/utils': [ 'window rjsf', 'utils' ],
     '@rjsf/validator-ajv8': [ 'window rjsf', 'validator-ajv8' ],
     '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer': [ 'window rjsf', 'renderer'],
     '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer/gutenberg': [ 'window rjsf', 'renderer', 'gutenberg', ],
     '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer/html5': [ 'window rjsf', 'renderer', 'html5', ],
+
     // generated in the browser using
     // Object.fromEntries( Object.entries(window.lodash).map(([key, value])=>[`lodash/${key}`, [ 'window lodash', key]]))
     "lodash/templateSettings": [
@@ -1244,3 +1246,6 @@ module.exports = {
     ],
   }
 };
+
+// console.log(module.exports);
+// process.exit(0);
