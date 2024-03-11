@@ -1,9 +1,9 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cfhack2024-wp-react-jsonschema-form/gutenberg-block-attributes-jsonschema",
+	"name": "cfhack2024-wp-react-jsonschema-form/rjsf-attribute-editor-block",
 	"version": "1.0.0",
-	"title": "gutenberg-block-attributes-jsonschema",
+	"title": "rjsf-attribute-editor-block",
 	"category": "cfhack2024-wp-react-jsonschema-form",
 	"icon": "smiley",
 	"description": "WordPress block rendering its attributes form using react-jsonschema-form into the inspector panel of Gutenberg",
@@ -26,7 +26,7 @@
       }
     }
   },
-	"textdomain": "gutenberg-block-attributes-jsonschema",
+	"textdomain": "rjsf-attribute-editor-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

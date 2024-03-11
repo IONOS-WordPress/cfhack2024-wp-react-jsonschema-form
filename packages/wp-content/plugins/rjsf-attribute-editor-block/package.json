@@ -1,5 +1,5 @@
 {
-  "name": "@cfhack2024-wp-react-jsonschema-form/gutenberg-block-attributes-jsonschema",
+  "name": "@cfhack2024-wp-react-jsonschema-form/rjsf-attribute-editor-block",
   "description": "This package provides a WordPress plugin declaring WordPress block rendering its attributes form using react-jsonschema-form into the inspector panel of Gutenberg",
   "private": true,
   "version": "1.0.0",

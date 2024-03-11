@@ -19,9 +19,9 @@ importers:
 
   packages/wp-content/plugins/form-block: {}
 
-  packages/wp-content/plugins/gutenberg-block-attributes-jsonschema: {}
-
   packages/wp-content/plugins/metabox-block: {}
+
+  packages/wp-content/plugins/rjsf-attribute-editor-block: {}
 
   packages/wp-content/plugins/rjsf-renderer:
     devDependencies:

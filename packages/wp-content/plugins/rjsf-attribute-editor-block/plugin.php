@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       gutenberg-block-attributes-jsonschema
+ * Plugin Name:       rjsf-attribute-editor-block
  * Description:       provides a WordPress plugin declaring WordPress block rendering its attributes form using react-jsonschema-form into the inspector panel of Gutenberg
  * Requires at least: 6.4
  * Requires Plugins:  rjsf-renderer
@@ -9,10 +9,10 @@
  * Author:            The Hackathon Project Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       gutenberg-block-attributes-jsonschema
+ * Text Domain:       rjsf-attribute-editor-block
  */
 
-namespace cfhack2024_wp_react_jsonschema_form\gutenberg_block_attributes_jsonschema;
+namespace cfhack2024_wp_react_jsonschema_form\rjsf_attribute_editor_block;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.

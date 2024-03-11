@@ -21,5 +21,5 @@
  */
 
 /* eslint-disable no-console */
-console.log( 'Hello World! (from gutenberg-block-attributes-jsonschema)' );
+console.log( 'Hello World! (from rjsf-attribute-editor-block)' );
 /* eslint-enable no-console */

@@ -36,28 +36,29 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
     <>
       <InspectorControls>
-				<PanelBody title={ __( 'JSON Schema Form', 'gutenberg-block-attributes-jsonschema' ) } opened>
+				<PanelBody title={ __( 'JSON Schema Form', 'rjsf-attribute-editor-block' ) } opened>
           <TextareaControl
-            className='gutenberg-block-attributes-jsonschema-jsoneditor'
-            label={ __( 'JSON form', 'gutenberg-block-attributes-jsonschema' ) }
-            help={ __('This textarea acts as a placeholder for the JSON Schema form editor.', 'gutenberg-block-attributes-jsonschema') }
+            className='rjsf-attribute-editor-block-jsoneditor'
+            label={ __( 'JSON form', 'rjsf-attribute-editor-block' ) }
+            help={ __('This textarea acts as a placeholder for the JSON Schema form editor.', 'rjsf-attribute-editor-block') }
             required
             value={ intermediateValue }
             ref={ textareaRef }
+            rows={ 15 }
             onChange={ onChange }
           />
-          <TextareaControl
-            label={ __( 'JSON Schema of the form', 'gutenberg-block-attributes-jsonschema' ) }
-            help={ __('This is just an informative section showing the jsonschema for the form.', 'gutenberg-block-attributes-jsonschema') }
-            value={ JSON.stringify( BLOCK_JSON.jsonschema, null, 2) }
-            disabled
-          />
-          <TextareaControl
-            label={ __( 'JSON Schema UI of the form', 'gutenberg-block-attributes-jsonschema' ) }
-            help={ __('This is just an informative section showing the jsonschema -ui for the form.', 'gutenberg-block-attributes-jsonschema') }
-            value={ JSON.stringify( BLOCK_JSON['jsonschema-ui'], null, 2) }
-            disabled
-          />
+          {/* this is just for demonstration purposes */}
+          <div style={{ "color" : "#757575" }}>
+            <div>
+              JSON Schema (defined in block.json):
+              <pre>{ JSON.stringify( BLOCK_JSON.jsonschema, null, 2) }</pre>
+            </div>
+            <div>
+              JSON Schema UI(defined in block.json):
+              <pre>{ JSON.stringify( BLOCK_JSON['jsonschema-ui'], null, 2) }</pre>
+            </div>
+          </div>
+          {/* --- */}
         </PanelBody>
 			</InspectorControls>
       <div { ...useBlockProps() }>
