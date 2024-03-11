@@ -7,6 +7,15 @@
 
 WPENV_INSTALLPATH="$(realpath --relative-to $(pwd) $(pnpm run --silent wp-env install-path))"
 
+# # build gutenberg for development (for debugging purposes - i.e. including source maps etc.)
+# pushd "${WPENV_INSTALLPATH}/gutenberg"
+# # compute path to our configured nodejs provided by pnpm environment
+# NODE_PATH="$(dirname $(which node))/.."
+# # calling the original npm delivered with the configured nodejs version is a bit quirky but works :-)
+# $NODE_PATH/bin/node "$NODE_PATH/lib/node_modules/npm/bin/npm-cli.js" ci
+# $NODE_PATH/bin/node "$NODE_PATH/lib/node_modules/npm/bin/npm-cli.js" run build
+# popd
+
 # build gutenberg for development (for debugging purposes - i.e. including source maps etc.)
 pushd "${WPENV_INSTALLPATH}/gutenberg"
 # compute path to our configured nodejs provided by pnpm environment

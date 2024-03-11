@@ -21,7 +21,7 @@ importers:
 
   packages/wp-content/plugins/gutenberg-form-block-jsonschema: {}
 
-  packages/wp-content/plugins/gutenberg-metabox-jsonschema: {}
+  packages/wp-content/plugins/metabox-block: {}
 
   packages/wp-content/plugins/rjsf-renderer:
     devDependencies:

@@ -26,7 +26,7 @@ It would be perfect if this package would provide a WordPress plugin
 
   - __You need to enable the custom fields in the Gutenberg editor preferences in General/Advanced before you can use it.__
 
-    - **Caveat** : If you enable the custom fields in the Gutenberg editor preferences the gutenberg-metabox-jsonschema block will not save anymore since the custom fields mechanism is later in the save process than the block mechanism.
+    - **Caveat** : If you enable the custom fields in the Gutenberg editor preferences the metabox-block block will not save anymore since the custom fields mechanism is later in the save process than the block mechanism.
 
 # Development
 

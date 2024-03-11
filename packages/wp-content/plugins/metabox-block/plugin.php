@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       gutenberg-metabox-jsonschema
+ * Plugin Name:       metabox-block
  * Description:       WordPress plugin contributing meta boxes the inspector panel of Gutenberg
  * Requires at least: 6.4
  * Requires Plugins:  rjsf-renderer
@@ -9,7 +9,7 @@
  * Author:            The Hackathon Project Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       gutenberg-metabox-jsonschema
+ * Text Domain:       metabox-block
  */
 
 namespace cfhack2024_wp_react_jsonschema_form\gutenberg_metabox_jsonschema;
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 \add_action( 'init', fn() => \register_post_meta(
   'page',
-  'gutenberg-metabox-jsonschema-data',
+  'metabox-block-data',
   [
     'single'       => true,
     'type'         => 'string',
@@ -68,20 +68,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 \add_action( 'wp_head', function () {
   $post_id = \get_the_ID();
 
-  $value = get_post_meta( get_the_ID(), 'gutenberg-metabox-jsonschema-data', true );
+  $value = get_post_meta( get_the_ID(), 'metabox-block-data', true );
 
-  if( ! \get_post_meta( $post_id, 'gutenberg-metabox-jsonschema-data', true ) ) {
+  if( ! \get_post_meta( $post_id, 'metabox-block-data', true ) ) {
     return;
   }
-  if( ! \get_post_meta( $post_id, 'gutenberg-metabox-jsonschema-data', false ) ) {
+  if( ! \get_post_meta( $post_id, 'metabox-block-data', false ) ) {
     return;
   }
   // both ifs will get run if no meta field is found; since
   // array() == false and '' == false
 
-  // @TODO evaluate post meta gutenberg-metabox-jsonschema-data JSON data and echo the matching <meta> tags
-  $data = \get_post_meta( $post_id, 'gutenberg-metabox-jsonschema-data', true );
-  echo "<!-- gutenberg-metabox-jsonschema-data $data -->";
+  // @TODO evaluate post meta metabox-block-data JSON data and echo the matching <meta> tags
+  $data = \get_post_meta( $post_id, 'metabox-block-data', true );
+  echo "<!-- metabox-block-data $data -->";
 
   /*
     example headers to inject into page

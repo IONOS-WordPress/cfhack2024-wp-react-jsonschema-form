@@ -24,8 +24,8 @@ export default function Edit({ setAttributes, attributes }) {
 
   const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
 
-  const metaValue = meta[ 'gutenberg-metabox-jsonschema-data' ];
-  const updateMetaValue = ( newValue ) => setMeta( { ...meta, 'gutenberg-metabox-jsonschema-data' : newValue } );
+  const metaValue = meta[ 'metabox-block-data' ];
+  const updateMetaValue = ( newValue ) => setMeta( { ...meta, 'metabox-block-data' : newValue } );
 
   const [ intermediateValue, setIntermediateValue ] = useState(JSON.stringify(JSON.parse( metaValue), null, 2));
   const textareaRef = useRef();
@@ -44,10 +44,10 @@ export default function Edit({ setAttributes, attributes }) {
   return (
     <div { ...blockProps }>
       <TextareaControl
-        className="gutenberg-metabox-jsonschema-jsoneditor"
+        className="metabox-block-jsoneditor"
         value={ intermediateValue }
-        help={ __( 'This textarea acts as a placeholder for the JSON Schema form to be rendered. The entered data will be spit into the published page header.', 'gutenberg-metabox-jsonschema' ) }
-        label={ __( 'JSON Post Meta data', 'gutenberg-metabox-jsonschema' ) }
+        help={ __( 'This textarea acts as a placeholder for the JSON Schema form to be rendered. The entered data will be spit into the published page header.', 'metabox-block' ) }
+        label={ __( 'JSON Post Meta data', 'metabox-block' ) }
         ref={ textareaRef }
         onChange={ onChange }
       />

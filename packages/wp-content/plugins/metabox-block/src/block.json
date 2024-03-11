@@ -1,9 +1,9 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "cfhack2024-wp-react-jsonschema-form/gutenberg-metabox-jsonschema",
+	"name": "cfhack2024-wp-react-jsonschema-form/metabox-block",
 	"version": "1.0.0",
-	"title": "gutenberg-metabox-jsonschema",
+	"title": "metabox-block",
 	"category": "cfhack2024-wp-react-jsonschema-form",
 	"icon": "smiley",
 	"description": "WordPress block rendering post meta data in the editor but is saving as post meta data",
@@ -12,7 +12,7 @@
 		"html": false,
     "multiple": false
 	},
-	"textdomain": "gutenberg-metabox-jsonschema",
+	"textdomain": "metabox-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css"
 }

@@ -6,7 +6,7 @@
     "./packages/wp-content/plugins/gutenberg-block-attributes-jsonschema/",
     "./packages/wp-content/plugins/gutenberg-editor-sidebar-plugin/",
     "./packages/wp-content/plugins/gutenberg-form-block-jsonschema/",
-    "./packages/wp-content/plugins/gutenberg-metabox-jsonschema/",
+    "./packages/wp-content/plugins/metabox-block/",
     "./packages/wp-content/plugins/settings-page/",
     "./packages/wp-content/plugins/rjsf-renderer/",
     "./packages/wp-content/plugins/rjsf-renderer-playground"
