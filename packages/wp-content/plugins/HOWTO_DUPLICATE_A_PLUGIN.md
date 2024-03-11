@@ -40,4 +40,4 @@ Let's take the `settings-page` plugin as example :
 
   _(Editing `.git/info/exclude` instead of the project file `.gitignore` leaves all Git owned files untouched.)_
 
-_Duplicating the `rjsf-renderer` plugin and `theme-extending-global-styles-jsonschema` theme needs a little bit more attention. Please consult me (Lars) if you are planning to do this._
+_Duplicating the `rjsf-renderer` plugin and `extended-global-styles` theme needs a little bit more attention. Please consult me (Lars) if you are planning to do this._

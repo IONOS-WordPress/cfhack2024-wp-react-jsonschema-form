@@ -30,7 +30,7 @@ for prefix in '' 'tests-' ; do
   pnpm run wp-env run ${prefix}cli wp --quiet rewrite structure '/%postname%' --hard
 
   # activate our theme
-  pnpm run wp-env run ${prefix}cli wp --quiet theme activate theme-extending-global-styles-jsonschema
+  pnpm run wp-env run ${prefix}cli wp --quiet theme activate extended-global-styles
 
   # Updates an option value for example the value of Simple page is id = 2
   pnpm run wp-env run ${prefix}cli wp option update page_on_front 2

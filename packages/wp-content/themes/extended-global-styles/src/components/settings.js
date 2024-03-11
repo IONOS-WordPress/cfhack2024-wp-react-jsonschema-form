@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { PanelBody, TextareaControl, Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
-const config = window['theme-extending-global-styles-jsonschema'];
+const config = window['extended-global-styles'];
 
 import Icon from '../../../../../../shared/src/hackathon-icon.js';
 
@@ -22,10 +22,10 @@ export default function Settings() {
 
   const saveChanges = async () => {
     const formData = new FormData();
-    formData.append('theme-extending-global-styles-jsonschema', json);
+    formData.append('extended-global-styles', json);
     formData.append('action', 'update');
     formData.append('option_page', 'options');
-    formData.append('page_options', 'theme-extending-global-styles-jsonschema')
+    formData.append('page_options', 'extended-global-styles')
     formData.append('_wpnonce', config['_wpnonce']);
 
     await fetch('/wp-admin/options.php', {
@@ -48,11 +48,11 @@ export default function Settings() {
   };
 
   return (
-    <PanelBody /* initialOpen={ false } */ opened title={ __('JSON Schema theme settings', 'theme-extending-global-styles-jsonschema') } icon={ Icon }>
+    <PanelBody /* initialOpen={ false } */ opened title={ __('JSON Schema theme settings', 'extended-global-styles') } icon={ Icon }>
       <TextareaControl
-        className="theme-extending-global-styles-jsonschema"
-        label={ __( 'JSON', 'theme-extending-global-styles-jsonschema' ) }
-        help={ __('This textarea acts as a placeholder for the JSON Schema form to be rendered.', 'theme-extending-global-styles-jsonschema') }
+        className="extended-global-styles"
+        label={ __( 'JSON', 'extended-global-styles' ) }
+        help={ __('This textarea acts as a placeholder for the JSON Schema form to be rendered.', 'extended-global-styles') }
         value={ intermediateValue }
         ref={ textareaRef }
         onChange={ onChange }

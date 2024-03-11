@@ -13,7 +13,7 @@
   ],
   "themes": [
     "https://downloads.wordpress.org/theme/twentytwentyfour.1.0.zip",
-    "./packages/wp-content/themes/theme-extending-global-styles-jsonschema/"
+    "./packages/wp-content/themes/extended-global-styles/"
   ],
   "config": {
     "SCRIPT_DEBUG": true,

@@ -1,5 +1,5 @@
 {
-  "name": "@cfhack2024-wp-react-jsonschema-form/theme-extending-global-styles-jsonschema",
+  "name": "@cfhack2024-wp-react-jsonschema-form/extended-global-styles",
   "description": "This package provides a WordPress theme contributing additional settings to WordPress global styles",
   "private": true,
   "version": "1.0.0",

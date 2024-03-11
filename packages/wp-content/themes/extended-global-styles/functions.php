@@ -23,9 +23,9 @@ if ( ! defined( 'ABSPATH' ) ) {
   \wp_set_script_translations($HANDLE, $HANDLE);
   \wp_add_inline_script(
     $HANDLE,
-    "window['theme-extending-global-styles-jsonschema']=" . json_encode([
+    "window['extended-global-styles']=" . json_encode([
       '_wpnonce' => wp_create_nonce( 'options-options' ),
-      'value' => \get_option('theme-extending-global-styles-jsonschema', '{}'),
+      'value' => \get_option('extended-global-styles', '{}'),
       'jsonschema' => file_get_contents(__DIR__ . '/jsonschema.json'),
       'jsonschema-ui' => file_get_contents(__DIR__ . '/jsonschema-ui.json')
     ]),
@@ -41,6 +41,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 });
 
 \add_action( 'wp_enqueue_scripts', fn() => \wp_enqueue_style(
-  'theme-extending-global-styles-jsonschema',
+  'extended-global-styles',
   \get_stylesheet_uri()
 ));
