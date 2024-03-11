@@ -25,7 +25,7 @@ importers:
 
   packages/wp-content/plugins/jsonschema-plugin-settings-page: {}
 
-  packages/wp-content/plugins/react-jsonschema-form-renderer:
+  packages/wp-content/plugins/rjsf-renderer:
     devDependencies:
       '@rjsf/core':
         specifier: ^5.17.1
@@ -43,7 +43,7 @@ importers:
         specifier: ^5.0.6
         version: 5.0.6
 
-  packages/wp-content/plugins/react-jsonschema-form-renderer-playground: {}
+  packages/wp-content/plugins/rjsf-renderer-playground: {}
 
   packages/wp-content/themes/theme-extending-global-styles-jsonschema: {}
 

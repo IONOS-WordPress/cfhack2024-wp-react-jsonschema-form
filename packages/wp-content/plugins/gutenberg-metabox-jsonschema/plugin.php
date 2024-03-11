@@ -3,7 +3,7 @@
  * Plugin Name:       gutenberg-metabox-jsonschema
  * Description:       WordPress plugin contributing meta boxes the inspector panel of Gutenberg
  * Requires at least: 6.4
- * Requires Plugins:  react-jsonschema-form-renderer
+ * Requires Plugins:  rjsf-renderer
  * Requires PHP:      8.3
  * Version:           1.0.0
  * Author:            The Hackathon Project Contributors

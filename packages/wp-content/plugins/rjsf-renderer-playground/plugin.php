@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin Name:       react-jsonschema-form-renderer-playground
+ * Plugin Name:       rjsf-renderer-playground
  * Description:       provides a WordPress plugin exposing react-jsonschema-form renderers
  * Requires at least: 6.4
- * Requires Plugins:  react-jsonschema-form-renderer
+ * Requires Plugins:  rjsf-renderer
  * Requires PHP:      8.3
  * Version:           1.0.0
  * Author:            The Hackathon Project Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       react-jsonschema-form-renderer-playground
+ * Text Domain:       rjsf-renderer-playground
  */
 
 namespace cfhack2024_wp_react_jsonschema_form\react_jsonschema_form_renderer_playground;
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       require_once ABSPATH . 'wp-admin/admin-header.php';
 
       // inject a html element with a unique id where our component should get rendered
-      echo '<div class="wrap" id="react-jsonschema-form-renderer-playground"></div>';
+      echo '<div class="wrap" id="rjsf-renderer-playground"></div>';
 
       require_once ABSPATH . 'wp-admin/admin-footer.php';
     }, \plugins_url( 'assets/icon.svg', __FILE__ ));
@@ -60,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         \wp_set_script_translations($SETTINGS_PAGE_HANDLE, $SETTINGS_PAGE_HANDLE);
         \wp_add_inline_script(
           $SETTINGS_PAGE_HANDLE,
-          "window['react-jsonschema-form-renderer-playground']=" . json_encode([
+          "window['rjsf-renderer-playground']=" . json_encode([
             /*
               nonce is only used for the individual use case of saving the form data to wordpress options
             */
@@ -68,7 +68,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             /*
               provide last saved value of the form data to the frontend
             */
-            'value' => \get_option('react-jsonschema-form-renderer-playground', '{}'),
+            'value' => \get_option('rjsf-renderer-playground', '{}'),
             /*
               provide the json schema file defining the structure of the form to the frontend
             */

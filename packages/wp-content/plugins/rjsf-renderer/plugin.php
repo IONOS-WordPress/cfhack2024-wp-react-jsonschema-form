@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       react-jsonschema-form-renderer
+ * Plugin Name:       rjsf-renderer
  * Description:       provides a WordPress plugin exposing react-jsonschema-form renderers
  * Requires at least: 6.4
  * Requires PHP:      8.3
@@ -8,10 +8,10 @@
  * Author:            The Hackathon Project Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       react-jsonschema-form-renderer
+ * Text Domain:       rjsf-renderer
  */
 
-namespace cfhack2024_wp_react_jsonschema_form\react_jsonschema_form_renderer;
+namespace cfhack2024_wp_react_jsonschema_form\rjsf_renderer;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.

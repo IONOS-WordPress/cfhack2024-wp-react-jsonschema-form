@@ -1,5 +1,5 @@
 {
-  "name": "@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer",
+  "name": "@cfhack2024-wp-react-jsonschema-form/rjsf-renderer",
   "description": "this package hosts a WordPress plugin providing a react-jsonschema-form renderer based on @wordpress/components",
   "private": true,
   "version": "1.0.0",

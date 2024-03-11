@@ -10,9 +10,9 @@ module.exports = {
     '@rjsf/core': [ 'window rjsf', 'core' ],
     '@rjsf/utils': [ 'window rjsf', 'utils' ],
     '@rjsf/validator-ajv8': [ 'window rjsf', 'validator-ajv8' ],
-    '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer': [ 'window rjsf', 'renderer'],
-    '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer/gutenberg': [ 'window rjsf', 'renderer', 'gutenberg', ],
-    '@cfhack2024-wp-react-jsonschema-form/react-jsonschema-form-renderer/html5': [ 'window rjsf', 'renderer', 'html5', ],
+    '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer': [ 'window rjsf', 'renderer'],
+    '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/gutenberg': [ 'window rjsf', 'renderer', 'gutenberg', ],
+    '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/html5': [ 'window rjsf', 'renderer', 'html5', ],
 
     // generated in the browser using
     // Object.fromEntries( Object.entries(window.lodash).map(([key, value])=>[`lodash/${key}`, [ 'window lodash', key]]))
