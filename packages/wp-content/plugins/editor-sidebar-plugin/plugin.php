@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       gutenberg-editor-sidebar-plugin
+ * Plugin Name:       editor-sidebar-plugin
  * Description:       provides a WordPress plugin declaring a Gutenberg editor sidebar plugin rendered using react-jsonschema-form
  * Requires at least: 6.4
  * Requires Plugins:  rjsf-renderer
@@ -9,10 +9,10 @@
  * Author:            The Hackathon Project Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       gutenberg-editor-sidebar-plugin
+ * Text Domain:       editor-sidebar-plugin
  */
 
-namespace cfhack2024_wp_react_jsonschema_form\gutenberg_editor_sidebar_plugin;
+namespace cfhack2024_wp_react_jsonschema_form\editor_sidebar_plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 \add_action( 'init', fn() => \register_post_meta(
   'page',
-  'gutenberg-editor-sidebar-plugin-data',
+  'editor-sidebar-plugin-data',
   [
     'single'       => true,
     'type'         => 'string',
@@ -66,20 +66,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 \add_action( 'wp_head', function () {
   $post_id = \get_the_ID();
 
-  $value = get_post_meta( get_the_ID(), 'gutenberg-editor-sidebar-plugin-data', true );
+  $value = get_post_meta( get_the_ID(), 'editor-sidebar-plugin-data', true );
 
-  if( ! \get_post_meta( $post_id, 'gutenberg-editor-sidebar-plugin-data', true ) ) {
+  if( ! \get_post_meta( $post_id, 'editor-sidebar-plugin-data', true ) ) {
     return;
   }
-  if( ! \get_post_meta( $post_id, 'gutenberg-editor-sidebar-plugin-data', false ) ) {
+  if( ! \get_post_meta( $post_id, 'editor-sidebar-plugin-data', false ) ) {
     return;
   }
   // both ifs will get run if no meta field is found; since
   // array() == false and '' == false
 
-  // @TODO evaluate post meta gutenberg-editor-sidebar-plugin-data JSON data and echo the matching <meta> tags
-  $data = \get_post_meta( $post_id, 'gutenberg-editor-sidebar-plugin-data', true );
-  echo "<!-- gutenberg-editor-sidebar-plugin-data $data -->";
+  // @TODO evaluate post meta editor-sidebar-plugin-data JSON data and echo the matching <meta> tags
+  $data = \get_post_meta( $post_id, 'editor-sidebar-plugin-data', true );
+  echo "<!-- editor-sidebar-plugin-data $data -->";
 
   /*
     example headers to inject into page

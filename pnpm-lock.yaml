@@ -15,11 +15,11 @@ importers:
         specifier: ^27.3.0
         version: 27.3.0(@playwright/test@1.41.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
 
+  packages/wp-content/plugins/editor-sidebar-plugin: {}
+
   packages/wp-content/plugins/form-block: {}
 
   packages/wp-content/plugins/gutenberg-block-attributes-jsonschema: {}
-
-  packages/wp-content/plugins/gutenberg-editor-sidebar-plugin: {}
 
   packages/wp-content/plugins/metabox-block: {}
 
