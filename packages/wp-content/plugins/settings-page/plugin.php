@@ -78,4 +78,12 @@ if ( ! defined( 'ABSPATH' ) ) {
   },
 );
 
+\add_filter( 'plugin_action_links_' . \plugin_basename(__FILE__), function ( $actions ) {
+  array_unshift(
+    $actions,
+    "<a href='" . \menu_page_url( 'settings_page', false) . "'>" . __( 'Settings' ) . '</a>'
+  );
+  return $actions;
+});
+
 
