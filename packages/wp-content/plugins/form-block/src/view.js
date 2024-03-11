@@ -21,5 +21,5 @@
  */
 
 /* eslint-disable no-console */
-console.log( 'Hello World! (from gutenberg-form-block-jsonschema)' );
+console.log( 'Hello World! (from form-block)' );
 /* eslint-enable no-console */

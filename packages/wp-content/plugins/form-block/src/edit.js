@@ -34,14 +34,15 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
     <>
       <InspectorControls>
-				<PanelBody title={ __( 'JSON Schema Form', 'gutenberg-form-block-jsonschema' ) } opened>
+				<PanelBody title={ __( 'JSON Schema Form', 'form-block' ) } opened>
           <TextareaControl
-            className="gutenberg-form-block-jsonschema-jsoneditor"
-            label={ __( 'JSON Schema of the form', 'gutenberg-form-block-jsonschema' ) }
-            help={ __('This textarea acts as a placeholder for the JSON Schema form editor.', 'gutenberg-form-block-jsonschema') }
+            className="form-block-jsoneditor"
+            label={ __( 'JSON Schema of the form', 'form-block' ) }
+            help={ __('This textarea acts as a placeholder for the JSON Schema form editor.', 'form-block') }
             required
             value={ intermediateValue }
             ref={ textareaRef }
+            rows={ 15 }
             onChange={ onChange }
           />
         </PanelBody>

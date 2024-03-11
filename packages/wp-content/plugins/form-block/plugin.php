@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       gutenberg-form-block-jsonschema
+ * Plugin Name:       form-block
  * Description:       declaring a Gutenberg block rendering a form using react-jsonschema-form in posts/pages
  * Requires at least: 6.4
  * Requires Plugins:  rjsf-renderer
@@ -9,10 +9,10 @@
  * Author:            The Hackathon Project Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       gutenberg-form-block-jsonschema
+ * Text Domain:       form-block
  */
 
-namespace cfhack2024_wp_react_jsonschema_form\gutenberg_form_block_jsonschema;
+namespace cfhack2024_wp_react_jsonschema_form\form_block;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -42,4 +42,12 @@ if ( ! defined( 'ABSPATH' ) ) {
   }
 
   return $categories;
+});
+
+// to prevent confusion : we need to force disablement of update notifications for this plugin since there exist
+// already a plugin at wordpress.org named "form-plugin"
+// see https://wordpress.org/plugins/form-block/
+\add_filter('site_transient_update_plugins', function($value) {
+  unset($value->response[ \plugin_basename(__FILE__) ]);
+  return $value;
 });

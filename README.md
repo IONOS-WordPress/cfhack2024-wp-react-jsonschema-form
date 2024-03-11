@@ -197,11 +197,11 @@ _The project setup will always build code including debugging information. Every
 
   - from the Monorepo root directory using `pnpm --filter "<sub-package-name>" run <sub-package-script>` in the package directory
 
-    Example: `pnpm --filter "@cfhack2024-wp-react-jsonschema-form/gutenberg-form-block-jsonschema" run build`
+    Example: `pnpm --filter "@cfhack2024-wp-react-jsonschema-form/form-block" run build`
 
   - by changing to the package directory and running `pnpm run <sub-package-script>`
 
-    Example: `cd packages/gutenberg-form-block-jsonschema && pnpm run build`
+    Example: `cd packages/form-block && pnpm run build`
 
 ## Tips
 
