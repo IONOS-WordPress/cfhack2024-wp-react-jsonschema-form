@@ -3,5 +3,5 @@ import Settings from "./components/settings.js";
 
 import "./index.scss";
 
-const root = createRoot(document.getElementById("jsonschema-plugin-settings-page"));
+const root = createRoot(document.getElementById("settings-page"));
 root.render(<Settings/>);

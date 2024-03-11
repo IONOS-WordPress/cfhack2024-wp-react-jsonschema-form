@@ -1,16 +1,16 @@
 It might be useful to duplicate one of the plugins as a personal playground for testing and learning. This is a step by step guide to duplicate a plugin.
 
-Let's take the `jsonschema-plugin-settings-page` plugin as example :
+Let's take the `settings-page` plugin as example :
 
-- Duplicate the `jsonschema-plugin-settings-page` plugin beside the existing plugin into `packages/wp-content/plugins/`
+- Duplicate the `settings-page` plugin beside the existing plugin into `packages/wp-content/plugins/`
 
-- Rename the folder to ... let's say `jsonschema-plugin-settings-page-duplicate`
+- Rename the folder to ... let's say `settings-page-duplicate`
 
-- Go into the new plugin folder `packages/wp-content/plugins/jsonschema-plugin-settings-page-duplicate` and replace all occurrences of  `jsonschema_plugin_settings_page_duplicate` in all files.
+- Go into the new plugin folder `packages/wp-content/plugins/settings-page-duplicate` and replace all occurrences of  `settings-page_duplicate` in all files.
 
-  - `jsonschema-plugin-settings-page` with `jsonschema-plugin-settings-page-duplicate`
+  - `settings-page` with `settings-page-duplicate`
 
-  - `jsonschema_plugin_settings_page` with `jsonschema_plugin_settings_page_duplicate`
+  - `settings_page` with `settings_page_duplicate`
 
 - Rebuild the js/css sources : `pnpm run build`
 
@@ -20,7 +20,7 @@ Let's take the `jsonschema-plugin-settings-page` plugin as example :
   ...
   "plugins": [
     ...
-    "./packages/wp-content/plugins/jsonschema-plugin-settings-page-duplicate/",
+    "./packages/wp-content/plugins/settings-page-duplicate/",
     ...
   ],
   ...
@@ -32,7 +32,7 @@ Let's take the `jsonschema-plugin-settings-page` plugin as example :
 
   ```
   ...
-  /packages/wp-content/plugins/jsonschema-plugin-settings-page-duplicate/
+  /packages/wp-content/plugins/settings-page-duplicate/
   # optional: add your modified .wp-env.json to the exclude list as well
   /.wp-env.json
   ...

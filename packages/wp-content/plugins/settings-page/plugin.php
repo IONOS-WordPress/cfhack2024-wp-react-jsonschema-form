@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       jsonschema-plugin-settings-page
+ * Plugin Name:       settings-page
  * Description:       provides a WordPress plugin settings page utilizing react-jsonschema-form
  * Requires at least: 6.4
  * Requires Plugins:  rjsf-renderer
@@ -9,10 +9,10 @@
  * Author:            The Hackathon Project Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       jsonschema-plugin-settings-page
+ * Text Domain:       settings-page
  */
 
-namespace cfhack2024_wp_react_jsonschema_form\jsonschema_plugin_settings_page;
+namespace cfhack2024_wp_react_jsonschema_form\settings_page;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -21,10 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 \add_action(
   "admin_menu",
   function () {
-    $menu_page_hook_suffix = \add_menu_page('JSON Schema plugin settings page', 'JSON Schema plugin settings page', 'manage_options', 'jsonschema_plugin_settings_page', function () {
+    $menu_page_hook_suffix = \add_menu_page('Settings page', 'Settings page', 'manage_options', 'settings_page', function () {
       require_once ABSPATH . 'wp-admin/admin-header.php';
 
-      echo '<div class="wrap" id="jsonschema-plugin-settings-page"></div>';
+      echo '<div class="wrap" id="settings-page"></div>';
 
       require_once ABSPATH . 'wp-admin/admin-footer.php';
     }, \plugins_url( 'assets/icon.svg', __FILE__ ));
@@ -49,9 +49,9 @@ if ( ! defined( 'ABSPATH' ) ) {
         \wp_set_script_translations($HANDLE, $HANDLE);
         \wp_add_inline_script(
           $HANDLE,
-          "window['jsonschema_plugin_settings_page']=" . json_encode([
+          "window['settings_page']=" . json_encode([
             '_wpnonce' => wp_create_nonce( 'options-options' ),
-            'value' => \get_option('jsonschema_plugin_settings_page', '{}'),
+            'value' => \get_option('settings_page', '{}'),
             'jsonschema' => file_get_contents(__DIR__ . '/jsonschema.json'),
             'jsonschema-ui' => file_get_contents(__DIR__ . '/jsonschema-ui.json')
           ]),

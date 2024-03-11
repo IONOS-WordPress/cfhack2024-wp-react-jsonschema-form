@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Panel, PanelBody, TextareaControl, Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
-const config = window['jsonschema_plugin_settings_page'];
+const config = window['settings_page'];
 
 export default function Settings() {
   const [json, setJSON] = useState(config['value']);
@@ -20,10 +20,10 @@ export default function Settings() {
 
   const saveChanges = async () => {
     const formData = new FormData();
-    formData.append('jsonschema_plugin_settings_page', json);
+    formData.append('settings_page', json);
     formData.append('action', 'update');
     formData.append('option_page', 'options');
-    formData.append('page_options', 'jsonschema_plugin_settings_page')
+    formData.append('page_options', 'settings_page')
     formData.append('_wpnonce', config['_wpnonce']);
 
     await fetch('/wp-admin/options.php', {
@@ -46,11 +46,11 @@ export default function Settings() {
   };
 
   return (
-    <Panel header="jsonschema-plugin-settings-page">
-      <PanelBody title={ __('Plugin settings') } opened>
+    <Panel header="settings-page">
+      <PanelBody title={ __('Settings page', 'settings-page') } opened>
         <TextareaControl
-          className="jsonschema-plugin-settings-page-jsoneditor"
-          label={ __( 'JSON', 'jsonschema-plugin-settings-page' ) }
+          className="settings-page-jsoneditor"
+          label={ __( 'JSON', 'settings-page' ) }
           help={ __("This textarea acts as a placeholder for the JSON Schema form to be rendered.") }
           value={ intermediateValue }
           ref={ textareaRef }

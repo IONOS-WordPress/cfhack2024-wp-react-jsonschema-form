@@ -87,7 +87,7 @@
 #wpwrap {
   background-color: var(--wp--preset--color--white);
 
-  /* make our jsonschema-plugin-settings-page full size without any paddings */
+  /* make our settings-page full size without any paddings */
   #wpcontent {
     padding-left: inherit;
 
@@ -108,6 +108,6 @@
   }
 }
 
-.jsonschema-plugin-settings-page-jsoneditor textarea:invalid {
+.settings-page-jsoneditor textarea:invalid {
   border-color: var(--wp--preset--color--accent-3);
 }
