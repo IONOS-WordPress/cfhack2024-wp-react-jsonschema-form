@@ -1,22 +1,28 @@
 # Purpose
 
-This plugin acts as a foundation for all other plugins/theme providing
+This plugin exposes a [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) as WordPress Dashboard page.
 
-- [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)
+This can be used to play around and showcase the capabilites of the renderers provided by the `jsrf-renderer` plugin.
 
-- the [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) Gutenberg renderer implementation
-
-- the [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) Html5 renderer implementation
-
-So if you think you should implement the Gutenberg renderer or Html5 renderer for the Hackaton - this plugin is your place to be.
-
-_The plugin does not need to have any other purpose than providing [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) and our renderers to all other plugins/theme. It contains a simple plugin settings page rendering a form using [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) our renderer just for testing purposes_
+_The plugin does not need to have any other purpose than providing our renderer just for testing purposes_
 
 It would be perfect if this package would provides
 
-- a Gutenberg renderer _at least_ capable of rendering the forms of all other plugins/theme nicely utilizing the Gutenberg ui components provided by [@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/)
+- a WordPress page offering a [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) playground to showcase the capabilities of our renderers.
 
-  - ideally the renderer would completely implemented using [@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/) and not spitting out Bootstrap 3 code.
+- the playground should provide
+
+  - a editor for the JSON Schema of the form
+
+  - a editor for the JSON Schema UI of the form
+
+  - an option to render with one (or both in parallel ?) of our renderers
+
+  - integrated JSON/Schema validation
+
+- the last successful validated playground data (JSON schema, JSON Schema UI, etc) should be stored in Browser Local Storage and restored when the page is reloaded.
+
+- the playground should be completely implemented using [@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/).
 
 - has a 'usage' section this this `README.md` file explaining how to showcase the plugin.
 
@@ -24,9 +30,9 @@ It would be perfect if this package would provides
 
 ## Bonus feature
 
-- (optional) a Html5 renderer resulting of pure modern Html5 forms. _At least_ capable of rendering the forms of all other plugins/theme nicely utilizing the Html5 controls of modern browsers
+- (optional) if we have the time we could implement extend the JSON Schema editor to use the [monaco editor](https://microsoft.github.io/monaco-editor/) instead of a simple textarea.
 
-  - ideally the renderer would completely implemented using plain modern Html5 and not spitting out Bootstrap 3 code.
+- (optional) if we much more time left we could add an alternative graphical JSON Schema editor (like this one : https://jsonformseditor.io/) instead of a simple textarea. Both source and graphical editor should be available using a tabbed interface.
 
 # Development
 

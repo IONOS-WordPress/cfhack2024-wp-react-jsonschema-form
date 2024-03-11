@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       rjsf-renderer-playground
- * Description:       provides a WordPress plugin exposing react-jsonschema-form renderers
+ * Description:       Exposing a react-renderer playground page
  * Requires at least: 6.4
  * Requires Plugins:  rjsf-renderer
  * Requires PHP:      8.3
@@ -12,7 +12,7 @@
  * Text Domain:       rjsf-renderer-playground
  */
 
-namespace cfhack2024_wp_react_jsonschema_form\react_jsonschema_form_renderer_playground;
+namespace cfhack2024_wp_react_jsonschema_form\rjsf_renderer_playground;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 \add_action(
   "admin_menu",
   function () {
-    $menu_page_hook_suffix = \add_menu_page('react-jsonschema-form Renderer Playground', 'react-jsonschema-form Renderer Playground', 'manage_options', 'react_jsonschema_form_renderer_playground', function () {
+    $menu_page_hook_suffix = \add_menu_page('rjsf-renderer Playground', 'rjsf-renderer Playground', 'manage_options', 'rjsf_renderer_playground', function () {
       require_once ABSPATH . 'wp-admin/admin-header.php';
 
       // inject a html element with a unique id where our component should get rendered
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       function () {
         $HANDLE=str_replace('_', '-', __NAMESPACE__);
 
-        $SETTINGS_PAGE_HANDLE = "{$HANDLE}-playground-page";
+        $SETTINGS_PAGE_HANDLE = "{$HANDLE}-playground";
         /*
           register our js file to be loaded into the settings page playground
         */
@@ -72,11 +72,11 @@ if ( ! defined( 'ABSPATH' ) ) {
             /*
               provide the json schema file defining the structure of the form to the frontend
             */
-            'jsonschema' => json_decode( file_get_contents(__DIR__ . '/playground-page-jsonschema.json')),
+            'jsonschema' => json_decode( file_get_contents(__DIR__ . '/playground-jsonschema.json')),
             /*
               provide the json schema ui file defining the individual form rendering customization to the frontend
             */
-            'jsonschema-ui' => json_decode( file_get_contents(__DIR__ . '/playground-page-jsonschema-ui.json'))
+            'jsonschema-ui' => json_decode( file_get_contents(__DIR__ . '/playground-jsonschema-ui.json'))
           ]),
           'before',
         );

@@ -8,7 +8,7 @@ This plugin acts as a foundation for all other plugins/theme providing
 
 - the [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) Html5 renderer implementation
 
-So if you think you should implement the Gutenberg renderer or Html5 renderer for the Hackaton - this plugin is your place to be.
+So if you think you should implement the Gutenberg renderer or Html5 renderer for the Hackathon - this plugin is your place to be.
 
 _The plugin does not need to have any other purpose than providing [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) and our renderers to all other plugins/theme. It contains a simple plugin settings page rendering a form using [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) our renderer just for testing purposes_
 
@@ -29,6 +29,8 @@ It would be perfect if this package would provides
   - ideally the renderer would completely implemented using plain modern Html5 and not spitting out Bootstrap 3 code.
 
 # Development
+
+To see the bundles exposed by this plugin please refer to the `jsrf-playground` plugin. It provides a WordPress Dashboard page where you can play around with the [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) renderers exposed by this plugin.
 
 ## Sub Package Layout
 
@@ -77,12 +79,6 @@ Each of the directories in `src/` is resulting in a separate JavaScript bundle [
   _Right know this package provides a stripped down (but fully functional) duplicate of the [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) renderer implemented using Bootstrap 3. This renderer is a perfect boilerplate renderer because of it's simplicity._
 
   **Refactoring this renderer to use only HTML5 is one of the (optional) tasks for the Hackathon.**
-
-_The bundle created by `./src/settings-page` is ony used for the settings page playground of this plugin showcasing the usage of the other [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) bundles provided by this plugin._
-
-Have a look at this settings page code JS/CSS and PHP Code (see WordPress admin page registration of this plugin) to get a clue how to integrate [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) form rendering into any other plugin/theme of this project.
-
-_It demonstrates how to integrate [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) in a WordPress plugin settings page using the JS/CSS bundles exposed by this plugin._
 
 ## How do I start ?
 
