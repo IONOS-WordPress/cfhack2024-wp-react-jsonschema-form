@@ -62,14 +62,6 @@ if ( ! defined( 'ABSPATH' ) ) {
           $SETTINGS_PAGE_HANDLE,
           "window['rjsf-renderer-playground']=" . json_encode([
             /*
-              nonce is only used for the individual use case of saving the form data to wordpress options
-            */
-            '_wpnonce' => wp_create_nonce( 'options-options' ),
-            /*
-              provide last saved value of the form data to the frontend
-            */
-            'value' => \get_option('rjsf-renderer-playground', '{}'),
-            /*
               provide the json schema file defining the structure of the form to the frontend
             */
             'jsonschema' => json_decode( file_get_contents(__DIR__ . '/playground-jsonschema.json')),

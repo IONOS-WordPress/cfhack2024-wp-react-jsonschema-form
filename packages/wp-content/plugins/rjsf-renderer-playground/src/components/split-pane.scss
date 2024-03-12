@@ -1,0 +1,35 @@
+.split-pane {
+  &.split-pane-col {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.split-pane-row {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .split-pane-top,
+  .split-pane-bottom,
+  .split-pane-right,
+  .split-pane-left {
+    flex: 1;
+    overflow: auto;
+    // // see https://css-tricks.com/almanac/properties/s/scrollbar-gutter/
+    // scrollbar-gutter: stable both-edges;
+  }
+
+  .separator-col {
+    border: 5px solid #e0e0e0;
+    cursor: col-resize;
+  }
+
+  .separator-row {
+    border: 5px solid #e0e0e0;
+    cursor: row-resize;
+  }
+}

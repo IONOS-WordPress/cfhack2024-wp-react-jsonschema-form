@@ -99,11 +99,17 @@ I know there is a lot of discussion going on about this topic.
 
 We should getting things done fast and concentrate on the most important thing : hacking the functionality. Understanding Typescript syntax can be challenging and I would want to avoid locking people out just because they don't-know/have-limited-knowledge about Typescript.
 
-### Linting
+### No Linting
 
 This project has no linting / formatting configured to keep the amount of configuration low.
 
 Be nice to each other and don't use extravagant formatting.
+
+### No CSS-in-JS
+
+Same reason as for Typescript - not anybody knows about CSS-in-JS.
+
+But anybody is free to use PostCSS since it is **everywhere** used in the Gutenberg ecosystem.
 
 ### GIT
 

@@ -1,0 +1,33 @@
+/*
+  empty dummy scss file
+*/
+
+#rjsf-renderer-playground {
+
+  .components-panel__body-title {
+    pointer-events: none;
+    margin: 0;
+
+    .components-button.components-panel__body-toggle {
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  .components-panel__body.is-opened {
+    padding : 0;
+  }
+
+  .split-pane-top, .split-pane-bottom  {
+    // see https://css-tricks.com/almanac/properties/s/scrollbar-gutter/
+    // scrollbar-gutter: stable;
+
+    textarea {
+      resize: vertical;
+      white-space: no-wrap;
+      font-family: monospace;
+    }
+  }
+}
+
