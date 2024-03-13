@@ -83,7 +83,7 @@ We will use [VS Code](https://code.visualstudio.com/) as our development environ
 
 ## Folder Structure
 
-Each of the use cases is located in a separate folder in the `packages` directory as a separate sub project. This Monorepo structure allows us to work on multiple use cases in parallel.
+Each of the use cases is located in a separate folder in `packages/wp-content/plugins/*` / `packages/wp-content/themes/*` directory as a separate sub project. This Monorepo structure allows us to work on multiple use cases in parallel.
 
 Each sub project contains a `README.md` file with further instructions.
 
