@@ -1,4 +1,4 @@
-import Form, { withTheme } from '@rjsf/core';
+import /*Form,*/ { withTheme } from '@rjsf/core';
 
 /*
   this script exposes our Gutenberg renderer to the frontend
@@ -11,6 +11,8 @@ import Form, { withTheme } from '@rjsf/core';
 import getDefaultRegistry from './getDefaultRegistry.js';
 
 import './rjsf-renderer-gutenberg.scss';
+
+const Form = withTheme(getDefaultRegistry());
 
 function GutenbergForm(props) {
   // append our custom renderer className

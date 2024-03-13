@@ -1,4 +1,4 @@
-import Form, { withTheme } from '@rjsf/core';
+import /*Form,*/ { withTheme } from '@rjsf/core';
 
 /*
   this script exposes our HTML5 renderer to the frontend
@@ -11,6 +11,8 @@ import Form, { withTheme } from '@rjsf/core';
 import getDefaultRegistry from './getDefaultRegistry.js';
 
 import './rjsf-renderer-html5.scss';
+
+const Form = withTheme(getDefaultRegistry());
 
 function Html5Form(props) {
   // append our custom renderer className
