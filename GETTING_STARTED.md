@@ -163,6 +163,6 @@ That's it !
 
 # links to the next steps
 
-- take a look at the [react-jsonschema-form documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/)
+- Take a look at the [react-jsonschema-form documentation](https://rjsf-team.github.io/react-jsonschema-form/docs/)
 
 - Don't miss the [react-jsonschema-form Quickstart](https://rjsf-team.github.io/react-jsonschema-form/docs/quickstart)
