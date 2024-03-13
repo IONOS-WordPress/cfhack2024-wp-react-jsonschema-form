@@ -4,17 +4,21 @@ This sub project should represent a proof of concept for a WordPress theme decla
 
 _The theme does not need to have any other purpose than acting as a show case for rendering a additional custom settings using a JSON Schema definition to the global styles editor of WordPress._
 
-It would be perfect if this package would provide a WordPress theme
+It would be perfect if this package would provide
 
-- a [child theme](https://developer.wordpress.org/themes/advanced-topics/child-themes/) of the latest official WordPress [Twenty Twenty-Four](https://wordpress.org/documentation/article/twenty-twenty-four/) theme
+- a WordPress [child theme](https://developer.wordpress.org/themes/advanced-topics/child-themes/) of the latest official WordPress [Twenty Twenty-Four](https://wordpress.org/documentation/article/twenty-twenty-four/) theme
 
 - defining additional custom settings as a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file
 
 - implements injection of the [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) renderer into the global styles editor of WordPress
 
+- renders a JSON Schema form into the global styles editor describing some additional theme properties using our Gutenberg components based [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/) renderer.
+
+  > I cannot give you a really good idea about what custom theme properties you should define in the JSON Schema. It's up to you to decide what you want to render in the global styles editor. But I can give you a hint: you could try to define some custom colors, fonts, spacings, etc. for the theme.
+
 - persist changes as [WordPress options](https://developer.wordpress.org/apis/options/)
 
-- reflect the additional custom settings of the child theme in pages/posts
+- reflect the additional custom settings of the child theme in pages/posts in some way.
 
 - has a 'usage' section this this `README.md` file explaining how to showcase the plugin.
 

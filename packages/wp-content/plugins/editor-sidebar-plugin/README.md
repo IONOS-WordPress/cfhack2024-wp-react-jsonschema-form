@@ -6,13 +6,19 @@ This WordPress plugin should represent a proof of concept for a WordPress plugin
 
 _The plugin does not need to have any other purpose than acting as a show case for rendering a [Gutenberg editor sidebar plugin](https://developer.wordpress.org/block-editor/how-to-guides/plugin-sidebar-0/) using a JSON Schema definition._
 
-> An example usage for this plugin could be a plugin that adds a sidebar to the Gutenberg editor for post type `page` rendering a form to edit SEO optimization data like keywords, description etc (https://www.greengeeks.com/tutorials/add-meta-tags-wordpress/).
+An example usage for this plugin could be a plugin that adds a sidebar to the Gutenberg editor for post type `page` rendering a form to edit SEO optimization data like keywords, description in a [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/) rendered form (see https://www.greengeeks.com/tutorials/add-meta-tags-wordpress/).
+
+> If you have a better idea for a use case, feel free to implement it !
 
 It would be perfect if this package would provide a WordPress plugin
 
 - declaring a [Gutenberg editor sidebar plugin](https://developer.wordpress.org/block-editor/how-to-guides/plugin-sidebar-0/) form using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file
 
 - implement the [Gutenberg editor sidebar plugin](https://developer.wordpress.org/block-editor/how-to-guides/plugin-sidebar-0/) rendering the [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file using [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)
+
+- design a SEO form using [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) showcasing the capabilities of [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)
+
+- save the entered data to the post/page meta data
 
 - adding the entered data to the html header of the post/page
 

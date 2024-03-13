@@ -8,17 +8,19 @@ This sub project should represent a proof of concept for a WordPress plugin impl
 
 > The **post meta data** is the "administrative" information you provide to viewers about each [post](https://codex.wordpress.org/Glossary#Post "Glossary"). This information usually includes the author of the post, when it was written (or posted), and how the author [categorized](https://codex.wordpress.org/Glossary#Category "Glossary") that particular post.
 
-_The plugin does not need to have any other purpose than acting as a show case for rendering a Meta box using a JSON Schema definition into Gutenberg editor._
+_The plugin does not need to have any other purpose than acting as a show case for rendering a Meta box using a JSON Schema definition into Gutenberg editor for editing a structured custom metadata using a JSON Schema rendered form._
 
-> An example usage for this plugin could be a plugin that adds a sidebar to the Gutenberg editor for post type `page` (and/or `post`) rendering a form to edit SEO optimization data like keywords, description etc (https://www.greengeeks.com/tutorials/add-meta-tags-wordpress/).
+A perfect example of a metabox block would be a Todo list. The user can drop the block into the page and can use the rendered form to edit the page related todo list. A excellent starting point to implement the JSON Schema for a Todo list can be found here : https://medium.com/@vinitrai.marshal/practical-guide-to-json-schema-a258423a5e60.
+
+> If you have a better idea for a use case, feel free to implement it !
+
+The meta box ist just rendered at the page editor and doesn't generate any HTML visible on the published page. So it's a perfect fit for this use case.
 
 It would be perfect if this package would provide a WordPress plugin
 
-- declaring a [Gutenberg editor sidebar plugin](https://developer.wordpress.org/block-editor/how-to-guides/plugin-sidebar-0/) form using a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file
-
 - implement a [meta box](https://wholesomecode.net/create-custom-meta-boxes-using-the-wordpress-block-editor-gutenberg/) rendering the [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file using [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form)
 
-- adding the entered data to the html header of the post/page
+- create a Todo list JSON Schema file and render it using [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) in the meta box block
 
 - has a 'usage' section this this `README.md` file explaining how to showcase the plugin. A embedded screenshot - or better a animated gif/png - would help a lot when representing our hackathon results.
 
@@ -27,6 +29,12 @@ It would be perfect if this package would provide a WordPress plugin
   - __You need to enable the custom fields in the Gutenberg editor preferences in General/Advanced before you can use it.__
 
     - **Caveat** : If you enable the custom fields in the Gutenberg editor preferences the metabox-block block will not save anymore since the custom fields mechanism is later in the save process than the block mechanism.
+
+## Bonus feature
+
+If you have time left, you could also try to hijack the custom fields section of the Gutenberg editor and inject the JSON Schema editor into it.
+
+_The custom fields section of the Gutenberg editor is be default disabled. You need to enable it manually in the Gutenberg editor settings_
 
 # Development
 

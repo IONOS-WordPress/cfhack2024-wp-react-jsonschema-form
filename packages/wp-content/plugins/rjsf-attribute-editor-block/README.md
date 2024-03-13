@@ -4,17 +4,25 @@ This WordPress plugin provides a proof of concept Gutenberg block declaring its 
 
 The attributes should be rendered into the Inspector Panel of the Gutenberg Sidebar using [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file using [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
 
-_The Gutenberg Block  does not need to have any other purpose than acting as a show case for rendering block attributes using a JSON Schema definition._
+_The Gutenberg Block does not need to have any other purpose than acting as a show case for rendering block attributes using a JSON Schema definition._
 
 It would be perfect if this package would provide a WordPress plugin
 
 - declaring a custom Gutenberg block
 
-- The block attributes should declare a single property of type `object`.
+- The block attributes should declare a single property of type `object` storing the data entered by the user in our rendered form.
 
   The object will be used as a wrapper for our block attributes defined in a separate [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file
 
 - the block attributes should be rendered into the Inspector Panel of the Gutenberg Sidebar using [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) file using [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/)
+
+- develop a JSON Schema for a form collecting - let's say the user name, family name and email at first (or anything else you want to render later on in the block). The JSON schema and the JSON schema UI can be provided directly from the block.json file (see block implementation stub, it's already there)
+
+  > If you have a better idea for a use case, feel free to implement it !
+
+  Use the [react-jsonschema-form Playground](https://rjsf-team.github.io/react-jsonschema-form/) to design your form and to get a clue about the JSON Schema definition.
+
+- render the collected data in the block preview in a nice way
 
 - has a 'usage' section this this `README.md` file explaining how to showcase the plugin.
 

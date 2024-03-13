@@ -4,13 +4,19 @@ This WordPress plugin should represent a proof of concept for a WordPress Form B
 
 The proof should demo editing a [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) in the edit view of the Gutenberg editor and rendering the form in the frontend.
 
+A good usage example might be a contact form with a name, email and message field. The user could use this block to create a contact form without any coding. In the block edit view the user should be able to configure the form fields and the form submission target. Add a live preview (using the Gutenberg renderer) to the block edit view would be a nice to have. At the published site the form should be rendered using the HTML5 renderer and the form data should be submitted to the configured target.
+
+> If you have a better idea for a use case, feel free to implement it !
+
 It would be perfect if this package would provide a WordPress plugin
 
 - declaring a [Gutenberg block](https://developer.wordpress.org/block-editor/getting-started/fundamentals/)
 
 - implement the [Gutenberg block](https://developer.wordpress.org/block-editor/getting-started/fundamentals/)
 
-  - use [Monaco editor framework(https://stackoverflow.com/a/76113109) to implement a full featured JSON Schema editor in the block edit view
+  - implement a block edit view for configuring a JSON Schema and the live preview of the form.
+
+    - Bonus: you could even try to embed [Monaco editor framework(https://stackoverflow.com/a/76113109) to implement a full featured JSON Schema editor in the block edit view for editing the JSON Schema.
 
   - render the edited [JSON Schema](https://rjsf-team.github.io/react-jsonschema-form/) form using [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form) in the frontend
 
