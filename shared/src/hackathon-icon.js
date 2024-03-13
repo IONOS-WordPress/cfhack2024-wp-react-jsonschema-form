@@ -1,3 +1,4 @@
+
 export default function HackathonIcon( props = { }) {
   const { size = 32 } = props;
 
@@ -9,10 +10,10 @@ export default function HackathonIcon( props = { }) {
       viewBox="0 0 512 512"
       fill="#000000"
       focusable="false"
-      role="none"
-      aria-hidden="true"
+      role="img"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>cfhack20214</title>
       <rect
         width="512"
         height="512"
