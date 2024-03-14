@@ -8,6 +8,7 @@ import FormGutenberg from '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/gu
 import FormHtml5 from '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/html5';
 
 import useTextareaAllowTabKey from './use-textareaallowtabkey.js';
+import ErrorBoundary from './error-boundary.js'
 import STORE_KEY from './playground-store.js';
 
 import SplitPane, {
@@ -127,58 +128,85 @@ function JSONSchemaUIEditor() {
 }
 
 function Preview() {
-  const { schema, uiSchema, renderer, isPreviewLiveValidate } = useSelect((select) => {
+  const { schema, uiSchema, renderer, isPreviewLiveValidate, formData } = useSelect((select) => {
     const store = select(STORE_KEY);
     return {
       schema: store.getSchema(),
       uiSchema: store.getUISchema(),
       renderer: store.getRenderer(),
       isPreviewLiveValidate : store.isPreviewLiveValidate(),
+      formData: store.getFormData(),
     };
   });
-  const { setRenderer, setPreviewLiveValidate } = useDispatch(STORE_KEY);
+  const { setRenderer, setPreviewLiveValidate, setFormData } = useDispatch(STORE_KEY);
+
+  const togglePreviewLifeValidate = () => {
+    setPreviewLiveValidate(!isPreviewLiveValidate);
+  };
 
   return (
     <div className="rjsf-preview">
-      <Toolbar label="preview toolbar">
-        <ToolbarGroup>
-          <ToolbarButton
-            text={ __('Live validation', 'rjsf-renderer-playground') }
-            isPressed={isPreviewLiveValidate}
-            onClick={() => setPreviewLiveValidate(!isPreviewLiveValidate) }
-          />
-        </ToolbarGroup>
-        <ToolbarGroup>
-          <ToolbarButton
-            text={ __('Renderer: ', 'rjsf-renderer-playground') }
-            disabled
-          />
-          <ToolbarButton
-            text={ __('Gutenberg', 'rjsf-renderer-playground') }
-            isPressed={renderer==='gutenberg'}
-            onClick={() => setRenderer('gutenberg') }
-          />
-          <ToolbarButton
-            text={ __('HTML5', 'rjsf-renderer-playground') }
-            isPressed={renderer==='html5'}
-            onClick={() => setRenderer('html5') }
-          />
-        </ToolbarGroup>
-      </Toolbar>
-      <div className="rjsf-preview-container">
-        {
-          createElement(renderer==='gutenberg' ? FormGutenberg : FormHtml5, { schema : JSON.parse(schema), uiSchema : JSON.parse(uiSchema), validator, liveValidate : isPreviewLiveValidate})
-        }
+      <div className="rjsf-preview-header">
+        <strong className="rjsf-preview-header-title">Preview</strong>
+        <Toolbar label="preview toolbar" variant='unstyled'>
+          <ToolbarGroup>
+            <ToolbarButton
+              text={ __('Live validation', 'rjsf-renderer-playground') }
+              isPressed={isPreviewLiveValidate}
+              onClick={togglePreviewLifeValidate}
+            />
+          </ToolbarGroup>
+          <ToolbarGroup>
+            <ToolbarButton
+              text={ __('Clear form data', 'rjsf-renderer-playground') }
+              onClick={() => setFormData({}) }
+            />
+          </ToolbarGroup>
+          <ToolbarGroup>
+            <ToolbarButton
+              text={ __('Renderer: ', 'rjsf-renderer-playground') }
+              disabled
+            />
+            <ToolbarButton
+              text={ __('Gutenberg', 'rjsf-renderer-playground') }
+              isPressed={renderer==='gutenberg'}
+              onClick={() => setRenderer('gutenberg') }
+            />
+            <ToolbarButton
+              text={ __('HTML5', 'rjsf-renderer-playground') }
+              isPressed={renderer==='html5'}
+              onClick={() => setRenderer('html5') }
+            />
+          </ToolbarGroup>
+        </Toolbar>
       </div>
+      <div className="rjsf-preview-container">
+        <ErrorBoundary>
+          {
+            createElement(renderer==='gutenberg' ? FormGutenberg : FormHtml5, {
+              schema : JSON.parse(schema),
+              uiSchema : JSON.parse(uiSchema),
+              validator,
+              liveValidate : isPreviewLiveValidate,
+              formData,
+              onChange: (value) => setFormData(value.formData),
+            })
+          }
+        </ErrorBoundary>
+      </div>
+      <Panel header={ __('Form data', 'rjsf-renderer-playground')}>
+        <PanelBody>
+          { JSON.stringify( formData, null, '') }
+        </PanelBody>
+      </Panel>
     </div>
   );
 }
 
-
 export default function Playground() {
   return (
     <Panel header="rjsf-renderer-playground">
-      <PanelBody title={ __('Playground', 'rjsf-renderer-playground') } opened>
+      <PanelBody>
         <SplitPane className="split-pane-row">
           <SplitPaneLeft>
 

@@ -7,6 +7,7 @@ import React, {
   createContext,
 } from "react";
 
+import STORE_KEY from './playground-store.js';
 import './split-pane.scss';
 
 const SplitPaneContext = createContext();

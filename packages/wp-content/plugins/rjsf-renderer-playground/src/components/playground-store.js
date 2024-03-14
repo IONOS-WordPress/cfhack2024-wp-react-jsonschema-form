@@ -13,6 +13,8 @@ export default KEY;
     uiSchema : typeof(settings['jsonschema-ui'])!=='string' ? JSON.stringify(settings['jsonschema-ui'], null, '  ') : settings['jsonschema-ui'],
     renderer : 'gutenberg',
     previewLiveValidate : false,
+    error : null,
+    formData : {},
   };
 
   // read persisted data from localStorage
@@ -29,6 +31,7 @@ export default KEY;
   // persist state to localStorage
   function persist(state) {
     Object.keys(state)
+      .filter(key=>key!=='error') // don't persist the error state
       .map(key => {
         const storeValue = JSON.stringify( state[key] );
         window.localStorage.setItem(STORAGE_PREFIX + key, storeValue);
@@ -43,24 +46,41 @@ export default KEY;
         return persist({
           ...state,
           schema : payload,
+          error: null,
+        });
+      }
+      case "SET_ERROR": {
+        return persist({
+          ...state,
+          error : payload,
+        });
+      }
+      case "SET_FORMDATA": {
+        return persist({
+          ...state,
+          formData : payload,
+          error : null,
         });
       }
       case "SET_UISCHEMA": {
         return persist({
           ...state,
           uiSchema : payload,
+          error: null,
         });
       }
       case "SET_RENDERER": {
         return persist({
           ...state,
           renderer : payload,
+          error: null,
         });
       }
       case "SET_PREVIEW_LIVEVALIDATE": {
         return persist({
           ...state,
           previewLiveValidate : payload,
+          error: null,
         });
       }
     }
@@ -87,6 +107,18 @@ export default KEY;
         payload: renderer,
       };
     },
+    setError(error) {
+      return {
+        type: "SET_ERROR",
+        payload: error,
+      };
+    },
+    setFormData(formData) {
+      return {
+        type: "SET_FORMDATA",
+        payload: formData,
+      };
+    },
     setPreviewLiveValidate(previewLiveValidate) {
       return {
         type: "SET_PREVIEW_LIVEVALIDATE",
@@ -106,6 +138,12 @@ export default KEY;
     },
     isPreviewLiveValidate(state) {
       return state.previewLiveValidate;
+    },
+    getError(state) {
+      return state.error;
+    },
+    getFormData(state) {
+      return state.formData;
     },
   };
   const resolvers = {};

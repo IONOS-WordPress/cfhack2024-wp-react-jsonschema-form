@@ -99,7 +99,7 @@
         border: inherit;
 
         // inject our svg icon
-        .components-panel__header >*::after {
+        > .components-panel__header >*::after {
           content: url(../assets/icon.svg);
           padding-left: 12px;
           vertical-align: middle;

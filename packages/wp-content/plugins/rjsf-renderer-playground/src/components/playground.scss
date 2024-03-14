@@ -4,19 +4,26 @@
 
 #rjsf-renderer-playground {
 
-  .components-panel__body-title {
-    pointer-events: none;
-    margin: 0;
 
-    .components-button.components-panel__body-toggle {
-      svg {
-        display: none;
+  > .components-panel {
+    > .components-panel__body {
+      /*
+      > .components-panel__body-title {
+        pointer-events: none;
+        margin: 0;
+
+        .components-button.components-panel__body-toggle {
+          svg {
+            display: none;
+          }
+        }
+      }
+      */
+
+      &.is-opened {
+        padding : 0;
       }
     }
-  }
-
-  .components-panel__body.is-opened {
-    padding : 0;
   }
 
   .split-pane-top, .split-pane-bottom  {
@@ -27,6 +34,36 @@
       resize: vertical;
       white-space: no-wrap;
       font-family: monospace;
+    }
+  }
+
+  .split-pane-right  {
+
+    .rjsf-preview {
+      .rjsf-preview-header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 16px;
+        border-bottom: 1px solid #ddd;
+
+        .rjsf-preview-header-title {
+          font-weight: 500;
+          font-size: 13px;
+        }
+      }
+
+      .rjsf-preview-container {
+        border-image-slice: 12 12 12 12;
+        border-width: 12px 12px 12px 12px;
+        border-image-width: 12px 12px 12px 12px;
+        border-image-outset: 0px 0px 0px 0px;
+        border-image-repeat: repeat repeat;
+        border-image-source: url("https://mdn.github.io/css-examples/tools/border-image-generator/border-image-5.png");
+        border-style: solid;
+      }
     }
   }
 }
