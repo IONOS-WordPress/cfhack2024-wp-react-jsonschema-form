@@ -1,12 +1,13 @@
-import { useRef, useState, createElement } from 'react';
-import { Panel, PanelBody, TextareaControl, Button, TabPanel, SelectControl, Toolbar, ToolbarButton, ToolbarGroup, ToolbarItem } from '@wordpress/components';
+import { useRef, useState, createElement, } from 'react';
+import { Panel, PanelBody, TextareaControl, TabPanel, Toolbar, ToolbarButton, ToolbarGroup, } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useSelect, useDispatch } from '@wordpress/data';
 
 import validator from '@rjsf/validator-ajv8';
-import FormGutenberg/*, { withTheme, getDefaultRegistry }*/ from '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/gutenberg';
-import FormHtml5/*, { withTheme, getDefaultRegistry }*/ from '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/html5';
+import FormGutenberg from '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/gutenberg';
+import FormHtml5 from '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/html5';
 
+import useTextareaAllowTabKey from './use-textareaallowtabkey.js';
 import STORE_KEY from './playground-store.js';
 
 import SplitPane, {
@@ -32,6 +33,8 @@ function SourceEditor() {
 
   const [ intermediateValue, setIntermediateValue ] = useState(JSON.stringify( JSON.parse(schema), null, 2));
   const textareaRef = useRef();
+
+  useTextareaAllowTabKey(textareaRef);
 
   const onChange = (value) => {
     try {
@@ -96,6 +99,8 @@ function JSONSchemaUIEditor() {
 
   const [ intermediateValue, setIntermediateValue ] = useState(JSON.stringify( JSON.parse( uiSchema), null, 2));
   const textareaRef = useRef();
+
+  useTextareaAllowTabKey(textareaRef);
 
   const onChange = (value) => {
     try {
