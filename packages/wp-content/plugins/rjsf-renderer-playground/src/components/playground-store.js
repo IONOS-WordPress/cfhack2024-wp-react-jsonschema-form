@@ -8,38 +8,60 @@ const KEY='@cfhack2024-wp-react-jsonschema-form/rjsf-renderer-playground';
 export default KEY;
 
 (function (settings) {
-  const DEFAULT_STATE = {
+  let initialState = {
     schema : typeof(settings['jsonschema'])!=='string' ? JSON.stringify(settings['jsonschema'], null, '  ') : settings['jsonschema'],
     uiSchema : typeof(settings['jsonschema-ui'])!=='string' ? JSON.stringify(settings['jsonschema-ui'], null, '  ') : settings['jsonschema-ui'],
     renderer : 'gutenberg',
-    previewLiveValidate : true,
+    previewLiveValidate : false,
   };
 
-  const reducer = (state = DEFAULT_STATE, { type, payload }) => {
+  // read persisted data from localStorage
+  const STORAGE_PREFIX = 'playground-store.';
+  Object.keys(window.localStorage)
+    .filter(key=>key.startsWith(STORAGE_PREFIX))
+    .map(key => {
+      const storeProperty = key.substring(STORAGE_PREFIX.length);
+      const storeValue = JSON.parse( window.localStorage.getItem(key) );
+      initialState[storeProperty]=storeValue
+    }
+  );
+
+  // persist state to localStorage
+  function persist(state) {
+    Object.keys(state)
+      .map(key => {
+        const storeValue = JSON.stringify( state[key] );
+        window.localStorage.setItem(STORAGE_PREFIX + key, storeValue);
+      }
+    );
+    return state;
+  }
+
+  const reducer = (state, { type, payload }) => {
     switch (type) {
       case "SET_SCHEMA": {
-        return {
+        return persist({
           ...state,
           schema : payload,
-        };
+        });
       }
       case "SET_UISCHEMA": {
-        return {
+        return persist({
           ...state,
           uiSchema : payload,
-        };
+        });
       }
       case "SET_RENDERER": {
-        return {
+        return persist({
           ...state,
           renderer : payload,
-        };
+        });
       }
       case "SET_PREVIEW_LIVEVALIDATE": {
-        return {
+        return persist({
           ...state,
           previewLiveValidate : payload,
-        };
+        });
       }
     }
 
@@ -94,5 +116,7 @@ export default KEY;
     actions,
     selectors,
     resolvers,
+    initialState,
   }));
+
 })(window['rjsf-renderer-playground']);
