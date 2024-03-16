@@ -1,4 +1,4 @@
-import {__experimentalInputControl as InputControl} from '@wordpress/components';
+import { TextControl } from '@wordpress/components';
 
 /**
  *
@@ -6,5 +6,5 @@ import {__experimentalInputControl as InputControl} from '@wordpress/components'
  */
 export default function PasswordWidget(props) {
   const {options, registry, schema, onBlur} = props;
-  return <InputControl type='password' className={"password-widget"} label={schema.title} placeholder={options.help} {...props} />;
+  return <TextControl type={'password'} className={"password-widget"} label={schema.title} placeholder={options.help} onChange={props.onChange} />;
 }
