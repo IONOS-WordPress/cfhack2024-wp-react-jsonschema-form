@@ -2,4 +2,10 @@
   this acts a initial dependency and is right now empty
 */
 
-.rjsf.rjsf-renderer-gutenberg {}
+.rjsf.rjsf-renderer-gutenberg {
+
+  .password-widget {
+    margin: 10px;
+    max-width: 300px;
+  }
+}
