@@ -185,16 +185,6 @@ _The project setup will always build code including debugging information. Every
 
   - stop [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) : `pnpm run stop`
 
-  - start the Gutenberg [Storybook](https://storybook.js.org/) : `pnpm run gutenberg-storybook`
-
-    *Script requires that `pnpm run start` was executed before*
-
-    The Gutenberg Storybook is a exceptional resource of all the available Gutenberg components and their options.
-
-    It showcases all the components in different use cases. If you are stuck with a Gutenberg component, have a look at the Storybook - it will help you a lot.
-
-    __You can also use [online version of the Gutenberg Storybook](https://wordpress.github.io/gutenberg/?path=/docs/docs-introduction--page). It's recommend to use the local Gutenberg Storybook to see exactly the features available in our Gutenberg version.__
-
   - execute individual [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) commands : `pnpm run wp-env <command>`
 
     Example : `pnpm run wp-env run cli wp plugin list`
@@ -226,8 +216,6 @@ So whenever you pull or checkout a branch, execute `pnpm build` to ensure that y
 [@wordpress/components](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/) is a huge library providing a lot of components.
 
 Checkout the [Gutenberg Storybook](https://wordpress.github.io/gutenberg/?path=/docs/docs-introduction--page) to see all the available components and their options.
-
-The local Gutenberg Storybook can be launched by executing `pnpm run gutenberg-storybook`. Open Storybook in your browser at [http://localhost:8080](http://localhost:8080).
 
 #### Debugging a WordPress plugin/theme : Digging into Gutenberg components
 

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, createElement, } from 'react';
+import { useRef, useState, useEffect, createElement, forwardRef } from 'react';
 import { Panel, PanelBody, TextareaControl, TabPanel, Toolbar, ToolbarButton, ToolbarGroup, } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useSelect, useDispatch } from '@wordpress/data';
@@ -23,7 +23,7 @@ import './playground.scss';
 
 const config = window['rjsf-renderer-playground'];
 
-function SourceEditor() {
+const SourceEditor =function SourceEditor() {
   const { schema } = useSelect((select) => {
     const store = select(STORE_KEY);
     return {
@@ -33,7 +33,7 @@ function SourceEditor() {
   const { setSchema } = useDispatch(STORE_KEY);
 
   const [ intermediateValue, setIntermediateValue ] = useState(JSON.stringify( JSON.parse(schema), null, 2));
-  const textareaRef = useRef();
+  const textareaRef = useRef(null);
 
   useTextareaAllowTabKey(textareaRef);
 
