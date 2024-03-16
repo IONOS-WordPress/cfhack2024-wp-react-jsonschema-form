@@ -15,6 +15,7 @@ import SelectWidget from './SelectWidget';
 import TextareaWidget from './TextareaWidget';
 import TextWidget from './TextWidget';
 import TimeWidget from './TimeWidget';
+import ToggleWidget from './ToggleWidget';
 import URLWidget from './URLWidget';
 import UpDownWidget from './UpDownWidget';
 function widgets() {
@@ -36,6 +37,7 @@ function widgets() {
         TextWidget,
         TextareaWidget,
         TimeWidget,
+        ToggleWidget,
         UpDownWidget,
         URLWidget,
     };
