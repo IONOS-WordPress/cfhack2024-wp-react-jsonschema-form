@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { ariaDescribedByIds, descriptionId, getTemplate, labelValue, schemaRequiresTrueValue, } from '@rjsf/utils';
+import { CheckboxControl, FormToggle } from '@wordpress/components';
 /** The `CheckBoxWidget` is a widget for rendering boolean properties.
  *  It is typically used to represent a boolean.
  *
@@ -15,12 +16,25 @@ function CheckboxWidget({ schema, uiSchema, options, id, value, disabled, readon
     const handleBlur = useCallback((event) => onBlur(id, event.target.checked), [onBlur, id]);
     const handleFocus = useCallback((event) => onFocus(id, event.target.checked), [onFocus, id]);
     const description = options.description ?? schema.description;
+   /*
     return (<div className={`checkbox ${disabled || readonly ? 'disabled' : ''}`}>
       {!hideLabel && !!description && (<DescriptionFieldTemplate id={descriptionId(id)} description={description} schema={schema} uiSchema={uiSchema} registry={registry}/>)}
       <label>
         <input type='checkbox' id={id} name={id} checked={typeof value === 'undefined' ? false : value} required={required} disabled={disabled || readonly} autoFocus={autofocus} onChange={handleChange} onBlur={handleBlur} onFocus={handleFocus} aria-describedby={ariaDescribedByIds(id)}/>
         {labelValue(<span>{label}</span>, hideLabel)}
       </label>
-    </div>);
+    </div>);*/
+
+  // our code
+  return (
+    <>
+      {!hideLabel && !!description && (<DescriptionFieldTemplate id={descriptionId(id)} description={description} schema={schema} uiSchema={uiSchema} registry={registry}/>)}
+      <CheckboxControl
+        checked={typeof value === 'undefined' ? false : value}
+        label={labelValue(<span>{label}</span>, hideLabel)}
+        onChange={onChange}
+      ></CheckboxControl>
+    </>
+  );
 }
 export default CheckboxWidget;
