@@ -1,0 +1,492 @@
+.styleA {
+    --text-color:#374151; /** gray-700 */
+    --text-color-light:#9ca3af; /** gray-400 */
+    --text-color-description:#6b7280; /** gray-500 */
+    --text-color-focused: #4b5563; /** gray-600 */
+    --text-color-error: #dc2626;
+
+    --bg: #f4f5f6;
+    --bg-button:#d1d5db; /** gray-300 */
+    --bg-disabled:#d1d5db; /** gray-300 */
+
+    --border:#d1d5db; /** gray-300 */
+    --border-focus:#6b7280; /** gray-500 */
+    --tabs-border-activ:#1f2937; /** gray-800 */
+
+    --success:#10b981;
+    --error:#dc2626;
+
+    color:var(--text-color);
+}
+
+.styleA label,
+.styleA label.label,
+.styleA label.label-element {
+    @apply
+    tracking-wide text-sm
+
+    transition-colors
+}
+
+.styleA label,
+.styleA label.label {
+    @apply
+    pb-4
+}
+.styleA label.label-element {
+    @apply block
+    pb-2 mt-2
+    text-base
+}
+
+
+.styleA .control:focus-within label,
+.styleA .control:focus-within label.label {
+    color:var(--text-color-focused);
+}
+
+/*
+    //extra
+    button
+    submit
+    image
+    reset
+    hidden
+*/
+
+.styleA input:not([type]),
+.styleA input:where([type="text"], [type="number"], [type="email"], [type="password"], [type="url"], [type="tel"], [type="search"], [type="xxx"], [type="xxx"]),
+.styleA input:where([type="date"], [type="datetime-local"], [type="month"], [type="time"], [type="week"]),
+.styleA input:where([type="file"], [type="range"], [type="color"]),
+.styleA select,
+.styleA textarea,
+.styleA .tagInput
+{
+    background-color: var(--bg);
+    border-color:var(--border);
+
+    @apply
+    block
+    w-full
+    py-0.5 px-2
+
+    /*bg-opacity-50 focus:bg-opacity-100*/
+
+    rounded-sm
+
+    text-base
+    leading-6
+
+    border
+    /*focus:border-gray-500*/
+    transition-colors
+
+    outline-none  appearance-none
+
+    disabled:cursor-not-allowed
+}
+.styleA input:disabled,
+.styleA select:disabled,
+.styleA textarea:disabled,
+.styleA .tagInput:disabled {
+    background-color: var(--bg-disabled);
+}
+
+.styleA input:focus,
+.styleA select:focus,
+.styleA textarea:focus,
+.styleA .tagInput:focus {
+    border-color: var(--border-focus)
+}
+.styleA select
+{
+    appearance:auto;
+    color:var(--text-color);
+    background-color: var(--bg);
+
+    @apply p-0.5
+}
+.styleA input:where([type="checkbox"], [type="radio"]) {
+
+}
+
+
+.styleA input:where([type="file"]) {
+     @apply p-0 m-0
+}
+.styleA input:where([type="checkbox"], [type="radio"]),
+.styleA label.toggle {
+    @apply p-2 m-2 pl-0 ml-0
+}
+.styleA input:where([type="range"]) {
+    appearance: auto;
+    @apply p-0
+}
+.styleA input:where([type="color"]) {
+    min-height: 40px;
+}
+
+.styleA textarea {
+    min-height: 10em;
+    @apply
+    leading-normal
+}
+/* range */
+.styleA .wrapper:has(input:where([type="range"])) {
+    @apply flex gap-1
+}
+.styleA input:where([type="range"]) + span {
+    min-width: 24px;
+    @apply text-right
+}
+
+/* password */
+.styleA .wrapper:has(input:where([data-type="password"])) {
+    @apply relative
+}
+.styleA input:where([data-type="password"]) + button {
+    @apply  absolute right-2 top-0 bottom-0
+    text-base
+}
+.styleA input:where([data-type="password"]) + button:after {
+    content:"";
+    border-color: var(--tabs-border-activ);
+    @apply block w-3 h-3 border rounded-full
+}
+.styleA input:where([data-type="password"]):where([type="password"]) + button:after {
+    content:"";
+    @apply border-dashed
+}
+.styleA input:where([data-type="password"]):where([type="text"]) + button:after {
+    content:"";
+    border-color: var(--border);
+}
+
+.styleA .horizontal-layout,
+.styleA.horizontal-layout
+{
+    @apply flex flex-row w-full
+}
+.styleA .horizontal-layout .horizontal-layout-item,
+.styleA.horizontal-layout .horizontal-layout-item  {
+    @apply w-full
+}
+.styleA.vertical-layout,    /** root **/
+.styleA .vertical-layout
+{
+    @apply flex flex-col
+}
+
+.styleA .horizontal-layout,
+.styleA.horizontal-layout,
+.styleA .vertical-layout,
+.styleA.vertical-layout   /** root **/
+{
+    @apply gap-2
+}
+
+/**
+ * custom class "horizontalFirstChildOneQuarter"
+ * select the first horizontal item if the parent vertical item has 2 horizontal items
+ */
+.styleA .horizontalFirstChildOneQuarter > .vertical-layout-item > .horizontal-layout > .horizontal-layout-item:nth-last-child(2):first-child {
+    flex-shrink: 3;
+}
+.styleA .horizontalFirstChildOneQuarter > .vertical-layout-item > .horizontal-layout > .horizontal-layout-item:nth-last-child(2):first-child > label.label-element {
+    @apply p-0 m-0 mt-5 leading-none text-base tracking-normal
+}
+
+
+/**
+*
+* Array List
+*
+*/
+.styleA fieldset.group,
+fieldset.styleA.group {
+    border-color: var(--border);
+    @apply
+    border
+    p-2
+}
+.styleA fieldset.group > legend,
+fieldset.styleA.group > legend {
+    @apply
+    px-2
+    w-full
+}
+.styleA fieldset.group .group-item,
+fieldset.styleA.group .group-item {
+    /*@apply*/
+}
+
+.styleA.array-list {
+    @apply relative
+
+}
+.styleA .array-list .array-list-item-toolbar {
+    @apply flex gap-1
+}
+.styleA .array-list .array-list-item-toolbar label {
+     @apply pb-0
+ }
+
+.styleA .array-list .array-list-item-toolbar button:hover {
+    background-color:var(--bg-button);
+}
+.styleA .array-list .array-list-item-toolbar button {
+    font-size:20px;
+    @apply
+    flex justify-center items-center
+    rounded-full w-5 h-5
+    font-bold
+}
+.styleA .array-list-item-content {
+    @apply mt-4
+}
+
+.styleA .array-list footer {
+    @apply flex justify-end
+    mt-2
+}
+
+.styleA .array-list table {
+    @apply w-full
+}
+.styleA .array-list table td:last-child {
+    vertical-align: top;
+    @apply w-8
+}
+.styleA .array-list table tr.array-list-item td .control{
+    @apply mb-2
+}
+
+.styleA .array-list button.array-list-item-delete:hover {
+    background-color: var(--error);
+}
+.styleA .array-list button.array-list-item-delete {
+    @apply
+    flex justify-center items-center
+    w-7 h-7 rounded-full
+}
+.styleA .array-list button.array-list-item-delete:after {
+    content:"x";
+    color:var(--text-color-error);
+    @apply font-bold font-mono
+}
+.styleA .array-list-no-data {
+    color:var(--text-color-description);
+    @apply
+    text-sm px-2 py-1.5
+}
+
+.styleA .control .description,
+.styleA .control .error,
+.styleA .array-list .error
+{
+    /** h-2 **/
+    @apply block text-sm
+}
+.styleA .control .description {
+    color:var(--text-color-description);
+}
+.styleA .control .error,
+.styleA .array-list .error {
+    color:var(--text-color-error);
+}
+
+/**
+*
+* Array List
+*
+*/
+.styleA fieldset.array-list {
+    border-color: var(--border);
+    @apply
+    border
+    p-2
+
+    flex flex-col gap-2
+}
+.styleA fieldset.array-list legend {
+    @apply px-2
+    flex flex-row-reverse
+    justify-between
+    w-full
+}
+
+.styleA fieldset.array-list legend label {
+    color:var(--text-color-description);
+    @apply
+    uppercase tracking-wide text-xs font-bold
+}
+.styleA fieldset.array-list legend button:hover {
+    background-color: var(--success);
+}
+.styleA fieldset.array-list legend button {
+    background-color:var(--bg-button);
+    @apply
+    px-2 m-0
+    rounded-full
+}
+
+.styleA fieldset.array-list .array-list-no-data {
+    /*@apply */
+}
+
+.styleA fieldset.array-list .array-list-item-wrapper {
+    border-color: var(--border);
+    @apply
+    p-0
+    border
+}
+.styleA fieldset.array-list .array-list-item {
+    @apply p-0
+}
+
+.styleA fieldset.array-list .array-list-item-toolbar {
+    @apply
+    flex gap-1 items-center
+}
+.styleA fieldset.array-list .array-list-item-toolbar .array-list-item-label {
+    min-height: 22px;
+    @apply
+    flex-grow
+    pl-2
+}
+
+.styleA fieldset.array-list .array-list-item-toolbar button {
+    line-height: unset;
+    @apply
+
+    block
+    w-6 h-6
+
+    text-xs
+
+    cursor-pointer
+    rounded-full
+
+    bg-transparent
+}
+
+.styleA fieldset.array-list .array-list-item-toolbar button:hover {
+    background-color:var(--bg-button);
+}
+
+.styleA fieldset.array-list .array-list-item-toolbar button.array-list-item-move-up {}
+.styleA fieldset.array-list .array-list-item-toolbar button.array-list-item-move-down {}
+.styleA fieldset.array-list .array-list-item-toolbar button.array-list-item-delete:hover {
+    background-color: var(--error);
+}
+
+.styleA fieldset.array-list .array-list-item-content {
+    @apply
+    px-2
+}
+
+
+
+.styleA .tabs {
+    border-color: var(--border);
+    @apply
+    flex
+
+    my-2
+
+    border-b
+}
+
+.styleA .tabs button:hover {
+    background-color:var(--bg-button);
+}
+.styleA .tabs button {
+    min-width: 100px;
+    color:var(--text-color-description);
+    @apply
+    py-1 px-2
+
+    focus:outline-none
+
+    border-b border-transparent
+
+    transition-colors
+
+    rounded-t-lg
+}
+.styleA .tabs button:hover {
+    color:var(--text-color-focused);
+}
+
+.styleA .tabs button.selected {
+    color:var(--text-color-focused);
+    border-color:var(--tabs-border-activ);
+}
+.styleA .tabs button:disabled {
+    @apply
+    opacity-50
+    /*hover:bg-opacity-0*/
+}
+
+.styleA .oneof .oneof-select + div {
+    @apply
+    px-4
+}
+.styleA .oneof .wrapper:has(.oneof-select) {
+    @apply flex flex-col gap-2
+}
+
+
+
+
+/**
+ * Additional Properties
+ */
+.styleA .object-addprops-root {
+
+}
+
+.styleA .object-addprops-toolbar {
+    @apply flex items-center gap-2
+}
+.styleA .object-addprops-toolbar label {
+    @apply w-full
+}
+.styleA .object-addprops-toolbar input {
+     @apply flex-grow-0
+}
+.styleA .object-addprops-toolbar button:hover {
+    background-color:var(--bg-button);
+}
+.styleA .object-addprops-toolbar button {
+    @apply
+    w-6 aspect-square
+
+    bg-transparent
+    rounded-full
+    cursor-pointer
+
+    flex items-center justify-center
+}
+
+.styleA .object-addprops-items > div {
+    @apply flex
+}
+.styleA .object-addprops-items > div *:first-child {
+    @apply w-full
+}
+.styleA .object-addprops-items > div > button {
+    color:var(--text-color-error);
+    @apply mt-6 px-2
+}
+
+
+.styleA .enum-array {
+    @apply flex flex-col items-start
+}
+.styleA .enum-array .enum-array-item {
+    @apply flex flex-row-reverse items-center
+}
+.styleA .enum-array .enum-array-item label {
+    @apply block m-0 p-0
+}

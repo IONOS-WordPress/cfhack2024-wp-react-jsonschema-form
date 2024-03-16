@@ -1,4 +1,4 @@
-import { useRef, useState, createElement, } from 'react';
+import { useRef, useState, useEffect, createElement, } from 'react';
 import { Panel, PanelBody, TextareaControl, TabPanel, Toolbar, ToolbarButton, ToolbarGroup, } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useSelect, useDispatch } from '@wordpress/data';
@@ -61,6 +61,54 @@ function SourceEditor() {
   );
 }
 
+function GraphicalEditor() {
+  const { schema } = useSelect((select) => {
+    const store = select(STORE_KEY);
+    return {
+      schema: store.getSchema(),
+    };
+  });
+  const { setSchema } = useDispatch(STORE_KEY);
+
+  const iframeRef = useRef();
+
+  useEffect(() => {
+    function onEditorChange(e) {
+      if (e.source !== iframeRef.current.contentWindow) return;
+      try {
+        setSchema(e.data);
+      } catch (e) {
+        // ignore
+        console.error(e);
+      }
+    }
+    window.addEventListener("message", onEditorChange);
+    return () => {
+      window.removeEventListener("message", onEditorChange);
+    }
+  });
+
+  const [iframeLoaded, setIframeLoaded] = useState(false);
+
+  useEffect(() => {
+    if (iframeRef.current) {
+      iframeRef.current.onload = function () {
+        setIframeLoaded(true);
+      }
+    }
+  }, [iframeRef.current]);
+
+  useEffect(() => {
+    if (iframeLoaded) {
+      iframeRef.current.contentWindow.postMessage(schema, '*');
+    }
+  }, [schema, iframeLoaded]);
+
+  return (
+    <iframe className="schema-editor-iframe" ref={iframeRef} id="formbuilder-embedded" src="/wp-content/plugins/formbuilder-embedded/dist/index.html"></iframe>
+  );
+}
+
 function JSONSchemaEditor() {
   return (
     <TabPanel
@@ -81,7 +129,7 @@ function JSONSchemaEditor() {
             case 'source-editor' :
               return (<SourceEditor/>)
             case 'graphical-editor' :
-              return ( <pre style={{ color : 'red' }}>NOT YET IMPLEMENTED</pre> );
+              return ( <GraphicalEditor /> );
           }
         }
       }
