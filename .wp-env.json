@@ -6,6 +6,7 @@
     "./packages/wp-content/plugins/rjsf-attribute-editor-block/",
     "./packages/wp-content/plugins/editor-sidebar-plugin/",
     "./packages/wp-content/plugins/form-block/",
+    "./packages/wp-content/plugins/formbuilder-embedded/",
     "./packages/wp-content/plugins/metabox-block/",
     "./packages/wp-content/plugins/settings-page/",
     "./packages/wp-content/plugins/rjsf-renderer/",
