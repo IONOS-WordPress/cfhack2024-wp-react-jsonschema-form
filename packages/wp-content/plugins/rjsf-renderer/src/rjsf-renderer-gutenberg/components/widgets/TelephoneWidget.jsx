@@ -21,7 +21,7 @@ export default function TextWidget(props) {
           default={props.default}
           help={description}
           required={required}
-          type='number'
+          type='tel'
         />
       );
 }

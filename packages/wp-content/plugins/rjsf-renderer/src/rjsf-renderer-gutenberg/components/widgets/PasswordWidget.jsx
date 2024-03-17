@@ -1,10 +1,10 @@
-import { getTemplate } from '@rjsf/utils';
-/** The `PasswordWidget` component uses the `BaseInputTemplate` changing the type to `password`.
+import { TextControl } from '@wordpress/components';
+
+/**
  *
  * @param props - The `WidgetProps` for this component
  */
 export default function PasswordWidget(props) {
-    const { options, registry } = props;
-    const BaseInputTemplate = getTemplate('BaseInputTemplate', registry, options);
-    return <BaseInputTemplate type='password' {...props}/>;
+  const {options, registry, schema, onBlur} = props;
+  return <TextControl type={'password'} className={"password-widget"} label={schema.title} placeholder={options.help} onChange={props.onChange} />;
 }
