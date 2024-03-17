@@ -49,6 +49,21 @@ add_action(
         ] );
       }
     }
+    foreach ( [ 'schema', 'ui_schema' ] as $field ) {
+      $value = ! empty( $post_type_object->$field ) ? $post_type_object->$field : [];
+      register_rest_field(
+        'type',
+        $field,
+        [
+          'get_callback' => function() use ( $value ) {
+            return $value;
+          },
+          'schema' => [
+            'type' => 'object',
+          ],
+        ]
+      );
+    }
   },
   10,
   2
@@ -62,8 +77,7 @@ add_filter(
         [
           'cfhack2024-wp-react-jsonschema-form/schema-block',
           [
-            'schema' => ! empty( $args['schema'] ) ? $args['schema'] : [],
-            'ui_schema' => ! empty( $args['ui_schema'] ) ? $args['ui_schema'] : [],
+            'name' => $post_type,
           ],
         ]
       ];

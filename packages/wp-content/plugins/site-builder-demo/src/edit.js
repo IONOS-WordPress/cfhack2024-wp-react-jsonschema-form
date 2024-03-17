@@ -19,15 +19,26 @@ import './editor.scss';
  */
 export default function Edit({ setAttributes, attributes }) {
   const blockProps = useBlockProps();
-  const postType = useSelect(
-      ( select ) => select( 'core/editor' ).getCurrentPostType(),
-      []
+
+  const { name: postType } = attributes;
+
+  const postTypeObject = useSelect(
+      ( select ) => select( 'core' ).getPostType( postType ),
+      [ postType ]
   );
+
+  if ( ! postTypeObject.schema ) {
+    return (
+      <div { ...blockProps }>
+        { __( 'Error: no schema defined', 'site-builder-demo' ) }
+      </div>
+    );
+  }
 
   const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
 
   let formData = {};
-  Object.keys(attributes.schema.properties).map((property) => {
+  Object.keys(postTypeObject.schema.properties).map((property) => {
     formData[property] = meta ? meta[property] : null;
   });
 
@@ -38,8 +49,8 @@ export default function Edit({ setAttributes, attributes }) {
   return (
     <div { ...blockProps }>
       <FormGutenberg
-        schema={ attributes.schema }
-        ui_schema={ attributes.ui_schema }
+        schema={ postTypeObject.schema }
+        ui_schema={ postTypeObject.ui_schema ?? null }
         validator={ validator }
         formData={ formData }
         onChange={ (e) => onChange(e.formData) }

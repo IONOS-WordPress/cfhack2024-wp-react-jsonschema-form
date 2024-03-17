@@ -13,11 +13,8 @@
     "multiple": false
   },
   "attributes": {
-    "schema": {
-      "type": "object"
-    },
-    "ui_schema": {
-      "type": "object"
+    "name": {
+      "type": "string"
     }
   },
   "textdomain": "schema-block",
