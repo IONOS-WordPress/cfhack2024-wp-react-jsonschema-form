@@ -21,14 +21,58 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Registers a new Team Member post type.
  */
-\add_action( 'init', fn() => \register_post_type( 'team-member', [
-  'label'  => 'Team Member',
-  'public' => true,
-  'show_in_rest' => true,
-  'supports' => [ 'title', 'editor' ],
-  'template' => get_block_template_from_json_schema( __DIR__ . '/team-member' ),
-  'template_lock' => 'all',
-]));
+\add_action(
+  'init',
+  function() {
+    \register_post_type( 'team-member', [
+      'label'  => 'Team Member',
+      'public' => true,
+      'show_in_rest' => true,
+      'supports' => [ 'title', 'editor' ],
+      'schema'    => json_decode( file_get_contents( __DIR__ . '/team-member.json' ), true ),
+      'ui_schema' => json_decode( file_get_contents( __DIR__ . '/team-member-ui.json' ), true ),
+      'show_schema_form' => true,
+      'template_lock' => 'all',
+  ] );
+}
+);
+
+add_action(
+  'registered_post_type',
+  function( $post_type, $post_type_object ) {
+    if ( ! empty( $post_type_object->schema ) ) {
+      foreach ( $post_type_object->schema['properties'] as $key => $property ) {
+        \register_post_meta( $post_type, $key, [
+          'show_in_rest' => true,
+          'single' => true,
+          'type' => $property['type'],
+        ] );
+      }
+    }
+  },
+  10,
+  2
+);
+
+add_filter(
+  'register_post_type_args',
+  function( $args, $post_type ) {
+    if ( ! empty( $args['show_schema_form'] ) ) {
+      $args['template'] = [
+        [
+          'cfhack2024-wp-react-jsonschema-form/schema-block',
+          [
+            'schema' => ! empty( $args['schema'] ) ? $args['schema'] : [],
+            'ui_schema' => ! empty( $args['ui_schema'] ) ? $args['ui_schema'] : [],
+          ],
+        ]
+      ];
+    }
+    return $args;
+  },
+  10,
+  2
+);
 
 
 /**
