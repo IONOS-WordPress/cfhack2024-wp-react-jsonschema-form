@@ -60,8 +60,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 						array(
 							'_wpnonce' => wp_create_nonce( 'options-options' ),
 							'value'    => \get_option( 'settings_page', '{}' ),
-							'schema'   => file_get_contents( __DIR__ . '/jsonschema.json' ),
-							'uiSchema' => file_get_contents( __DIR__ . '/jsonschema-ui.json' ),
+							'schema'   => file_get_contents( __DIR__ . '/wocommerce-settings-example.json' ),
+							'uiSchema' => file_get_contents( __DIR__ . '/wocommerce-settings-example-ui.json' ),
 						)
 					),
 					'before',
