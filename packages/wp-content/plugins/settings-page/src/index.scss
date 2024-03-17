@@ -5,7 +5,7 @@
 /*
   borrowed block editor css variables to have same colors as in Gutenberg
 */
-:root{
+:root {
   --wp--preset--color--black: #000000;
   --wp--preset--color--cyan-bluish-gray: #abb8c3;
   --wp--preset--color--white: #ffffff;
@@ -22,36 +22,79 @@
   --wp--preset--color--base-2: #ffffff;
   --wp--preset--color--contrast: #111111;
   --wp--preset--color--contrast-2: #636363;
-  --wp--preset--color--contrast-3: #A4A4A4;
+  --wp--preset--color--contrast-3: #a4a4a4;
   --wp--preset--color--accent: #cfcabe;
   --wp--preset--color--accent-2: #c2a990;
   --wp--preset--color--accent-3: #d8613c;
   --wp--preset--color--accent-4: #b1c5a4;
   --wp--preset--color--accent-5: #b5bdbc;
-  --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);
-  --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);
-  --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);
-  --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);
-  --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);
-  --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);
-  --wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);
-  --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);
-  --wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);
-  --wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);
-  --wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);
-  --wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);
-  --wp--preset--gradient--gradient-1: linear-gradient(to bottom, #cfcabe 0%, #F9F9F9 100%);
-  --wp--preset--gradient--gradient-2: linear-gradient(to bottom, #C2A990 0%, #F9F9F9 100%);
-  --wp--preset--gradient--gradient-3: linear-gradient(to bottom, #D8613C 0%, #F9F9F9 100%);
-  --wp--preset--gradient--gradient-4: linear-gradient(to bottom, #B1C5A4 0%, #F9F9F9 100%);
-  --wp--preset--gradient--gradient-5: linear-gradient(to bottom, #B5BDBC 0%, #F9F9F9 100%);
-  --wp--preset--gradient--gradient-6: linear-gradient(to bottom, #A4A4A4 0%, #F9F9F9 100%);
-  --wp--preset--gradient--gradient-7: linear-gradient(to bottom, #cfcabe 50%, #F9F9F9 50%);
-  --wp--preset--gradient--gradient-8: linear-gradient(to bottom, #C2A990 50%, #F9F9F9 50%);
-  --wp--preset--gradient--gradient-9: linear-gradient(to bottom, #D8613C 50%, #F9F9F9 50%);
-  --wp--preset--gradient--gradient-10: linear-gradient(to bottom, #B1C5A4 50%, #F9F9F9 50%);
-  --wp--preset--gradient--gradient-11: linear-gradient(to bottom, #B5BDBC 50%, #F9F9F9 50%);
-  --wp--preset--gradient--gradient-12: linear-gradient(to bottom, #A4A4A4 50%, #F9F9F9 50%);
+  --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(
+    135deg,
+    rgba(6, 147, 227, 1) 0%,
+    rgb(155, 81, 224) 100%
+  );
+  --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(
+    135deg,
+    rgb(122, 220, 180) 0%,
+    rgb(0, 208, 130) 100%
+  );
+  --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(
+    135deg,
+    rgba(252, 185, 0, 1) 0%,
+    rgba(255, 105, 0, 1) 100%
+  );
+  --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(
+    135deg,
+    rgba(255, 105, 0, 1) 0%,
+    rgb(207, 46, 46) 100%
+  );
+  --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(
+    135deg,
+    rgb(238, 238, 238) 0%,
+    rgb(169, 184, 195) 100%
+  );
+  --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(
+    135deg,
+    rgb(74, 234, 220) 0%,
+    rgb(151, 120, 209) 20%,
+    rgb(207, 42, 186) 40%,
+    rgb(238, 44, 130) 60%,
+    rgb(251, 105, 98) 80%,
+    rgb(254, 248, 76) 100%
+  );
+  --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+  --wp--preset--gradient--blush-bordeaux: linear-gradient(
+    135deg,
+    rgb(254, 205, 165) 0%,
+    rgb(254, 45, 45) 50%,
+    rgb(107, 0, 62) 100%
+  );
+  --wp--preset--gradient--luminous-dusk: linear-gradient(
+    135deg,
+    rgb(255, 203, 112) 0%,
+    rgb(199, 81, 192) 50%,
+    rgb(65, 88, 208) 100%
+  );
+  --wp--preset--gradient--pale-ocean: linear-gradient(
+    135deg,
+    rgb(255, 245, 203) 0%,
+    rgb(182, 227, 212) 50%,
+    rgb(51, 167, 181) 100%
+  );
+  --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+  --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+  --wp--preset--gradient--gradient-1: linear-gradient(to bottom, #cfcabe 0%, #f9f9f9 100%);
+  --wp--preset--gradient--gradient-2: linear-gradient(to bottom, #c2a990 0%, #f9f9f9 100%);
+  --wp--preset--gradient--gradient-3: linear-gradient(to bottom, #d8613c 0%, #f9f9f9 100%);
+  --wp--preset--gradient--gradient-4: linear-gradient(to bottom, #b1c5a4 0%, #f9f9f9 100%);
+  --wp--preset--gradient--gradient-5: linear-gradient(to bottom, #b5bdbc 0%, #f9f9f9 100%);
+  --wp--preset--gradient--gradient-6: linear-gradient(to bottom, #a4a4a4 0%, #f9f9f9 100%);
+  --wp--preset--gradient--gradient-7: linear-gradient(to bottom, #cfcabe 50%, #f9f9f9 50%);
+  --wp--preset--gradient--gradient-8: linear-gradient(to bottom, #c2a990 50%, #f9f9f9 50%);
+  --wp--preset--gradient--gradient-9: linear-gradient(to bottom, #d8613c 50%, #f9f9f9 50%);
+  --wp--preset--gradient--gradient-10: linear-gradient(to bottom, #b1c5a4 50%, #f9f9f9 50%);
+  --wp--preset--gradient--gradient-11: linear-gradient(to bottom, #b5bdbc 50%, #f9f9f9 50%);
+  --wp--preset--gradient--gradient-12: linear-gradient(to bottom, #a4a4a4 50%, #f9f9f9 50%);
   --wp--preset--font-size--small: 0.9rem;
   --wp--preset--font-size--medium: 1.05rem;
   --wp--preset--font-size--large: clamp(1.39rem, 1.39rem + ((1vw - 0.2rem) * 0.767), 1.85rem);
@@ -59,8 +102,10 @@
   --wp--preset--font-size--xx-large: clamp(2.5rem, 2.5rem + ((1vw - 0.2rem) * 1.283), 3.27rem);
   --wp--preset--font-family--body: "Inter", sans-serif;
   --wp--preset--font-family--heading: Cardo;
-  --wp--preset--font-family--system-sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-  --wp--preset--font-family--system-serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --wp--preset--font-family--system-sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  --wp--preset--font-family--system-serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif,
+    Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --wp--preset--spacing--10: 1rem;
   --wp--preset--spacing--20: min(1.5rem, 2vw);
   --wp--preset--spacing--30: min(2.5rem, 3vw);
@@ -93,12 +138,13 @@
 
     .wrap {
       margin: inherit;
+      margin: 10px 20px 0 20px;
 
       /* remove components panel border */
-      >* {
+      > * {
         border: inherit;
 
-        .components-panel__header >*::after {
+        .components-panel__header > *::after {
           content: url(../assets/icon.svg);
           padding-left: 12px;
           vertical-align: middle;
@@ -110,4 +156,9 @@
 
 .settings-page-jsoneditor textarea:invalid {
   border-color: var(--wp--preset--color--accent-3);
+}
+
+.rjsf-preview-container{
+  display: flex;
+  justify-content: center;
 }

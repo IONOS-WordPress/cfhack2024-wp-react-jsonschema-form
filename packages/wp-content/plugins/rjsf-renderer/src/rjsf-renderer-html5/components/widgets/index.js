@@ -12,9 +12,11 @@ import PasswordWidget from './PasswordWidget';
 import RadioWidget from './RadioWidget';
 import RangeWidget from './RangeWidget';
 import SelectWidget from './SelectWidget';
+import TelephoneWidget from './TelephoneWidget'
 import TextareaWidget from './TextareaWidget';
 import TextWidget from './TextWidget';
 import TimeWidget from './TimeWidget';
+import ToggleWidget from './ToggleWidget';
 import URLWidget from './URLWidget';
 import UpDownWidget from './UpDownWidget';
 function widgets() {
@@ -33,9 +35,11 @@ function widgets() {
         RadioWidget,
         RangeWidget,
         SelectWidget,
+        TelephoneWidget,
         TextWidget,
         TextareaWidget,
         TimeWidget,
+        ToggleWidget,
         UpDownWidget,
         URLWidget,
     };

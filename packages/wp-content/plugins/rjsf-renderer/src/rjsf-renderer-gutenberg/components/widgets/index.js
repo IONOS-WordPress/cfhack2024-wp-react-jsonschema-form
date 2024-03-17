@@ -12,11 +12,14 @@ import PasswordWidget from './PasswordWidget';
 import RadioWidget from './RadioWidget';
 import RangeWidget from './RangeWidget';
 import SelectWidget from './SelectWidget';
+import TelephoneWidget from './TelephoneWidget';
 import TextareaWidget from './TextareaWidget';
 import TextWidget from './TextWidget';
 import TimeWidget from './TimeWidget';
 import URLWidget from './URLWidget';
 import UpDownWidget from './UpDownWidget';
+import ToggleWidget from './ToggleWidget.jsx';
+import TabWidget from './TabWidget.jsx';
 function widgets() {
     return {
         AltDateWidget,
@@ -33,11 +36,14 @@ function widgets() {
         RadioWidget,
         RangeWidget,
         SelectWidget,
+        TelephoneWidget,
         TextWidget,
         TextareaWidget,
         TimeWidget,
         UpDownWidget,
         URLWidget,
+        ToggleWidget, 
+        TabWidget
     };
 }
 export default widgets;

@@ -1,31 +1,24 @@
-import { useCallback } from 'react';
-import { ariaDescribedByIds, enumOptionsIsSelected, enumOptionsValueForIndex, optionId, } from '@rjsf/utils';
+import { RadioControl } from '@wordpress/components';
+import { labelValue, enumOptionsSelectValue, } from '@rjsf/utils';
+
 /** The `RadioWidget` is a widget for rendering a radio group.
  *  It is typically used with a string property constrained with enum options.
  *
  * @param props - The `WidgetProps` for this component
  */
-function RadioWidget({ options, value, required, disabled, readonly, autofocus = false, onBlur, onFocus, onChange, id, }) {
-    const { enumOptions, enumDisabled, inline, emptyValue } = options;
-    const handleBlur = useCallback(({ target: { value } }) => onBlur(id, enumOptionsValueForIndex(value, enumOptions, emptyValue)), [onBlur, id]);
-    const handleFocus = useCallback(({ target: { value } }) => onFocus(id, enumOptionsValueForIndex(value, enumOptions, emptyValue)), [onFocus, id]);
-    return (<div className='field-radio-group' id={id}>
-      {Array.isArray(enumOptions) &&
-            enumOptions.map((option, i) => {
-                const checked = enumOptionsIsSelected(option.value, value);
-                const itemDisabled = Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1;
-                const disabledCls = disabled || itemDisabled || readonly ? 'disabled' : '';
-                const handleChange = () => onChange(option.value);
-                const radio = (<span>
-              <input type='radio' id={optionId(id, i)} checked={checked} name={id} required={required} value={String(i)} disabled={disabled || itemDisabled || readonly} autoFocus={autofocus && i === 0} onChange={handleChange} onBlur={handleBlur} onFocus={handleFocus} aria-describedby={ariaDescribedByIds(id)}/>
-              <span>{option.label}</span>
-            </span>);
-                return inline ? (<label key={i} className={`radio-inline ${disabledCls}`}>
-              {radio}
-            </label>) : (<div key={i} className={`radio ${disabledCls}`}>
-              <label>{radio}</label>
-            </div>);
-            })}
-    </div>);
+function RadioWidget({ options, value, description, label, hideLabel, onBlur, onFocus, onChange,}) {
+  const { enumOptions } = options;
+
+  return (
+    <RadioControl
+      label= { labelValue(<span>{label}</span>, hideLabel) }
+      help= { description }
+      selected={ enumOptionsSelectValue( enumOptions?.[0]?.value, value, enumOptions ) }
+      options={ enumOptions }
+      onBlur={ onBlur }
+      onFocus={ onFocus }
+      onChange={ (value) => onChange( value ) }
+    />
+  );
 }
 export default RadioWidget;
