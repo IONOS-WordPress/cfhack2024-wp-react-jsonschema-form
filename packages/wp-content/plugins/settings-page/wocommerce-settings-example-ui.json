@@ -1,0 +1,9 @@
+{
+  "ui:submitButtonOptions": {
+    "props": {
+      "disabled": false
+    },
+    "norender": false,
+    "submitText": "Save"
+  }
+}
