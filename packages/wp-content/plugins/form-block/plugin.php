@@ -4,7 +4,7 @@
  * Description:       declaring a Gutenberg block rendering a form using react-jsonschema-form in posts/pages
  * Requires at least: 6.4
  * Requires Plugins:  rjsf-renderer
- * Requires PHP:      8.3
+ * Requires PHP:      8.0
  * Version:           1.0.0
  * Author:            The Hackathon Project Contributors
  * License:           GPL-2.0-or-later

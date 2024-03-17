@@ -3,7 +3,7 @@
  * Plugin Name:       rjsf-renderer
  * Description:       provides a WordPress plugin exposing react-jsonschema-form renderers
  * Requires at least: 6.4
- * Requires PHP:      8.3
+ * Requires PHP:      8.0
  * Version:           1.0.0
  * Author:            The Hackathon Project Contributors
  * License:           GPL-2.0-or-later
