@@ -157,3 +157,8 @@
 .settings-page-jsoneditor textarea:invalid {
   border-color: var(--wp--preset--color--accent-3);
 }
+
+.rjsf-preview-container{
+  display: flex;
+  justify-content: center;
+}
