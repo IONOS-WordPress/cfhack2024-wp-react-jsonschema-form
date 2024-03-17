@@ -32,7 +32,6 @@ export default function Edit({ setAttributes, attributes }) {
   });
 
   const onChange = (value) => {
-    console.log( value );
     setMeta( { ...meta, ...value } )
   };
 

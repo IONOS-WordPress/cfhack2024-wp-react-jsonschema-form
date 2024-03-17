@@ -115,21 +115,3 @@ add_action(
   return $categories;
 });
 
-function get_block_template_from_json_schema( $schema_path ) {
-  $schema = json_decode( file_get_contents( $schema_path . '.json' ), true );
-  $ui_schema = json_decode( file_get_contents( $schema_path . '-ui.json' ), true );
-
-  $template = [];
-  if ( ! empty( $schema ) ) {
-    $template[] = [
-      'cfhack2024-wp-react-jsonschema-form/schema-block',
-      [
-        'schema' => $schema,
-        'ui_schema' => $ui_schema,
-      ],
-    ];
-  }
-
-  return $template;
-}
-
