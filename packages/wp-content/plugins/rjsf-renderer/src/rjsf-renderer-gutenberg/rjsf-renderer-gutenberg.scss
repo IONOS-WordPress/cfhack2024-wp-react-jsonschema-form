@@ -42,9 +42,14 @@
       justify-content: end;
       padding-bottom: 6px;
     }
+
     &__key-container, &__value-container {
       width: 40%;
     }
 
+  }
+
+  .error-heading {
+    margin: 5px;
   }
 }
