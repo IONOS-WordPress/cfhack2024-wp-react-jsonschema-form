@@ -5,6 +5,9 @@
 - [Checkbox](#checkbox)
 - [Checkboxes](#checkboxes)
 - [Color](#color)
+- [Date](#date)
+- [Date and time](#date-and-time)
+- [Email](#email)
 - [Select](#select)
 
 ## Alternative date
@@ -13,6 +16,7 @@
 - Type: `string`
 
 schema.json
+
 ```jSON
 "alt-date": {
   "type": "string",
@@ -21,6 +25,7 @@ schema.json
 ```
 
 uischema.json
+
 ```JSON
 "alt-date": {
   "ui:widget": "alt-date",
@@ -35,6 +40,7 @@ uischema.json
 ```
 
 Returns:
+
 ```
 {"alt-date":"2024-03-17"}
 ```
@@ -45,6 +51,7 @@ Returns:
 - Type: `string`
 
 schema.json
+
 ```jSON
 "alt-datetime": {
   "type": "string",
@@ -53,6 +60,7 @@ schema.json
 ```
 
 uischema.json
+
 ```JSON
 "alt-datetime": {
   "ui:widget": "alt-datetime",
@@ -67,6 +75,7 @@ uischema.json
 ```
 
 Returns:
+
 ```
 {"alt-datetime":"2024-03-17T21:59:38.000Z"}
 ```
@@ -77,6 +86,7 @@ Returns:
 - Type: `boolean`
 
 schema.json
+
 ```jSON
 "checkbox": {
   "title": "Checkbox",
@@ -86,6 +96,7 @@ schema.json
 ```
 
 Returns:
+
 ```
 {"checkbox":true}
 ```
@@ -96,6 +107,7 @@ Returns:
 - Type: `array`
 
 schema.json
+
 ```jSON
 "multipleChoicesList": {
   "type": "array",
@@ -114,6 +126,7 @@ schema.json
 ```
 
 uischema.json
+
 ```JSON
 {
   "multipleChoicesList": {
@@ -123,6 +136,7 @@ uischema.json
 ```
 
 Returns:
+
 ```
 {"multipleChoicesList":["bar","fuzz"]}
 ```
@@ -133,6 +147,7 @@ Returns:
 - Type: `string`
 
 schema.json
+
 ```jSON
 "color": {
   "type": "string",
@@ -142,6 +157,7 @@ schema.json
 ```
 
 uischema.json
+
 ```JSON
 {
   "color": {
@@ -151,8 +167,77 @@ uischema.json
 ```
 
 Returns:
+
 ```
 {"color":"#151ce6"}
+```
+
+## Date
+
+May not work on some browsers, notably Firefox Desktop and IE.
+
+- Widget name: `DateWidget`
+- Type: `string`
+
+schema.json
+
+```jSON
+"datetime": {
+  "type": "string",
+  "format": "date-time"
+}
+```
+
+Returns:
+
+```
+{"datetime":"2024-03-17T13:29:00.000Z"}
+```
+
+## Date and time
+
+May not work on some browsers, notably Firefox Desktop and IE.
+
+- Widget name: `DateTimeWidget`
+- Type: `string`
+
+schema.json
+
+```jSON
+"date": {
+  "type": "string",
+  "format": "date"
+},
+"time": {
+  "type": "string",
+  "format": "time"
+}
+```
+
+Returns:
+
+```
+{"date":"2024-03-17","time":"23:33:00"}
+```
+
+## Email
+
+- Widget name: `EmailWidget`
+- Type: `string`
+
+schema.json
+
+```JSON
+"email": {
+  "type": "string",
+  "format": "email"
+}
+```
+
+Returns:
+
+```
+{"email":"chuck.noris@syntax-errors.org"}
 ```
 
 ## Select
@@ -161,6 +246,7 @@ Returns:
 - Type: `string`
 
 schema.json
+
 ```jSON
 "select": {
   "type": "string",
@@ -174,6 +260,7 @@ schema.json
 ```
 
 uischema.json
+
 ```JSON
 {
   "select": {
@@ -183,6 +270,7 @@ uischema.json
 ```
 
 Returns:
+
 ```
 {"select":"Option 2"}
 ```
