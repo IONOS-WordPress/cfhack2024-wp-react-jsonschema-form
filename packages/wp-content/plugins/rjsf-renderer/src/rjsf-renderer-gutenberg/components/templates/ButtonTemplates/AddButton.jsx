@@ -8,7 +8,7 @@ export default function AddButton({ className, onClick, disabled, registry, }) {
     const { translateString } = registry;
     return (<div className='row'>
       <p className={`add-button ${className}`}>
-        <Button iconType='info' icon='plus' className='btn-add col-xs-12' title={translateString(TranslatableString.AddButton)} onClick={onClick} disabled={disabled} registry={registry}>Add</Button>
+        <Button iconType='plusCircle' icon='plus' className='btn-add col-xs-12' title={translateString(TranslatableString.AddButton)} onClick={onClick} disabled={disabled} registry={registry}>Add</Button>
       </p>
     </div>);
 }
