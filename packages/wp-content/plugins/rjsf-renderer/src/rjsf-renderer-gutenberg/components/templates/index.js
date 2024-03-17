@@ -13,6 +13,7 @@ import ObjectFieldTemplate from './ObjectFieldTemplate';
 import TitleField from './TitleField';
 import UnsupportedField from './UnsupportedField';
 import WrapIfAdditionalTemplate from './WrapIfAdditionalTemplate';
+import TabFieldTemplate from './TabFieldTemplate';
 function templates() {
     return {
         ArrayFieldDescriptionTemplate,
@@ -30,6 +31,7 @@ function templates() {
         TitleFieldTemplate: TitleField,
         UnsupportedFieldTemplate: UnsupportedField,
         WrapIfAdditionalTemplate,
+        TabFieldTemplate
     };
 }
 export default templates;

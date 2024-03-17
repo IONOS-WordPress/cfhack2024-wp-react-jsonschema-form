@@ -19,6 +19,7 @@ import TimeWidget from './TimeWidget';
 import URLWidget from './URLWidget';
 import UpDownWidget from './UpDownWidget';
 import ToggleWidget from './ToggleWidget.jsx';
+import TabWidget from './TabWidget.jsx';
 function widgets() {
     return {
         AltDateWidget,
@@ -41,7 +42,8 @@ function widgets() {
         TimeWidget,
         UpDownWidget,
         URLWidget,
-        ToggleWidget
+        ToggleWidget, 
+        TabWidget
     };
 }
 export default widgets;
