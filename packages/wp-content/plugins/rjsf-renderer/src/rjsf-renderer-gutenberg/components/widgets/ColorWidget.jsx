@@ -1,11 +1,16 @@
-import {ColorPicker} from '@wordpress/components';
-/** The `ColorWidget` component uses the `BaseInputTemplate` changing the type to `color` and disables it when it is
- * either disabled or readonly.
+import { ColorPicker } from '@wordpress/components';
+import { descriptionId, getTemplate, labelValue } from '@rjsf/utils';
+/** The `ColorWidget` component uses the `ColorPicker`.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function ColorWidget(props) {
-return <div className={"color-widget"}>
-  <label>{props.label}</label>
-  <ColorPicker enableAlpha={props.uiSchema.enableAlpha === true} onChange={props.onChange}/>
-</div> }
+export default function ColorWidget({ schema, uiSchema, options, id, value, disabled, readonly, label, hideLabel, autofocus = false, onBlur, onFocus, onChange, registry, }) {
+  const DescriptionFieldTemplate = getTemplate('DescriptionFieldTemplate', registry, options);
+  const description = options.description ?? schema.description;
+
+  return <div className={"color-widget"}>
+    {labelValue(<span>{label}</span>, hideLabel)}
+    <ColorPicker enableAlpha={uiSchema.enableAlpha === true} onChange={onChange} />
+    {!hideLabel && !!description && (<DescriptionFieldTemplate id={descriptionId(id)} description={description} schema={schema} uiSchema={uiSchema} registry={registry} />)}
+  </div>
+}
