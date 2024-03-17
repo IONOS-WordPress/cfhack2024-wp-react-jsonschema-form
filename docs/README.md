@@ -28,5 +28,59 @@ The modified form can be tested on the spot, revealing the returned values that 
 
 ## How
 
-Examples:
+WordPress fields JSON schema is based on [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form). It uses two JSON files:
+- [schema.json](https://rjsf-team.github.io/react-jsonschema-form/docs/quickstart#form-schema) - describes the form (field names, initial values, settings)
+- [uischema.json](https://rjsf-team.github.io/react-jsonschema-form/docs/quickstart#form-uischema) - describes each field's UI
+
+## Components
+
+HTML components:
+- AltDateWidget
+- AltDateTimeWidget
+- CheckboxWidget
+- CheckboxesWidget
+- ColorWidget
+- DateWidget
+- DateTimeWidget
+- EmailWidget
+- FileWidget
+- HiddenWidget
+- PasswordWidget
+- RadioWidget
+- RangeWidget
+- SelectWidget
+- TelephoneWidget
+- TextWidget
+- TextareaWidget
+- TimeWidget
+- ToggleWidget
+- UpDownWidget
+- URLWidget
+
+Gutenberg components:
+- AltDateWidget
+- AltDateTimeWidget
+- CheckboxWidget
+- CheckboxesWidget
+- ColorWidget
+- DateWidget
+- DateTimeWidget
+- EmailWidget
+- FileWidget
+- HiddenWidget
+- PasswordWidget
+- RadioWidget
+- RangeWidget
+- SelectWidget
+- TelephoneWidget
+- TextWidget
+- TextareaWidget
+- TimeWidget
+- UpDownWidget
+- URLWidget
+- ToggleWidget
+- TabWidget
+
+## Examples:
 - [Custom Gutenberg block with custom meta-box](custom-block-meta-box.md)
+- Register CPT with template
