@@ -6,3 +6,4 @@ build
 /.vscode/launch.json
 /.vscode/settings.json
 /.idea
+.DS_Store

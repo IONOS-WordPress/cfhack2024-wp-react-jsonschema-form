@@ -1,0 +1,13 @@
+{
+  "name": "@cfhack2024-wp-react-jsonschema-form/metabox-block",
+  "description": "This package provides a WordPress plugin contributing a Meta Box block to Gutenberg",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+		"build": "wp-scripts start --no-watch",
+    "dev": "wp-scripts start "
+	},
+  "author": "The Hackathon Project Contributors",
+  "keywords": ["wordpress", "plugin", "Gutenberg", "block", "jsonschema", "ui", "react-jsonschema-form"],
+  "license": "GPL-2.0-or-later"
+}

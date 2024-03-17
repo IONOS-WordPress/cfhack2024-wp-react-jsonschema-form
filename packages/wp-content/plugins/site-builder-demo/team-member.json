@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "This form lets you edit the team member.",
+  "description": "The form can have a description here.",
+  "type": "object",
+  "required": ["first_name", "last_name"],
+  "properties": {
+    "first_name": {
+      "type": "string",
+      "title": "First name"
+    },
+    "last_name": {
+      "type": "string",
+      "title": "Last name"
+    }
+  }
+}
