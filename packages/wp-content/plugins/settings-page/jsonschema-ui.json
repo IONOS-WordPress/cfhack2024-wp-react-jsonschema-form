@@ -1,4 +1,11 @@
 {
+  "ui:submitButtonOptions": {
+    "props": {
+      "disabled": false
+    },
+    "norender": false,
+    "submitText": "Save"
+  },
   "firstName": {
     "ui:autofocus": true,
     "ui:emptyValue": "",

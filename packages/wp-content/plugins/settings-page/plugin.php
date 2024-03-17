@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         \wp_enqueue_script(
           $HANDLE,
           \plugins_url( 'build/index.js', __FILE__ ),
-          $asset_file['dependencies'],
+          array_merge( $asset_file['dependencies'], ['rjsf-gutenberg-renderer']),
           $asset_file['version'],
           true,
         );
@@ -52,8 +52,8 @@ if ( ! defined( 'ABSPATH' ) ) {
           "window['settings_page']=" . json_encode([
             '_wpnonce' => wp_create_nonce( 'options-options' ),
             'value' => \get_option('settings_page', '{}'),
-            'jsonschema' => file_get_contents(__DIR__ . '/jsonschema.json'),
-            'jsonschema-ui' => file_get_contents(__DIR__ . '/jsonschema-ui.json')
+            'schema' => file_get_contents(__DIR__ . '/jsonschema.json'),
+            'uiSchema' => file_get_contents(__DIR__ . '/jsonschema-ui.json')
           ]),
           'before',
         );
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         \wp_enqueue_style(
           $HANDLE,
           \plugins_url('build/index.css', __FILE__),
-          ['wp-components'], //$asset_file['dependencies'],
+          ['wp-components', 'rjsf-gutenberg-renderer'], //$asset_file['dependencies'],
           $asset_file['version']
         );
 
