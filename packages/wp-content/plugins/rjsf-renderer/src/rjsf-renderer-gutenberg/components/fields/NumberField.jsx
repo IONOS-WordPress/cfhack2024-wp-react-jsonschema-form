@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import { asNumber } from '@rjsf/utils';
+import {useCallback, useState} from 'react';
+import {asNumber, getUiOptions, getWidget, hasWidget, optionsList} from '@rjsf/utils';
 // Matches a string that ends in a . character, optionally followed by a sequence of
 // digits followed by any number of 0 characters up until the end of the line.
 // Ensuring that there is at least one prefixed character is important so that
@@ -10,6 +10,7 @@ const trailingCharMatcherWithPrefix = /\.([0-9]*0)*$/;
 // functionality, but it is fairly complex compared to simply defining two
 // different matchers.
 const trailingCharMatcher = /[0.]0*$/;
+
 /**
  * The NumberField class has some special handling for dealing with trailing
  * decimal points and/or zeroes. This logic is designed to allow trailing values
@@ -28,41 +29,39 @@ const trailingCharMatcher = /[0.]0*$/;
  *    value is passed to the input instead of the formData value
  */
 function NumberField(props) {
-    const { registry, onChange, formData, value: initialValue } = props;
-    const [lastValue, setLastValue] = useState(initialValue);
-    const { StringField } = registry.fields;
-    let value = formData;
-    /** Handle the change from the `StringField` to properly convert to a number
-     *
-     * @param value - The current value for the change occurring
-     */
-    const handleChange = useCallback((value) => {
-        // Cache the original value in component state
-        setLastValue(value);
-        // Normalize decimals that don't start with a zero character in advance so
-        // that the rest of the normalization logic is simpler
-        if (`${value}`.charAt(0) === '.') {
-            value = `0${value}`;
-        }
-        // Check that the value is a string (this can happen if the widget used is a
-        // <select>, due to an enum declaration etc) then, if the value ends in a
-        // trailing decimal point or multiple zeroes, strip the trailing values
-        const processed = typeof value === 'string' && value.match(trailingCharMatcherWithPrefix)
-            ? asNumber(value.replace(trailingCharMatcher, ''))
-            : asNumber(value);
-        onChange(processed);
-    }, [onChange]);
-    if (typeof lastValue === 'string' && typeof value === 'number') {
-        // Construct a regular expression that checks for a string that consists
-        // of the formData value suffixed with zero or one '.' characters and zero
-        // or more '0' characters
-        const re = new RegExp(`${value}`.replace('.', '\\.') + '\\.?0*$');
-        // If the cached "lastValue" is a match, use that instead of the formData
-        // value to prevent the input value from changing in the UI
-        if (lastValue.match(re)) {
-            value = lastValue;
-        }
-    }
-    return <StringField {...props} formData={value} onChange={handleChange}/>;
+  const {
+    schema,
+    name,
+    uiSchema,
+    idSchema,
+    formData,
+    required,
+    disabled = false,
+    readonly = false,
+    autofocus = false,
+    onChange,
+    onBlur,
+    onFocus,
+    registry,
+    rawErrors,
+    hideError,
+  } = props;
+  const {title, format} = schema;
+  const {widgets, formContext, schemaUtils, globalUiOptions} = registry;
+  const enumOptions = schemaUtils.isSelect(schema) ? optionsList(schema) : undefined;
+  let defaultWidget = 'updown';
+  if (format && hasWidget(schema, format, widgets)) {
+    defaultWidget = format;
+  }
+  const {widget = defaultWidget, placeholder = '', title: uiTitle, ...options} = getUiOptions(uiSchema);
+  const displayLabel = schemaUtils.getDisplayLabel(schema, uiSchema, globalUiOptions);
+  const label = uiTitle ?? title ?? name;
+  const Widget = getWidget(schema, widget, widgets);
+  return (<Widget options={{...options, enumOptions}} schema={schema} uiSchema={uiSchema} id={idSchema.$id} name={name}
+                  label={label} hideLabel={!displayLabel} hideError={hideError} value={formData} onChange={onChange}
+                  onBlur={onBlur} onFocus={onFocus} required={required} disabled={disabled} readonly={readonly}
+                  formContext={formContext} autofocus={autofocus} registry={registry} placeholder={placeholder}
+                  rawErrors={rawErrors}/>);
 }
+
 export default NumberField;

@@ -360,6 +360,9 @@ class ArrayField extends Component {
             const UnsupportedFieldTemplate = getTemplate('UnsupportedFieldTemplate', registry, uiOptions);
             return (<UnsupportedFieldTemplate schema={schema} idSchema={idSchema} reason={translateString(TranslatableString.MissingItems)} registry={registry}/>);
         }
+        if (uiSchema['ui:schema'] === 'tab') {
+            return this.renderTabArray();
+        }
         if (schemaUtils.isMultiSelect(schema)) {
             // If array has enum or uniqueItems set to true, call renderMultiSelect() to render the default multiselect widget or a custom widget, if specified.
             return this.renderMultiSelect();
@@ -372,7 +375,7 @@ class ArrayField extends Component {
         }
         if (schemaUtils.isFilesArray(schema, uiSchema)) {
             return this.renderFiles();
-        }
+        } 
         return this.renderNormalArray();
     }
     /** Renders a normal array without any limitations of length
@@ -432,6 +435,84 @@ class ArrayField extends Component {
             registry,
         };
         const Template = getTemplate('ArrayFieldTemplate', registry, uiOptions);
+        return <Template {...arrayProps}/>;
+    }
+    /** Render Tabs 
+     */
+    renderTabArray() {
+        const { schema, uiSchema = {}, formData = [], errorSchema, idPrefix, idSeparator = '_', idSchema, name, title, disabled = false, readonly = false, autofocus = false, required = false, registry, onBlur, onFocus, rawErrors, } = this.props;
+        const { keyedFormData } = this.state;
+        let { formData: items = [] } = this.props;
+        const fieldTitle = schema.title || title || name;
+        const uiOptions = getUiOptions(uiSchema);
+        const { schemaUtils, formContext } = registry;
+        const _schemaItems = isObject(schema.items) ? schema.items : [];
+        const itemSchemas = _schemaItems.map((item, index) => schemaUtils.retrieveSchema(item, formData[index]));
+        const additionalSchema = isObject(schema.additionalItems)
+            ? schemaUtils.retrieveSchema(schema.additionalItems, formData)
+            : null;
+        if (!items || items.length < itemSchemas.length) {
+            // to make sure at least all fixed items are generated
+            items = items || [];
+            items = items.concat(new Array(itemSchemas.length - items.length));
+        }
+        // These are the props passed into the render function
+        const canAdd = this.canAddItem(items) && !!additionalSchema;
+        const arrayProps = {
+            canAdd,
+            className: 'field field-array field-array-fixed-items',
+            disabled,
+            idSchema,
+            formData,
+            items: keyedFormData.map((keyedItem, index) => {
+                const { key, item } = keyedItem;
+                // While we are actually dealing with a single item of type T, the types require a T[], so cast
+                const itemCast = item;
+                const additional = index >= itemSchemas.length;
+                const itemSchema = (additional && isObject(schema.additionalItems)
+                    ? schemaUtils.retrieveSchema(schema.additionalItems, itemCast)
+                    : itemSchemas[index]) || {};
+                const itemIdPrefix = idSchema.$id + idSeparator + index;
+                const itemIdSchema = schemaUtils.toIdSchema(itemSchema, itemIdPrefix, itemCast, idPrefix, idSeparator);
+                const itemUiSchema = additional
+                    ? uiSchema.additionalItems || {}
+                    : Array.isArray(uiSchema.items)
+                        ? uiSchema.items[index]
+                        : uiSchema.items || {};
+                const itemErrorSchema = errorSchema ? errorSchema[index] : undefined;
+                return this.renderArrayFieldItem({
+                    key,
+                    index,
+                    name: name && `${name}-${index}`,
+                    title: fieldTitle ? `${fieldTitle}-${index + 1}` : undefined,
+                    canAdd,
+                    canRemove: additional,
+                    canMoveUp: index >= itemSchemas.length + 1,
+                    canMoveDown: additional && index < items.length - 1,
+                    itemSchema,
+                    itemData: itemCast,
+                    itemUiSchema,
+                    itemIdSchema,
+                    itemErrorSchema,
+                    autofocus: autofocus && index === 0,
+                    onBlur,
+                    onFocus,
+                    rawErrors,
+                    totalItems: keyedFormData.length,
+                });
+            }),
+            onAddClick: this.onAddClick,
+            readonly,
+            required,
+            registry,
+            schema,
+            uiSchema,
+            title: fieldTitle,
+            formContext,
+            errorSchema,
+            rawErrors,
+        };
+        const Template = getTemplate('TabFieldTemplate', registry, uiOptions);
         return <Template {...arrayProps}/>;
     }
     /** Renders an array using the custom widget provided by the user in the `uiSchema`

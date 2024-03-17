@@ -1,0 +1,44 @@
+{
+  "title": "Store Address",
+  "description": "This is where your business is located. Tax rates and shipping rates will use this address.",
+  "type": "object",
+  "required": [],
+  "definitions": {
+    "countries": {
+      "type": "string",
+      "enum": ["Germany", "Portugal"]
+    }
+  },
+  "properties": {
+    "woocommerce_store_address_1": {
+      "type": "string",
+      "title": "Address Line 1"
+    },
+    "woocommerce_store_address_2": {
+      "type": "string",
+      "title": "Address Line 2"
+    },
+    "woocommerce_store_city": {
+      "type": "string",
+      "title": "City"
+    },
+    "woocommerce_default_country": {
+      "$ref": "#/definitions/countries",
+      "title": "Country"
+    },
+    "woocommerce_store_postcode": {
+      "type": "string",
+      "title": "Postcode / ZIP"
+    },
+    "woocommerce_enable_coupons": {
+      "type": "boolean",
+      "title": "Enable taxes",
+      "description": "Rates will be configurable and taxes will be calculated during checkout."
+    },
+    "woocommerce_calc_discounts_sequentially": {
+      "type": "boolean",
+      "title": "Calculate coupon discounts sequentially",
+      "description": "When applying multiple coupons, apply the first coupon to the full price and the second coupon to the discounted price and so on."
+    }
+  }
+}

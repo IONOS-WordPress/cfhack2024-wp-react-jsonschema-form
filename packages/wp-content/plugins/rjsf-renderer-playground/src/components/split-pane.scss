@@ -32,4 +32,36 @@
     border: 5px solid #e0e0e0;
     cursor: row-resize;
   }
+
+  &-full-height {
+    height: 100%;
+
+    &>div {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #tab-panel-0-source-editor-view {
+      flex-grow: 1;
+      display: flex;
+    }
+
+    .components-base-control {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+
+      .components-base-control__field {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+
+      }
+
+      textarea {
+        flex-grow: 1;
+      }
+    }
+  }
 }

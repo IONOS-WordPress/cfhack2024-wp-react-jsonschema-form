@@ -55,7 +55,6 @@ const SourceEditor =function SourceEditor() {
       help={ __("This textarea acts as a placeholder for the JSON Schema source editor to be rendered.", 'rjsf-renderer-playground') }
       value={ intermediateValue }
       ref={ textareaRef }
-      rows={ 20 }
       onChange={ onChange }
     />
   );
@@ -169,7 +168,6 @@ function JSONSchemaUIEditor() {
       help={ __("This textarea acts as a placeholder for the UI Schema editor.", 'rjsf-renderer-playground') }
       value={ intermediateValue }
       ref={ textareaRef }
-      rows={ 20 }
       onChange={ onChange }
     />
   );
