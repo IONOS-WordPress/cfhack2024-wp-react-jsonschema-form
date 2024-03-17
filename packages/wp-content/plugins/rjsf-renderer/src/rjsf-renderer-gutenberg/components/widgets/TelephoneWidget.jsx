@@ -1,4 +1,5 @@
 import { TextControl } from '@wordpress/components';
+import { labelValue, schemaRequiresTrueValue, } from '@rjsf/utils';
 
 /** The `TextWidget` component uses the `TextControl`.
  *
@@ -6,17 +7,21 @@ import { TextControl } from '@wordpress/components';
  */
 
 export default function TextWidget(props) {
-    console.log(props)
+    const required = schemaRequiresTrueValue(props.schema);
+    const description = props.options.description ?? props.description;
+
     return (
         <TextControl
-          label= {props.label}
+          label= {labelValue(<span>{props.label}</span>, props.hideLabel)}
           value={ props.value }
           onChange={props.onChange }
           onBlur={props.onBlur}
           onFocus={props.onFocus}
           readOnly={props.readOnly}
           default={props.default}
-          type='rel'
+          help={description}
+          required={required}
+          type='tel'
         />
       );
 }
