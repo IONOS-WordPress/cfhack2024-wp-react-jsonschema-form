@@ -18,22 +18,51 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+global $cfhack_jsonschema;
+$cfhack_jsonschema = array();
+
 /**
  * Registers a new Team Member post type.
  */
 \add_action(
   'init',
   function() {
-    \register_post_type( 'team-member', [
-      'label'  => 'Team Member',
-      'public' => true,
-      'show_in_rest' => true,
-      'supports' => [ 'title', 'editor', 'custom-fields' ],
-      'schema'    => json_decode( file_get_contents( __DIR__ . '/team-member.json' ), true ),
-      'ui_schema' => json_decode( file_get_contents( __DIR__ . '/team-member-ui.json' ), true ),
-      'show_schema_form' => true,
-      'template_lock' => 'all',
-  ] );
+		foreach ( glob( __DIR__ . '/schemas/*' ) as $key => $path ) {
+			$schema_name   = basename( $path );
+			$schema_folder = __DIR__ . '/schemas/' . $schema_name . '/';
+
+			if ( file_exists( $schema_folder . 'schema.json' ) && file_exists( $schema_folder . 'ui.json' ) ) {
+				global $cfhack_jsonschema;
+
+				$decoded_schema    = json_decode( file_get_contents( $schema_folder . 'schema.json' ), true );
+				$decoded_ui_schema = json_decode( file_get_contents( $schema_folder . 'ui.json' ), true );
+
+				$cfhack_jsonschema[ $schema_name ] = array(
+					'schema'    => $decoded_schema,
+					'ui_schema' => $decoded_ui_schema,
+				);
+
+				\register_post_type( $schema_name, [
+					'label'  => $decoded_schema['name'] ?? ucwords( str_replace( '-', ' ', $schema_name ) ),
+					'menu_icon'  => $decoded_schema['icon'] ?? 'dashicons-admin-post',
+					'public' => true,
+					'template' => [
+						[
+							'cfhack2024-wp-react-jsonschema-form/schema-block',
+							[
+								'name' => $schema_name,
+							],
+						]
+					],
+					'show_in_rest' => true,
+					'supports' => [ 'title', 'editor', 'custom-fields' ],
+					'schema'    => $decoded_schema,
+					'ui_schema' => $decoded_ui_schema,
+					'show_schema_form' => true,
+					'template_lock' => 'all',
+				] );
+			}
+		}
 }
 );
 
@@ -55,8 +84,11 @@ add_action(
         'type',
         $field,
         [
-          'get_callback' => function() use ( $value ) {
-            return $value;
+          'get_callback' => function( $post_object ) use ( $field ) {
+						global $cfhack_jsonschema;
+						if ( ! empty( $cfhack_jsonschema[ $post_object['slug'] ] ) ) {
+							return $cfhack_jsonschema[ $post_object['slug'] ][ $field ];
+						}
           },
           'schema' => [
             'type' => 'object',
@@ -68,26 +100,6 @@ add_action(
   10,
   2
 );
-
-add_filter(
-  'register_post_type_args',
-  function( $args, $post_type ) {
-    if ( ! empty( $args['show_schema_form'] ) ) {
-      $args['template'] = [
-        [
-          'cfhack2024-wp-react-jsonschema-form/schema-block',
-          [
-            'name' => $post_type,
-          ],
-        ]
-      ];
-    }
-    return $args;
-  },
-  10,
-  2
-);
-
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
