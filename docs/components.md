@@ -2,6 +2,8 @@
 
 - [Alternative date](#alternative-date)
 - [Alternative date and time](#alternative-date-and-time)
+- [Checkbox](#checkbox)
+- [Checkboxes](#checkboxes)
 - [Color](#color)
 - [Select](#select)
 
@@ -86,6 +88,43 @@ schema.json
 Returns:
 ```
 {"checkbox":true}
+```
+
+## Checkboxes
+
+- Widget name: `CheckboxesWidget`
+- Type: `array`
+
+schema.json
+```jSON
+"multipleChoicesList": {
+  "type": "array",
+  "title": "A multiple choices list",
+  "items": {
+    "type": "string",
+    "enum": [
+      "foo",
+      "bar",
+      "fuzz",
+      "qux"
+    ]
+  },
+  "uniqueItems": true
+}
+```
+
+uischema.json
+```JSON
+{
+  "multipleChoicesList": {
+    "ui:widget": "checkboxes"
+  }
+}
+```
+
+Returns:
+```
+{"multipleChoicesList":["bar","fuzz"]}
 ```
 
 ## Color
