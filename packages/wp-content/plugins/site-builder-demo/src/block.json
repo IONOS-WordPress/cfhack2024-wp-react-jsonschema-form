@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "cfhack2024-wp-react-jsonschema-form/schema-block",
+  "version": "1.0.0",
+  "title": "schema-block",
+  "category": "cfhack2024-wp-react-jsonschema-form",
+  "icon": "smiley",
+  "description": "WordPress block rendering post meta data in the editor but is saving as post meta data",
+  "example": {},
+  "supports": {
+    "html": false,
+    "multiple": false
+  },
+  "attributes": {
+    "schema": {
+      "type": "object"
+    },
+    "ui_schema": {
+      "type": "object"
+    }
+  },
+  "textdomain": "schema-block",
+  "editorScript": ["file:./index.js"],
+  "editorStyle": "file:./index.css"
+}
