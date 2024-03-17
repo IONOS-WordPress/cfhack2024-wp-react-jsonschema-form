@@ -12,6 +12,7 @@ import PasswordWidget from './PasswordWidget';
 import RadioWidget from './RadioWidget';
 import RangeWidget from './RangeWidget';
 import SelectWidget from './SelectWidget';
+import TelephoneWidget from './TelephoneWidget';
 import TextareaWidget from './TextareaWidget';
 import TextWidget from './TextWidget';
 import TimeWidget from './TimeWidget';
@@ -34,6 +35,7 @@ function widgets() {
         RadioWidget,
         RangeWidget,
         SelectWidget,
+        TelephoneWidget,
         TextWidget,
         TextareaWidget,
         TimeWidget,
