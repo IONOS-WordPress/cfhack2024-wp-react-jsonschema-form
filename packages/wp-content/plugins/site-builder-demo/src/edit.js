@@ -44,6 +44,7 @@ export default function Edit({ setAttributes, attributes }) {
         validator={ validator }
         formData={ formData }
         onChange={ (e) => onChange(e.formData) }
+        templates={{ ButtonTemplates: { SubmitButton : () => null } }}
       />
     </div>
   );
