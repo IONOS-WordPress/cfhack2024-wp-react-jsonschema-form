@@ -7,5 +7,5 @@ import {ColorPicker} from '@wordpress/components';
 export default function ColorWidget(props) {
 return <div className={"color-widget"}>
   <label>{props.label}</label>
-  <ColorPicker  enableAlpha={props.uiSchema.hasAlpha} onChange={props.onChange}/>
+  <ColorPicker enableAlpha={props.uiSchema.enableAlpha === true} onChange={props.onChange}/>
 </div> }
