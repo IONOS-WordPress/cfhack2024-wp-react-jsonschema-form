@@ -29,4 +29,22 @@
     color: orangered;
   }
 
+  .additional-template {
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px;
+    }
+
+    &__delete-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      padding-bottom: 6px;
+    }
+    &__key-container, &__value-container {
+      width: 40%;
+    }
+
+  }
 }
