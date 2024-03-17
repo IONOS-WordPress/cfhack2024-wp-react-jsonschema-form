@@ -88,7 +88,7 @@ export const SplitPaneTop = (props) => {
   }, [clientHeight]);
 
   return (
-    <div {...props} className="split-pane-top" ref={topRef}>
+    <div {...props} className="split-pane-top split-pane-full-height" ref={topRef}>
       { props.children }
     </div>
   );
@@ -96,7 +96,7 @@ export const SplitPaneTop = (props) => {
 
 export const SplitPaneBottom = (props) => {
   return (
-    <div {...props} className="split-pane-bottom">
+    <div {...props} className="split-pane-bottom split-pane-full-height">
       { props.children }
     </div>
   );
