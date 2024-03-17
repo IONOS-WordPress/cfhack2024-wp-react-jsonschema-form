@@ -13,8 +13,6 @@ export default function FieldTemplate(props) {
         return <div className='hidden'>{children}</div>;
     }
     return (<WrapIfAdditionalTemplate {...props}>
-      {displayLabel && <Label label={label} required={required} id={id}/>}
-      {displayLabel && description ? description : null}
       {children}
       {errors}
       {help}
