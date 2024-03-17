@@ -21,5 +21,5 @@ export function MoveUpButton(props) {
 }
 export function RemoveButton(props) {
     const { registry: { translateString }, } = props;
-    return (<Button title={translateString(TranslatableString.RemoveButton)} className='array-item-remove' {...props} iconType='danger' icon='remove'/>);
+    return (<Button title={translateString(TranslatableString.RemoveButton)} className='array-item-remove' {...props} icon='remove'/>);
 }
