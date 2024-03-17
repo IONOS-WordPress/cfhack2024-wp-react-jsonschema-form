@@ -10,7 +10,21 @@ Describe any WordPress data with JSON schema without the need to register it thr
 
 Depending on the data type, WordPress provides different PHP and JavaScript methods for registering metadata and site options (e.g. [register_settings()](https://developer.wordpress.org/reference/functions/register_setting/), [add_settings_field()](https://developer.wordpress.org/reference/functions/add_settings_field/) etc). These methods require mixing data and application layers by hardcoding data values (meta field and site option names) which reduces code maintainability.
 
-Using JSON Schema for describing all data will completely remove the data layer from the application increasing its readability and re-usability, and allowing a wider range of user roles to have control over data structure.
+Using JSON Schema for describing all data will completely remove the data layer from the application increasing its readability and re-usability, and allowing a wider range of user roles to have control over data structure due to its human-readability feature.
+
+### End-user use-case
+
+A user, with appropriate access and permissions, could add value to the form avoiding the whole code development workflow and start using it right away.
+
+![edit-schema-json](./assets/edit-schema-json.gif)
+
+Besides values, form field types can be conveniently modified from the same place as well.
+
+![edit-uischema-json](./assets/edit-uischema-json.gif)
+
+The modified form can be tested on the spot, revealing the returned values that are useful to both developers and non-developers.
+
+![test-clear-form](./assets/test-clear-form.gif)
 
 ## How
 
