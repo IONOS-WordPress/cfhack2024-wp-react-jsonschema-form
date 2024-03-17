@@ -7,7 +7,6 @@ import { labelValue, schemaRequiresTrueValue, } from '@rjsf/utils';
  */
 
 export default function TextWidget(props) {
-    console.log(props)
     const required = schemaRequiresTrueValue(props.schema);
     const description = props.options.description ?? props.description;
 

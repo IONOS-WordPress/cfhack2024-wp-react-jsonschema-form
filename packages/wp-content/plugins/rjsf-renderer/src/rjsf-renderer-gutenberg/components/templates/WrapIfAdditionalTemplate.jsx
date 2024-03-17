@@ -32,7 +32,6 @@ export default function WrapIfAdditionalTemplate(props) {
       {children}
     </div>);
   }
-  console.log("Additional Template", additional)
   return (<div className={classNames} style={style}>
     <div className='additional-template__row'>
 
