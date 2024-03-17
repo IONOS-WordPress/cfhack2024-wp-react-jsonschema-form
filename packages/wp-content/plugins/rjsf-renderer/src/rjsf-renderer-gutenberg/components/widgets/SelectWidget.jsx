@@ -7,16 +7,18 @@ import { labelValue } from '@rjsf/utils';
  *
  * @param props - The `WidgetProps` for this component
  */
-function SelectWidget({ options, value, label, hideLabel, onChange, onBlur, onFocus, }) {
+function SelectWidget({ options, value, schema, label, hideLabel, onChange, onBlur, onFocus, }) {
   const { enumOptions } = options;
+  const description = options.description ?? schema.description;
   return (
     <SelectControl
-      label= { labelValue(<span>{label}</span>, hideLabel) }
-      value={ value }
-      onBlur={ onBlur}
-      onChange={ onChange }
-      onFocus={ onFocus }
-      options={ enumOptions }
+      label={labelValue(<span>{label}</span>, hideLabel)}
+      value={value}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      options={enumOptions}
+      help={description}
     />
   );
 }
