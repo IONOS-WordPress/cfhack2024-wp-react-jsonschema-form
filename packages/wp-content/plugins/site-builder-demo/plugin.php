@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       'label'  => 'Team Member',
       'public' => true,
       'show_in_rest' => true,
-      'supports' => [ 'title', 'editor' ],
+      'supports' => [ 'title', 'editor', 'custom-fields' ],
       'schema'    => json_decode( file_get_contents( __DIR__ . '/team-member.json' ), true ),
       'ui_schema' => json_decode( file_get_contents( __DIR__ . '/team-member-ui.json' ), true ),
       'show_schema_form' => true,
