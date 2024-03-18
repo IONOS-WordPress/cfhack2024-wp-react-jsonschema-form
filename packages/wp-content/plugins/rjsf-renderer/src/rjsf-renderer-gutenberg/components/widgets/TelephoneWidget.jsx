@@ -6,7 +6,7 @@ import { labelValue, schemaRequiresTrueValue, } from '@rjsf/utils';
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function TextWidget(props) {
+export default function TelephoneWidget(props) {
   const required = schemaRequiresTrueValue(props.schema);
   const description = props.options.description ?? props.description;
 
