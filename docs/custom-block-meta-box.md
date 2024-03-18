@@ -1,2 +1,0 @@
-# Custom block meta box
-

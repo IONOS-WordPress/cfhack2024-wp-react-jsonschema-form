@@ -82,6 +82,6 @@ Gutenberg components:
 - TabWidget
 
 ## Examples:
-- [Custom Gutenberg block with custom meta-box](custom-block-meta-box.md)
+- [Custom post type meta form](cpt-meta-form.md)
 - [Site options](site-options.md)
 - Register CPT with template
