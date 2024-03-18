@@ -10,6 +10,7 @@ Project page: https://hackathon.cloudfest.com/project/json-schema-field-form-ren
 {
   "team": {
     "name": "Syntax Errors",
+    "anatem": "If you're happy and you know it - SYNTAX ERROR!",
     "leads": [
       {"name": "Lars Gersmann", "url": "https://github.com/lgersman"},
       {"name": "Daniel Bachhuber", "url": "https://github.com/danielbachhuber"}
