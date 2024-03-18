@@ -1,0 +1,20 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "icon": "dashicons-products",
+    "title": "This form lets you edit the store.",
+    "description": "The form can have a description here.",
+    "type": "object",
+    "required": [
+        "name"
+    ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "title": "Store Name"
+        },
+        "location": {
+            "type": "string",
+            "title": "Location"
+        }
+    }
+}
