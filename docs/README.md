@@ -83,4 +83,5 @@ Gutenberg components:
 
 ## Examples:
 - [Custom Gutenberg block with custom meta-box](custom-block-meta-box.md)
+- [Site options](site-options.md)
 - Register CPT with template
