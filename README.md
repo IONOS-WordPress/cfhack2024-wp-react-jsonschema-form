@@ -1,5 +1,40 @@
 # About
 
+This project started as a CloudFest Hackathon 2024 project. It aims to elevate the possibilities JSON schema offers and utilize it for easier web form and meta fields development.
+
+Project page: https://hackathon.cloudfest.com/project/json-schema-field-form-renderer/
+
+## The team
+
+```JSON
+{
+  "team": {
+    "name": "Syntax Errors",
+    "leads": [
+      {"name": "Lars Gersmann", "url": "https://github.com/lgersman"},
+      {"name": "Daniel Bachhuber", "url": "https://github.com/danielbachhuber"}
+    ],
+    "collaborators": [
+      {"name": "Adam Zielinski", "url": "https://github.com/adamziel"},
+      {"name": "Anja Lang", "url": "https://github.com/AnjaLang"},
+      {"name": "Michael Schmitz", "url": "https://github.com/Bl4d3s"},
+      {"name": "Thomas Rose", "url": "https://github.com/codeispoetry"},
+      {"name": "Marko Feldmann", "url": "https://github.com/DerHerrFeldmann"},
+      {"name": "genesfa", "url": ""},
+      {"name": "Jan Vogt", "url": "https://www.linkedin.com/in/janvogt"},
+      {"name": "Lucisu", "url": ""},
+      {"name": "Max-eMundo", "url": "https://github.com/Max-eMundo"},
+      {"name": "Marcel Schmitz", "url": "https://github.com/schmitzoide"},
+      {"name": "Milana Cap", "url": "https://github.com/zzap"},
+      {"name": "Julian Haupt", "url": "https://jsonformseditor.io/"},
+      {"name": "Dennis Snell", "url": "https://github.com/dmsnell"}
+    ]
+  }
+}
+```
+
+## Demo
+
 This Monorepo contains example uses cases of [JSON Schema](https://json-schema.org/) in WordPress.
 
 It demo's the use of [JSON Schema](https://json-schema.org/) as abstraction for user interfaces in WordPress utilizing [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
@@ -227,7 +262,13 @@ To debug into React you can use the browser's developer tools. You can set break
 
 It's highly recommended to install [React Developer Tools](https://react.dev/learn/react-developer-tools) in your browser. It will ease React debugging a lot.
 
-# The most important tip
+## Documentation
+
+Technical documentation can be found in [docs](./docs/README.md) folder.
+
+## The most important tip
+
+**Read the [docs](./docs/README.md)!**
 
 **Ask your team members if you are stuck !**
 
