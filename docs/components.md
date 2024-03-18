@@ -29,7 +29,7 @@ uischema.json
 
 ```JSON
 "alt-date": {
-  "ui:widget": "alt-date",
+  "ui:widget": "AltDateWidget",
   "ui:options": {
     "yearsRange": [
       1980,
@@ -64,7 +64,7 @@ uischema.json
 
 ```JSON
 "alt-datetime": {
-  "ui:widget": "alt-datetime",
+  "ui:widget": "AltDateTimeWidget",
   "ui:options": {
     "yearsRange": [
       1980,
@@ -93,6 +93,16 @@ schema.json
   "title": "Checkbox",
   "description": "Default boolean type doesn't need uischema.",
   "type": "boolean"
+}
+```
+
+uischema.json
+
+```JSON
+{
+  "checkbox": {
+    "ui:widget": "CheckboxWidget"
+  }
 }
 ```
 
@@ -131,7 +141,7 @@ uischema.json
 ```JSON
 {
   "multipleChoicesList": {
-    "ui:widget": "checkboxes"
+    "ui:widget": "CheckboxesWidget"
   }
 }
 ```
@@ -162,7 +172,7 @@ uischema.json
 ```JSON
 {
   "color": {
-    "ui:widget": "color"
+    "ui:widget": "ColorWidget"
   }
 }
 ```
@@ -186,6 +196,16 @@ schema.json
 "datetime": {
   "type": "string",
   "format": "date-time"
+}
+```
+
+uischema.json
+
+```JSON
+{
+  "datetime": {
+    "ui:widget": "DateWidget"
+  }
 }
 ```
 
@@ -215,6 +235,19 @@ schema.json
 }
 ```
 
+uischema.json
+
+```JSON
+{
+  "date": {
+    "ui:widget": "DateTimeWidget"
+  },
+  "time": {
+    "ui:widget": "DateTimeWidget"
+  }
+}
+```
+
 Returns:
 
 ```
@@ -232,6 +265,15 @@ schema.json
 "email": {
   "type": "string",
   "format": "email"
+}
+```
+
+uischema.json
+```JSON
+{
+  "email": {
+    "ui:widget": "EmailWidget"
+  }
 }
 ```
 
@@ -265,7 +307,7 @@ uischema.json
 ```JSON
 {
   "select": {
-    "ui:widget": "select"
+    "ui:widget": "SelectWidget"
   }
 }
 ```
@@ -294,6 +336,7 @@ uischema.json (optional)
 ```JSON
 {
   "file": {
+    "ui:widget": "FileWidget",
     "ui:options": {
       "accept": ".pdf"
     }
