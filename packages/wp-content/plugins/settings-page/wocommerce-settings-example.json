@@ -1,44 +1,102 @@
 {
-  "title": "Store Address",
-  "description": "This is where your business is located. Tax rates and shipping rates will use this address.",
+  "title": "WooCommerce",
+  "description": "",
   "type": "object",
-  "required": [],
   "definitions": {
-    "countries": {
+    "woocommerce_default_country_options": {
       "type": "string",
       "enum": ["Germany", "Portugal"]
+    },
+    "woocommerce_allowed_countries": {
+      "type": "string",
+      "enum": ["Sell to all countries", "Sell to all countries, except for...", "Sell to specific countries"]
+    },
+    "woocommerce_shop_page_id": {
+      "type": "string",
+      "enum": ["Shop"]
     }
   },
+
   "properties": {
-    "woocommerce_store_address_1": {
-      "type": "string",
-      "title": "Address Line 1"
-    },
-    "woocommerce_store_address_2": {
-      "type": "string",
-      "title": "Address Line 2"
-    },
-    "woocommerce_store_city": {
-      "type": "string",
-      "title": "City"
-    },
-    "woocommerce_default_country": {
-      "$ref": "#/definitions/countries",
-      "title": "Country"
-    },
-    "woocommerce_store_postcode": {
-      "type": "string",
-      "title": "Postcode / ZIP"
-    },
-    "woocommerce_enable_coupons": {
-      "type": "boolean",
-      "title": "Enable taxes",
-      "description": "Rates will be configurable and taxes will be calculated during checkout."
-    },
-    "woocommerce_calc_discounts_sequentially": {
-      "type": "boolean",
-      "title": "Calculate coupon discounts sequentially",
-      "description": "When applying multiple coupons, apply the first coupon to the full price and the second coupon to the discounted price and so on."
+    "panel": {
+      "type": "array",
+      "items": [
+        {
+          "title": "General",
+          "description": "This is where your business is located. Tax rates and shipping rates will use this address.",
+          "type": "array",
+          "items": [
+            {
+              "title": "Store Address",
+              "properties": {
+                "woocommerce_store_address_1": {
+                  "type": "string",
+                  "title": "Address Line 1"
+                },
+                "woocommerce_store_address_2": {
+                  "type": "string",
+                  "title": "Address Line 2"
+                },
+                "woocommerce_store_city": {
+                  "type": "string",
+                  "title": "City"
+                },
+                "woocommerce_default_country": {
+                  "$ref": "#/definitions/woocommerce_default_country_options",
+                  "title": "Country"
+                },
+                "woocommerce_store_postcode": {
+                  "type": "string",
+                  "title": "Postcode / ZIP"
+                }
+              }
+            },
+            {
+              "title": "General options",
+              "properties": {
+                "woocommerce_allowed_countries": {
+                  "$ref": "#/definitions/woocommerce_allowed_countries",
+                  "title": "Selling location(s)"
+                },
+                "woocommerce_enable_coupons": {
+                  "type": "boolean",
+                  "title": "Enable taxes",
+                  "description": "Rates will be configurable and taxes will be calculated during checkout."
+                },
+                "woocommerce_calc_discounts_sequentially": {
+                  "type": "boolean",
+                  "title": "Calculate coupon discounts sequentially",
+                  "description": "When applying multiple coupons, apply the first coupon to the full price and the second coupon to the discounted price and so on."
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": "Products",
+          "type": "object",
+          "properties": {
+            "woocommerce_shop_page_id": {
+              "$ref": "#/definitions/woocommerce_shop_page_id",
+              "title": "Country",
+              "description": "The base page can also be used in your product permalinks."
+            },
+            "woocommerce_cart_redirect_after_add": {
+              "title": "Redirect to the cart page after successful addition",
+              "type": "boolean"
+            },
+            "woocommerce_enable_ajax_add_to_cart": {
+              "title": "Enable AJAX add to cart buttons on archives",
+              "type": "boolean"
+            },
+            "woocommerce_placeholder_image": {
+              "title": "Placeholder image",
+              "type": "integer",
+              "default": 6
+            }
+          }
+        }
+      ]
     }
   }
 }
