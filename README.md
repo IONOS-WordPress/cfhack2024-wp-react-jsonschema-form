@@ -6,9 +6,32 @@ Project page: https://hackathon.cloudfest.com/project/json-schema-field-form-ren
 
 ## The team
 
-Project leads:
-- Lars Gersmann
-- Daniel Bachhuber
+```JSON
+{
+  "team": {
+    "name": "Syntax Errors",
+    "leads": [
+      {"name": "Lars Gersmann", "url": "https://github.com/lgersman"},
+      {"name": "Daniel Bachhuber", "url": "https://github.com/danielbachhuber"}
+    ],
+    "collaborators": [
+      {"name": "Adam Zielinski", "url": "https://github.com/adamziel"},
+      {"name": "Anja Lang", "url": "https://github.com/AnjaLang"},
+      {"name": "Michael Schmitz", "url": "https://github.com/Bl4d3s"},
+      {"name": "Thomas Rose", "url": "https://github.com/codeispoetry"},
+      {"name": "Marko Feldmann", "url": "https://github.com/DerHerrFeldmann"},
+      {"name": "genesfa", "url": ""},
+      {"name": "Jan Vogt", "url": "https://www.linkedin.com/in/janvogt"},
+      {"name": "Lucisu", "url": ""},
+      {"name": "Max-eMundo", "url": "https://github.com/Max-eMundo"},
+      {"name": "Marcel Schmitz", "url": "https://github.com/schmitzoide"},
+      {"name": "Milana Cap", "url": "https://github.com/zzap"},
+      {"name": "Julian Haupt", "url": "https://jsonformseditor.io/"},
+      {"name": "Dennis Snell", "url": "https://github.com/dmsnell"}
+    ]
+  }
+}
+```
 
 ## Demo
 
@@ -239,7 +262,13 @@ To debug into React you can use the browser's developer tools. You can set break
 
 It's highly recommended to install [React Developer Tools](https://react.dev/learn/react-developer-tools) in your browser. It will ease React debugging a lot.
 
-# The most important tip
+## Documentation
+
+Technical documentation can be found in [docs](./docs/README.md) folder.
+
+## The most important tip
+
+**Read the [docs](./docs/README.md)!**
 
 **Ask your team members if you are stuck !**
 
