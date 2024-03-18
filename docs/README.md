@@ -32,6 +32,8 @@ WordPress fields JSON schema is based on [react-jsonschema-form](https://github.
 - [schema.json](https://rjsf-team.github.io/react-jsonschema-form/docs/quickstart#form-schema) - describes the form (field names, initial values, settings)
 - [uischema.json](https://rjsf-team.github.io/react-jsonschema-form/docs/quickstart#form-uischema) - describes each field's UI
 
+Read more [here](schemas.md).
+
 ## Components
 
 HTML components:
@@ -84,4 +86,3 @@ Gutenberg components:
 ## Examples:
 - [Custom post type meta form](cpt-meta-form.md)
 - [Site options](site-options.md)
-- Register CPT with template
