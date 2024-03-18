@@ -5,5 +5,12 @@
     },
     "norender": false,
     "submitText": "Save"
+  },
+  "panel": {
+    "ui:schema": "tab",
+    "ui:label": false,
+    "items": {
+      "ui:label": false
+    }
   }
 }

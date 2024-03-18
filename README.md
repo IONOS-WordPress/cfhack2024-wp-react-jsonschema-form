@@ -27,7 +27,7 @@ Project page: https://hackathon.cloudfest.com/project/json-schema-field-form-ren
       {"name": "Michael Schmitz", "url": "https://github.com/Bl4d3s"},
       {"name": "Thomas Rose", "url": "https://github.com/codeispoetry"},
       {"name": "Marko Feldmann", "url": "https://github.com/DerHerrFeldmann"},
-      {"name": "genesfa", "url": ""},
+      {"name": "Fabian Genes", "url": "https://github.com/genesfa"},
       {
         "name": "Jan Vogt",
         "url": [
@@ -36,7 +36,7 @@ Project page: https://hackathon.cloudfest.com/project/json-schema-field-form-ren
         ]
       },
       {"name": "Lucisu", "url": ""},
-      {"name": "Max-eMundo", "url": "https://github.com/Max-eMundo"},
+      {"name": "Max Andre", "url": "https://github.com/Max-eMundo"},
       {"name": "Marcel Schmitz", "url": "https://github.com/schmitzoide"},
       {
         "name": "Milana Cap",

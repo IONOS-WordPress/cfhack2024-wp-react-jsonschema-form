@@ -3,21 +3,9 @@
 */
 
 .rjsf.rjsf-renderer-gutenberg {
-
-  // .password-widget {
-  //   margin: 10px;
-  //   max-width: 300px;
-  // }
-
-  // .color-widget {
-  //   margin: 10px;
-  //   max-width: 300px;
-  // }
-
-  // .url-widget {
-  //   margin: 10px;
-  //   max-width: 300px;
-  // }
+  .components-datetime__time fieldset:last-child {
+    display: none;
+  }
 
   .add-button {
     .dashicon {
@@ -43,7 +31,8 @@
       padding-bottom: 6px;
     }
 
-    &__key-container, &__value-container {
+    &__key-container,
+    &__value-container {
       width: 40%;
     }
 
