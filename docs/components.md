@@ -8,6 +8,7 @@
 - [Date](#date)
 - [Date and time](#date-and-time)
 - [Email](#email)
+- [File](#file)
 - [Select](#select)
 
 ## Alternative date
@@ -274,3 +275,35 @@ Returns:
 ```
 {"select":"Option 2"}
 ```
+
+## File
+
+- Widget name: `FileWidget`
+- Type: `string`
+
+schema.json
+```JSON
+"file": {
+  "type": "string",
+  "format": "data-url",
+  "title": "Single file"
+}
+```
+
+uischema.json (optional)
+```JSON
+{
+  "file": {
+    "ui:options": {
+      "accept": ".pdf"
+    }
+  }
+}
+```
+
+Returns (for optional accept criteria `data:application/pdf;`):
+
+```
+{"file":"data:image/png;name=syntax-error.png;base64,<EXTREMELY-LONG-STRING>"}
+```
+
