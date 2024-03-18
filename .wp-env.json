@@ -10,7 +10,8 @@
     "./packages/wp-content/plugins/metabox-block/",
     "./packages/wp-content/plugins/settings-page/",
     "./packages/wp-content/plugins/rjsf-renderer/",
-    "./packages/wp-content/plugins/rjsf-renderer-playground"
+    "./packages/wp-content/plugins/rjsf-renderer-playground",
+    "./packages/wp-content/plugins/site-builder-demo"
   ],
   "themes": [
     "https://downloads.wordpress.org/theme/twentytwentyfour.1.0.zip",

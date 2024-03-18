@@ -12,7 +12,6 @@ import STORE_KEY from './playground-store.js';
 
   a error boundary needs to be a component / cannot be a functional component as of now (see React docs)
 */
-
 import './error-boundary.scss';
 
 class ErrorBoundary extends Component {
@@ -46,7 +45,7 @@ class ErrorBoundary extends Component {
 
 const withErrorProp = (Component) => {
   return props => {
-    const { error } = useSelect((select) => {
+    const {error} = useSelect((select) => {
       const store = select(STORE_KEY);
       return {
         error: store.getError(),
