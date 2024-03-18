@@ -16,17 +16,35 @@ Project page: https://hackathon.cloudfest.com/project/json-schema-field-form-ren
       {"name": "Daniel Bachhuber", "url": "https://github.com/danielbachhuber"}
     ],
     "collaborators": [
-      {"name": "Adam Zielinski", "url": "https://github.com/adamziel"},
+      {
+        "name": "Adam Zielinski",
+        "url": [
+          "https://github.com/adamziel",
+          "https://www.linkedin.com/in/adamziel"
+        ]
+      },
       {"name": "Anja Lang", "url": "https://github.com/AnjaLang"},
       {"name": "Michael Schmitz", "url": "https://github.com/Bl4d3s"},
       {"name": "Thomas Rose", "url": "https://github.com/codeispoetry"},
       {"name": "Marko Feldmann", "url": "https://github.com/DerHerrFeldmann"},
       {"name": "Fabian Genes", "url": "https://github.com/genesfa"},
-      {"name": "Jan Vogt", "url": "https://www.linkedin.com/in/janvogt"},
+      {
+        "name": "Jan Vogt",
+        "url": [
+          "https://www.linkedin.com/in/janvogt",
+          "https://github.com/janvogt"
+        ]
+      },
       {"name": "Lucisu", "url": ""},
       {"name": "Max Andre", "url": "https://github.com/Max-eMundo"},
       {"name": "Marcel Schmitz", "url": "https://github.com/schmitzoide"},
-      {"name": "Milana Cap", "url": "https://github.com/zzap"},
+      {
+        "name": "Milana Cap",
+        "url": [
+          "https://github.com/zzap",
+          "https://developerka.org"
+        ]
+      },
       {"name": "Julian Haupt", "url": "https://jsonformseditor.io/"},
       {"name": "Dennis Snell", "url": "https://github.com/dmsnell"}
     ]
