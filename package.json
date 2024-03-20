@@ -17,6 +17,7 @@
   "config" : {
     "git-clean-opts" : "-Xfd --interactive"
   },
+  "license": "GPL-2.0-or-later",
   "author": "The Hackathon Project Contributors",
   "homepage": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form",
   "repository": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form.git",
