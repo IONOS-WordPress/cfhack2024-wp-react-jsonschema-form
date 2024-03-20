@@ -1,4 +1,6 @@
-# About
+# JSON Schema Field/Form Renderer for WordPress
+
+## About
 
 This project started as a CloudFest Hackathon 2024 project. It aims to elevate the possibilities JSON schema offers and utilize it for easier web form and meta fields development.
 
@@ -294,3 +296,8 @@ Technical documentation can be found in [docs](./docs/README.md) folder.
 **They are here to help you and you are not alone.**
 
 Happy coding !
+
+## License
+
+JSON Schema Field/Form Renderer for WordPress is a free software, and complete code inside it is released under the terms of the GNU General Public License version 3 or later. This does not apply to Google fonts and other 3rd party assets - their original license applies.
+
