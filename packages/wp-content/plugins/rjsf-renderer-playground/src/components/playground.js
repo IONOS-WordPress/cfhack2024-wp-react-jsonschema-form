@@ -176,9 +176,10 @@ function JSONSchemaUIEditor() {
 function Preview() {
   const { schema, uiSchema, renderer, isPreviewLiveValidate, formData } = useSelect((select) => {
     const store = select(STORE_KEY);
+
     return {
-      schema: store.getSchema(),
-      uiSchema: store.getUISchema(),
+      schema: JSON.parse(store.getSchema()),
+      uiSchema: JSON.parse(store.getUISchema()),
       renderer: store.getRenderer(),
       isPreviewLiveValidate : store.isPreviewLiveValidate(),
       formData: store.getFormData(),
@@ -230,8 +231,8 @@ function Preview() {
         <ErrorBoundary>
           {
             createElement(renderer==='gutenberg' ? FormGutenberg : FormHtml5, {
-              schema : JSON.parse(schema),
-              uiSchema : JSON.parse(uiSchema),
+              schema : schema,
+              uiSchema : uiSchema,
               validator,
               liveValidate : isPreviewLiveValidate,
               formData,
