@@ -59,9 +59,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 					"window['settings_page']=" . json_encode(
 						array(
 							'_wpnonce' => wp_create_nonce( 'options-options' ),
-							'value'    => \get_option( 'settings_page', '{}' ),
-							'schema'   => file_get_contents( __DIR__ . '/wocommerce-settings-example.json' ),
-							'uiSchema' => file_get_contents( __DIR__ . '/wocommerce-settings-example-ui.json' ),
+							'value'    => json_decode(\get_option( 'settings_page', '{}' )),
+							'schema'   => json_decode(file_get_contents( __DIR__ . '/wocommerce-settings-example.json' )),
+							'uiSchema' => json_decode(file_get_contents( __DIR__ . '/wocommerce-settings-example-ui.json' )),
 						)
 					),
 					'before',
