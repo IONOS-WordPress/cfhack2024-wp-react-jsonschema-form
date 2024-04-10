@@ -94,3 +94,19 @@ Try to render just pure HTML and CSS.
 
   >  In some scenarios, the appearance or disappearance of scrollbars can cause an unwanted layout shift. For example, when a dialog overlay is displayed and the background page adds `overflow: hidden` to prevent scrolling, causing a shift from removing the no longer needed scrollbars.
   The modern CSS property `scrollbar-gutter` enables a reservation of space for scrollbars in the layout, which prevents that undesirable shift. When there’s no need for a scrollbar, the browser will still paint a gutter as extra space created in addition to any padding on the scroll container.
+
+- [#css] tooltip anchor positioning in css
+
+  The code for anchor positioning has had a major glow up since I first started working with/on it! Here is all the code you need to get a basic anchor now:
+
+  ```css
+  .tooltip {
+    bottom: calc(anchor(top));
+    position-try-options: flip-block;
+    justify-self: anchor-center;
+  }
+  ```
+
+  see https://twitter.com/Una/status/1777810507849671036
+
+-
