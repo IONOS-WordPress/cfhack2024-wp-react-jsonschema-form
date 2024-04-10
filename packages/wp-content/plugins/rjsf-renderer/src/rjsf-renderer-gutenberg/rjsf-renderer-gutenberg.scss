@@ -3,6 +3,28 @@
 */
 
 .rjsf.rjsf-renderer-gutenberg {
+
+  >.error-heading.components-notice.is-error {
+    margin-left: 20px;
+  }
+
+  legend {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: uppercase;
+    padding: 1em 0;
+    color:rgb(30,30,30)
+  }
+
+  legend ~ .field-description {
+    margin-top: inherit;
+  }
+
+  .error-detail .text-danger {
+    color : #cc1818;
+  }
+
   .components-datetime__time fieldset:last-child {
     display: none;
   }
