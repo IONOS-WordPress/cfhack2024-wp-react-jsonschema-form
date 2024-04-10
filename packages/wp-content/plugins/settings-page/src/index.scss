@@ -130,35 +130,38 @@
 }
 
 #wpwrap {
-  background-color: var(--wp--preset--color--white);
-
   /* make our settings-page full size without any paddings */
   #wpcontent {
     padding-left: inherit;
+    background-color: #f0f0f1;
 
     .wrap {
       margin: inherit;
-      margin: 10px 20px 0 20px;
 
-      /* remove components panel border */
-      > * {
+      >.components-heading {
         border: inherit;
+        padding-left: 40px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        background-color: var(--wp--preset--color--white);
+      }
 
-        .components-panel__header > *::after {
-          content: url(../assets/icon.svg);
-          padding-left: 12px;
-          vertical-align: middle;
+      >.description {
+        padding-left: 40px;
+        padding-top: 20px;
+        &:empty {
+          display: none;
         }
+      }
+
+      >form.rjsf-renderer-gutenberg {
+        padding: 0 20px 0 20px;
       }
     }
   }
-}
 
-.settings-page-jsoneditor textarea:invalid {
-  border-color: var(--wp--preset--color--accent-3);
-}
-
-.rjsf-preview-container{
-  display: flex;
-  justify-content: center;
+  #wpfooter {
+    display: none;
+  }
 }
