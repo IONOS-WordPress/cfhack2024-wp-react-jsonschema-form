@@ -1,16 +1,10 @@
 {
   "ui:submitButtonOptions": {
-    "props": {
-      "disabled": false
-    },
-    "norender": false,
-    "submitText": "Save"
+    "submitText": "Save changes"
   },
-  "panel": {
-    "ui:schema": "tab",
-    "ui:label": false,
-    "items": {
-      "ui:label": false
-    }
+  "ui:schema": "tab",
+  "ui:label": false,
+  "items": {
+    "ui:label": false
   }
 }
