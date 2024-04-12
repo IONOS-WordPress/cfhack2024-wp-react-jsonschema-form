@@ -10,7 +10,7 @@ export default function UpDownWidget(props) {
   const required = schemaRequiresTrueValue(props.schema);
   const description = props.options.description ?? props.description;
 
-  const handleChange = useCallback((value) => props.onChange(value === '' ? props.options.emptyValue : value));
+  const handleChange = useCallback((value) => props.onChange(value === '' ? props.options.emptyValue : Number.parseFloat(value)));
   return (
     <TextControl
       label={labelValue(<span>{props.label}</span>, props.hideLabel)}
