@@ -360,7 +360,7 @@ class ArrayField extends Component {
             const UnsupportedFieldTemplate = getTemplate('UnsupportedFieldTemplate', registry, uiOptions);
             return (<UnsupportedFieldTemplate schema={schema} idSchema={idSchema} reason={translateString(TranslatableString.MissingItems)} registry={registry}/>);
         }
-        if (uiSchema['ui:schema'] === 'tab') {
+        if (uiSchema['ui:widget'] === 'TabWidget') {
             return this.renderTabArray();
         }
         if (schemaUtils.isMultiSelect(schema)) {
@@ -375,7 +375,7 @@ class ArrayField extends Component {
         }
         if (schemaUtils.isFilesArray(schema, uiSchema)) {
             return this.renderFiles();
-        } 
+        }
         return this.renderNormalArray();
     }
     /** Renders a normal array without any limitations of length
@@ -437,7 +437,7 @@ class ArrayField extends Component {
         const Template = getTemplate('ArrayFieldTemplate', registry, uiOptions);
         return <Template {...arrayProps}/>;
     }
-    /** Render Tabs 
+    /** Render Tabs
      */
     renderTabArray() {
         const { schema, uiSchema = {}, formData = [], errorSchema, idPrefix, idSeparator = '_', idSchema, name, title, disabled = false, readonly = false, autofocus = false, required = false, registry, onBlur, onFocus, rawErrors, } = this.props;

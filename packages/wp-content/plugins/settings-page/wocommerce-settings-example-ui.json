@@ -2,7 +2,7 @@
   "ui:submitButtonOptions": {
     "submitText": "Save changes"
   },
-  "ui:schema": "tab",
+  "ui:widget": "TabWidget",
   "ui:label": false,
   "items": {
     "ui:label": false
