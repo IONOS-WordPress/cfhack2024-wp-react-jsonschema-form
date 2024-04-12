@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					"window['settings_page']=" . json_encode(
 						array(
 							'_wpnonce' => wp_create_nonce( 'options-options' ),
-							'value'    => json_decode(\get_option( 'settings_page', '{}' )),
+							'value'    => json_decode(\get_option( 'settings_page', null )),
 							'schema'   => json_decode(file_get_contents( __DIR__ . '/wocommerce-settings-example.json' )),
 							'uiSchema' => json_decode(file_get_contents( __DIR__ . '/wocommerce-settings-example-ui.json' )),
 						)
