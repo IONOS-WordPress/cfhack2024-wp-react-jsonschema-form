@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, createElement, forwardRef } from 'react';
+import { useRef, useState, useEffect, createElement } from 'react';
 import { Panel, PanelBody, TextareaControl, TabPanel, Toolbar, ToolbarButton, ToolbarGroup, } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useSelect, useDispatch } from '@wordpress/data';
@@ -6,6 +6,7 @@ import { useSelect, useDispatch } from '@wordpress/data';
 import validator from '@rjsf/validator-ajv8';
 import FormGutenberg from '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/gutenberg';
 import FormHtml5 from '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/html5';
+
 
 import useTextareaAllowTabKey from './use-textareaallowtabkey.js';
 import ErrorBoundary from './error-boundary.js'
@@ -206,7 +207,7 @@ function Preview() {
           <ToolbarGroup>
             <ToolbarButton
               text={ __('Clear form data', 'rjsf-renderer-playground') }
-              onClick={() => setFormData({}) }
+              onClick={() => setFormData(null) }
             />
           </ToolbarGroup>
           <ToolbarGroup>

@@ -14,7 +14,7 @@ export default KEY;
     renderer : 'gutenberg',
     previewLiveValidate : false,
     error : null,
-    formData : {},
+    formData : null,
   };
 
   // read persisted data from localStorage
@@ -46,6 +46,7 @@ export default KEY;
         return persist({
           ...state,
           schema : payload,
+          formData: null,
           error: null,
         });
       }

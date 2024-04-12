@@ -28,5 +28,8 @@
     "ui:options": {
       "inputType": "tel"
     }
+  },
+  "agree_terms": {
+    "ui:widget": "ToggleWidget"
   }
 }

@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-
   "title": "A registration form",
   "description": "A simple form example.",
   "type": "object",
@@ -35,6 +34,10 @@
       "type": "string",
       "title": "Telephone",
       "minLength": 10
+    },
+    "agree_terms": {
+      "type": "boolean",
+      "title": "Agree to our license terms ?"
     }
   }
 }
