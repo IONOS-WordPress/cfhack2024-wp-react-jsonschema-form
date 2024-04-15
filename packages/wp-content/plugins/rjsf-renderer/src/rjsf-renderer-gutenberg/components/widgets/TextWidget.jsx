@@ -16,7 +16,9 @@ export default function TextWidget(props) {
     <TextControl
       label={labelValue(<span>{props.label}</span>, props.hideLabel)}
       value={props.value}
+      className={props.className}
       onChange={handleChange}
+      size={props.schema.maxLength}
       onBlur={props.onBlur}
       onFocus={props.onFocus}
       readOnly={props.readOnly}
