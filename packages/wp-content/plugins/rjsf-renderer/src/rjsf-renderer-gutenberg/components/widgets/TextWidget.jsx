@@ -19,6 +19,7 @@ export default function TextWidget(props) {
       className={props.className}
       onChange={handleChange}
       size={props.schema.maxLength}
+      maxLength={props.schema.maxLength}
       onBlur={props.onBlur}
       onFocus={props.onFocus}
       readOnly={props.readOnly}
