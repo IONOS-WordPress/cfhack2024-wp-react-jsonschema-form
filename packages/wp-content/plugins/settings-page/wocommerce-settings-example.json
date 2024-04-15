@@ -34,7 +34,8 @@
             },
             "woocommerce_store_city": {
               "type": "string",
-              "title": "City"
+              "title": "City",
+              "maxLength": 20
             },
             "woocommerce_default_country": {
               "$ref": "#/definitions/woocommerce_default_country_options",
@@ -42,7 +43,8 @@
             },
             "woocommerce_store_postcode": {
               "type": "string",
-              "title": "Postcode / ZIP"
+              "title": "Postcode / ZIP",
+              "maxLength": 20
             }
           }
         },
@@ -258,6 +260,21 @@
               "default": ".",
               "title": "Thousand separator",
               "description": "This sets the thousand separator of displayed prices."
+            },
+            "woocommerce_currency_decimal_separator": {
+              "type": "string",
+              "maxLength": 1,
+              "minLength": 1,
+              "default": ".",
+              "title": "Decimal separator",
+              "description": "This sets the decimal separator of displayed prices."
+            },
+            "woocommerce_currency_number_of_decimal": {
+              "type": "integer",
+              "default": 2,
+              "minimum": 1,
+              "title": "Number of decimals",
+              "description": "This sets the number of decimal points shown in displayed prices."
             }
           }
         }
