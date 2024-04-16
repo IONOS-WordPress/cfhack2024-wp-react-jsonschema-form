@@ -14,6 +14,9 @@ importers:
       '@wordpress/scripts':
         specifier: ^27.6.0
         version: 27.6.0(@playwright/test@1.43.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
+      prop-types:
+        specifier: ^15.8.1
+        version: 15.8.1
 
   packages/wp-content/plugins/editor-sidebar-plugin: {}
 

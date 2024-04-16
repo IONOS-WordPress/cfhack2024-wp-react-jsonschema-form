@@ -20,7 +20,7 @@ body {
 }
 main > section {
   @apply
-  bg-white shadow p-4 mb-8
+  bg-white shadow
   flex flex-row
 }
 </style>

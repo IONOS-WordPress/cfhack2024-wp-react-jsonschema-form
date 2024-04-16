@@ -29,6 +29,7 @@
   ],
   "license": "GPL-2.0-or-later",
   "devDependencies": {
+    "prop-types" : "^15.8.1",
     "@wordpress/env": "^9.7.0",
     "@wordpress/scripts": "^27.6.0"
   }

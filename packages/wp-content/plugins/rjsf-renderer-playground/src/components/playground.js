@@ -6,23 +6,18 @@ import { useSelect, useDispatch } from '@wordpress/data';
 import validator from '@rjsf/validator-ajv8';
 import FormGutenberg from '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/gutenberg';
 import FormHtml5 from '@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/html5';
-
+import SplitPane from './splitpane/index';
 
 import useTextareaAllowTabKey from './use-textareaallowtabkey.js';
 import ErrorBoundary from './error-boundary.js'
 import STORE_KEY from './playground-store.js';
 
-import SplitPane, {
-  Divider,
-  SplitPaneBottom,
-  SplitPaneLeft,
-  SplitPaneRight,
-  SplitPaneTop,
-} from "./split-pane.js";
-
 import './playground.scss';
 
 const config = window['rjsf-renderer-playground'];
+
+// delete existing iconify cache keys from graphical editor since they will break the graphical editor under some circumstances
+Object.keys(localStorage).filter(key=>key.startsWith('iconify')).forEach(key=>localStorage.removeItem(key))
 
 const SourceEditor =function SourceEditor() {
   const { schema } = useSelect((select) => {
@@ -109,9 +104,10 @@ function GraphicalEditor() {
   );
 }
 
-function JSONSchemaEditor() {
+function JSONSchemaEditor({ className }) {
   return (
     <TabPanel
+      className={className}
       tabs={ [
         {
           name: 'source-editor',
@@ -127,7 +123,7 @@ function JSONSchemaEditor() {
         (tab) => {
           switch(tab.name) {
             case 'source-editor' :
-              return (<SourceEditor/>)
+              return (<SourceEditor />)
             case 'graphical-editor' :
               return ( <GraphicalEditor /> );
           }
@@ -137,7 +133,7 @@ function JSONSchemaEditor() {
   );
 }
 
-function JSONSchemaUIEditor() {
+function JSONSchemaUIEditor({ className }) {
   const { uiSchema } = useSelect((select) => {
     const store = select(STORE_KEY);
     return {
@@ -164,7 +160,7 @@ function JSONSchemaUIEditor() {
 
   return (
     <TextareaControl
-      className="rjsf-renderer-playground-jsoneditor"
+      className={ `${className} rjsf-renderer-playground-jsonschemaeditor`}
       label={ __( 'UISchema', 'rjsf-renderer-playground' ) }
       help={ __("This textarea acts as a placeholder for the UI Schema editor.", 'rjsf-renderer-playground') }
       value={ intermediateValue }
@@ -193,86 +189,96 @@ function Preview() {
   };
 
   return (
-    <div className="rjsf-preview">
-      <div className="rjsf-preview-header">
-        <strong className="rjsf-preview-header-title">Preview</strong>
-        <Toolbar label="preview toolbar" variant='unstyled'>
-          <ToolbarGroup>
-            <ToolbarButton
-              text={ __('Live validation', 'rjsf-renderer-playground') }
-              isPressed={isPreviewLiveValidate}
-              onClick={togglePreviewLifeValidate}
-            />
-          </ToolbarGroup>
-          <ToolbarGroup>
-            <ToolbarButton
-              text={ __('Clear form data', 'rjsf-renderer-playground') }
-              onClick={() => setFormData(null) }
-            />
-          </ToolbarGroup>
-          <ToolbarGroup>
-            <ToolbarButton
-              text={ __('Renderer: ', 'rjsf-renderer-playground') }
-              disabled
-            />
-            <ToolbarButton
-              text={ __('Gutenberg', 'rjsf-renderer-playground') }
-              isPressed={renderer==='gutenberg'}
-              onClick={() => setRenderer('gutenberg') }
-            />
-            <ToolbarButton
-              text={ __('HTML5', 'rjsf-renderer-playground') }
-              isPressed={renderer==='html5'}
-              onClick={() => setRenderer('html5') }
-            />
-          </ToolbarGroup>
-        </Toolbar>
+    <div className="split-pane-right">
+      <div className="rjsf-preview">
+        <div className="rjsf-preview-header">
+          <strong className="rjsf-preview-header-title">Preview</strong>
+          <Toolbar label="preview toolbar" variant='unstyled'>
+            <ToolbarGroup>
+              <ToolbarButton
+                text={ __('Live validation', 'rjsf-renderer-playground') }
+                isPressed={isPreviewLiveValidate}
+                onClick={togglePreviewLifeValidate}
+              />
+            </ToolbarGroup>
+            <ToolbarGroup>
+              <ToolbarButton
+                text={ __('Clear form data', 'rjsf-renderer-playground') }
+                onClick={() => setFormData(null) }
+              />
+            </ToolbarGroup>
+            <ToolbarGroup>
+              <ToolbarButton
+                text={ __('Renderer: ', 'rjsf-renderer-playground') }
+                disabled
+              />
+              <ToolbarButton
+                text={ __('Gutenberg', 'rjsf-renderer-playground') }
+                isPressed={renderer==='gutenberg'}
+                onClick={() => setRenderer('gutenberg') }
+              />
+              <ToolbarButton
+                text={ __('HTML5', 'rjsf-renderer-playground') }
+                isPressed={renderer==='html5'}
+                onClick={() => setRenderer('html5') }
+              />
+            </ToolbarGroup>
+          </Toolbar>
+        </div>
+        <div className="rjsf-preview-container">
+          <ErrorBoundary>
+            {
+              createElement(renderer==='gutenberg' ? FormGutenberg : FormHtml5, {
+                schema : schema,
+                uiSchema : uiSchema,
+                validator,
+                liveValidate : isPreviewLiveValidate,
+                formData,
+                onChange: (value) => setFormData(value.formData),
+              })
+            }
+          </ErrorBoundary>
+        </div>
+        <Panel header={ __('Form data', 'rjsf-renderer-playground')}>
+          <PanelBody>
+            { JSON.stringify( formData, null, '') }
+          </PanelBody>
+        </Panel>
       </div>
-      <div className="rjsf-preview-container">
-        <ErrorBoundary>
-          {
-            createElement(renderer==='gutenberg' ? FormGutenberg : FormHtml5, {
-              schema : schema,
-              uiSchema : uiSchema,
-              validator,
-              liveValidate : isPreviewLiveValidate,
-              formData,
-              onChange: (value) => setFormData(value.formData),
-            })
-          }
-        </ErrorBoundary>
-      </div>
-      <Panel header={ __('Form data', 'rjsf-renderer-playground')}>
-        <PanelBody>
-          { JSON.stringify( formData, null, '') }
-        </PanelBody>
-      </Panel>
     </div>
   );
 }
 
 export default function Playground() {
+  const [ horizontalSize, setHorizontalSize] = useState( 300);
+  const [ horizontalIsResizing, setHorizontalIsResizing] = useState(false);
+
+  const [ verticalSize, setVerticalSize] = useState( 600);
+  const [ verticalIsResizing, setVerticalIsResizing] = useState(false);
+
   return (
     <Panel header="rjsf-renderer-playground">
       <PanelBody>
-        <SplitPane className="split-pane-row">
-          <SplitPaneLeft>
-
-            <SplitPane className="split-pane-col">
-              <SplitPaneTop>
-                <JSONSchemaEditor/>
-              </SplitPaneTop>
-              <Divider className="separator-row" />
-              <SplitPaneBottom>
-                <JSONSchemaUIEditor/>
-              </SplitPaneBottom>
-            </SplitPane>
-
-          </SplitPaneLeft>
-          <Divider className="separator-col" />
-          <SplitPaneRight>
-            <Preview/>
-          </SplitPaneRight>
+        <SplitPane
+          type="vertical"
+          size={verticalSize}
+          isResizing={verticalIsResizing}
+          onResizeStart={()=>setVerticalIsResizing(true)}
+          onResizeEnd={()=>setVerticalIsResizing(false)}
+          onChange={setVerticalSize}
+        >
+          <SplitPane
+            type="horizontal"
+            size={horizontalSize}
+            isResizing={horizontalIsResizing}
+            onResizeStart={()=>setHorizontalIsResizing(true)}
+            onResizeEnd={()=>setHorizontalIsResizing(false)}
+            onChange={setHorizontalSize}
+          >
+            <JSONSchemaEditor className="split-pane-top"/>
+            <JSONSchemaUIEditor className="split-pane-bottom"/>
+          </SplitPane>
+          <Preview className="split-pane-right"/>
         </SplitPane>
       </PanelBody>
     </Panel>

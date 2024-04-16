@@ -1,0 +1,21 @@
+.SplitPane {
+  &.SplitPane-vertical {
+    > *:first-child {
+      margin-right: 5px;
+
+      & ~ * {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  &.SplitPane-horizontal {
+    > *:first-child {
+      margin-bottom: 5px;
+
+      & ~ * {
+        margin-top: 5px;
+      }
+    }
+  }
+}
