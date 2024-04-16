@@ -84,6 +84,25 @@
   --wp-block-synced-color--rgb: 122, 0, 223;
 }
 
+/*
+  make playground full size within wp-admin dashboard
+*/
+body {
+  // disable overall scrollbar
+  overflow:hidden;
+
+  // size wpbody to available space (- admin bar height)
+  #wpbody {
+    height: calc(100vh - var(--wp-admin--admin-bar--height, '0'));
+    overflow: hidden;
+  }
+
+  // hide footer
+  #wpfooter {
+    display : none;
+  }
+}
+
 #wpwrap {
   background-color: var(--wp--preset--color--white);
 
