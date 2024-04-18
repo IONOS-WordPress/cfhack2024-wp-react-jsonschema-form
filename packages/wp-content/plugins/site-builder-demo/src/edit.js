@@ -27,15 +27,15 @@ export default function Edit({ setAttributes, attributes }) {
       [ postType ]
   );
 
-  if ( ! postTypeObject.schema ) {
+  const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
+
+  if ( ! postTypeObject?.schema ) {
     return (
       <div { ...blockProps }>
         { __( 'Error: no schema defined', 'site-builder-demo' ) }
       </div>
     );
   }
-
-  const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
 
   let formData = {};
   Object.keys(postTypeObject.schema.properties).map((property) => {
