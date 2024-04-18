@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: cpt
- * Description: Create data models in wp-admin.
+ * Description: create custom post types within wp-admin
  * Requires at least: 6.4
  * Requires Plugins:  rjsf-renderer
  * Requires PHP:      8.0
