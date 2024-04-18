@@ -2,7 +2,7 @@
   "core": "WordPress/WordPress#6.5.2",
   "phpVersion": "8.3",
   "plugins": [
-    "https://downloads.wordpress.org/plugin/woocommerce.8.7.0.zip",
+    "https://downloads.wordpress.org/plugin/woocommerce.zip",
     "./packages/wp-content/plugins/rjsf-renderer/",
     "./packages/wp-content/plugins/rjsf-attribute-editor-block/",
     "./packages/wp-content/plugins/editor-sidebar-plugin/",
@@ -11,10 +11,11 @@
     "./packages/wp-content/plugins/metabox-block/",
     "./packages/wp-content/plugins/settings-page/",
     "./packages/wp-content/plugins/rjsf-renderer-playground",
-    "./packages/wp-content/plugins/site-builder-demo"
+    "./packages/wp-content/plugins/site-builder-demo",
+    "./packages/wp-content/plugins/cpt"
   ],
   "themes": [
-    "https://downloads.wordpress.org/theme/twentytwentyfour.1.0.zip",
+    "https://downloads.wordpress.org/theme/twentytwentyfour.zip",
     "./packages/wp-content/themes/extended-global-styles/"
   ],
   "config": {

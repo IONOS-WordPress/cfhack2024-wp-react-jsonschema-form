@@ -1,0 +1,11 @@
+{
+  "name": "@cfhack2024-wp-react-jsonschema-form/cpt",
+  "description": "create custom post types within wp-admin",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+	},
+  "author": "The Hackathon Project Contributors",
+  "keywords": ["wordpress", "plugin", "Gutenberg", "block", "jsonschema", "ui", "react-jsonschema-form"],
+  "license": "GPL-2.0-or-later"
+}
