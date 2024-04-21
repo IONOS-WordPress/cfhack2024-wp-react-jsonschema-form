@@ -1,6 +1,6 @@
 {
   "name": "@cfhack2024-wp-react-jsonschema-form/cpt",
-  "description": "create custom post types within wp-admin",
+  "description": "this plugin exists as long as the custom-datatype plugin is not ready. create custom post types within wp-admin",
   "private": true,
   "version": "1.0.0",
   "scripts": {

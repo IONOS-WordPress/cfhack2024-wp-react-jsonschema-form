@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: cpt
- * Description: this plugin exists as long as the custom-datatype plugin is not ready. create custom post types within wp-admin
+ * Plugin Name: custom-datatype
+ * Description: create custom post types within wp-admin
  * Requires at least: 6.4
  * Requires Plugins:  rjsf-renderer
  * Requires PHP:      8.0
@@ -11,6 +11,12 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       cpt
  */
+
+namespace cfhack2024_wp_react_jsonschema_form\custom_datatype;
+
+ if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
  /**
  * Converts parsed block format into format used in block templates.
@@ -51,23 +57,23 @@ function convert_parsed_blocks_for_js( $blocks ) {
 add_action(
 	'init',
 	function () {
-		register_post_type(
+		\register_post_type(
 			'wp_data_type',
 			array(
-				'label'        => 'Data Type',
+				'label'        => 'Data Type V2',
 				'public'       => true,
 				'show_in_menu' => true,
 				'show_in_rest' => true,
 			)
 		);
 
-		$data_types = new WP_Query( array( 'post_type' => 'wp_data_type' ) );
+		$data_types = new \WP_Query( array( 'post_type' => 'wp_data_type' ) );
 
 		while ( $data_types->have_posts() ) {
 			$data_types->the_post();
 			$data_type = get_post();
 
-			register_post_type(
+			\register_post_type(
 				strtolower( $data_type->post_title ),
 				array(
 					'label'         => $data_type->post_title,
@@ -84,18 +90,40 @@ add_action(
 	0
 );
 
-function my_custom_gutenberg_scripts() {
-	wp_enqueue_script(
-		'my-custom-inspector-control',
-		plugin_dir_url( __FILE__ ) . '/edit-script.js', // Adjust the path to where your JS file is located.
-		array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' )
-	);
-}
+add_action( 'enqueue_block_editor_assets', function() {
+  $HANDLE_COMMON = str_replace('_', '-', __NAMESPACE__);
 
-add_action( 'enqueue_block_editor_assets', 'my_custom_gutenberg_scripts' );
+  $asset_file = include( \plugin_dir_path( __FILE__ ) . 'build/custom-datatype-editor-common.asset.php');
+
+  \wp_enqueue_script(
+    $HANDLE_COMMON,
+    \plugins_url( 'build/custom-datatype-editor-common.js', __FILE__ ),
+  // \plugins_url( 'edit-script.js', __FILE__ ),
+  $asset_file['dependencies'],
+    $asset_file['version'],
+    true,
+  );
+  \wp_set_script_translations($HANDLE_COMMON, $HANDLE);
+
+  if( 'wp_data_type' === \get_post_type()) {
+    $HANDLE_EXTENSIONS = $HANDLE_COMMON . '-extensions';
+
+    $asset_file = include( \plugin_dir_path( __FILE__ ) . 'build/custom-datatype-editor-extension.asset.php');
+
+    \wp_enqueue_script(
+      $HANDLE_EXTENSIONS,
+     \plugins_url( 'build/custom-datatype-editor-extension.js', __FILE__ ),
+    // \plugins_url( 'edit-script.js', __FILE__ ),
+    array_merge( $asset_file['dependencies'], [$HANDLE_COMMON]),
+      $asset_file['version'],
+      true,
+    );
+    \wp_set_script_translations($HANDLE_EXTENSIONS, $HANDLE_EXTENSIONS);
+  }
+});
 
 function jsonForCPT( $post_id ) {
-	$post     = get_post( $post_id );
+	$post     = \get_post( $post_id );
 	$template = get_template_for_post_type( $post->post_type );
 	if ( null === $template ) {
 		return 'null';
@@ -104,11 +132,11 @@ function jsonForCPT( $post_id ) {
 	$post_json = blocks_to_json( parse_blocks( $post->post_content ) );
 	return $post_json;
 
-	return hydrate_blocks_with_structured_data( parse_blocks( $template->post_content ), $post_json );
+	return hydrate_blocks_with_structured_data( \parse_blocks( $template->post_content ), $post_json );
 }
 
 function get_template_for_post_type( $post_type ) {
-	$query = new WP_Query( array( 'post_type' => 'wp_data_type' ) );
+	$query = new \WP_Query( array( 'post_type' => 'wp_data_type' ) );
 	while ( $query->have_posts() ) {
 		$query->the_post();
 		$template = get_post();
@@ -157,7 +185,7 @@ add_filter(
 		global $data_type_titles;
 		if ( empty( $data_type_titles ) ) {
 			// Get a list of all posts with wp_data_type post type
-			$data_types = new WP_Query( array( 'post_type' => 'wp_data_type' ) );
+			$data_types = new \WP_Query( array( 'post_type' => 'wp_data_type' ) );
 			// Get all their titles in lowercase
 			$data_type_titles = array_map(
 				function ( $post ) {
@@ -178,9 +206,9 @@ function hackathon_replace_attributes( $template_blocks, $post_json ) {
 				continue;
 			}
 
-			$p = new WP_HTML_Tag_Processor( $template_block['innerHTML'] );
+			$p = new \WP_HTML_Tag_Processor( $template_block['innerHTML'] );
 			$p->next_tag();
-			$p2 = new WP_HTML_Tag_Processor( '<p>' );
+			$p2 = new \WP_HTML_Tag_Processor( '<p>' );
 			$p2->next_tag();
 			foreach ( $p->get_attribute_names_with_prefix( '' ) ?? array() as $attribute ) {
 				$p2->set_attribute( $attribute, $p->get_attribute( $attribute ) );
@@ -199,9 +227,9 @@ function hackathon_replace_attributes( $template_blocks, $post_json ) {
 				continue;
 			}
 
-			$p = new WP_HTML_Tag_Processor( $template_block['innerHTML'] );
+			$p = new \WP_HTML_Tag_Processor( $template_block['innerHTML'] );
 			$p->next_tag();
-			$p2 = new WP_HTML_Tag_Processor( "<{$p->get_tag()}>" );
+			$p2 = new \WP_HTML_Tag_Processor( "<{$p->get_tag()}>" );
 			$p2->next_tag();
 			foreach ( $p->get_attribute_names_with_prefix( '' ) ?? array() as $attribute ) {
 				$p2->set_attribute( $attribute, $p->get_attribute( $attribute ) );
@@ -220,7 +248,7 @@ function hackathon_replace_attributes( $template_blocks, $post_json ) {
 				continue;
 			}
 
-			$p = new WP_HTML_Tag_Processor( $template_block['innerHTML'] );
+			$p = new \WP_HTML_Tag_Processor( $template_block['innerHTML'] );
 			if ( $p->next_tag( 'IMG' ) ) {
 				$p->set_attribute( 'src', $url );
 			}
@@ -240,7 +268,7 @@ function hackathon_replace_attributes( $template_blocks, $post_json ) {
 	return $template_blocks;
 }
 
-function replace_hackathon_post_content( $posts, $query ) {
+add_filter( 'the_posts', function /*replace_hackathon_post_content*/( $posts, $query ) {
 	global $data_type_titles;
 	foreach ( $posts as $post ) {
 		if ( in_array( $post->post_type, $data_type_titles, true ) ) {
@@ -254,9 +282,7 @@ function replace_hackathon_post_content( $posts, $query ) {
 	}
 
 	return $posts;
-}
-
-add_filter( 'the_posts', 'replace_hackathon_post_content', 10, 2 );
+}, 10, 2 );
 
 function hydrate_blocks_with_structured_data( $template_blocks, $data_from_instance ) {
 	foreach ( $template_blocks as &$template_block ) {

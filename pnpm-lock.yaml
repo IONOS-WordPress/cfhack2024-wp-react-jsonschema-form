@@ -18,6 +18,8 @@ importers:
         specifier: ^15.8.1
         version: 15.8.1
 
+  packages/wp-content/plugins/cpt: {}
+
   packages/wp-content/plugins/editor-sidebar-plugin: {}
 
   packages/wp-content/plugins/form-block: {}

@@ -1,0 +1,16 @@
+{
+  "name": "@cfhack2024-wp-react-jsonschema-form/custom-datatype",
+  "description": "create custom post types within wp-admin",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+		"build": "wp-scripts start --no-watch $npm_package_config_wp_scripts_targets",
+    "dev": "wp-scripts start $npm_package_config_wp_scripts_targets"
+	},
+  "config": {
+    "wp-scripts-targets" : "src/custom-datatype-editor-common.js src/custom-datatype-editor-extension.js"
+  },
+  "author": "The Hackathon Project Contributors",
+  "keywords": ["wordpress", "plugin", "Gutenberg", "block", "jsonschema", "ui", "react-jsonschema-form"],
+  "license": "GPL-2.0-or-later"
+}

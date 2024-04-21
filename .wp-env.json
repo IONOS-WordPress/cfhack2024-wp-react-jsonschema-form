@@ -12,6 +12,7 @@
     "./packages/wp-content/plugins/settings-page/",
     "./packages/wp-content/plugins/rjsf-renderer-playground",
     "./packages/wp-content/plugins/site-builder-demo",
+    "./packages/wp-content/plugins/custom-datatype",
     "./packages/wp-content/plugins/cpt"
   ],
   "themes": [

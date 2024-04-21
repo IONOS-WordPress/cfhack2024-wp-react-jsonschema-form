@@ -41,6 +41,9 @@ for prefix in '' 'tests-' ; do
   # activate our theme
   pnpm run wp-env run ${prefix}cli wp --quiet theme activate extended-global-styles
 
+  # deactivate the deprecated cpt plugin
+  pnpm run wp-env run ${prefix}cli wp --quiet plugin deactivate cpt
+
   # Updates an option value for example the value of Simple page is id = 2
   pnpm run wp-env run ${prefix}cli wp option update page_on_front 2
   # Update the page as front page by default.
