@@ -16,8 +16,7 @@
     "@rjsf/core" : "^5.17.1",
     "@rjsf/validator-ajv8" : "^5.17.1",
     "markdown-to-jsx": "^7.4.1",
-    "nanoid": "^5.0.6",
-    "canvas-confetti": "^1.9.2"
+    "nanoid": "^5.0.6"
   },
   "config": {
     "wp-scripts-targets" : "src/rjsf-core/rjsf-core.js src/rjsf-utils/rjsf-utils.js src/rjsf-validator-ajv8/rjsf-validator-ajv8.js src/rjsf-renderer-gutenberg/rjsf-renderer-gutenberg.js  src/rjsf-renderer-html5/rjsf-renderer-html5.js"

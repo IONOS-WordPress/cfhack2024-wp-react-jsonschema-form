@@ -20,6 +20,8 @@ importers:
 
   packages/wp-content/plugins/cpt: {}
 
+  packages/wp-content/plugins/custom-datatype: {}
+
   packages/wp-content/plugins/editor-sidebar-plugin: {}
 
   packages/wp-content/plugins/form-block: {}
@@ -94,9 +96,6 @@ importers:
       '@rjsf/validator-ajv8':
         specifier: ^5.17.1
         version: 5.17.1(@rjsf/utils@5.17.1)
-      canvas-confetti:
-        specifier: ^1.9.2
-        version: 1.9.2
       markdown-to-jsx:
         specifier: ^7.4.1
         version: 7.4.1(react@18.2.0)
@@ -4568,10 +4567,6 @@ packages:
 
   /caniuse-lite@1.0.30001587:
     resolution: {integrity: sha512-HMFNotUmLXn71BQxg8cijvqxnIAofforZOwGsxyXJ0qugTdspUF4sPSJ2vhgprHCB996tIDzEq1ubumPDV8ULA==}
-    dev: true
-
-  /canvas-confetti@1.9.2:
-    resolution: {integrity: sha512-6Xi7aHHzKwxZsem4mCKoqP6YwUG3HamaHHAlz1hTNQPCqXhARFpSXnkC9TWlahHY5CG6hSL5XexNjxK8irVErg==}
     dev: true
 
   /capital-case@1.0.4:
