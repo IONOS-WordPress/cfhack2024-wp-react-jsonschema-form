@@ -9,15 +9,16 @@ Deploy () {
 
 BuildPLugin () {
   pluginPath=$1
-  DistFolder="./dist"
   pluginName=$(basename $pluginPath)
+  callingDir=$(pwd)
 
-  printf "Building Plugin: $pluginName\n"
-  # ensure the dist folder exists
-  mkdir -p $DistFolder
+  # ensure dist folder exists
+  mkdir -p $callingDir/dist
 
-  # Zip the plugin folder
-  zip -r -q $DistFolder/${pluginName}.zip $pluginPath
+  cd $pluginPath
+  zip -r $pluginName.zip ./* -x \*.git\* \*.DS_Store\* \*.vscode\* \*.idea\* \*.gitignore\* \*.gitattributes\* \*.gitmodules\* \*.gitkeep \dist
+  mv $pluginName.zip $callingDir/dist/
+  cd $callingDir
 }
 
 Deploy
