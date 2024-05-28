@@ -1,6 +1,10 @@
 # Simple Utility Function to build a wordpress Plugin
 
 Deploy () {
+  # ensure that pnpm has installed all dependencies and built all plugins
+  pnpm install
+  pnpm build
+
   plugins=`find ./packages/wp-content/plugins -maxdepth 1 -mindepth 1 -type d`
   for plugin in $plugins; do
     BuildPLugin $plugin
@@ -16,7 +20,7 @@ BuildPLugin () {
   mkdir -p $callingDir/dist
 
   cd $pluginPath
-  zip -r $pluginName.zip ./* -x \*.git\* \*.DS_Store\* \*.vscode\* \*.idea\* \*.gitignore\* \*.gitattributes\* \*.gitmodules\* \*.gitkeep \dist
+  zip -r $pluginName.zip ./* -x \*src\ -x \*node_modules\
   mv $pluginName.zip $callingDir/dist/
   cd $callingDir
 }
