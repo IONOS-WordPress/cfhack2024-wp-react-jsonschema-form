@@ -16,21 +16,21 @@ checkGitChanges() {
 }
 
 Deploy() {
-    # Check if there are uncommitted changes
+    Check if there are uncommitted changes
     if ! checkGitChanges; then
         echo "Please commit or stash your changes before deploying."
         exit 1
     fi
     PLUGINS=$(find packages/wp-content/plugins -mindepth 1 -maxdepth 1 -type d)
-    # buildPlugins
+    buildPlugins
     bundlePlugins "$PLUGINS"
     uploadDist
 }
 
 buildPlugins() {
     printf "%s\n" "Building all plugins"
-    pnpm install --frozen-lockfile > /dev/null
-    pnpm build > /dev/null
+    pnpm install --frozen-lockfile
+    pnpm build
     printf "%s\n" "All plugins have been built"
 }
 
@@ -77,7 +77,7 @@ bundlePlugin() {
 
     printf "  * %s\n" "Bundling $PLUGIN_NAME"
     cd "$PLUGIN"
-    zip -r "$PLUGIN_ZIP" . -x "node_modules/*" -q
+    zip -r "$PLUGIN_ZIP" . -x "node_modules/*" -x ".pnpm-store"-q
     cd "$BASE_DIR"
 }
 
@@ -202,12 +202,13 @@ uploadDist() {
 
     # add everything in $BUNDLE_DIR the "playground" branch
     git checkout playground
+    # rename the folder ./dist to ./$GIT_COMMIT
+    mv "$BUNDLE_DIR" "$(pwd)/$GIT_COMMIT"
+
     git add "$BUNDLE_DIR"
     git commit -m "Build $GIT_COMMIT"
     git push origin playground
     git checkout $original_branch
-
-
 }
 
 Deploy
