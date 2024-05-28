@@ -5,26 +5,10 @@
 # This will allow us to keep track of all versions of the plugin
 # and will also allow us to dynamically write a playground.json
 
-checkGitChanges() {
-    if [[ -z $(git status --porcelain) ]]; then
-        echo "No changes in the repository."
-        return 0
-    else
-        echo "There are uncommitted changes in the repository."
-        return 1
-    fi
-}
-
 Deploy() {
-    Check if there are uncommitted changes
-    if ! checkGitChanges; then
-        echo "Please commit or stash your changes before deploying."
-        exit 1
-    fi
     PLUGINS=$(find packages/wp-content/plugins -mindepth 1 -maxdepth 1 -type d)
     buildPlugins
     bundlePlugins "$PLUGINS"
-    uploadDist
 }
 
 buildPlugins() {
@@ -188,27 +172,6 @@ writePlaygroundJson() {
 
     echo "    ]
 }" >> "$BUNDLE_DIR/playground.json"
-}
-
-uploadDist() {
-    # Ensure we are on a clean branch without any changes
-    checkGitChanges
-
-    local DIST_FOLDER="dist"
-    local BASE_DIR=$(pwd)
-    local GIT_COMMIT=$(git rev-parse HEAD)
-    local BUNDLE_DIR="$BASE_DIR/$DIST_FOLDER"
-    local original_branch=$(git rev-parse --abbrev-ref HEAD)
-
-    # add everything in $BUNDLE_DIR the "playground" branch
-    git checkout playground
-    # rename the folder ./dist to ./$GIT_COMMIT
-    mv "$BUNDLE_DIR" "$(pwd)/$GIT_COMMIT"
-
-    git add "$BUNDLE_DIR"
-    git commit -m "Build $GIT_COMMIT"
-    git push origin playground
-    git checkout $original_branch
 }
 
 Deploy
