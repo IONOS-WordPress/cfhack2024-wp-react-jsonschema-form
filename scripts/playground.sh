@@ -131,6 +131,7 @@ dumpAssociativeArray() {
     done
 }
 
+
 writePlaygroundJson() {
     printf "[INFO] %s\n" "Writing playground.json"
     local -n SORTED_PLUGINS=$1
@@ -150,14 +151,7 @@ writePlaygroundJson() {
           \"password\": \"password\"
         }," > "$BUNDLE_DIR/playground.json"
 
-
-    # {
-    #   "step": "installPlugin",
-    #   "pluginZipFile": {
-    #     "resource": "url",
-    #     "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/playground/8f49998a7b358c43a5c836664324d95f8e618202/form-block.zip"
-    #   }
-    # },
+    # Loop through sorted plugins and add to playground.json
     for PLUGIN in "${SORTED_PLUGINS[@]}"; do
         local PLUGIN_NAME=$(basename "$PLUGIN")
         local PLUGIN_ZIP="$PLUGIN_NAME.zip"
@@ -170,12 +164,13 @@ writePlaygroundJson() {
         }," >> "$BUNDLE_DIR/playground.json"
     done
 
-    ## after concatenating all plugins, remove the last comma
+    # Remove the trailing comma after appending all plugins
     sed -i '$ s/,$//' "$BUNDLE_DIR/playground.json"
 
     echo "    ]
 }" >> "$BUNDLE_DIR/playground.json"
 }
+
 
 Deploy
 
