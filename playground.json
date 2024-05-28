@@ -9,7 +9,7 @@
       "step": "installPlugin",
       "pluginZipFile": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/playground/8f49998a7b358c43a5c836664324d95f8e618202/editor-sidebar-plugin.zip"
+        "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/playground/8f49998a7b358c43a5c836664324d95f8e618202/rjsf-renderer.zip"
       }
     },
     {
@@ -44,7 +44,7 @@
       "step": "installPlugin",
       "pluginZipFile": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/playground/8f49998a7b358c43a5c836664324d95f8e618202/rjsf-renderer.zip"
+        "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/playground/8f49998a7b358c43a5c836664324d95f8e618202/editor-sidebar-plugin.zip"
       }
     },
     {
