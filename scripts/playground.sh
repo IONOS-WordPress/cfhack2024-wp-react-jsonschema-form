@@ -170,6 +170,9 @@ writePlaygroundJson() {
         }," >> "$BUNDLE_DIR/playground.json"
     done
 
+    ## after concatenating all plugins, remove the last comma
+    sed -i '$ s/,$//' "$BUNDLE_DIR/playground.json"
+
     echo "    ]
 }" >> "$BUNDLE_DIR/playground.json"
 }
