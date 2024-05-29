@@ -4,6 +4,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "postinstall": "chmod a+w wp-cli.wp-env.yml",
     "build": "pnpm --recursive run build",
     "dev": "pnpm --parallel --recursive run dev",
     "start": "pnpm run wp-env start --xdebug",
