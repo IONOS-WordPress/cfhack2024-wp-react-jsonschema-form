@@ -33,6 +33,8 @@ WPENV_INSTALLPATH="$(realpath --relative-to $(pwd) $(pnpm run --silent wp-env in
 rm -rf $WPENV_INSTALLPATH/{tests-WordPress,WordPress}/wp-content/plugins/hello.php
 
 for prefix in '' 'tests-' ; do
+  pnpm run wp-env run ${prefix}cli sh -c 'echo -e "apache_modules:\n  - mod_rewrite" > /var/www/html/wp-cli.yml'
+
   # The wp rewrite flush command regenerates the rewrite rules for your WordPress site, which includes refreshing the permalinks.
   pnpm run wp-env run ${prefix}cli wp --quiet rewrite flush
   # The wp rewrite structure command updates the permalink structure. --hard also updates the .htaccess file

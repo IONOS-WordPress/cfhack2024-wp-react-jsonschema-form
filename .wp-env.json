@@ -29,9 +29,6 @@
     "ALTERNATE_WP_CRON": true,
     "WP_DEVELOPMENT_MODE": "all"
   },
-  "mappings": {
-    "wp-cli.yml": "./wp-cli.wp-env.yml"
-  },
   "lifecycleScripts": {
     "afterStart": "$(command -v bash) ./.wp-env-afterStart.sh",
     "afterDestroy": "$(command -v bash) -c 'rm -rf $(dirname $(pnpm run --silent wp-env install-path 2> /dev/null))'"
