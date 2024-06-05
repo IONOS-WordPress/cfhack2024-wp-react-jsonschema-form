@@ -1,5 +1,5 @@
 {
-  "core": "WordPress/WordPress#6.5.2",
+  "core": null,
   "phpVersion": "8.3",
   "plugins": [
     "https://downloads.wordpress.org/plugin/woocommerce.zip",
@@ -10,10 +10,11 @@
     "./packages/wp-content/plugins/formbuilder-embedded/",
     "./packages/wp-content/plugins/metabox-block/",
     "./packages/wp-content/plugins/settings-page/",
-    "./packages/wp-content/plugins/rjsf-renderer-playground",
-    "./packages/wp-content/plugins/site-builder-demo",
-    "./packages/wp-content/plugins/custom-datatype",
-    "./packages/wp-content/plugins/cpt"
+    "./packages/wp-content/plugins/rjsf-renderer-playground/",
+    "./packages/wp-content/plugins/site-builder-demo/",
+    "./packages/wp-content/plugins/jsonschema-interactivity-block/",
+    "./packages/wp-content/plugins/custom-datatype/",
+    "./packages/wp-content/plugins/cpt/"
   ],
   "themes": [
     "https://downloads.wordpress.org/theme/twentytwentyfour.zip",

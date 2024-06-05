@@ -1,0 +1,23 @@
+{
+  "days": {
+    "ui:options": {
+      "label": true,
+      "copyable": true
+    },
+    "items": {
+      "ui:options": {
+        "label": false
+      },
+      "openingHours": {
+        "ui:options": {
+          "label": true
+        },
+        "items": {
+          "ui:options": {
+            "label": false
+          }
+        }
+      }
+    }
+  }
+}
