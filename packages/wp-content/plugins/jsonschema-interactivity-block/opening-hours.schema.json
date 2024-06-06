@@ -1,23 +1,71 @@
 {
-  "days": {
-    "ui:options": {
-      "label": true,
-      "copyable": true
-    },
-    "items": {
-      "ui:options": {
-        "label": false
-      },
-      "openingHours": {
-        "ui:options": {
-          "label": true
+  "title": "Weekly opening hours",
+  "description": "This Schema declare opening hours for a business",
+  "definitions": {
+    "openinghour": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string",
+          "title": "Von",
+          "format": "time",
+          "default": "08:00:00"
         },
-        "items": {
-          "ui:options": {
-            "label": false
-          }
+        "to": {
+          "type": "string",
+          "title": "Bis",
+          "format": "time",
+          "default": "18:00:00"
         }
-      }
+      },
+      "required": [
+        "from",
+        "to"
+      ]
+    },
+    "day": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Weekday",
+          "enum": [
+            "Montag",
+            "Dienstag",
+            "Mittwoch",
+            "Donnerstag",
+            "Freitag",
+            "Samstag",
+            "Sonntag"
+          ]
+        },
+        "openingHours": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/openinghour"
+          },
+          "minItems": 1,
+          "title": "Opening hours"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Title",
+      "default": "Öffnungszeiten"
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/day"
+      },
+      "title": "Weekdays"
     }
   }
 }
