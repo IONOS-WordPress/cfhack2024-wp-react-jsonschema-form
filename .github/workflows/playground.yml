@@ -1,3 +1,4 @@
+
 name: Run Playground Script and Deploy to gh-pages
 
 on:
@@ -30,7 +31,7 @@ jobs:
       run: pnpm install
 
     - name: Run Playground Script
-      run: ./scripts/playground.sh
+      run: pnpm exec ./scripts/playground.sh
 
     - name: Set up Git configuration
       run: |
