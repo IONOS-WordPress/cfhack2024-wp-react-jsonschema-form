@@ -56,7 +56,7 @@ Project page: https://hackathon.cloudfest.com/project/json-schema-field-form-ren
 
 ## Demo
 
-check out the state of this project [here](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/wp-now-support/playground.json)
+check out the state of this project [here](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/wp-now-support/playground.json)
 
 This Monorepo contains example uses cases of [JSON Schema](https://json-schema.org/) in WordPress.
 
