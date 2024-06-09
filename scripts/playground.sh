@@ -137,7 +137,8 @@ writePlaygroundJson() {
     local -n SORTED_PLUGINS=$1
     local GIT_COMMIT=$2
     local BUNDLE_DIR=$3
-    local GITHUB_URL="https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/playground/$GIT_COMMIT"
+    local BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+    local GITHUB_URL="https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/playground/trunk"
 
     echo $SORTED_PLUGINS
     echo $GIT_COMMIT
