@@ -1,11 +1,11 @@
-
 name: Run Playground Script and Deploy to gh-pages
 
 on:
   push:
     branches:
       - trunk
-      - wp-now-support
+      - main
+      - develop
 
 permissions:
   contents: write  # Ensure the workflow has write permissions
@@ -22,16 +22,17 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 'lts/*'
-        cache: 'pnpm'
 
-    - name: Install pnpm
-      run: npm install -g pnpm
+    - name: Set up pnpm
+      uses: pnpm/action-setup@v2.2.4
+      with:
+        version: 8
 
     - name: Install dependencies
       run: pnpm install
 
     - name: Run Playground Script
-      run: pnpm exec ./scripts/playground.sh
+      run: ./scripts/playground.sh
 
     - name: Set up Git configuration
       run: |
