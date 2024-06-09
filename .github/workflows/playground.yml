@@ -6,7 +6,6 @@ on:
       - trunk
       - main
       - develop
-      - wp-now-support
 
 permissions:
   contents: write  # Ensure the workflow has write permissions
@@ -18,6 +17,18 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 'lts/*'
+        cache: 'pnpm'
+
+    - name: Install pnpm
+      run: npm install -g pnpm
+
+    - name: Install dependencies
+      run: pnpm install
 
     - name: Run Playground Script
       run: ./scripts/playground.sh
@@ -47,5 +58,4 @@ jobs:
         git add .
         git commit -m "Deploy to gh-pages branch from ${GITHUB_REF_NAME}"
         git push origin gh-pages --force
-
 
