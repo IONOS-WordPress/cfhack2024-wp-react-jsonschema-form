@@ -61,7 +61,7 @@ bundlePlugin() {
 
     printf "  * %s\n" "Bundling $PLUGIN_NAME"
     cd "$PLUGIN"
-    zip -r "$PLUGIN_ZIP" . -x "node_modules/*" -x ".pnpm-store"-q
+    zip -r "$PLUGIN_ZIP" .  -x ".pnpm-store"-q
     cd "$BASE_DIR"
 }
 
