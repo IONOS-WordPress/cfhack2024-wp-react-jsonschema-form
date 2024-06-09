@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - trunk
-      - main
-      - develop
+      - wp-now-support
 
 permissions:
   contents: write  # Ensure the workflow has write permissions
