@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - trunk
-      - wp-now-support
 
 permissions:
   contents: write  # Ensure the workflow has write permissions
@@ -27,6 +26,7 @@ jobs:
     - name: Set up pnpm
       uses: pnpm/action-setup@v4
       with:
+        version: 9
         run_install: |
           - recursive: true
             args: [--frozen-lockfile, --strict-peer-dependencies]
