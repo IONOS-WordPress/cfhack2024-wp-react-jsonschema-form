@@ -16,6 +16,11 @@
           "title": "To",
           "format": "time",
           "default": "18:00:00"
+        },
+        "note": {
+          "type": "string",
+          "title": "Note",
+          "description": "Can be used to display a note like _Reservations only_"
         }
       },
       "required": [

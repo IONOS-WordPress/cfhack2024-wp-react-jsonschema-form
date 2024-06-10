@@ -24,9 +24,9 @@
             "classNames": "direction-horizontal",
             "label": false
           },
-          "from": {
+          "note": {
             "ui:options": {
-              "label": true
+              "enableMarkdownInDescription": true
             }
           }
         }
