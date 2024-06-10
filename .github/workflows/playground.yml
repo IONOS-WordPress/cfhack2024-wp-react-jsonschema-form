@@ -29,12 +29,21 @@ jobs:
       with:
         version: 8
 
+    - name: Print current directory
+      run: pwd
+
+    - name: List files in current directory
+      run: ls -la
+
     - name: Ensure pnpm-lock.yaml exists
       run: |
         if [ ! -f pnpm-lock.yaml ]; then
           echo "Error: pnpm-lock.yaml not found"
           exit 1
         fi
+
+    - name: List pnpm workspaces
+      run: pnpm workspaces list
 
     - name: Install dependencies with frozen lockfile
       run: pnpm install --frozen-lockfile
@@ -67,5 +76,4 @@ jobs:
         git add .
         git commit -m "Deploy to gh-pages branch from ${GITHUB_REF_NAME}"
         git push origin gh-pages --force
-
 
