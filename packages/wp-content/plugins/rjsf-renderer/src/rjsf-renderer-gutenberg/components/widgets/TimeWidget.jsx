@@ -5,12 +5,12 @@ import { descriptionId, getTemplate, labelValue } from '@rjsf/utils';
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function TimeWidget({ schema, uiSchema, options, id, value, disabled, readonly, label, hideLabel, autofocus = false, onBlur, onFocus, onChange, registry, }) {
+export default function TimeWidget(props) {
+    const { schema, uiSchema, options, id, value, disabled, readonly, label, hideLabel, autofocus = false, onBlur, onFocus, onChange, registry, } = props;
     const DescriptionFieldTemplate = getTemplate('DescriptionFieldTemplate', registry, options);
     const description = options.description ?? schema.description;
-    const handleChange = useCallback((value) => props.onChange(value === '' ? props.options.emptyValue : value.split('T')[1]));
+    const handleChange = useCallback((value) => onChange(value === '' ? options.emptyValue : value.split('T')[1]));
     const date = value == '' ? undefined : '2024-01-01T' + value;
-    console.log(date);
     return (<>
         {labelValue(<span>{label}</span>, hideLabel)}
         <TimePicker
