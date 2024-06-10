@@ -56,6 +56,9 @@ Project page: https://hackathon.cloudfest.com/project/json-schema-field-form-ren
 
 ## Demo
 
+you can check out this project for yourself
+[here](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/playground.json)
+
 This Monorepo contains example uses cases of [JSON Schema](https://json-schema.org/) in WordPress.
 
 It demo's the use of [JSON Schema](https://json-schema.org/) as abstraction for user interfaces in WordPress utilizing [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form).
