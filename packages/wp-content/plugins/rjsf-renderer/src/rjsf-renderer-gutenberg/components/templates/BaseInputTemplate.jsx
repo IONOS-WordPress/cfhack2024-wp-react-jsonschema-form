@@ -14,7 +14,7 @@ export default function BaseInputTemplate(props) {
     // Note: since React 15.2.0 we can't forward unknown element attributes, so we
     // exclude the "options" and "schema" ones here.
     if (!id) {
-        console.log('No id for', props);
+        // console.log('No id for', props);
         throw new Error(`no id for props ${JSON.stringify(props)}`);
     }
     const inputProps = {
