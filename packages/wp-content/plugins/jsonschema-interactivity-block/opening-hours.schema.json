@@ -1,19 +1,19 @@
 {
   "title": "Weekly opening hours",
-  "description": "This Schema declare opening hours for a business",
+  "description": "This Schema declare opening hours for a business.",
   "definitions": {
     "openinghour": {
       "type": "object",
       "properties": {
         "from": {
           "type": "string",
-          "title": "Von",
+          "title": "From",
           "format": "time",
           "default": "08:00:00"
         },
         "to": {
           "type": "string",
-          "title": "Bis",
+          "title": "To",
           "format": "time",
           "default": "18:00:00"
         }
@@ -58,7 +58,9 @@
     "name": {
       "type": "string",
       "title": "Title",
-      "default": "Öffnungszeiten"
+      "description": "The title will be rendered in the published post/page as __header__ text.",
+      "default": "Öffnungszeiten",
+      "maxLength": 30
     },
     "days": {
       "type": "array",

@@ -1,8 +1,14 @@
 {
+  "name": {
+    "ui:options": {
+      "enableMarkdownInDescription": true
+    }
+  },
   "days": {
     "ui:options": {
       "label": true,
-      "copyable": true
+      "copyable": true,
+      "classNames": "lined"
     },
     "items": {
       "ui:options": {
@@ -10,11 +16,18 @@
       },
       "openingHours": {
         "ui:options": {
-          "label": true
+          "label": false,
+          "classNames": "striped"
         },
         "items": {
           "ui:options": {
+            "classNames": "direction-horizontal",
             "label": false
+          },
+          "from": {
+            "ui:options": {
+              "label": true
+            }
           }
         }
       }
