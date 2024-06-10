@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - trunk
-      - wp-now-support
+      - main
+      - develop
 
 permissions:
   contents: write  # Ensure the workflow has write permissions
@@ -16,6 +17,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        submodules: 'true'
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -27,7 +30,14 @@ jobs:
       with:
         version: 8
 
-    - name: Install dependencies
+    - name: Ensure pnpm-lock.yaml exists
+      run: |
+        if [ ! -f pnpm-lock.yaml ]; then
+          echo "Error: pnpm-lock.yaml not found"
+          exit 1
+        fi
+
+    - name: Install dependencies with frozen lockfile
       run: pnpm install --frozen-lockfile
 
     - name: Run Playground Script
@@ -58,4 +68,5 @@ jobs:
         git add .
         git commit -m "Deploy to gh-pages branch from ${GITHUB_REF_NAME}"
         git push origin gh-pages --force
+
 
