@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - trunk
-      - wp-now-support
+      - main
+      - develop
 
 permissions:
   contents: write  # Ensure the workflow has write permissions
@@ -29,11 +30,11 @@ jobs:
       with:
         version: 8
 
-    - name: Print current directory
-      run: pwd
+    - name: Verify pnpm installation
+      run: pnpm --version
 
-    - name: List files in current directory
-      run: ls -la
+    - name: List pnpm workspaces
+      run: pnpm workspaces list || true
 
     - name: Ensure pnpm-lock.yaml exists
       run: |
@@ -41,9 +42,6 @@ jobs:
           echo "Error: pnpm-lock.yaml not found"
           exit 1
         fi
-
-    - name: List pnpm workspaces
-      run: pnpm workspaces list
 
     - name: Install dependencies with frozen lockfile
       run: pnpm install --frozen-lockfile
