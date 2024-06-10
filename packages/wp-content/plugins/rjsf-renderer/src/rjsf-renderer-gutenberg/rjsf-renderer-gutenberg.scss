@@ -31,6 +31,15 @@
   }
 
   // make datetime_time picker width fit content
+  .components-datetime__time {
+    width: fit-content;
+
+    > fieldset {
+      > legend {
+        display: none;
+      }
+    }
+  }
 
   // make select width as large as largest item in select box
   .components-input-control__container:has(select) {
