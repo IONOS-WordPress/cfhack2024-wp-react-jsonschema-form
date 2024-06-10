@@ -32,6 +32,23 @@
 
   // make datetime_time picker width fit content
 
+  // make select width as large as largest item in select box
+  .components-input-control__container:has(select) {
+    width: max-content;
+  }
+
+  // make number field width auto size
+  .components-text-control__input[type="number"] {
+    width: auto;
+    display: block;
+  }
+
+  // disable default with for text inputs with size attribute
+  .components-text-control__input[size] {
+    display: block;
+    width: inherit;
+  }
+
   .error-detail .text-danger {
     color : #cc1818;
   }
