@@ -1,0 +1,62 @@
+name: Run Playground Script and Deploy to gh-pages
+
+on:
+  push:
+    branches:
+      - trunk
+      - wp-now-support
+
+permissions:
+  contents: write  # Ensure the workflow has write permissions
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: 'true'
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 'lts/*'
+
+    - name: Set up pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        run_install: |
+          - recursive: true
+            args: [--frozen-lockfile, --strict-peer-dependencies]
+
+    - name: Run Playground Script
+      run: ./scripts/playground.sh
+
+    - name: Set up Git configuration
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Clone the gh-pages branch
+      run: |
+        git clone --single-branch --branch gh-pages https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
+        cd gh-pages
+        BRANCH_NAME=${GITHUB_REF_NAME}
+        if [ -d "$BRANCH_NAME" ]; then
+          rm -rf "$BRANCH_NAME"
+        fi
+
+    - name: Copy dist to branch directory
+      run: |
+        BRANCH_NAME=${GITHUB_REF_NAME}
+        mv dist gh-pages/$BRANCH_NAME
+
+    - name: Commit and push changes
+      run: |
+        cd gh-pages
+        git add .
+        git commit -m "Deploy to gh-pages branch from ${GITHUB_REF_NAME}"
+        git push origin gh-pages --force
+
