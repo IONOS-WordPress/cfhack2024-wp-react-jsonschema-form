@@ -17,15 +17,47 @@
     margin-top: inherit;
   }
 
-  // can be applied to object fields to make object properties appear horizontal
-  .field-object.direction-horizontal {
-    fieldset {
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
+  .field-array {
+    &.striped {
+      > fieldset {
+        > .array-item-list {
+          > * {
+            // &:nth-child(odd) {
+            //   background-color: #f0f0f0;
+            // }
 
-      > *:not(:last-child) {
-        margin-right: 20px;
+            &:nth-child(even) {
+              background-color: #f5f5f5;
+            }
+          }
+        }
+      }
+    }
+
+    &.lined {
+      > fieldset {
+        > .array-item-list {
+          > *:not(:last-child) {
+            border-bottom: 1px solid #c5c5c5;
+            margin-bottom: 4px;
+          }
+        }
+      }
+    }
+
+  }
+
+  // can be applied to object fields to make object properties appear horizontal
+  .field-object {
+    &.direction-horizontal {
+      fieldset {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+
+        > *:not(:last-child) {
+          margin-right: 20px;
+        }
       }
     }
   }
