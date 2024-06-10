@@ -27,9 +27,6 @@ jobs:
       with:
         version: 8
 
-    - name: Install dependencies
-      run: pnpm install
-
     - name: Run Playground Script
       run: ./scripts/playground.sh
 
