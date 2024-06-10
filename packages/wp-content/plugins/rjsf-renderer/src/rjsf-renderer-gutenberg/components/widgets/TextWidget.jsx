@@ -1,6 +1,7 @@
 import { TextControl } from '@wordpress/components';
 import { useCallback } from 'react';
-import { labelValue, schemaRequiresTrueValue, } from '@rjsf/utils';
+import { labelValue, schemaRequiresTrueValue, getUiOptions, } from '@rjsf/utils';
+import Markdown from 'markdown-to-jsx';
 
 /** The `TextWidget` component uses the `TextControl`.
  *
@@ -8,7 +9,11 @@ import { labelValue, schemaRequiresTrueValue, } from '@rjsf/utils';
  */
 export default function TextWidget(props) {
   const required = schemaRequiresTrueValue(props.schema);
-  const description = props.options.description ?? props.schema.description;
+
+  const uiOptions = getUiOptions(props.uiSchema);
+debugger
+  const description = props.options.description || props.schema.description || '';
+  const richDescription = uiOptions.enableMarkdownInDescription ? <Markdown>{description}</Markdown> : description;
 
   const handleChange = useCallback((value) => props.onChange(value === '' ? props.options.emptyValue : value));
 
@@ -24,6 +29,6 @@ export default function TextWidget(props) {
       onFocus={props.onFocus}
       readOnly={props.readOnly}
       default={props.default}
-      help={description}
+      help={richDescription}
       required={required} />);
 }
