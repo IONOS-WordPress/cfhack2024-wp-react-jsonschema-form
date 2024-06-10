@@ -17,6 +17,21 @@
     margin-top: inherit;
   }
 
+  // can be applied to object fields to make object properties appear horizontal
+  .field-object.direction-horizontal {
+    fieldset {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+
+      > *:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  // make datetime_time picker width fit content
+
   .error-detail .text-danger {
     color : #cc1818;
   }
