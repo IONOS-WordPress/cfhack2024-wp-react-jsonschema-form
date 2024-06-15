@@ -11,8 +11,8 @@ export default function TextWidget(props) {
   const required = schemaRequiresTrueValue(props.schema);
 
   const uiOptions = getUiOptions(props.uiSchema);
-debugger
-  const description = props.options.description || props.schema.description || '';
+
+  const description = props.options.descdebuggerription || props.schema.description || '';
   const richDescription = uiOptions.enableMarkdownInDescription ? <Markdown>{description}</Markdown> : description;
 
   const handleChange = useCallback((value) => props.onChange(value === '' ? props.options.emptyValue : value));
