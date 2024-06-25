@@ -29,6 +29,7 @@ export default function TextWidget(props) {
       onFocus={props.onFocus}
       readOnly={props.readOnly}
       default={props.default}
+      type={props.uiSchema.inputType ?? 'text'}
       help={richDescription}
       required={required} />);
 }
