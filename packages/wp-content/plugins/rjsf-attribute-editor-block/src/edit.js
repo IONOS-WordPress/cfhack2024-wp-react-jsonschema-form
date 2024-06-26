@@ -1,11 +1,15 @@
 import { __ } from '@wordpress/i18n';
 import { useRef, useState } from 'react';
 import { PanelBody, TextareaControl }  from '@wordpress/components';
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps, RichText } from '@wordpress/block-editor';
+import validator from "@rjsf/validator-ajv8";
+import { getDefaultFormState } from "@rjsf/utils";
+import Form from "@cfhack2024-wp-react-jsonschema-form/rjsf-renderer/gutenberg";
 
 import './editor.scss';
 
 import BLOCK_JSON from './block.json';
+const { jsonSchema, jsonSchemaUi } = BLOCK_JSON;
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -17,55 +21,38 @@ import BLOCK_JSON from './block.json';
  */
 export default function Edit({ attributes, setAttributes }) {
   const { json } = attributes;
-  const [ intermediateValue, setIntermediateValue ] = useState(JSON.stringify(json, null, 2));
-  const textareaRef = useRef();
 
-  const onChange = (value) => {
-    try {
-      const object = JSON.parse(value);
-      setAttributes( {
-        json: object,
-      } );
-      textareaRef.current?.setCustomValidity('');
-    } catch(ex) {
-      textareaRef.current?.setCustomValidity(ex.message);
-    }
-    setIntermediateValue(value);
+    // reset to default value if current data does'nt match the schema anymore
+  if(!validator.isValid(jsonSchema, json, jsonSchema)) {
+    setAttributes({ json : getDefaultFormState(validator, jsonSchema, json, jsonSchema)});
+  }
+
+  const onChange = (form) => {
+    setAttributes( {
+      json: form.formData,
+    } );
   };
 
-	return (
+  return (
     <>
       <InspectorControls>
-				<PanelBody title={ __( 'JSON Schema Form', 'rjsf-attribute-editor-block' ) } opened>
-          <TextareaControl
-            className='rjsf-attribute-editor-block-jsoneditor'
-            label={ __( 'JSON form', 'rjsf-attribute-editor-block' ) }
-            help={ __('This textarea acts as a placeholder for the JSON Schema form editor.', 'rjsf-attribute-editor-block') }
-            required
-            value={ intermediateValue }
-            ref={ textareaRef }
-            rows={ 15 }
-            onChange={ onChange }
-          />
-          {/* this is just for demonstration purposes */}
-          <div style={{ "color" : "#757575" }}>
-            <div>
-              JSON Schema (defined in block.json):
-              <pre>{ JSON.stringify( BLOCK_JSON.jsonschema, null, 2) }</pre>
-            </div>
-            <div>
-              JSON Schema UI(defined in block.json):
-              <pre>{ JSON.stringify( BLOCK_JSON['jsonschema-ui'], null, 2) }</pre>
-            </div>
-          </div>
-          {/* --- */}
-        </PanelBody>
+        <Form
+          schema={jsonSchema}
+          uiSchema={jsonSchemaUi}
+          validator={validator}
+          liveValidate
+          formData={json}
+          onChange={onChange}
+        />
 			</InspectorControls>
-      <div { ...useBlockProps() }>
-        <pre>
-          { JSON.stringify(attributes.json || BLOCK_JSON.attributes.json.default, null, 2) }
-        </pre>
-      </div>
+      <RichText
+          tagName={BLOCK_JSON.attributes.content.selector}
+          value={attributes.content}
+          onChange={(content) => setAttributes({ content })}
+          placeholder={__('Enter text...', 'rjsf-attribute-editor-block')}
+          { ...useBlockProps() }
+          style= { { color : json.foregroundColor, backgroundColor : json.backgroundColor, textTransform: json.capitalize ? 'capitalize' : 'inherit', textDecoration: json.decoration ?? 'none'} }
+      />
     </>
 	);
 }

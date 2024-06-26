@@ -1,4 +1,6 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
+
+import BLOCK_JSON from './block.json';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -13,8 +15,15 @@ export default function save({ attributes } ) {
   const blockProps = useBlockProps.save();
 
 	return <div { ...blockProps }>
-    <pre>
-      { attributes.json && JSON.stringify(attributes.json, null, 2) }
-    </pre>
+    <RichText.Content
+      tagName={BLOCK_JSON.attributes.content.selector}
+      value={ attributes.content }
+      style= {{
+        color : attributes.json.foregroundColor,
+        backgroundColor : attributes.json.backgroundColor,
+        textTransform: attributes.json.capitalize ? 'capitalize' : 'inherit',
+        textDecoration: attributes.json.decoration ?? 'none'
+      }}
+    />
   </div>;
 }

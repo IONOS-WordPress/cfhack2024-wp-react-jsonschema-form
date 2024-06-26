@@ -9,20 +9,29 @@
 	"description": "WordPress block rendering its attributes form using react-jsonschema-form into the inspector panel of Gutenberg",
 	"example": {
     "attributes" : {
-      "json" : null
+      "json" : {
+        "foregroundColor": "blue",
+        "backgroundColor": "lightgrey",
+        "capitalize": false,
+        "decoration": "underline"
+      },
+      "content" : "Hello world !"
     }
   },
-	"supports": {
-		"html": false
-	},
   "attributes": {
+    "content": {
+      "type": "rich-text",
+      "source": "rich-text",
+      "selector": "p",
+			"__experimentalRole": "content"
+    },
     "json": {
       "type": "object",
       "default": {
-        "preface": "Contact me",
-        "name": "This is me",
-        "email": "me@example.com",
-        "capitalize": true
+        "foregroundColor": "#ffffff",
+        "backgroundColor": "#000000",
+        "capitalize": false,
+        "decoration": "none"
       }
     }
   },
@@ -31,43 +40,42 @@
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"viewScript": "file:./view.js",
-  "jsonschema": {
-    "title": "Email contact",
-    "description": "Edit email contact.",
+  "jsonSchema": {
     "type": "object",
-    "required": [
-      "email"
-    ],
+    "required": ["decoration"],
     "properties": {
-      "preface": {
+      "foregroundColor": {
         "type": "string",
-        "title": "Some text rendered before the eMail address link",
-        "default": "Contact me!"
+        "title": "Foreground",
+        "description": "Foreground color of the block"
       },
-      "email": {
+      "backgroundColor": {
         "type": "string",
-        "title": "eMail address",
-        "format": "email"
+        "title": "Background",
+        "description": "Background color of the block"
       },
       "capitalize": {
         "type": "boolean",
-        "title": "Capitalize the email address",
-        "default": true
+        "title": "Capitalize the text",
+        "default": false
+      },
+      "decoration": {
+        "type": "string",
+        "enum": [ "none", "overline", "line-through", "underline" ],
+        "default": [ "none"]
       }
     }
   },
-  "jsonschema-ui" : {
-    "preface": {
-      "ui:widget": "textarea",
-      "ui:autofocus": true,
-      "ui:placeholder": "The caption of the eMail address section",
-      "ui:enableMarkdownInDescription": true,
-      "ui:description": "Make text **bold** or *italic*. Take a look at other options [here](https://markdown-to-jsx.quantizor.dev/)."
-    },
-    "email": {
-      "ui:options": {
-        "inputType": "email"
+  "jsonSchemaUi" : {
+    "ui:options" : {
+      "submitButtonOptions" : {
+        "norender" : true
       }
+    }, "foregroundColor": {
+      "inputType": "color"
+    },
+    "backgroundColor": {
+      "inputType": "color"
     }
   }
 }
