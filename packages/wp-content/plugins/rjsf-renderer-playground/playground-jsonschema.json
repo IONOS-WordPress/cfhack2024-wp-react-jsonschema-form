@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "title": "A registration form",
   "description": "A simple form example.",
   "type": "object",
@@ -16,6 +15,16 @@
     "lastName": {
       "type": "string",
       "title": "Last name"
+    },
+    "hobbies": {
+      "type": "string",
+      "title": "Hobbies",
+      "examples": [
+        "Fishing",
+        "Hiking",
+        "Sailing",
+        "Cycling"
+      ]
     },
     "age": {
       "type": "integer",
