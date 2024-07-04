@@ -53,7 +53,7 @@ function NumberField(props) {
   if (format && hasWidget(schema, format, widgets)) {
     defaultWidget = format;
   }
-  const {widget = defaultWidget, placeholder = '', title: uiTitle, ...options} = getUiOptions(uiSchema);
+  const {widget = defaultWidget, placeholder = '', title: uiTitle, ...options} = getUiOptions(uiSchema, registry.globalUiOptions);
   const displayLabel = schemaUtils.getDisplayLabel(schema, uiSchema, globalUiOptions);
   const label = uiTitle ?? title ?? name;
   const Widget = getWidget(schema, widget, widgets);

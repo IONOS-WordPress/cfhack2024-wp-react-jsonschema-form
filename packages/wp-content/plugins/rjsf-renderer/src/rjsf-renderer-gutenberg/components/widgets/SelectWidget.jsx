@@ -1,5 +1,8 @@
 import { useCallback } from 'react';
-import { enumOptionsIndexForValue, enumOptionsValueForIndex, getUiOptions } from '@rjsf/utils';
+import { enumOptionsIndexForValue, enumOptionsValueForIndex, getUiOptions, labelValue, } from '@rjsf/utils';
+import { SelectControl } from '@wordpress/components';
+import Markdown from 'markdown-to-jsx';
+
 function getValue(event, multiple) {
     if (multiple) {
         return Array.from(event.target.options)
@@ -9,12 +12,9 @@ function getValue(event, multiple) {
     }
     return event.target.value;
 }
-import { SelectControl } from '@wordpress/components';
-import { labelValue } from '@rjsf/utils';
-import Markdown from 'markdown-to-jsx';
 
 function SelectWidget(props) {
-  const { schema, id, label, hideLabel, options, value, required, disabled, readonly, multiple = false, autofocus = false, onChange, uiSchema, onBlur, onFocus, placeholder, } = props;
+  const { schema, id, label, hideLabel, options, value, required, disabled, readonly, multiple = false, autofocus = false, onChange, uiSchema, onBlur, onFocus, placeholder, registry, } = props;
   const { enumOptions, enumDisabled, emptyValue: optEmptyVal } = options;
   const emptyValue = multiple ? [] : '';
   const handleFocus = useCallback((event) => {
@@ -32,7 +32,7 @@ function SelectWidget(props) {
   }, [onChange, schema, multiple, options]);
   const selectedIndexes = enumOptionsIndexForValue(value, enumOptions, multiple);
 
-  const uiOptions = getUiOptions(uiSchema);
+  const uiOptions = getUiOptions(uiSchema, registry.globalUiOptions);
 
   const description = options.description || props.schema.description || schema.description || '';
   const richDescription = uiOptions.enableMarkdownInDescription ? <Markdown>{description}</Markdown> : description;

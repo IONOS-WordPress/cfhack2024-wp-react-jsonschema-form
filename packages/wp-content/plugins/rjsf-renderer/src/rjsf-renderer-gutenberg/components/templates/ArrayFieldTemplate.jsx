@@ -5,7 +5,7 @@ import { getTemplate, getUiOptions, } from '@rjsf/utils';
  */
 export default function ArrayFieldTemplate(props) {
     const { canAdd, className, disabled, idSchema, uiSchema, items, onAddClick, readonly, registry, required, schema, title, } = props;
-    const uiOptions = getUiOptions(uiSchema);
+    const uiOptions = getUiOptions(uiSchema, registry.globalUiOptions);
     const ArrayFieldDescriptionTemplate = getTemplate('ArrayFieldDescriptionTemplate', registry, uiOptions);
     const ArrayFieldItemTemplate = getTemplate('ArrayFieldItemTemplate', registry, uiOptions);
     const ArrayFieldTitleTemplate = getTemplate('ArrayFieldTitleTemplate', registry, uiOptions);

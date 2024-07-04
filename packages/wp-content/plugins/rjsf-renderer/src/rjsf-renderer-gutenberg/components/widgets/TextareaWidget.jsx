@@ -20,6 +20,7 @@ export default function TextareaWidget(props) {
     <TextareaControl
       label={labelValue(<span>{props.label}</span>, props.hideLabel)}
       value={props.value}
+      rows={uiOptions?.rows}
       onChange={handleChange}
       onBlur={props.onBlur}
       onFocus={props.onFocus}

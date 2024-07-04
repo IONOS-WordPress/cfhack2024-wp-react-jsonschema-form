@@ -356,7 +356,7 @@ class ArrayField extends Component {
         const { schema, uiSchema, idSchema, registry } = this.props;
         const { schemaUtils, translateString } = registry;
         if (!(ITEMS_KEY in schema)) {
-            const uiOptions = getUiOptions(uiSchema);
+            const uiOptions = getUiOptions(uiSchema, registry.globalUiOptions);
             const UnsupportedFieldTemplate = getTemplate('UnsupportedFieldTemplate', registry, uiOptions);
             return (<UnsupportedFieldTemplate schema={schema} idSchema={idSchema} reason={translateString(TranslatableString.MissingItems)} registry={registry}/>);
         }
@@ -385,7 +385,7 @@ class ArrayField extends Component {
         const { keyedFormData } = this.state;
         const fieldTitle = schema.title || title || name;
         const { schemaUtils, formContext } = registry;
-        const uiOptions = getUiOptions(uiSchema);
+        const uiOptions = getUiOptions(uiSchema, registry.globalUiOptions);
         const _schemaItems = isObject(schema.items) ? schema.items : {};
         const itemsSchema = schemaUtils.retrieveSchema(_schemaItems);
         const formData = keyedToPlainFormData(this.state.keyedFormData);
@@ -444,7 +444,7 @@ class ArrayField extends Component {
         const { keyedFormData } = this.state;
         let { formData: items = [] } = this.props;
         const fieldTitle = schema.title || title || name;
-        const uiOptions = getUiOptions(uiSchema);
+        const uiOptions = getUiOptions(uiSchema, registry.globalUiOptions);
         const { schemaUtils, formContext } = registry;
         const _schemaItems = isObject(schema.items) ? schema.items : [];
         const itemSchemas = _schemaItems.map((item, index) => schemaUtils.retrieveSchema(item, formData[index]));
@@ -557,7 +557,7 @@ class ArrayField extends Component {
         const { keyedFormData } = this.state;
         let { formData: items = [] } = this.props;
         const fieldTitle = schema.title || title || name;
-        const uiOptions = getUiOptions(uiSchema);
+        const uiOptions = getUiOptions(uiSchema, registry.globalUiOptions);
         const { schemaUtils, formContext } = registry;
         const _schemaItems = isObject(schema.items) ? schema.items : [];
         const itemSchemas = _schemaItems.map((item, index) => schemaUtils.retrieveSchema(item, formData[index]));

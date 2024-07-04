@@ -36,7 +36,7 @@ export default function TextWidget(props) {
 
   const required = schemaRequiresTrueValue(props.schema);
 
-  const uiOptions = getUiOptions(props.uiSchema);
+  const uiOptions = getUiOptions(props.uiSchema, props.registry.globalUiOptions);
 
   const description = props.options.description || props.schema.description || '';
   const richDescription = uiOptions.enableMarkdownInDescription ? <Markdown>{description}</Markdown> : description;
@@ -67,7 +67,8 @@ export default function TextWidget(props) {
         type={uiSchema.inputType ?? 'text'}
         help={richDescription}
         required={required}
-        ref={inputRef} />
+        ref={inputRef}
+        style={{ maxWidth : schema.maxLength!==undefined ? `${schema.maxLength + 1}em` : 'inherit'}}/>
 
         {
           Array.isArray(schema.examples) && (<datalist key={`datalist_${id}`} id={listId}>

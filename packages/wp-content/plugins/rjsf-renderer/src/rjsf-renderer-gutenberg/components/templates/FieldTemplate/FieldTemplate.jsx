@@ -7,7 +7,7 @@ import Label from './Label';
  */
 export default function FieldTemplate(props) {
     const { id, label, children, errors, help, description, hidden, required, displayLabel, registry, uiSchema } = props;
-    const uiOptions = getUiOptions(uiSchema);
+    const uiOptions = getUiOptions(uiSchema, registry.globalUiOptions);
     const WrapIfAdditionalTemplate = getTemplate('WrapIfAdditionalTemplate', registry, uiOptions);
     if (hidden) {
         return <div className='hidden'>{children}</div>;

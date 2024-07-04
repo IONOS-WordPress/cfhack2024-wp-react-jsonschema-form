@@ -6,7 +6,7 @@ import TabWidget from '../widgets/TabWidget';
  */
 export default function TabFieldTemplate(props) {
     const {className, idSchema, uiSchema, items, registry, required, schema, title, } = props;
-    const uiOptions = getUiOptions(uiSchema);
+    const uiOptions = getUiOptions(uiSchema, registry.globalUiOptions);
     const ArrayFieldDescriptionTemplate = getTemplate('ArrayFieldDescriptionTemplate', registry, uiOptions);
     const ArrayFieldTitleTemplate = getTemplate('ArrayFieldTitleTemplate', registry, uiOptions);
     return (<fieldset className={className} id={idSchema.$id}>

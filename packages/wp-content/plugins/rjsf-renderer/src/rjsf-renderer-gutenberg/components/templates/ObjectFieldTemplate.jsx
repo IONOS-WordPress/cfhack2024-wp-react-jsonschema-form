@@ -7,7 +7,7 @@ import { canExpand, descriptionId, getTemplate, getUiOptions, titleId, } from '@
  */
 export default function ObjectFieldTemplate(props) {
     const { description, disabled, formData, idSchema, onAddClick, properties, readonly, registry, required, schema, title, uiSchema, } = props;
-    const options = getUiOptions(uiSchema);
+    const options = getUiOptions(uiSchema, registry.globalUiOptions);
     const TitleFieldTemplate = getTemplate('TitleFieldTemplate', registry, options);
     const DescriptionFieldTemplate = getTemplate('DescriptionFieldTemplate', registry, options);
     // Button templates are not overridden in the uiSchema
