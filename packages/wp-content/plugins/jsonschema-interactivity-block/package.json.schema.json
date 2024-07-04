@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "JSON schema for NPM package.json files",
+  "title": "package.json editor",
   "definitions": {
     "person": {
       "description": "A person who has been involved in creating or maintaining this package.",
@@ -35,9 +35,15 @@
     "license": {
       "anyOf": [
         {
-          "type": "string"
+          "title": "Custom license type",
+          "description": "Enter custom license.",
+          "type": "string",
+          "maxLength": 20
         },
         {
+          "title": "Standard License",
+          "description": "Select license from predefined set of available licenses.",
+          "type": "string",
           "enum": [
             "AGPL-3.0-only",
             "Apache-2.0",
@@ -76,22 +82,22 @@
       "x-intellij-language-injection": "Shell Script"
     },
     "scriptsRestart": {
-      "description": "Run by the 'npm restart' command. Note: 'npm restart' will run the stop and start scripts if no restart script is provided.",
+      "description": "Run by the `npm restart` command. Note: `npm restart` will run the stop and start scripts if no restart script is provided.",
       "type": "string",
       "x-intellij-language-injection": "Shell Script"
     },
     "scriptsStart": {
-      "description": "Run by the 'npm start' command.",
+      "description": "Run by the `npm start` command.",
       "type": "string",
       "x-intellij-language-injection": "Shell Script"
     },
     "scriptsStop": {
-      "description": "Run by the 'npm stop' command.",
+      "description": "Run by the `npm stop` command.",
       "type": "string",
       "x-intellij-language-injection": "Shell Script"
     },
     "scriptsTest": {
-      "description": "Run by the 'npm test' command.",
+      "description": "Run by the `npm test` command.",
       "type": "string",
       "x-intellij-language-injection": "Shell Script"
     },
@@ -149,9 +155,11 @@
     "packageExportsEntry": {
       "oneOf": [
         {
+          "title": "Module path",
           "$ref": "#/definitions/packageExportsEntryPath"
         },
         {
+          "title": "Module paths with fallback",
           "$ref": "#/definitions/packageExportsEntryObject"
         }
       ]
@@ -166,9 +174,11 @@
     "packageExportsEntryOrFallback": {
       "oneOf": [
         {
+          "title": "Module paths",
           "$ref": "#/definitions/packageExportsEntry"
         },
         {
+          "title": "Module paths with fallback",
           "$ref": "#/definitions/packageExportsFallback"
         }
       ]
@@ -216,11 +226,11 @@
       "type": "string"
     },
     "description": {
-      "description": "This helps people discover your package, as it's listed in 'npm search'.",
+      "description": "This helps people discover your package, as it's listed in `npm search`.",
       "type": "string"
     },
     "keywords": {
-      "description": "This helps people discover your package as it's listed in 'npm search'.",
+      "description": "This helps people discover your package as it's listed in `npm search`.",
       "type": "array",
       "items": {
         "type": "string"
@@ -228,7 +238,8 @@
     },
     "homepage": {
       "description": "The url to the project homepage.",
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "bugs": {
       "description": "The url to your project's issue tracker and / or the email address to which issues should be reported. These are helpful for people who encounter issues with your package.",
@@ -287,7 +298,7 @@
       }
     },
     "files": {
-      "description": "The 'files' field is an array of files to include in your project. If you name a folder in the array, then it will also include the files inside that folder.",
+      "description": "The `files` field is an array of files to include in your project. If you name a folder in the array, then it will also include the files inside that folder.",
       "type": "array",
       "items": {
         "type": "string"
@@ -301,10 +312,12 @@
       "description": "The \"exports\" field is used to restrict external access to non-exported module files, also enables a module to import itself using \"name\".",
       "oneOf": [
         {
+          "title": "Variant 1",
           "$ref": "#/definitions/packageExportsEntryPath",
-          "description": "The module path that is resolved when the module specifier matches \"name\", shadows the \"main\" field."
+          "description": "The module path that is resolved when the module specifier matches `name` shadows the `main` field."
         },
         {
+          "title": "Variant 2",
           "type": "object",
           "properties": {
             ".": {
@@ -321,10 +334,12 @@
           "additionalProperties": false
         },
         {
+          "title": "Variant 3",
           "$ref": "#/definitions/packageExportsEntryObject",
           "description": "The module path that is resolved when the module specifier matches \"name\", shadows the \"main\" field."
         },
         {
+          "title": "Variant 4",
           "$ref": "#/definitions/packageExportsFallback",
           "description": "The module path that is resolved when the module specifier matches \"name\", shadows the \"main\" field."
         }
@@ -340,7 +355,7 @@
       }
     },
     "type": {
-      "description": "When set to \"module\", the type field allows a package to specify all .js files within are ES modules. If the \"type\" field is omitted or set to \"commonjs\", all .js files are treated as CommonJS.",
+      "description": "When set to `module`, the type field allows a package to specify all .js files within are ES modules. If the `type` field is omitted or set to `commonjs`, all .js files are treated as CommonJS.",
       "type": "string",
       "enum": [
         "commonjs",
@@ -353,11 +368,11 @@
       "type": "string"
     },
     "typings": {
-      "description": "Note that the \"typings\" field is synonymous with \"types\", and could be used as well.",
+      "description": "Note that the `typings` field is synonymous with \"types\", and could be used as well.",
       "type": "string"
     },
     "typesVersions": {
-      "description": "The \"typesVersions\" field is used since TypeScript 3.1 to support features that were only made available in newer TypeScript versions.",
+      "description": "The `typesVersions` field is used since TypeScript 3.1 to support features that were only made available in newer TypeScript versions.",
       "type": "object",
       "additionalProperties": {
         "description": "Contains overrides for the TypeScript version that matches the version range matching the property key.",
@@ -406,7 +421,7 @@
       "type": "object",
       "properties": {
         "bin": {
-          "description": "If you specify a 'bin' directory, then all the files in that folder will be used as the 'bin' hash.",
+          "description": "If you specify a `bin` directory, then all the files in that folder will be used as the 'bin' hash.",
           "type": "string"
         },
         "doc": {
@@ -451,19 +466,24 @@
     "funding": {
       "oneOf": [
         {
+          "title": "Url",
           "$ref": "#/definitions/fundingUrl"
         },
         {
+          "title": "Url + Platform",
           "$ref": "#/definitions/fundingWay"
         },
         {
+          "title": "List of resources",
           "type": "array",
           "items": {
             "oneOf": [
               {
+                "title": "Url",
                 "$ref": "#/definitions/fundingUrl"
               },
               {
+                "title": "Url + Platform",
                 "$ref": "#/definitions/fundingWay"
               }
             ]
@@ -474,7 +494,7 @@
       ]
     },
     "scripts": {
-      "description": "The 'scripts' member is an object hash of script commands that are run at various times in the lifecycle of your package. The key is the lifecycle event, and the value is the command to run at that point.",
+      "description": "The `scripts` member is an object hash of script commands that are run at various times in the lifecycle of your package. The key is the lifecycle event, and the value is the command to run at that point.",
       "type": "object",
       "properties": {
         "lint": {
@@ -586,7 +606,7 @@
       }
     },
     "config": {
-      "description": "A 'config' hash can be used to set configuration parameters used in package scripts that persist across upgrades.",
+      "description": "A `config` hash can be used to set configuration parameters used in package scripts that persist across upgrades.",
       "type": "object",
       "additionalProperties": true
     },
@@ -603,7 +623,7 @@
       "$ref": "#/definitions/dependency"
     },
     "peerDependenciesMeta": {
-      "description": "When a user installs your package, warnings are emitted if packages specified in \"peerDependencies\" are not already installed. The \"peerDependenciesMeta\" field serves to provide more information on how your peer dependencies are utilized. Most commonly, it allows peer dependencies to be marked as optional. Metadata for this field is specified with a simple hash of the package name to a metadata object.",
+      "description": "When a user installs your package, warnings are emitted if packages specified in `peerDependencies` are not already installed. The `peerDependenciesMeta` field serves to provide more information on how your peer dependencies are utilized. Most commonly, it allows peer dependencies to be marked as optional. Metadata for this field is specified with a simple hash of the package name to a metadata object.",
       "type": "object",
       "additionalProperties": {
         "type": "object",
@@ -620,27 +640,32 @@
       "description": "Array of package names that will be bundled when publishing the package.",
       "oneOf": [
         {
+          "title": "List of bundled dependencies",
           "type": "array",
           "items": {
             "type": "string"
           }
         },
         {
+          "title": "All dependencies are bundled",
           "type": "boolean"
         }
       ]
     },
     "bundledDependencies": {
-      "description": "DEPRECATED: This field is honored, but \"bundleDependencies\" is the correct field name.",
       "oneOf": [
         {
+          "title": "List of bundled dependencies",
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "description": "_DEPRECATED: This field is honored, but `bundleDependencies` is the correct field name._"
         },
         {
-          "type": "boolean"
+          "title": "All dependencies are bundled",
+          "type": "boolean",
+          "description": "_DEPRECATED: This field is honored, but `bundleDependencies` is the correct field name._"
         }
       ]
     },
@@ -702,19 +727,23 @@
     },
     "preferGlobal": {
       "type": "boolean",
-      "description": "DEPRECATED: This option used to trigger an npm warning, but it will no longer warn. It is purely there for informational purposes. It is now recommended that you install any binaries as local devDependencies wherever possible."
+      "description": "__DEPRECATED: This option used to trigger an npm warning, but it will no longer warn. It is purely there for informational purposes. It is now recommended that you install any binaries as local devDependencies wherever possible.__"
     },
     "private": {
       "description": "If set to true, then npm will refuse to publish it.",
       "oneOf": [
         {
+          "title": "Check if package private",
           "type": "boolean"
         },
         {
+          "title": "Mark package privacy",
+          "description": "Is this package private ? Private means it will not be deployed to NPM registries.",
           "enum": [
             "false",
             "true"
-          ]
+          ],
+          "default": false
         }
       ]
     },
@@ -729,11 +758,13 @@
           ]
         },
         "tag": {
-          "type": "string"
+          "type": "string",
+          "description": "Add any publish config tags here."
         },
         "registry": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "description": "Configure a custom NPM registry to publish to."
         }
       },
       "additionalProperties": true
@@ -778,6 +809,7 @@
       "description": "Allows packages within a directory to depend on one another using direct linking of local files. Additionally, dependencies within a workspace are hoisted to the workspace root when possible to reduce duplication. Note: It's also a good idea to set \"private\" to true when using this feature.",
       "anyOf": [
         {
+          "title": "Package paths",
           "type": "array",
           "description": "Workspace package paths. Glob patterns are supported.",
           "items": {
@@ -785,6 +817,7 @@
           }
         },
         {
+          "title": "Package paths + no hoisting",
           "type": "object",
           "properties": {
             "packages": {
@@ -806,38 +839,5 @@
       ]
     }
   },
-  "anyOf": [
-    {
-      "type": "object",
-      "not": {
-        "required": [
-          "bundledDependencies",
-          "bundleDependencies"
-        ]
-      }
-    },
-    {
-      "type": "object",
-      "not": {
-        "required": [
-          "bundleDependencies"
-        ]
-      },
-      "required": [
-        "bundledDependencies"
-      ]
-    },
-    {
-      "type": "object",
-      "not": {
-        "required": [
-          "bundledDependencies"
-        ]
-      },
-      "required": [
-        "bundleDependencies"
-      ]
-    }
-  ],
   "$id": "https://json.schemastore.org/package.json"
 }

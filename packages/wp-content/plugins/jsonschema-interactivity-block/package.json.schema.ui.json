@@ -1,0 +1,21 @@
+{
+  "ui:globalOptions": {
+    "enableMarkdownInDescription": true
+  },
+  "description": {
+    "ui:widget": "TextareaWidget",
+    "ui:rows": 5
+  },
+  "licenses": {
+    "ui:widget": "hidden"
+  },
+  "bundledDependencies": {
+    "ui:widget": "hidden"
+  },
+  "engineStrict": {
+    "ui:widget": "ToggleWidget"
+  },
+  "preferGlobal": {
+    "ui:widget": "ToggleWidget"
+  }
+}
