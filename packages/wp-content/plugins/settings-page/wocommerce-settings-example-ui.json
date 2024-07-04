@@ -2,6 +2,9 @@
   "ui:submitButtonOptions": {
     "submitText": "Save changes"
   },
+  "ui:globalOptions": {
+    "enableMarkdownInDescription": true
+  },
   "ui:widget": "TabWidget",
   "ui:label": false,
   "items": {
