@@ -241,7 +241,9 @@ function Preview() {
         </div>
         <Panel header={ __('Form data', 'rjsf-renderer-playground')}>
           <PanelBody>
-            { JSON.stringify( formData, null, '') }
+            <pre>
+              { JSON.stringify( formData, null, '  ') }
+            </pre>
           </PanelBody>
         </Panel>
       </div>
