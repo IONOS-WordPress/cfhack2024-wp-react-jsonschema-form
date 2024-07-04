@@ -56,7 +56,7 @@
       },
       "capitalize": {
         "type": "boolean",
-        "title": "Capitalize the text",
+        "title": "Capitalize content",
         "default": false
       },
       "decoration": {
@@ -76,6 +76,9 @@
     },
     "backgroundColor": {
       "inputType": "color"
+    },
+    "capitalize": {
+      "ui:widget": "ToggleWidget"
     }
   }
 }
