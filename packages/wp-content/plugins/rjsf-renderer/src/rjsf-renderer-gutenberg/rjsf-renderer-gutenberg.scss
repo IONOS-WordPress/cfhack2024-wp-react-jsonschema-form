@@ -87,7 +87,7 @@
   // disable default with for text inputs with size attribute
   .components-text-control__input[size] {
     display: block;
-    width: inherit;
+    max-width: 100%;
   }
 
   .error-detail .text-danger {
