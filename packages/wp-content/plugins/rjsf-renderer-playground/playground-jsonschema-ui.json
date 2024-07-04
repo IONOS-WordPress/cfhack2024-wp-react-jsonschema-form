@@ -1,4 +1,12 @@
 {
+  "ui:submitButtonOptions": {
+    "props": {
+      "disabled":  false,
+      "className": "is-destructive is-secondary"
+    },
+    "norender": false,
+    "submitText": "Create"
+  },
   "firstName": {
     "ui:autofocus": true,
     "ui:emptyValue": "",
