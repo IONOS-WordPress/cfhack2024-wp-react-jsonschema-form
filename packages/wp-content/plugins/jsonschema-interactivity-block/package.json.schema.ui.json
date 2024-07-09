@@ -12,6 +12,9 @@
   "bundledDependencies": {
     "ui:widget": "hidden"
   },
+  "volta": {
+    "ui:widget": "hidden"
+  },
   "engineStrict": {
     "ui:widget": "ToggleWidget"
   },
