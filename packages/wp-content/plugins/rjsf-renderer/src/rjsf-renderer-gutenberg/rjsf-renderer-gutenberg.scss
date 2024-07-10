@@ -4,6 +4,10 @@
 
 .rjsf.rjsf-renderer-gutenberg {
 
+  .markdown-description-line {
+    display: inline-block;
+  }
+
   .unsupported-field > pre {
     text-wrap: balance;
   }
