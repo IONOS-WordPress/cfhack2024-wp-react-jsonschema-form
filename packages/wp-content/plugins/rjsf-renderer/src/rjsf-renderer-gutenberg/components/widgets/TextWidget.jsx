@@ -68,7 +68,8 @@ export default function TextWidget(props) {
         help={richDescription}
         required={required}
         ref={inputRef}
-        style={{ maxWidth : schema.maxLength!==undefined ? `${schema.maxLength + 1}em` : 'inherit'}}/>
+        style={{ maxWidth : schema.maxLength!==undefined ? `${schema.maxLength + 1}em` : 'inherit'}}
+      />
 
         {
           Array.isArray(schema.examples) && (<datalist key={`datalist_${id}`} id={listId}>
