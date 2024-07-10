@@ -1,0 +1,9 @@
+{
+  "ui:globalOptions": {
+    "enableMarkdownInDescription": true
+  },
+  "description": {
+    "ui:widget": "TextareaWidget",
+    "ui:rows": 5
+  }
+}
