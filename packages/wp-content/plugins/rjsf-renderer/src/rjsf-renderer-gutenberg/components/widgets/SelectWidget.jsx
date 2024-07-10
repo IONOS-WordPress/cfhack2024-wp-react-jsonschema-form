@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
-import { enumOptionsIndexForValue, enumOptionsValueForIndex, getUiOptions, labelValue, } from '@rjsf/utils';
+import { enumOptionsIndexForValue, enumOptionsValueForIndex, getUiOptions, labelValue, description, } from '@rjsf/utils';
 import { SelectControl } from '@wordpress/components';
-import Markdown from 'markdown-to-jsx';
+import RichDescription from '../../RichDescription.jsx';
 
 function getValue(event, multiple) {
     if (multiple) {
@@ -34,8 +34,7 @@ function SelectWidget(props) {
 
   const uiOptions = getUiOptions(uiSchema, registry.globalUiOptions);
 
-  const description = options.description || props.schema.description || schema.description || '';
-  const richDescription = uiOptions.enableMarkdownInDescription ? <Markdown>{description}</Markdown> : description;
+  const _description = RichDescription(schema, uiSchema, options, registry);
 
   return(
     <SelectControl
@@ -45,7 +44,7 @@ function SelectWidget(props) {
       onBlur={handleBlur}
       onChange={handleChange}
       onFocus={handleFocus}
-      help={richDescription}
+      help={_description}
       required={required}
       disabled={disabled || readonly}
       multiple={multiple}

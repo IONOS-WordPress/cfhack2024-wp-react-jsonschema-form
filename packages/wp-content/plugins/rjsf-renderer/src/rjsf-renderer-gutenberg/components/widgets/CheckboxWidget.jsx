@@ -1,6 +1,7 @@
-import { labelValue, schemaRequiresTrueValue, getUiOptions, } from '@rjsf/utils';
+import { labelValue, schemaRequiresTrueValue, getUiOptions, description, } from '@rjsf/utils';
 import { CheckboxControl } from '@wordpress/components';
-import Markdown from 'markdown-to-jsx';
+import RichDescription from '../../RichDescription.jsx';
+
 /** The `CheckBoxWidget` is a widget for rendering boolean properties.
  *  It is typically used to represent a boolean.
  *
@@ -14,8 +15,7 @@ function CheckboxWidget({ schema, uiSchema, options, id, value, disabled, readon
 
   const uiOptions = getUiOptions(uiSchema, registry.globalUiOptions);
 
-  const description = options.description || schema.description || '';
-  const richDescription = uiOptions.enableMarkdownInDescription ? <Markdown>{description}</Markdown> : description;
+  const _description = RichDescription(schema, uiSchema, options, registry);
 
   return (
     <>
@@ -23,7 +23,7 @@ function CheckboxWidget({ schema, uiSchema, options, id, value, disabled, readon
         required={required}
         checked={typeof value === 'undefined' ? false : value}
         label={labelValue(<span>{label}</span>, hideLabel)}
-        help={richDescription}
+        help={_description}
         onChange={onChange}
       />
     </>

@@ -22,9 +22,9 @@ function UnsupportedField(props) {
         translateParams.push(reason);
     }
     return (<div className='unsupported-field'>
-      <p>
+      <div>
         <Markdown>{translateString(translateEnum, translateParams)}</Markdown>
-      </p>
+      </div>
       {schema && <pre>{JSON.stringify(schema, null, 2)}</pre>}
     </div>);
 }

@@ -1,7 +1,7 @@
 import { TextControl } from '@wordpress/components';
 import { useCallback, useEffect, useRef } from 'react';
-import { labelValue, schemaRequiresTrueValue, getUiOptions, getInputProps, examplesId} from '@rjsf/utils';
-import Markdown from 'markdown-to-jsx';
+import { labelValue, schemaRequiresTrueValue, getUiOptions, getInputProps, examplesId, description} from '@rjsf/utils';
+import RichDescription from '../../RichDescription.jsx';
 
 /** The `TextWidget` component uses the `TextControl`.
  *
@@ -38,8 +38,7 @@ export default function TextWidget(props) {
 
   const uiOptions = getUiOptions(props.uiSchema, props.registry.globalUiOptions);
 
-  const description = props.options.description || props.schema.description || '';
-  const richDescription = uiOptions.enableMarkdownInDescription ? <Markdown>{description}</Markdown> : description;
+  const _description = RichDescription(schema, uiSchema, options, registry);
 
   const listId = schema.examples ? examplesId(id) : undefined;
 
@@ -65,20 +64,20 @@ export default function TextWidget(props) {
         readOnly={readonly}
         default={props.default}
         type={uiSchema.inputType ?? 'text'}
-        help={richDescription}
+        help={_description}
         required={required}
         ref={inputRef}
         style={{ maxWidth : schema.maxLength!==undefined ? `${schema.maxLength + 1}em` : 'inherit'}}
       />
 
-        {
-          Array.isArray(schema.examples) && (<datalist key={`datalist_${id}`} id={listId}>
-            {schema.examples
-                  .concat(schema.default && !schema.examples.includes(schema.default) ? [schema.default] : [])
-                  .map((example) => <option key={example} value={example}/>
-              )}
-          </datalist>)
-        }
+      {
+        Array.isArray(schema.examples) && (<datalist key={`datalist_${id}`} id={listId}>
+          {schema.examples
+                .concat(schema.default && !schema.examples.includes(schema.default) ? [schema.default] : [])
+                .map((example) => <option key={example} value={example}/>
+            )}
+        </datalist>)
+      }
     </>
   );
 }

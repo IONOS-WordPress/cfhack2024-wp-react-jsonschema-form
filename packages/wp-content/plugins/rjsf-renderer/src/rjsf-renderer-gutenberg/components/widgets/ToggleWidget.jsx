@@ -1,6 +1,7 @@
 import { ToggleControl } from '@wordpress/components';
-import { labelValue, getUiOptions, } from '@rjsf/utils';
-import Markdown from 'markdown-to-jsx';
+import { labelValue, getUiOptions, description, } from '@rjsf/utils';
+import RichDescription from '../../RichDescription.jsx';
+
 /** The `ToggleWidget` is a widget for rendering boolean properties.
  *  It is typically used to represent a boolean.
  *
@@ -10,8 +11,7 @@ function ToggleWidget({ schema, uiSchema, options, id, value, disabled, readonly
 
   const uiOptions = getUiOptions(uiSchema, registry.globalUiOptions);
 
-  const description = options.description || schema.description || '';
-  const richDescription = uiOptions.enableMarkdownInDescription ? <Markdown>{description}</Markdown> : description;
+  const _description = RichDescription(schema, uiSchema, options, registry);
 
   const checked = typeof value === 'undefined' ? false : value;
   return (
@@ -19,7 +19,7 @@ function ToggleWidget({ schema, uiSchema, options, id, value, disabled, readonly
       <ToggleControl
         checked={checked}
         label={labelValue(<span>{label}</span>, hideLabel)}
-        help={richDescription}
+        help={_description}
         onChange={() => onChange(!checked)}
       />
     </>
