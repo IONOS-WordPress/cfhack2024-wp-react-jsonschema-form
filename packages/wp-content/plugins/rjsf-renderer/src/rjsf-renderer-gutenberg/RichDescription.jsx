@@ -9,6 +9,7 @@ export default function RichDescription (schema, uiSchema, options, registry) {
   return (
     uiOptions.enableMarkdownInDescription ?
     <Markdown options={{
+      wrapper: ({ children, ...props }) => <span {...props} className='markdown-description'>{children}</span>,
       overrides: {
         p : ({ children, ...props }) => <span {...props} className='markdown-description-line'>{children}</span>,
       },
