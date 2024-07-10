@@ -4,6 +4,10 @@
 
 .rjsf.rjsf-renderer-gutenberg {
 
+  .unsupported-field > pre {
+    text-wrap: balance;
+  }
+
   fieldset {
     min-inline-size: auto;
   }
