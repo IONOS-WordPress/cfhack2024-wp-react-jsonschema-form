@@ -5,5 +5,8 @@
   "description": {
     "ui:widget": "TextareaWidget",
     "ui:rows": 5
+  },
+  "$schema": {
+    "ui:widget": "hidden"
   }
 }
