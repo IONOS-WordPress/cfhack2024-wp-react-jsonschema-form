@@ -40,7 +40,7 @@ export default function UpDownWidget(props) {
   const inputRef = useRef(null);
   useEffect(() => {
     inputRef.current?.setAttribute('autocomplete', uiOptions.autocomplete ?? 'off');
-    if( examplesId ) {
+    if( listId ) {
       inputRef.current?.setAttribute('list', listId);
     }
   }, [inputRef]);
