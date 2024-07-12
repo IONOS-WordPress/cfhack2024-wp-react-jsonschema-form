@@ -26,12 +26,17 @@
       "description": "The name of the experiment this block is a part of, or boolean true if there is no specific experiment name.",
       "anyOf": [
         {
+          "title": "Name of the experiment",
+          "description" : "The name of the experiment this block is a part of",
           "type": "string"
         },
         {
+          "title": "Mark this block as experimental",
+          "description": "Check this option if there is no specific experiment name.",
           "type": "boolean"
         }
-      ]
+      ],
+      "default": false
     },
     "title": {
       "type": "string",

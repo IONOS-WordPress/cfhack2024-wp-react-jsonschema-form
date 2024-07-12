@@ -2,6 +2,9 @@
   "ui:globalOptions": {
     "enableMarkdownInDescription": true
   },
+  "apiVersion": {
+    "ui:widget": "SelectWidget"
+  },
   "description": {
     "ui:widget": "TextareaWidget",
     "ui:rows": 5
