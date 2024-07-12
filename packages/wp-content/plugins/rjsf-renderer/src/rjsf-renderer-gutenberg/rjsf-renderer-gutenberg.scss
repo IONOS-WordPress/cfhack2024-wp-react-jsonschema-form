@@ -16,6 +16,11 @@
     min-inline-size: auto;
   }
 
+  // center label text of checkbox control
+  .components-checkbox-control__label {
+    vertical-align: middle;
+  }
+
   legend {
     font-size: 11px;
     font-weight: 500;
