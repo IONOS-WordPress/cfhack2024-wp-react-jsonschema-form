@@ -5,6 +5,18 @@
   "apiVersion": {
     "ui:widget": "SelectWidget"
   },
+  "__experimental": {
+    "anyOf": [
+      {
+        "ui:title": "Name of the experiment",
+        "ui:description": "The name of the experiment this block is a part of, or boolean true if there is no specific experiment name."
+      },
+      {
+        "ui:title": "Mark this block as experimental",
+        "ui:description": "The name of the experiment this block is a part of, or boolean true if there is no specific experiment name."
+      }
+    ]
+  },
   "description": {
     "ui:widget": "TextareaWidget",
     "ui:rows": 5
