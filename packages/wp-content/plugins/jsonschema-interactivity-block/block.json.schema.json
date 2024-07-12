@@ -448,7 +448,10 @@
     },
     "version": {
       "type": "string",
-      "description": "The current version number of the block, such as 1.0 or 1.0.3. It’s similar to how plugins are versioned. This field might be used with block assets to control cache invalidation, and when the block author omits it, then the installed version of WordPress is used instead."
+      "description": "The current version number of the block, such as 1.0 or 1.0.3. It’s similar to how plugins are versioned. This field might be used with block assets to control cache invalidation, and when the block author omits it, then the installed version of WordPress is used instead.",
+      "pattern": "^[0-9]{1,3}(\\.[0-9]{1,3}){0,2}$",
+      "maxLength": 11,
+      "default": "1.0.0"
     },
     "textdomain": {
       "type": "string",
@@ -1332,7 +1335,8 @@
         "type": "object",
         "required": [
           "name",
-          "title"
+          "title",
+          "version"
         ],
         "additionalProperties": false,
         "properties": {
