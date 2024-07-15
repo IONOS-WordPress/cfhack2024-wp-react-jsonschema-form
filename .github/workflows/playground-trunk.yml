@@ -1,4 +1,4 @@
-name: Run Playground Script and Deploy to gh-pages
+name: Updates the gh-pages branch to contain the current trunk
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - trunk
 
 permissions:
-  contents: write  # Ensure the workflow has write permissions
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -31,9 +31,6 @@ jobs:
           - recursive: true
             args: [--frozen-lockfile, --strict-peer-dependencies]
 
-    - name: Run Playground Script
-      run: ./scripts/playground.sh
-
     - name: Set up Git configuration
       run: |
         git config --global user.name "github-actions[bot]"
@@ -42,21 +39,21 @@ jobs:
     - name: Clone the gh-pages branch
       run: |
         git clone --single-branch --branch gh-pages https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
-        cd gh-pages
-        BRANCH_NAME=${GITHUB_REF_NAME}
-        if [ -d "$BRANCH_NAME" ]; then
-          rm -rf "$BRANCH_NAME"
-        fi
 
-    - name: Copy dist to branch directory
+    - name: Run Playground Script
+      run: ./scripts/playground.sh
+
+    - name: Copy dist folder to gh-pages/trunk
       run: |
         BRANCH_NAME=${GITHUB_REF_NAME}
-        mv dist gh-pages/$BRANCH_NAME
+        FULL_DIR_NAME="gh-pages/${BRANCH_NAME}"
+        mkdir -p $FULL_DIR_NAME
+        cp -r dist/* $FULL_DIR_NAME
 
     - name: Commit and push changes
       run: |
         cd gh-pages
         git add .
-        git commit -m "Deploy to gh-pages branch from ${GITHUB_REF_NAME}"
+        git commit -m "Deploying ${GITHUB_REF_NAME}"
         git push origin gh-pages --force
 
