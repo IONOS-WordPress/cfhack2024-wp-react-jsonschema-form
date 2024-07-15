@@ -1,3 +1,5 @@
+[![playground-demo](https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=wp-playground&message=Try%20it%20out%20online&color=41439a)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/playground.json)
+
 # JSON Schema Field/Form Renderer for WordPress
 
 ## About
