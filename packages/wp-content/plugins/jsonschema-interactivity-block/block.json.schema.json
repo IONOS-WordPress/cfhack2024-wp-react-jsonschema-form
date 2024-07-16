@@ -1111,12 +1111,30 @@
         },
         "attributes": {
           "type": "object",
-          "description": "Set the attributes for the block example"
+          "description": "Set the attributes for the block example",
+          "additionalItems": true
         },
         "innerBlocks": {
           "type": "array",
-          "description": "Set the inner blocks that should be used within the block example. The blocks should be defined as a nested array like this:\n\n[ { \"name\": \"core/heading\", \"attributes\": { \"content\": \"This is an Example\" } } ]\n\nWhere each block itself is an object that contains the block name, the block attributes, and the blocks inner blocks."
-
+          "description": "Set the inner blocks that should be used within the block example. The blocks should be defined as a nested array like this:\n\n[ { \"name\": \"core/heading\", \"attributes\": { \"content\": \"This is an Example\" } } ]\n\nWhere each block itself is an object that contains the block name, the block attributes, and the blocks inner blocks.",
+          "items" : {
+            "type" : "object",
+            "required" : ["name", "attributes"],
+            "properties" : {
+              "name" : {
+                "type" : "string",
+                "description" : "The name of the block to be used in the example."
+              },
+              "attributes" : {
+                "type" : "array",
+                "description" : "The attributes for the block to be used in the example.",
+                "items" : {
+                  "type" : "object"
+                },
+                "additionalItems": true
+              }
+            }
+          }
         }
       }
     },
