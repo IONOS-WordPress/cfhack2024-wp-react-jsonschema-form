@@ -44,10 +44,18 @@ export default function TextWidget(props) {
 
   const inputRef = useRef(null);
   useEffect(() => {
-    inputRef.current?.setAttribute('autocomplete', uiOptions.autocomplete ?? 'off');
-    if( listId ) {
-      inputRef.current?.setAttribute('list', listId);
+    const input = inputRef.current;
+    if(!input) {
+      return;
     }
+
+    input.setAttribute('autocomplete', uiOptions.autocomplete ?? 'off');
+    if( listId ) {
+      input.setAttribute('list', listId);
+    }
+
+    uiOptions.placeholder && input.setAttribute('placeholder', uiOptions.placeholder);
+    uiOptions.autofocus && input.setAttribute('autofocus', '');
   }, [inputRef]);
 
   return (
@@ -63,6 +71,7 @@ export default function TextWidget(props) {
         onFocus={_onFocus}
         readOnly={readonly}
         default={props.default}
+        disabled={uiOptions.disabled}
         type={uiSchema.inputType ?? 'text'}
         help={_description}
         required={required}
