@@ -2,6 +2,10 @@
   "ui:globalOptions": {
     "enableMarkdownInDescription": true
   },
+  "name": {
+    "ui:placeholder": "namespace/block-name",
+    "ui:autofocus": true
+  },
   "apiVersion": {
     "ui:widget": "SelectWidget"
   },
