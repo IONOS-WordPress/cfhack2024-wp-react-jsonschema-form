@@ -14,6 +14,6 @@ export function MoveUpButton(props) {
     return (<Button title={translateString(TranslatableString.MoveUpButton)} className='array-item-move-up' {...props} icon='arrow-up'/>);
 }
 export function RemoveButton(props) {
-    const { registry: { translateString }, } = props;
-    return (<Button title={translateString(TranslatableString.RemoveButton)} className='array-item-remove' {...props} icon='remove'/>);
+    const { registry: { translateString }, uiSchema, ...buttonProps} = props;
+    return (<Button title={translateString(TranslatableString.RemoveButton)} className='array-item-remove' {...buttonProps} icon='remove'/>);
 }
