@@ -2,28 +2,130 @@
   "ui:globalOptions": {
     "enableMarkdownInDescription": true
   },
+  "ui:order": ["name", "apiVersion", "title", "version", "description", "icon", "category", "keywords", "*"],
   "name": {
     "ui:placeholder": "namespace/block-name",
     "ui:autofocus": true
   },
+  "parent": {
+    "ui:orderable": false,
+    "items": {
+      "ui:label": false
+    }
+  },
+  "ancestor": {
+    "ui:orderable": false,
+    "items": {
+      "ui:label": false
+    }
+  },
+  "allowedBlocks": {
+    "ui:orderable": false,
+    "items": {
+      "ui:label": false
+    }
+  },
   "apiVersion": {
     "ui:widget": "SelectWidget"
+  },
+  "category": {
+    "anyOf": [
+      {
+        "ui:label": false
+      },
+      {
+        "ui:label": false
+      }
+    ]
   },
   "__experimental": {
     "anyOf": [
       {
+        "ui:label": false,
         "ui:title": "Name of the experiment",
         "ui:description": "The name of the experiment this block is a part of, or boolean true if there is no specific experiment name."
       },
       {
+        "ui:label": false,
         "ui:title": "Mark this block as experimental",
-        "ui:description": "The name of the experiment this block is a part of, or boolean true if there is no specific experiment name."
+        "ui:description": "The name of the experiment this block is a part of, or boolean true if there is no specific experiment name.",
+        "ui:widget": "ToggleWidget"
       }
     ]
   },
   "description": {
     "ui:widget": "TextareaWidget",
     "ui:rows": 5
+  },
+  "keywords": {
+    "ui:orderable": false,
+    "items": {
+      "ui:label": false
+    }
+  },
+  "textdomain": {
+    "ui:placeholder": "namespace/block-name"
+  },
+  "usesContext": {
+    "ui:orderable": false,
+    "items": {
+      "ui:label": false
+    }
+  },
+  "supports": {
+    "align": {
+      "oneOf": [
+        {
+          "ui:label": false,
+          "ui:title": "Enable support for all block alignments",
+          "ui:description": "This property adds block controls which allow to change block’s alignment. This adds support for all the options: `left`, `center`, `right`, `wide`, and `full`.",
+          "ui:widget": "ToggleWidget"
+        },
+        {
+          "ui:label": false,
+          "ui:title": "Enable support for individual block alignments",
+          "ui:description": "This property adds block controls which allow to change block’s alignment.",
+          "ui:orderable": false,
+          "items": {
+            "ui:label": false
+          }
+        }
+      ]
+    },
+    "typography": {
+      "textAlign": {
+        "oneOf": [
+          {
+            "ui:title": "Enable all alignments",
+            "ui:description": "This property adds block toolbar controls which allow to change block's text alignment.",
+            "ui:widget": "ToggleWidget",
+            "ui:label": false
+          },
+          {
+            "ui:title": "Select enabled alignments",
+            "ui:description": "This property adds block toolbar controls which allow to change block's text alignment.",
+            "ui:label": false,
+            "ui:orderable": false,
+            "items": {
+              "ui:label": false
+            }
+          }
+        ]
+      }
+    },
+    "interactivity": {
+      "oneOf": [
+        {
+          "ui:title": "Enable interactivity support",
+          "ui:description": "Indicates if the block is using all Interactivity API features.",
+          "ui:widget": "ToggleWidget",
+          "ui:label": false
+        },
+        {
+          "ui:title": "Enable dedicated interactivity features"
+        }
+      ]
+    }
   },
   "$schema": {
     "ui:widget": "hidden"

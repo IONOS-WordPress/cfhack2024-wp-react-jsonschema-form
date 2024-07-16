@@ -11,11 +11,7 @@
       "type": "integer",
       "description": "The version of the Block API used by the block. The most recent version is 3 and it was introduced in WordPress 6.3.\n\n See the API versions documentation at https://developer.wordpress.org/block-editor/reference-guides/block-api/block-api-versions/ for more details.",
       "default": 1,
-      "enum": [
-        1,
-        2,
-        3
-      ]
+      "enum": [1, 2, 3]
     },
     "name": {
       "type": "string",
@@ -41,21 +37,14 @@
       "description": "Blocks are grouped into categories to help users browse and discover them.\n Core provided categories are: text, media, design, widgets, theme, embed\n\nPlugins and Themes can also register custom block categories.\n\nhttps://developer.wordpress.org/block-editor/reference-guides/filters/block-filters/#managing-block-categories",
       "anyOf": [
         {
+          "title": "Predefined block category",
+          "description": "Blocks are grouped into categories to help users browse and discover them.\n Core provided categories are: text, media, design, widgets, theme, embed\n\nPlugins and Themes can also register custom block categories.\n\nhttps://developer.wordpress.org/block-editor/reference-guides/filters/block-filters/#managing-block-categories",
+          "enum": ["text", "media", "design", "widgets", "theme", "embed"]
+        },
+        {
           "title": "Block category",
           "description": "Blocks are grouped into categories to help users browse and discover them.\n Core provided categories are: text, media, design, widgets, theme, embed\n\nPlugins and Themes can also register custom block categories.\n\nhttps://developer.wordpress.org/block-editor/reference-guides/filters/block-filters/#managing-block-categories",
           "type": "string"
-        },
-        {
-          "title": "Predefined block category",
-          "description": "Blocks are grouped into categories to help users browse and discover them.\n Core provided categories are: text, media, design, widgets, theme, embed\n\nPlugins and Themes can also register custom block categories.\n\nhttps://developer.wordpress.org/block-editor/reference-guides/filters/block-filters/#managing-block-categories",
-          "enum": [
-            "text",
-            "media",
-            "design",
-            "widgets",
-            "theme",
-            "embed"
-          ]
         }
       ]
     },
@@ -464,31 +453,14 @@
               "oneOf": [
                 {
                   "type": "string",
-                  "enum": [
-                    "null",
-                    "boolean",
-                    "object",
-                    "array",
-                    "string",
-                    "rich-text",
-                    "integer",
-                    "number"
-                  ]
+                  "enum": ["null", "boolean", "object", "array", "string", "rich-text", "integer", "number"]
                 },
                 {
                   "type": "array",
                   "uniqueItems": true,
                   "items": {
                     "type": "string",
-                    "enum": [
-                      "null",
-                      "boolean",
-                      "object",
-                      "array",
-                      "string",
-                      "integer",
-                      "number"
-                    ]
+                    "enum": ["null", "boolean", "object", "array", "string", "integer", "number"]
                   }
                 }
               ]
@@ -513,15 +485,7 @@
             "source": {
               "type": "string",
               "description": "Attribute sources are used to define how the attribute values are extracted from saved post content. They provide a mechanism to map from the saved markup to a JavaScript representation of a block.",
-              "enum": [
-                "attribute",
-                "text",
-                "rich-text",
-                "html",
-                "raw",
-                "query",
-                "meta"
-              ]
+              "enum": ["attribute", "text", "rich-text", "html", "raw", "query", "meta"]
             },
             "selector": {
               "type": "string",
@@ -545,14 +509,10 @@
           },
           "anyOf": [
             {
-              "required": [
-                "type"
-              ]
+              "required": ["type"]
             },
             {
-              "required": [
-                "enum"
-              ]
+              "required": ["enum"]
             }
           ]
         }
@@ -595,13 +555,7 @@
               "type": "array",
               "items": {
                 "type": "string",
-                "enum": [
-                  "wide",
-                  "full",
-                  "left",
-                  "center",
-                  "right"
-                ]
+                "enum": ["wide", "full", "left", "center", "right"]
               }
             }
           ]
@@ -618,7 +572,7 @@
         },
         "className": {
           "type": "boolean",
-          "description": "By default, the class .wp-block-your-block-name is added to the root element of your saved markup. This helps having a consistent mechanism for styling blocks that themes and plugins can rely on. If, for whatever reason, a class is not desired on the markup, this functionality can be disabled.",
+          "description": "By default, the class `.wp-block-your-block-name` is added to the root element of your saved markup. This helps having a consistent mechanism for styling blocks that themes and plugins can rely on. If, for whatever reason, a class is not desired on the markup, this functionality can be disabled.",
           "default": true
         },
         "color": {
@@ -742,11 +696,7 @@
                     "type": {
                       "type": "string",
                       "description": "The layout type.",
-                      "enum": [
-                        "constrained",
-                        "grid",
-                        "flex"
-                      ]
+                      "enum": ["constrained", "grid", "flex"]
                     },
                     "contentSize": {
                       "type": "string",
@@ -759,40 +709,22 @@
                     "justifyContent": {
                       "type": "string",
                       "description": "Content justification value.",
-                      "enum": [
-                        "right",
-                        "center",
-                        "space-between",
-                        "left",
-                        "stretch"
-                      ]
+                      "enum": ["right", "center", "space-between", "left", "stretch"]
                     },
                     "orientation": {
                       "type": "string",
                       "description": "The orientation of the layout.",
-                      "enum": [
-                        "horizontal",
-                        "vertical"
-                      ]
+                      "enum": ["horizontal", "vertical"]
                     },
                     "flexWrap": {
                       "type": "string",
                       "description": "The flex wrap value.",
-                      "enum": [
-                        "wrap",
-                        "nowrap"
-                      ]
+                      "enum": ["wrap", "nowrap"]
                     },
                     "verticalAlignment": {
                       "type": "string",
                       "description": "The vertical alignment value.",
-                      "enum": [
-                        "top",
-                        "center",
-                        "bottom",
-                        "space-between",
-                        "stretch"
-                      ]
+                      "enum": ["top", "center", "bottom", "space-between", "stretch"]
                     },
                     "minimumColumnWidth": {
                       "type": "string",
@@ -887,22 +819,14 @@
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "enum": [
-                      "top",
-                      "right",
-                      "left",
-                      "bottom"
-                    ]
+                    "enum": ["top", "right", "left", "bottom"]
                   }
                 },
                 {
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "enum": [
-                      "vertical",
-                      "horizontal"
-                    ]
+                    "enum": ["vertical", "horizontal"]
                   }
                 }
               ]
@@ -916,22 +840,14 @@
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "enum": [
-                      "top",
-                      "right",
-                      "left",
-                      "bottom"
-                    ]
+                    "enum": ["top", "right", "left", "bottom"]
                   }
                 },
                 {
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "enum": [
-                      "vertical",
-                      "horizontal"
-                    ]
+                    "enum": ["vertical", "horizontal"]
                   }
                 }
               ]
@@ -975,11 +891,7 @@
                   "type": "array",
                   "items": {
                     "type": "string",
-                    "enum": [
-                      "left",
-                      "center",
-                      "right"
-                    ]
+                    "enum": ["left", "center", "right"]
                   }
                 }
               ],
@@ -1184,10 +1096,7 @@
             "default": false
           }
         },
-        "required": [
-          "name",
-          "label"
-        ],
+        "required": ["name", "label"],
         "additionalProperties": false
       }
     },
@@ -1207,6 +1116,7 @@
         "innerBlocks": {
           "type": "array",
           "description": "Set the inner blocks that should be used within the block example. The blocks should be defined as a nested array like this:\n\n[ { \"name\": \"core/heading\", \"attributes\": { \"content\": \"This is an Example\" } } ]\n\nWhere each block itself is an object that contains the block name, the block attributes, and the blocks inner blocks."
+
         }
       }
     },
@@ -1215,12 +1125,7 @@
       "type": "object",
       "patternProperties": {
         "^[a-z][a-z0-9-]*/[a-z][a-z0-9-]*$": {
-          "enum": [
-            "before",
-            "after",
-            "firstChild",
-            "lastChild"
-          ]
+          "enum": ["before", "after", "firstChild", "lastChild"]
         }
       },
       "additionalProperties": false
@@ -1328,11 +1233,7 @@
       "description": "Block Variations is the API that allows a block to have similar versions of it, but all these versions share some common functionality.",
       "items": {
         "type": "object",
-        "required": [
-          "name",
-          "title",
-          "version"
-        ],
+        "required": ["name", "title", "version"],
         "additionalProperties": false,
         "properties": {
           "name": {
@@ -1354,14 +1255,7 @@
                 "type": "string"
               },
               {
-                "enum": [
-                  "text",
-                  "media",
-                  "design",
-                  "widgets",
-                  "theme",
-                  "embed"
-                ]
+                "enum": ["text", "media", "design", "widgets", "theme", "embed"]
               }
             ]
           },
@@ -1393,16 +1287,9 @@
             "type": "array",
             "description": "The list of scopes where the variation is applicable.",
             "items": {
-              "enum": [
-                "inserter",
-                "block",
-                "transform"
-              ]
+              "enum": ["inserter", "block", "transform"]
             },
-            "default": [
-              "inserter",
-              "block"
-            ]
+            "default": ["inserter", "block"]
           },
           "keywords": {
             "type": "array",
@@ -1426,9 +1313,6 @@
       "description": "Template file loaded on the server when rendering a block."
     }
   },
-  "required": [
-    "name",
-    "title"
-  ],
+  "required": ["name", "title"],
   "additionalProperties": false
 }
