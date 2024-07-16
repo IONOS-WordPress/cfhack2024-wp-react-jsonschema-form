@@ -1,0 +1,89 @@
+name: Playground for Requests
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build-playground:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: 'true'
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 'lts/*'
+
+    - name: Set up pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+        run_install: |
+          - recursive: true
+            args: [--frozen-lockfile, --strict-peer-dependencies]
+
+    - name: Set up Git configuration
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+    - name: Clone the gh-pages branch
+      run: |
+        git clone --single-branch --branch gh-pages https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
+
+    - name: define Qualified Path
+      run: |
+        TARGET_DIR="pr/${{ github.head_ref}}/${GITHUB_SHA}"
+        echo "TARGET_DIR=$TARGET_DIR" >> $GITHUB_ENV
+
+    - name: Run Playground Script
+      run: ./scripts/playground.sh $TARGET_DIR
+      # this produces a dist/$TARGET_DIR folder. we want to move this to gh-pages/$TARGET_DIR
+
+    - name: move dist folder
+      run: |
+        mkdir -p "gh-pages/$TARGET_DIR"
+        mv "dist/$TARGET_DIR" $(dirname "gh-pages/$TARGET_DIR")
+
+    - name: Commit and push changes
+      run: |
+        cd gh-pages
+        git add .
+        git commit -m "Deploying state of PR ${{ github.pr_number}} from ${{ github.head_ref}}"
+        git push origin gh-pages --force
+
+    - name: move git data to file
+      run : |
+        echo "TARGET_DIR=$TARGET_DIR" >> ./state.txt
+        echo "GITHUB_SHA=$GITHUB_SHA" >> ./state.txt
+        echo "PR_NUMBER=${{ github.pr_number}}" >> ./state.txt
+        echo "HEAD_REF=${{ github.head_ref}}" >> ./state.txt
+
+    - name: comment on PR
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const fs = require('fs');
+          const state = fs.readFileSync('./state.txt', 'utf8');
+          const [TARGET_DIR, GITHUB_SHA, PR_NUMBER, HEAD_REF] = state.split('\n').map(s => s.split('=')[1]);
+          const badge = `[![Checkout Commit here](https://img.shields.io/static/v1?logo=wordpress&logoColor=white&label=wp-playground&message=check%20it%20out%20online&color=41439a)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/${TARGET_DIR}/playground.json)`;
+          console.log(`TARGET_DIR=${TARGET_DIR}`);
+          console.log(`GITHUB_SHA=${GITHUB_SHA}`);
+
+          github.rest.issues.createComment({
+            owner: context.repo.owner,
+            issue_number: context.issue.number,
+            repo: context.repo.repo,
+            body: `Playground for PR ${PR_NUMBER} from ${HEAD_REF} is ready! \n ${badge}`
+          });
+        
