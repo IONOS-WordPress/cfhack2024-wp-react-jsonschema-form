@@ -113,6 +113,25 @@
         ]
       }
     },
+    "layout": {
+      "oneOf": [
+        {
+          "ui:title": "Simple (flow)",
+          "ui:description": "This value only applies to blocks that are containers for inner blocks. If set to `true` the layout type will be `flow`. For other layout types it's necessary to set the `type` explicitly inside the `default` object.",
+          "ui:widget": "ToggleWidget",
+          "ui:label": false
+        },
+        {
+          "ui:title": "Advanced",
+          "ui:description": "This value only applies to blocks that are containers for inner blocks. If set to `true` the layout type will be `flow`. For other layout types it's necessary to set the `type` explicitly inside the `default` object.",
+          "ui:label": false,
+          "ui:orderable": false,
+          "items": {
+            "ui:label": false
+          }
+        }
+      ]
+    },
     "interactivity": {
       "oneOf": [
         {
@@ -123,6 +142,63 @@
         },
         {
           "ui:title": "Enable dedicated interactivity features"
+        }
+      ]
+    },
+    "spacing": {
+      "margin": {
+        "oneOf": [
+          {
+            "ui:title": "Enable margin support",
+            "ui:description": "This value signals that a block supports some of the CSS style properties related to spacing. When it does, the block editor will show UI controls for the user to set their values if the theme declares support.\n\nWhen the block declares support for a specific spacing property, its attributes definition is extended to include the style attribute.",
+            "ui:widget": "ToggleWidget",
+            "ui:label": false
+          },
+          {
+            "ui:title": "Enable by direction",
+            "ui:description": "This value signals that a block supports some of the CSS style properties related to spacing. When it does, the block editor will show UI controls for the user to set their values if the theme declares support.\n\nWhen the block declares support for a specific spacing property, its attributes definition is extended to include the style attribute.",
+            "ui:label": false
+          },
+          {
+            "ui:title": "Enable by alignment",
+            "ui:description": "This value signals that a block supports some of the CSS style properties related to spacing. When it does, the block editor will show UI controls for the user to set their values if the theme declares support.\n\nWhen the block declares support for a specific spacing property, its attributes definition is extended to include the style attribute.",
+            "ui:label": false
+          }
+        ]
+      },
+      "padding": {
+        "oneOf": [
+          {
+            "ui:title": "Enable padding support",
+            "ui:description": "This value signals that a block supports some of the CSS style properties related to spacing. When it does, the block editor will show UI controls for the user to set their values if the theme declares support.\n\nWhen the block declares support for a specific spacing property, its attributes definition is extended to include the style attribute.",
+            "ui:widget": "ToggleWidget",
+            "ui:label": false
+          },
+          {
+            "ui:title": "Enable by direction",
+            "ui:description": "This value signals that a block supports some of the CSS style properties related to spacing. When it does, the block editor will show UI controls for the user to set their values if the theme declares support.\n\nWhen the block declares support for a specific spacing property, its attributes definition is extended to include the style attribute.",
+            "ui:label": false
+          },
+          {
+            "ui:title": "Enable by alignment",
+            "ui:description": "This value signals that a block supports some of the CSS style properties related to spacing. When it does, the block editor will show UI controls for the user to set their values if the theme declares support.\n\nWhen the block declares support for a specific spacing property, its attributes definition is extended to include the style attribute.",
+            "ui:label": false
+          }
+        ]
+      }
+    },
+    "shadow": {
+      "oneOf": [
+        {
+          "ui:title": "Enable shadow support",
+          "ui:description": "Defines whether a box shadow is enabled or not.",
+          "ui:widget": "ToggleWidget",
+          "ui:label": false
+        },
+        {
+          "ui:title": "@TODO: title",
+          "ui:description": "@TODO: description",
+          "ui:label": false
         }
       ]
     }
