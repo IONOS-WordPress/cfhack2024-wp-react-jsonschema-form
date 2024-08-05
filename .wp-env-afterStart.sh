@@ -30,7 +30,7 @@ WPENV_INSTALLPATH="$(realpath --relative-to $(pwd) $(pnpm run --silent wp-env in
 # popd
 
 # remove dolly demo plugin
-rm -rf $WPENV_INSTALLPATH/{tests-WordPress,WordPress}/wp-content/plugins/hello.php
+rm -f $WPENV_INSTALLPATH/{tests-WordPress,WordPress}/wp-content/plugins/hello.php
 
 for prefix in '' 'tests-' ; do
   # this wp-cli configuration file needs to be created to enable wp-cli to work with the apache mod_rewrite module
