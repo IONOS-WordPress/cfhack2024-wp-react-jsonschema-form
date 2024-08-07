@@ -31,39 +31,33 @@ jobs:
           - recursive: true
             args: [--frozen-lockfile, --strict-peer-dependencies]
 
-    - name: Set up Git configuration
+    - name: Setting up Git
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-    - name: Clone the gh-pages branch
-      run: |
         git clone --single-branch --branch gh-pages https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
 
-    - name: define Qualified Path
+
+    - name: Run Playground Script
       run: |
         TARGET_DIR="pr/${{ github.head_ref}}/${GITHUB_SHA}"
         TARGET_HOST=${GITHUB_REPOSITORY%%/*}/${GITHUB_REPOSITORY##*/}
-        echo "TARGET_DIR=$TARGET_DIR" >> $GITHUB_ENV
-        echo "TARGET_HOST=$TARGET_HOST" >> $GITHUB_ENV
-
-    - name: Run Playground Script
-      run: ./scripts/playground.sh $TARGET_HOST $TARGET_DIR
+        ./scripts/playground.sh $TARGET_HOST $TARGET_DIR
       # this produces a dist/$TARGET_DIR folder. we want to move this to gh-pages/$TARGET_DIR
 
     - name: move dist folder
       run: |
+        # Setting up the target directory
         mkdir -p "gh-pages/$TARGET_DIR"
         mv "dist/$TARGET_DIR" $(dirname "gh-pages/$TARGET_DIR")
-
-    - name: Commit and push changes
-      run: |
+        
+        # Adding changes to git
         cd gh-pages
         git add .
         git commit -m "Deploying state of PR ${{ github.pr_number}} from ${{ github.head_ref}}"
         git push origin gh-pages --force
 
-    - name: move git data to file
+    - name: Save state for use in next step
       run : |
         echo "TARGET_DIR=$TARGET_DIR" >> ./state.txt
         echo "GITHUB_SHA=$GITHUB_SHA" >> ./state.txt
@@ -71,7 +65,7 @@ jobs:
         echo "HEAD_REF=${{ github.head_ref}}" >> ./state.txt
         echo "GITHUB_REPOSITORY=${GITHUB_REPOSITORY}" >> ./state.txt
 
-    - name: comment on PR
+    - name: comment on PR with playground link
       uses: actions/github-script@v7
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}

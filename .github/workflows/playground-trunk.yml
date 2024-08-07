@@ -42,20 +42,18 @@ jobs:
 
     - name: define Qualified Path
       run: |
-        TARGET_HOST=${GITHUB_REPOSITORY%%/*}/${GITHUB_REPOSITORY##*/}
-        echo "TARGET_HOST=$TARGET_HOST" >> $GITHUB_ENV
-
     - name: Run Playground Script
-      run: ./scripts/playground.sh $TARGET_HOST
+      run: |
+        TARGET_HOST=${GITHUB_REPOSITORY%%/*}/${GITHUB_REPOSITORY##*/}
+        ./scripts/playground.sh $TARGET_HOST
 
     - name: Copy dist folder to gh-pages/trunk
       run: |
+        # Setting up the target directory
         BRANCH_NAME=${GITHUB_REF_NAME}
         mkdir -p "gh-pages/${BRANCH_NAME}"
         cp -r "dist/${BRANCH_NAME}" "gh-pages"
-
-    - name: Commit and push changes
-      run: |
+        # Adding changes to git
         cd gh-pages
         git add .
         git commit -m "Deploying ${GITHUB_REF_NAME}"
