@@ -52,6 +52,9 @@ jobs:
 
     - name: Copy dist folder to gh-pages/trunk
       run: |
+        # removing the old content if it exists
+        rm -rf gh-pages/$TARGET_DIR
+        
         # Setting up the target directory
         echo "Creating gh-pages/$TARGET_DIR"
         mkdir -p "gh-pages/$TARGET_DIR"
