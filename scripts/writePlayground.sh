@@ -65,8 +65,9 @@ writePlaygroundJson() {
     printf "[INFO] %s\n" "Writing playground configuration"
     local -n SORTED_PLUGINS=$1
     local BUNDLE_DIR=$2
-    local BRANCH_NAME=$3
-    local GITHUB_URL="https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/$BRANCH_NAME"
+    local TARGET_HOST=$3
+    local BRANCH_NAME=$4
+    local GITHUB_URL="https://raw.githubusercontent.com/$TARGET_HOST/gh-pages/$BRANCH_NAME"
 
     printf "{
     \"steps\": [
@@ -101,10 +102,11 @@ writePlaygroundJson() {
 main() {
     local PLUGINS=$1
     local BUNDLE_DIR=$2
-    local TARGET_FOLDER=$3
+    local TARGET_HOST=$3
+    local TARGET_FOLDER=$4
 
     sortPlugins "$PLUGINS"
-    writePlaygroundJson SortedPlugins "$BUNDLE_DIR" "$TARGET_FOLDER"
+    writePlaygroundJson SortedPlugins "$BUNDLE_DIR" "$TARGET_HOST" "$TARGET_FOLDER"
 }
 
 # Execute main function
