@@ -1,0 +1,30 @@
+name: Remove Playground files on merge
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  remove-playground:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git configuration
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: setup gh-pages branch
+        run: |
+          git clone --single-branch --branch gh-pages https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
+          cd gh-pages
+
+          rm -rf pr/${{ github.head_ref}}
+          git add --all
+          git commit -m "Remove playground files for PR ${{ github.head_ref }}"
+          git push origin gh-pages --force
+
+

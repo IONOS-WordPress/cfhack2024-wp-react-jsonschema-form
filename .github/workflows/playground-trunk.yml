@@ -1,4 +1,4 @@
-name: Run Playground Script and Deploy to gh-pages
+name: Updates the gh-pages branch to contain the current trunk
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - trunk
 
 permissions:
-  contents: write  # Ensure the workflow has write permissions
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -31,9 +31,6 @@ jobs:
           - recursive: true
             args: [--frozen-lockfile, --strict-peer-dependencies]
 
-    - name: Run Playground Script
-      run: ./scripts/playground.sh
-
     - name: Set up Git configuration
       run: |
         git config --global user.name "github-actions[bot]"
@@ -42,21 +39,30 @@ jobs:
     - name: Clone the gh-pages branch
       run: |
         git clone --single-branch --branch gh-pages https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
-        cd gh-pages
-        BRANCH_NAME=${GITHUB_REF_NAME}
-        if [ -d "$BRANCH_NAME" ]; then
-          rm -rf "$BRANCH_NAME"
-        fi
 
-    - name: Copy dist to branch directory
+    - name: define Qualified Path
       run: |
-        BRANCH_NAME=${GITHUB_REF_NAME}
-        mv dist gh-pages/$BRANCH_NAME
+    - name: Run Playground Script
+      run: |
+        TARGET_DIR="trunk"
+        TARGET_HOST=${GITHUB_REPOSITORY%%/*}/${GITHUB_REPOSITORY##*/}
+        echo "TARGET_DIR=$TARGET_DIR" >> $GITHUB_ENV
+        echo "TARGET_HOST=$TARGET_HOST" >> $GITHUB_ENV
+        ./scripts/playground.sh $TARGET_HOST
 
-    - name: Commit and push changes
+    - name: Copy dist folder to gh-pages/trunk
       run: |
+        # Setting up the target directory
+        echo "Creating gh-pages/$TARGET_DIR"
+        mkdir -p "gh-pages/$TARGET_DIR"
+        echo "copying dist/$TARGET_DIR to gh-pages/$TARGET_DIR"
+        mv dist/$TARGET_DIR $(dirname gh-pages/$TARGET_DIR)
+
+        # Adding changes to git
         cd gh-pages
         git add .
-        git commit -m "Deploy to gh-pages branch from ${GITHUB_REF_NAME}"
+        git commit -m "Deploying state of PR ${{ github.pr_number}} from ${{ github.head_ref}}"
         git push origin gh-pages --force
+
+
 
