@@ -42,15 +42,19 @@ jobs:
       run: |
         TARGET_DIR="pr/${{ github.head_ref}}/${GITHUB_SHA}"
         TARGET_HOST=${GITHUB_REPOSITORY%%/*}/${GITHUB_REPOSITORY##*/}
+        echo "TARGET_DIR=$TARGET_DIR" >> $GITHUB_ENV
+        echo "GITHUB_SHA=$GITHUB_SHA" >> $GITHUB_ENV
         ./scripts/playground.sh $TARGET_HOST $TARGET_DIR
       # this produces a dist/$TARGET_DIR folder. we want to move this to gh-pages/$TARGET_DIR
 
     - name: move dist folder
       run: |
         # Setting up the target directory
+        echo "Creating gh-pages/$TARGET_DIR"
         mkdir -p "gh-pages/$TARGET_DIR"
-        mv "dist/$TARGET_DIR" $(dirname "gh-pages/$TARGET_DIR")
-        
+        echo "copying dist/$TARGET_DIR to gh-pages/$TARGET_DIR"
+        mv dist/$TARGET_DIR $(dirname gh-pages/$TARGET_DIR)
+
         # Adding changes to git
         cd gh-pages
         git add .

@@ -44,18 +44,25 @@ jobs:
       run: |
     - name: Run Playground Script
       run: |
+        TARGET_DIR="trunk"
         TARGET_HOST=${GITHUB_REPOSITORY%%/*}/${GITHUB_REPOSITORY##*/}
+        echo "TARGET_DIR=$TARGET_DIR" >> $GITHUB_ENV
+        echo "TARGET_HOST=$TARGET_HOST" >> $GITHUB_ENV
         ./scripts/playground.sh $TARGET_HOST
 
     - name: Copy dist folder to gh-pages/trunk
       run: |
         # Setting up the target directory
-        BRANCH_NAME=${GITHUB_REF_NAME}
-        mkdir -p "gh-pages/${BRANCH_NAME}"
-        cp -r "dist/${BRANCH_NAME}" "gh-pages"
+        echo "Creating gh-pages/$TARGET_DIR"
+        mkdir -p "gh-pages/$TARGET_DIR"
+        echo "copying dist/$TARGET_DIR to gh-pages/$TARGET_DIR"
+        mv dist/$TARGET_DIR $(dirname gh-pages/$TARGET_DIR)
+
         # Adding changes to git
         cd gh-pages
         git add .
-        git commit -m "Deploying ${GITHUB_REF_NAME}"
+        git commit -m "Deploying state of PR ${{ github.pr_number}} from ${{ github.head_ref}}"
         git push origin gh-pages --force
+
+
 
