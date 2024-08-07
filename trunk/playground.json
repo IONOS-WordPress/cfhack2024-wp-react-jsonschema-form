@@ -4,90 +4,77 @@
           "step": "login",
           "username": "admin",
           "password": "password"
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/rjsf-renderer.zip"
             }
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/metabox-block.zip"
             }
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/editor-sidebar-plugin.zip"
             }
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/settings-page.zip"
             }
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/rjsf-attribute-editor-block.zip"
             }
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/cpt.zip"
             }
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/form-block.zip"
             }
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/formbuilder-embedded.zip"
             }
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/site-builder-demo.zip"
             }
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/jsonschema-interactivity-block.zip"
             }
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/rjsf-renderer-playground.zip"
             }
-        },
-        {
+        },        {
             "step": "installPlugin",
             "pluginZipFile": {
                 "resource": "url",
                 "url": "https://raw.githubusercontent.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form/gh-pages/trunk/custom-datatype.zip"
             }
-        }
-    ]
+        }    ]
 }
