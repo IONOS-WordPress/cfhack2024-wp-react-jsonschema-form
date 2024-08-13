@@ -2,7 +2,17 @@
   "ui:globalOptions": {
     "enableMarkdownInDescription": true
   },
-  "ui:order": ["name", "apiVersion", "title", "version", "description", "icon", "category", "keywords", "*"],
+  "ui:order": [
+    "name",
+    "apiVersion",
+    "title",
+    "version",
+    "description",
+    "icon",
+    "category",
+    "keywords",
+    "*"
+  ],
   "name": {
     "ui:placeholder": "namespace/block-name",
     "ui:autofocus": true
@@ -196,12 +206,295 @@
           "ui:label": false
         },
         {
-          "ui:title": "@TODO: title",
-          "ui:description": "@TODO: description",
+          "ui:title": "Enable shadow support by block type (not yet implemented)",
+          "ui:description": "Defines whether a box shadow is enabled or not (__@TODO: I could not find any documentation for this feature__).",
           "ui:label": false
         }
       ]
     }
+  },
+  "selectors": {
+    "border": {
+      "oneOf": [
+        {
+          "ui:title": "Border selector",
+          "ui:description": "Custom CSS selector used to generate rules for the block's theme.json border styles.",
+          "ui:label": false
+        },
+        {
+          "ui:title": "Advanced Border selector",
+          "ui:description": "Custom CSS selector used to generate rules for the block's theme.json border styles.",
+          "ui:label": false
+        }
+      ]
+    },
+    "color": {
+      "oneOf": [
+        {
+          "ui:title": "Color selector",
+          "ui:description": "Custom CSS selector used to generate rules for the block's theme.json color styles.",
+          "ui:label": false
+        },
+        {
+          "ui:title": "Advanced Color selector",
+          "ui:description": "Custom CSS selector used to generate rules for the block's theme.json color styles.",
+          "ui:label": false
+        }
+      ]
+    },
+    "dimensions": {
+      "oneOf": [
+        {
+          "ui:title": "Dimension selector",
+          "ui:description": "Custom CSS selector used to generate rules for the block's theme.json dimensions styles.",
+          "ui:label": false
+        },
+        {
+          "ui:title": "Advanced Dimensions selector",
+          "ui:description": "Custom CSS selector used to generate rules for the block's theme.json dimensions styles.",
+          "ui:label": false
+        }
+      ]
+    },
+    "spacing": {
+      "oneOf": [
+        {
+          "ui:title": "Spacing selector",
+          "ui:description": "Custom CSS selector used to generate rules for the block's theme.json spacing styles.",
+          "ui:label": false
+        },
+        {
+          "ui:title": "Advanced Spacing selector",
+          "ui:description": "Custom CSS selector used to generate rules for the block's theme.json spacing styles.",
+          "ui:label": false
+        }
+      ]
+    },
+    "typography": {
+      "oneOf": [
+        {
+          "ui:title": "Typography selector",
+          "ui:description": "Custom CSS selector used to generate rules for the block's theme.json typography styles.",
+          "ui:label": false
+        },
+        {
+          "ui:title": "Advanced Typography selector",
+          "ui:description": "Custom CSS selector used to generate rules for the block's theme.json typography styles.",
+          "ui:label": false
+        }
+      ]
+    }
+  },
+  "styles": {
+    "items": {
+      "ui:label": false,
+      "ui:classNames": "direction-horizontal"
+    }
+  },
+  "example": {
+    "innerBlocks": {
+      "items": {
+        "ui:label": false,
+        "attributes": {
+          "items": {
+            "ui:label": false
+          }
+        }
+      }
+    }
+  },
+  "editorScript": {
+    "oneOf": [
+      {
+        "ui:title": "Editor Script",
+        "ui:description": "Block type editor script definition. It will only be enqueued in the context of the editor. Example: `file:./editor.js`",
+        "ui:label": false,
+        "ui:placeholder": "file:./editor.js"
+      },
+      {
+        "ui:title": "Editor Scripts",
+        "ui:label": false,
+        "items": {
+          "ui:label": false,
+          "ui:description": "Block type editor script definition. It will only be enqueued in the context of the editor. Example: `file:./editor.js`",
+          "ui:placeholder": "file:./editor.js"
+        }
+      }
+    ]
+  },
+  "module": {
+    "oneOf": [
+      {
+        "ui:title": "Module",
+        "ui:description": "Block type frontend script module definition. It will be enqueued only when viewing the content on the front of the site. Example: `file:./module.js`",
+        "ui:label": false,
+        "ui:placeholder": "file:./module.js"
+      },
+      {
+        "ui:title": "Modules",
+        "ui:label": false,
+        "items": {
+          "ui:label": false,
+          "ui:description": "Block type frontend script module definition. It will be enqueued only when viewing the content on the front of the site. Example: `file:./module.js`",
+          "ui:placeholder": "file:./module.js"
+        }
+      }
+    ]
+  },
+  "script": {
+    "oneOf": [
+      {
+        "ui:title": "Script",
+        "ui:description": "Block type frontend and editor script definition. It will be enqueued both in the editor and when viewing the content on the front of the site. Example: `file:./block.js`",
+        "ui:label": false,
+        "ui:placeholder": "file:./block.js"
+      },
+      {
+        "ui:title": "Scripts",
+        "ui:label": false,
+        "items": {
+          "ui:label": false,
+          "ui:description": "Block type frontend and editor script definition. It will be enqueued both in the editor and when viewing the content on the front of the site. Example: `file:./block.js`",
+          "ui:placeholder": "file:./block.js"
+        }
+      }
+    ]
+  },
+  "viewScript": {
+    "oneOf": [
+      {
+        "ui:title": "View Script",
+        "ui:description": "Block type frontend script definition. It will be enqueued only when viewing the content on the front of the site. Example: `file:./view.js`",
+        "ui:label": false,
+        "ui:placeholder": "file:./view.js"
+      },
+      {
+        "ui:title": "View Scripts",
+        "ui:label": false,
+        "items": {
+          "ui:label": false,
+          "ui:description": "Block type frontend script definition. It will be enqueued only when viewing the content on the front of the site. Example: `file:./view.js`",
+          "ui:placeholder": "file:./view.js"
+        }
+      }
+    ]
+  },
+  "viewScriptModule": {
+    "oneOf": [
+      {
+        "ui:title": "View Script Module",
+        "ui:description": "Block type frontend script module definition. It will be enqueued only when viewing the content on the front of the site. Example: `file:./view-module.js`",
+        "ui:label": false,
+        "ui:placeholder": "file:./view-module.js"
+      },
+      {
+        "ui:title": "View Script Modules",
+        "ui:label": false,
+        "items": {
+          "ui:label": false,
+          "ui:description": "Block type frontend script module definition. It will be enqueued only when viewing the content on the front of the site. Example: `file:./view-module.js`",
+          "ui:placeholder": "file:./view-module.js"
+        }
+      }
+    ]
+  },
+  "editorStyle": {
+    "oneOf": [
+      {
+        "ui:title": "Editor Style",
+        "ui:description": "Block type editor style definition. It will only be enqueued in the context of the editor. Example: `file:./editor.css`",
+        "ui:label": false,
+        "ui:placeholder": "file:./editor.css"
+      },
+      {
+        "ui:title": "Editor Scripts",
+        "ui:label": false,
+        "items": {
+          "ui:label": false,
+          "ui:description": "Block type editor style definition. It will only be enqueued in the context of the editor. Example: `file:./editor.css`",
+          "ui:placeholder": "file:./editor.css"
+        }
+      }
+    ]
+  },
+  "style": {
+    "oneOf": [
+      {
+        "ui:title": "Style",
+        "ui:description": "Block type frontend style definition. It will be enqueued both in the editor and when viewing the content on the front of the site. Example: `file:./block.css`",
+        "ui:label": false,
+        "ui:placeholder": "file:./block.css"
+      },
+      {
+        "ui:title": "Styles",
+        "ui:label": false,
+        "items": {
+          "ui:label": false,
+          "ui:description": "Block type frontend style definition. It will be enqueued both in the editor and when viewing the content on the front of the site. Example: `file:./block.css`",
+          "ui:placeholder": "file:./block.css"
+        }
+      }
+    ]
+  },
+  "viewStyle": {
+    "oneOf": [
+      {
+        "ui:title": "View Style",
+        "ui:description": "Block type frontend style definition. It will be enqueued only when viewing the content on the front of the site. Example: `file:./view.css`",
+        "ui:label": false,
+        "ui:placeholder": "file:./view.css"
+      },
+      {
+        "ui:title": "View Styles",
+        "ui:label": false,
+        "items": {
+          "ui:label": false,
+          "ui:description": "Block type frontend style definition. It will be enqueued only when viewing the content on the front of the site. Example: `file:./view.css`",
+          "ui:placeholder": "file:./view.css"
+        }
+      }
+    ]
+  },
+  "variations": {
+    "items": {
+      "ui:label": false,
+      "ui:description": "Block Variations is the API that allows a block to have similar versions of it, but all these versions share some common functionality.",
+      "category": {
+        "anyOf": [
+          {
+            "ui:title": "Category",
+            "ui:description": "An icon helping to visualize the variation. It can have the same shape as the block type.",
+            "ui:label": false
+          },
+          {
+            "ui:title": "Predefined categories",
+            "ui:description": "An icon helping to visualize the variation. It can have the same shape as the block type.",
+            "ui:label": false
+          }
+        ]
+      },
+      "scope": {
+        "items": {
+          "ui:label": false,
+          "ui:description": "The list of scopes where the variation is applicable."
+        }
+      },
+      "keywords": {
+        "items": {
+          "ui:label": false,
+          "ui:description": "An array of terms (which can be translated) that help users discover the variation while searching."
+        }
+      },
+      "isActive": {
+        "items": {
+          "ui:label": false,
+          "ui:description": "The list of attributes that should be compared. Each attributes will be matched and the variation will be active if all of them are matching."
+        }
+      }
+    }
+  },
+  "render": {
+    "ui:placeholder": "file:./render.php"
   },
   "$schema": {
     "ui:widget": "hidden"
