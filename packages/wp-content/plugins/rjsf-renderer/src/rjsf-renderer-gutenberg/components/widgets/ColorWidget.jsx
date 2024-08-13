@@ -24,7 +24,7 @@ export default function ColorWidget(props) {
     registry,
   } = props;
   const required = schemaRequiresTrueValue(schema);
-  const _onChange = useCallback((value) => onChange(value === "" ? options.emptyValue : value), [onChange]);
+  const _onChange = useCallback((value) => onChange(value === "" ? options.emptyValue : value), [onChange, options]);
   const _onBlur = useCallback((value) => onBlur(id, value), [onBlur, id]);
   const _onFocus = useCallback((value) => onFocus(id, value), [onFocus, id]);
 
@@ -37,9 +37,7 @@ export default function ColorWidget(props) {
   // properly associating it with the `label` and `help` elements.
   const { baseControlProps, controlProps } = useBaseControlProps({
     label: labelValue(<span>{label}</span>, hideLabel),
-    value,
     className: uiOptions.className,
-    onChange: _onChange,
     onBlur: _onBlur,
     onFocus: _onFocus,
     readOnly: readonly,
@@ -71,7 +69,7 @@ export default function ColorWidget(props) {
           renderContent={() => (
             <ColorPicker
               color={value}
-              onChangeComplete={(val) => onChange(`rgba(${val.rgb.r},${val.rgb.g}, ${val.rgb.b}, ${val.rgb.a})`)}
+              onChangeComplete={(val) => _onChange(`rgba(${val.rgb.r},${val.rgb.g}, ${val.rgb.b}, ${val.rgb.a})`)}
               disableAlpha={uiOptions.disableAlpha}
             />
           )}
