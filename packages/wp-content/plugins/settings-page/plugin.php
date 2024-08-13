@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				\wp_enqueue_script(
 					$HANDLE,
 					\plugins_url( 'build/index.js', __FILE__ ),
-					array_merge( $asset_file['dependencies'], array( 'rjsf-gutenberg-renderer' ) ),
+					array_merge( $asset_file['dependencies'], ['rjsf-gutenberg-renderer'] ),
 					$asset_file['version'],
 					true,
 				);
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				\wp_enqueue_style(
 					$HANDLE,
 					\plugins_url( 'build/index.css', __FILE__ ),
-					array( 'wp-components', 'rjsf-gutenberg-renderer' ), //$asset_file['dependencies'],
+					['wp-components', 'rjsf-gutenberg-renderer'], //$asset_file['dependencies'],
 					$asset_file['version']
 				);
 

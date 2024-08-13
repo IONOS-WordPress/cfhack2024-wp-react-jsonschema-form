@@ -113,7 +113,8 @@ add_action(
 add_action(
   'load-post-new.php',
   function() {
-    wp_enqueue_script( 'rjsf-gutenberg-renderer' );
+     wp_enqueue_script( 'rjsf-gutenberg-renderer' );
+     wp_enqueue_style( 'rjsf-gutenberg-renderer' );
   }
 );
 
@@ -121,6 +122,7 @@ add_action(
   'load-post.php',
   function() {
     wp_enqueue_script( 'rjsf-gutenberg-renderer' );
+    wp_enqueue_style( 'rjsf-gutenberg-renderer' );
   }
 );
 
