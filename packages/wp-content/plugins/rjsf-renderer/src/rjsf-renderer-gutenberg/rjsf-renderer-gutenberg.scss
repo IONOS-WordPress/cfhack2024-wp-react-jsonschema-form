@@ -4,6 +4,20 @@
 
 .rjsf.rjsf-renderer-gutenberg {
 
+  .components-base-control {
+    .components-dropdown.rjsf-gutenberg-colorpicker {
+      display: block;
+      cursor: pointer;
+
+      > * {
+        border: 1px solid #949494;
+        border-radius: 2px;
+        margin: 0;
+        padding: 6px 8px;
+      }
+    }
+  }
+
   .markdown-description-line {
     display: inline-block;
   }

@@ -37,7 +37,7 @@
   },
 	"textdomain": "rjsf-attribute-editor-block",
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
+	"editorStyle": [ "file:./index.css", "rjsf-gutenberg-renderer"],
 	"style": "file:./style-index.css",
 	"viewScript": "file:./view.js",
   "jsonSchema": {
@@ -71,11 +71,12 @@
       "submitButtonOptions" : {
         "norender" : true
       }
-    }, "foregroundColor": {
-      "inputType": "color"
+    },
+    "foregroundColor": {
+      "ui:widget": "ColorWidget"
     },
     "backgroundColor": {
-      "inputType": "color"
+      "ui:widget": "ColorWidget"
     },
     "capitalize": {
       "ui:widget": "ToggleWidget"
