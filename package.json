@@ -10,12 +10,12 @@
     "stop": "pnpm run wp-env stop",
     "destroy": "echo 'yes' | pnpm run wp-env destroy",
     "wp-env": "WP_ENV_HOME=wp-env-home pnpm exec wp-env",
-    "clean" : "git clean $npm_package_config_git_clean_opts -e '!/TODO.md' -e '!/wp-env-home' -e '!/*.code-workspace' -e '!/.vscode/**' -e '!**/node_modules' -e '!**/node_modules/**' -e '!/.pnpm-store'",
-    "distclean" : "git clean $npm_package_config_git_clean_opts -e '!/TODO.md' -e '!/*.code-workspace'",
+    "clean": "git clean $npm_package_config_git_clean_opts -e '!/TODO.md' -e '!/wp-env-home' -e '!/*.code-workspace' -e '!/.vscode/**' -e '!**/node_modules' -e '!**/node_modules/**' -e '!/.pnpm-store'",
+    "distclean": "git clean $npm_package_config_git_clean_opts -e '!/TODO.md' -e '!/*.code-workspace'",
     "gutenberg-storybook": "pnpm dlx http-server $(realpath --relative-to $(pwd) $(pnpm run --silent  wp-env install-path))/gutenberg/storybook/build/"
   },
-  "config" : {
-    "git-clean-opts" : "-Xfd --interactive"
+  "config": {
+    "git-clean-opts": "-Xfd --interactive"
   },
   "author": "The Hackathon Project Contributors",
   "homepage": "https://github.com/IONOS-WordPress/cfhack2024-wp-react-jsonschema-form",
@@ -29,8 +29,8 @@
   ],
   "license": "GPL-2.0-or-later",
   "devDependencies": {
-    "prop-types" : "^15.8.1",
-    "@wordpress/env": "^10.4.0",
-    "@wordpress/scripts": "^28.4.0"
+    "@wordpress/env": "^10.5.0",
+    "@wordpress/scripts": "^28.5.0",
+    "prop-types": "^15.8.1"
   }
 }
