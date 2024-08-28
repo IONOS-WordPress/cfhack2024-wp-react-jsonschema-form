@@ -13,9 +13,7 @@
 
 namespace cfhack2024_wp_react_jsonschema_form\rjsf_renderer;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+defined( 'ABSPATH' ) || exit;
 
 /**
  * registers the Gutenberg renderer script in WordPress using handle "rjsf-gutenberg-renderer".

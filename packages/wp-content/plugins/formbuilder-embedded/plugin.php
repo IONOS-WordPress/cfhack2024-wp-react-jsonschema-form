@@ -11,6 +11,4 @@
  * Text Domain:       rjsf-renderer-playground
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+defined( 'ABSPATH' ) || exit;

@@ -14,9 +14,7 @@
 
 namespace cfhack2024_wp_react_jsonschema_form\gutenberg_metabox_jsonschema;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Registers the custom_post_meta field.

@@ -14,9 +14,7 @@
 
 namespace cfhack2024_wp_react_jsonschema_form\rjsf_renderer_playground;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+defined( 'ABSPATH' ) || exit;
 
 /*
   register admin menu to WordPress admin dashboard

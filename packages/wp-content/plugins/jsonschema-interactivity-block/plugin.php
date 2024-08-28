@@ -14,8 +14,6 @@
 
 namespace cfhack2024_wp_react_jsonschema_form\jsonschema_interactivity_block;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+defined( 'ABSPATH' ) || exit;
 
 

@@ -14,9 +14,7 @@
 
 namespace cfhack2024_wp_react_jsonschema_form\form_block;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.

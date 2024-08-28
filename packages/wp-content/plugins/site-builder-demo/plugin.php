@@ -14,9 +14,7 @@
 
 namespace cfhack2024_wp_react_jsonschema_form\site_builder_demo;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+defined( 'ABSPATH' ) || exit;
 
 global $cfhack_jsonschema;
 $cfhack_jsonschema = array();

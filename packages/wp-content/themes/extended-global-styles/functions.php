@@ -2,9 +2,7 @@
 
 namespace cfhack2024_wp_react_jsonschema_form\theme_extending_global_styles_jsonschema;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+defined( 'ABSPATH' ) || exit;
 
 /**
  * register our editor sidebar extension

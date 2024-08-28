@@ -14,9 +14,7 @@
 
 namespace cfhack2024_wp_react_jsonschema_form\editor_sidebar_plugin;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+defined( 'ABSPATH' ) || exit;
 
 /**
  * register our editor sidebar extension

@@ -14,9 +14,7 @@
 
 namespace cfhack2024_wp_react_jsonschema_form\settings_page;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
+defined( 'ABSPATH' ) || exit;
 
 \add_action(
 	'admin_menu',
