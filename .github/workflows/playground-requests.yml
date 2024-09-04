@@ -1,3 +1,4 @@
+
 name: Playground for Requests
 
 on:
@@ -31,41 +32,83 @@ jobs:
           - recursive: true
             args: [--frozen-lockfile, --strict-peer-dependencies]
 
-    - name: Setting up Git
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git clone --single-branch --branch gh-pages https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
-
-
-    - name: Run Playground Script
+    - name: Setting up GITHUB_ENV for later steps
       run: |
         TARGET_DIR="pr/${{ github.head_ref}}/${GITHUB_SHA}"
         TARGET_HOST=${GITHUB_REPOSITORY%%/*}/${GITHUB_REPOSITORY##*/}
         echo "TARGET_DIR=$TARGET_DIR" >> $GITHUB_ENV
-        echo "GITHUB_SHA=$GITHUB_SHA" >> $GITHUB_ENV
-        ./scripts/playground.sh $TARGET_HOST $TARGET_DIR
-      # this produces a dist/$TARGET_DIR folder. we want to move this to gh-pages/$TARGET_DIR
+        echo "TARGET_HOST=$TARGET_HOST" >> $GITHUB_ENV
 
-    - name: move dist folder
+    - name: Set up Git credentials and ensure gh-pages branch exists
       run: |
-        # removing the old content if it exists
-        rm -rf gh-pages/$TARGET_DIR
+        # Configure the bot's name and email and
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-        # Setting up the target directory
-        echo "Creating gh-pages/$TARGET_DIR"
+        # Ensure that a gh-pages branch exists and push it to the remote
+        # HACK: since refs are not properly updated, we have to fetch the refs first
+        # and then check if the gh-pages branch exists
+        echo "Updating refs"
+        git fetch > /dev/null 2>&1
+        ref=$(git show-ref | grep "gh-pages") || true
+
+        if [ -z "$ref" ]; then
+          echo "Creating gh-pages branch"
+          BASE_BRANCH=$(git branch --show-current)
+          git checkout --orphan gh-pages
+          git reset --hard
+          git commit --allow-empty -m "Initial commit"
+          git push origin gh-pages
+          git checkout $BASE_BRANCH
+          git branch -D gh-pages
+        fi
+
+    - name: Clone the gh-pages branch
+      run: |
+        # this will create a gh-pages directory with the content of the gh-pages branch. this makes it easier to work
+        # with the gh-pages branch instead of having to switch branches all the time
+        git clone --single-branch --branch gh-pages https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
+
+    - name: Preparing Folders for Deployment
+      run: |
+        # this will create the target directory if it does not exist
+        # and ensure that it is empty
+        printf "%s\n" "Creating gh-pages/$TARGET_DIR"
+        rm -rf gh-pages/$TARGET_DIR
         mkdir -p "gh-pages/$TARGET_DIR"
+
+    - name: Prepare Branch for Deployment
+      run: |
+        # this whould be to much work to do in a single step.
+        # please refer th scripts/playground.sh for more details
+        # this script will build and zip all Plugins for deployment
+        # it will also create a playground for the trunk
+        ./scripts/playground.sh $TARGET_HOST $TARGET_DIR
+
+    - name: Copy dist folder to gh-pages/trunk
+      run: |
+        # Move all Files from dist to gh-pages/trunk and commit the changes
+        # HACK: The mv command does not work as expected, so we have to use the dirname command
         echo "copying dist/$TARGET_DIR to gh-pages/$TARGET_DIR"
         mv dist/$TARGET_DIR $(dirname gh-pages/$TARGET_DIR)
 
+    - name: Commit and push changes
+      run: |
         # Adding changes to git
         cd gh-pages
         git add .
         git commit -m "Deploying state of PR ${{ github.pr_number}} from ${{ github.head_ref}}"
         git push origin gh-pages --force
 
-    - name: Save state for use in next step
+    - name: write a State file for transfering to Node
       run : |
+        # HACK: this is very hacky, but it works for now
+        # GITHUB_ENV does not transfer to Node, so we write a
+        # separate file that we can read in Node.
+        # This is a workaround until we have a better solution
+        # NOTE: this is only necessary because we want to comment on the PR
+        # with a link to the playground, which is only available after the
+        # deployment
         echo "TARGET_DIR=$TARGET_DIR" >> ./state.txt
         echo "GITHUB_SHA=$GITHUB_SHA" >> ./state.txt
         echo "PR_NUMBER=${{ github.pr_number}}" >> ./state.txt
@@ -90,4 +133,5 @@ jobs:
             repo: context.repo.repo,
             body: `Playground for PR ${PR_NUMBER} from ${HEAD_REF} is ready! \n ${badge}`
           });
+
 

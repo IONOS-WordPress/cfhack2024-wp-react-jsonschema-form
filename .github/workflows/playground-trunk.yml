@@ -31,36 +31,68 @@ jobs:
           - recursive: true
             args: [--frozen-lockfile, --strict-peer-dependencies]
 
-    - name: Set up Git configuration
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-    - name: Clone the gh-pages branch
-      run: |
-        git clone --single-branch --branch gh-pages https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
-
-    - name: define Qualified Path
-      run: |
-    - name: Run Playground Script
+    - name: Setting up GITHUB_ENV for later steps
       run: |
         TARGET_DIR="trunk"
         TARGET_HOST=${GITHUB_REPOSITORY%%/*}/${GITHUB_REPOSITORY##*/}
         echo "TARGET_DIR=$TARGET_DIR" >> $GITHUB_ENV
         echo "TARGET_HOST=$TARGET_HOST" >> $GITHUB_ENV
+
+    - name: Set up Git credentials and ensure gh-pages branch exists
+      run: |
+        # Configure the bot's name and email and
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+        # Ensure that a gh-pages branch exists and push it to the remote
+        # HACK: since refs are not properly updated, we have to fetch the refs first
+        # and then check if the gh-pages branch exists
+        echo "Updating refs"
+        git fetch > /dev/null 2>&1
+        ref=$(git show-ref | grep "gh-pages") || true
+
+        if [ -z "$ref" ]; then
+          echo "Creating gh-pages branch"
+          BASE_BRANCH=$(git branch --show-current)
+          git checkout --orphan gh-pages
+          git reset --hard
+          git commit --allow-empty -m "Initial commit"
+          git push origin gh-pages
+          git checkout $BASE_BRANCH
+          git branch -D gh-pages
+        fi
+
+    - name: Clone the gh-pages branch
+      run: |
+        # this will create a gh-pages directory with the content of the gh-pages branch. this makes it easier to work
+        # with the gh-pages branch instead of having to switch branches all the time
+        git clone --single-branch --branch gh-pages https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
+
+    - name: Preparing Folders for Deployment
+      run: |
+        # this will create the target directory if it does not exist
+        # and ensure that it is empty
+        printf "%s\n" "Creating gh-pages/$TARGET_DIR"
+        rm -rf gh-pages/$TARGET_DIR
+        mkdir -p "gh-pages/$TARGET_DIR"
+
+    - name: Prepare Branch for Deployment
+      run: |
+        # this whould be to much work to do in a single step.
+        # please refer th scripts/playground.sh for more details
+        # this script will build and zip all Plugins for deployment
+        # it will also create a playground for the trunk
         ./scripts/playground.sh $TARGET_HOST
 
     - name: Copy dist folder to gh-pages/trunk
       run: |
-        # removing the old content if it exists
-        rm -rf gh-pages/$TARGET_DIR
-        
-        # Setting up the target directory
-        echo "Creating gh-pages/$TARGET_DIR"
-        mkdir -p "gh-pages/$TARGET_DIR"
+        # Move all Files from dist to gh-pages/trunk and commit the changes
+        # HACK: The mv command does not work as expected, so we have to use the dirname command
         echo "copying dist/$TARGET_DIR to gh-pages/$TARGET_DIR"
         mv dist/$TARGET_DIR $(dirname gh-pages/$TARGET_DIR)
 
+    - name: Commit and push changes
+      run: |
         # Adding changes to git
         cd gh-pages
         git add .

@@ -7,6 +7,7 @@ declare -A onStack
 SortedPlugins=()
 
 # Function to sort plugins topologically
+# Adapted from https://www.geeksforgeeks.org/topological-sorting/
 topologicalSort() {
     for plugin in "${!PluginDeps[@]}"; do
         if [[ -z "${visited[$plugin]}" ]]; then
@@ -38,7 +39,11 @@ visit() {
     fi
 }
 
-# Function to sort plugins
+# Sort all plugins based on dependencies and store them in the SortedPlugins array
+# Args:
+# $1: The list of plugins to sort
+# Returns:
+# 0: Success
 sortPlugins() {
     local PLUGINS=$1
 
@@ -61,6 +66,15 @@ sortPlugins() {
 }
 
 # Function to write playground JSON
+# this will be necessary for actually using the playground config on
+# the WordPress site.
+# Args:
+# $1: The sorted list of plugins
+# $2: The folder to store the playground JSON
+# $3: The target host for the playground
+# $4: The target folder for the playground
+# Returns:
+# 0: Success
 writePlaygroundJson() {
     printf "[INFO] %s\n" "Writing playground configuration"
     local -n SORTED_PLUGINS=$1
@@ -98,12 +112,24 @@ writePlaygroundJson() {
   printf "[INFO] %s\n" "playground config has been written to $BUNDLE_DIR/playground.json"
 }
 
-# Main function to sort plugins and write playground JSON
+# sort all plugins, write the playground JSON
+# Args:
+# $1: The list of plugins to sort
+# $2: The folder to store the bundled plugins
+# $3: The target host for the playground
+# $4: The target folder for the playground
 main() {
     local PLUGINS=$1
     local BUNDLE_DIR=$2
     local TARGET_HOST=$3
     local TARGET_FOLDER=$4
+
+    if [[ -z "$PLUGINS" || -z "$BUNDLE_DIR" || -z "$TARGET_HOST" || -z "$TARGET_FOLDER" ]]; then
+        printf "[ERROR] %s\n" "Usage: main <plugins> <bundle-dir> <target-host> <target-folder>"
+        return 1
+    fi
+
+
 
     sortPlugins "$PLUGINS"
     writePlaygroundJson SortedPlugins "$BUNDLE_DIR" "$TARGET_HOST" "$TARGET_FOLDER"
